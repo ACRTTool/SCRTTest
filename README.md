@@ -1,4 +1,4 @@
-# ACRT TEST ONLY
+# ACRT (This is Test Environment)
 # Project Title
 “Accessibility Conformance Report Tool (ACRT)” 
 
