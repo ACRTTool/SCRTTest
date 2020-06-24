@@ -1416,26 +1416,30 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 		 $scope.addedIssueRow[b] = $scope.jsonData[0].Criteria[b].AddedIssue; 
 		 		 
 		 //$scope.imgCnvrsnDefault = [];	
-        if($scope.jsonData[0].Criteria[b].ImageSrc == "..")	$scope.jsonData[0].Criteria[b].ImageSrc != '.';
-		if($scope.jsonData[0].Criteria[b].ImageSrc == "...")	$scope.jsonData[0].Criteria[b].ImageSrc != '.';
-		if($scope.jsonData[0].Criteria[b].ImageSrc == "....")	$scope.jsonData[0].Criteria[b].ImageSrc != '.';
-		if($scope.jsonData[0].Criteria[b].ImageSrc == ".....")	$scope.jsonData[0].Criteria[b].ImageSrc != '.';
-		if($scope.jsonData[0].Criteria[b].ImageSrc == "......")	$scope.jsonData[0].Criteria[b].ImageSrc != '.';
-		if($scope.jsonData[0].Criteria[b].ImageSrc == ".......")$scope.jsonData[0].Criteria[b].ImageSrc != '.';	
-		if($scope.jsonData[0].Criteria[b].ImageSrc == "........")$scope.jsonData[0].Criteria[b].ImageSrc != '.';	
-		if($scope.jsonData[0].Criteria[b].ImageSrc == ".........")$scope.jsonData[0].Criteria[b].ImageSrc != '.';	
-		if($scope.jsonData[0].Criteria[b].ImageSrc == "..........")	$scope.jsonData[0].Criteria[b].ImageSrc != '.';
-		if($scope.jsonData[0].Criteria[b].ImageSrc == "...........")$scope.jsonData[0].Criteria[b].ImageSrc != '.';	
-		if($scope.jsonData[0].Criteria[b].ImageSrc == "............")$scope.jsonData[0].Criteria[b].ImageSrc != '.';
-        if($scope.jsonData[0].Criteria[b].ImageSrc == ".............")$scope.jsonData[0].Criteria[b].ImageSrc != '.';		
-		if($scope.jsonData[0].Criteria[b].ImageSrc == "..............")	$scope.jsonData[0].Criteria[b].ImageSrc != '.';
-		if($scope.jsonData[0].Criteria[b].ImageSrc == "...............")	$scope.jsonData[0].Criteria[b].ImageSrc != '.';
-		if($scope.jsonData[0].Criteria[b].ImageSrc == "................")	$scope.jsonData[0].Criteria[b].ImageSrc != '.';
-		if($scope.jsonData[0].Criteria[b].ImageSrc == ".................")	$scope.jsonData[0].Criteria[b].ImageSrc != '.';
-		if($scope.jsonData[0].Criteria[b].ImageSrc == "..................")	$scope.jsonData[0].Criteria[b].ImageSrc != '.';
-		if($scope.jsonData[0].Criteria[b].ImageSrc == "...................")	$scope.jsonData[0].Criteria[b].ImageSrc != '.';
-		if($scope.jsonData[0].Criteria[b].ImageSrc == "....................")	$scope.jsonData[0].Criteria[b].ImageSrc != '.';
-		if($scope.jsonData[0].Criteria[b].ImageSrc == ".....................")	$scope.jsonData[0].Criteria[b].ImageSrc != '.';
+        if($scope.jsonData[0].Criteria[b].ImageSrc == "..")	$scope.jsonData[0].Criteria[b].ImageSrc = '.';
+		if($scope.jsonData[0].Criteria[b].ImageSrc == "...")$scope.jsonData[0].Criteria[b].ImageSrc = '.';
+		if($scope.jsonData[0].Criteria[b].ImageSrc == "....")	$scope.jsonData[0].Criteria[b].ImageSrc = '.';
+		if($scope.jsonData[0].Criteria[b].ImageSrc == ".....")	$scope.jsonData[0].Criteria[b].ImageSrc = '.';
+		if($scope.jsonData[0].Criteria[b].ImageSrc == "......")	$scope.jsonData[0].Criteria[b].ImageSrc = '.';
+		if($scope.jsonData[0].Criteria[b].ImageSrc == ".......")$scope.jsonData[0].Criteria[b].ImageSrc = '.';	
+		if($scope.jsonData[0].Criteria[b].ImageSrc == "........")$scope.jsonData[0].Criteria[b].ImageSrc = '.';	
+		if($scope.jsonData[0].Criteria[b].ImageSrc == ".........")$scope.jsonData[0].Criteria[b].ImageSrc = '.';	
+		if($scope.jsonData[0].Criteria[b].ImageSrc == "..........")	$scope.jsonData[0].Criteria[b].ImageSrc = '.';
+		if($scope.jsonData[0].Criteria[b].ImageSrc == "...........")$scope.jsonData[0].Criteria[b].ImageSrc = '.';	
+		if($scope.jsonData[0].Criteria[b].ImageSrc == "............")$scope.jsonData[0].Criteria[b].ImageSrc = '.';
+        if($scope.jsonData[0].Criteria[b].ImageSrc == ".............")$scope.jsonData[0].Criteria[b].ImageSrc = '.';		
+		if($scope.jsonData[0].Criteria[b].ImageSrc == "..............")	$scope.jsonData[0].Criteria[b].ImageSrc = '.';
+		if($scope.jsonData[0].Criteria[b].ImageSrc == "...............")	$scope.jsonData[0].Criteria[b].ImageSrc = '.';
+		if($scope.jsonData[0].Criteria[b].ImageSrc == "................")	$scope.jsonData[0].Criteria[b].ImageSrc = '.';
+		if($scope.jsonData[0].Criteria[b].ImageSrc == ".................")	$scope.jsonData[0].Criteria[b].ImageSrc = '.';
+		if($scope.jsonData[0].Criteria[b].ImageSrc == "..................")	$scope.jsonData[0].Criteria[b].ImageSrc = '.';
+		if($scope.jsonData[0].Criteria[b].ImageSrc == "...................")	$scope.jsonData[0].Criteria[b].ImageSrc = '.';
+		if($scope.jsonData[0].Criteria[b].ImageSrc == "....................")	$scope.jsonData[0].Criteria[b].ImageSrc = '.';
+		if($scope.jsonData[0].Criteria[b].ImageSrc == ".....................")	$scope.jsonData[0].Criteria[b].ImageSrc = '.';
+		if($scope.jsonData[0].Criteria[b].ImageSrc == "......................")	$scope.jsonData[0].Criteria[b].ImageSrc = '.';
+		if($scope.jsonData[0].Criteria[b].ImageSrc == ".......................")	$scope.jsonData[0].Criteria[b].ImageSrc = '.';
+		if($scope.jsonData[0].Criteria[b].ImageSrc == "........................")	$scope.jsonData[0].Criteria[b].ImageSrc = '.';
+		if($scope.jsonData[0].Criteria[b].ImageSrc == ".........................")	$scope.jsonData[0].Criteria[b].ImageSrc = '.';
 	
 		 if($scope.jsonData[0].Criteria[b].ImageSrc != undefined){
 		 if($scope.jsonData[0].Criteria[b].ImageSrc != '.')	{          		 
@@ -1697,6 +1701,40 @@ $scope.uploadImageClicked1 = true;
   reader.readAsDataURL(file);
 
 } 
+
+
+  $scope.removeImage = function(index) { 
+         //let remPosition = index+1; 
+         $scope.imgCnvrsn.splice(index, 2);		 
+        // $scope.imageCaptured[index]= false;
+		  //$scope.imgCnvrsn[index]= '"imgValue" :"."}';		                 		  
+          //$scope.imgCnvrsn.splice(index, 2); //removed image and select another image        	 
+		  //$scope.imgCnvrsn.splice(index, 2,'{"imgPosition" : "'+ index +'"', '"imgValue" :"."}');		  
+          $scope.imgCnvrsnCurrentValue[index]=".";	
+         $scope.imageCapturedStored[index]= false;
+         $scope.imageCaptured[index]= false;
+         $scope.removeClicked[index] =  true;	
+		 $scope.displayRemove[index] = false;
+		  //$scope.imgCnvrsn.splice(remPosition, 1, '"imgValue" :"."}'); //removed image and don't select another image               		
+		//if ($scope.checkboxModel.alerts == "on") 
+		//alert("Image Removed");		
+	} 
+	
+	    $scope.removeImage1 = function(index) {			
+		 $scope.imageCaptured[index]= false;
+		//$scope.imgCnvrsn1.splice(index, 1, '"imgValue" :"."}'); 
+         $scope.imgCnvrsn1.splice(index, 2); //removed image and don't select another image	 
+        //$scope.imgCnvrsn.splice(index, 2,'{"imgPosition" : "'+ index +'"', '"imgValue" :" "}');		
+        $scope.imgCnvrsnCurrentValue1[index]=".";	
+		$scope.imageCaptured1[index]= false;
+         $scope.removeClicked1[index] =  true;
+		 $scope.displayRemove1[index] = false;
+		
+		//if ($scope.checkboxModel.alerts == "on") 
+		//alert("Image Removed");	
+		
+	} 
+
  
 $scope.elementIsClicked3 = " ";
 
@@ -1710,7 +1748,7 @@ $scope.addedIssueRsltSelected = true;
 }  
 
 
-$scope.elemntClicked2 = function(i) {
+ $scope.elemntClicked2 = function(i) {
   $scope.browseImageOption[i]=true;
   $scope.elementIsClicked3 = "RsltSelected" + i;
   if($scope.selected_name_tstgrp[i] != undefined){
@@ -1730,37 +1768,7 @@ $scope.elemntClicked2 = function(i) {
 
 
 
-
-  $scope.removeImage = function(index) { 
-         //let remPosition = index+1; 
-         $scope.imgCnvrsn.splice(index, 2);		 
-        // $scope.imageCaptured[index]= false;
-		  //$scope.imgCnvrsn[index]= '"imgValue" :"."}';		                 		  
-          //$scope.imgCnvrsn.splice(index, 2); //removed image and select another image        	 
-		  //$scope.imgCnvrsn.splice(index, 2,'{"imgPosition" : "'+ index +'"', '"imgValue" :"."}');		  
-          $scope.imgCnvrsnCurrentValue[index]=".";	
-         $scope.imageCapturedStored[index]= false;
-         $scope.imageCaptured[index]= false;
-         $scope.removeClicked[index] =  true;		 
-		  //$scope.imgCnvrsn.splice(remPosition, 1, '"imgValue" :"."}'); //removed image and don't select another image               		
-		//if ($scope.checkboxModel.alerts == "on") 
-		//alert("Image Removed");		
-	} 
-	
-	    $scope.removeImage1 = function(index) {
-		 $scope.imageCaptured[index]= false;
-		//$scope.imgCnvrsn1.splice(index, 1, '"imgValue" :"."}'); 
-         $scope.imgCnvrsn1.splice(index, 2); //removed image and don't select another image	 
-        //$scope.imgCnvrsn.splice(index, 2,'{"imgPosition" : "'+ index +'"', '"imgValue" :" "}');		
-        $scope.imgCnvrsnCurrentValue1[index]=".";	
-		$scope.imageCaptured1[index]= false;
-         $scope.removeClicked1[index] =  true;
-		
-		//if ($scope.checkboxModel.alerts == "on") 
-		//alert("Image Removed");	
-		
-	} 
-$scope.rmdatnDtlID1=[];  
+ $scope.rmdatnDtlID1=[];  
  $scope.rmdatnDatelID1 =[];
  $scope.rmdatnDatelIDCollection1 = [];
 
