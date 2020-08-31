@@ -1,4 +1,4 @@
-[{
+[{ 
    "Product": { 
 		"P_Name": " ",
 		"P_Version": " ",
@@ -51,72 +51,72 @@
 
 		{
 			"CrtID": "Requirements",
-			"CrtIDGrp": "Same",
+			"Guideline": " ",
 			"Test": "Alternate version ",
 			"TestName": " Alt-version-conformant ",
 			"TestID": " 1.A",
 			"TestCondition": "An alternate version passes all applicable Test Conditions in this test process.",
 			"GrpID": "Does Not Apply",
 			"OptMenu1": "menu3",
-			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'Without Perception of Color', 'Without Hearing', 'With Limited Hearing', 'Without Speech', 'With Limited Manipulation', 'With Limited Reach and Strength', 'With Limited Language, Cognitive, and Learning Abilities', 'Photosensitive Epilepsy / Photosensitive Seizure Disorders'"
+			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'Without Perception of Color', 'Without Hearing', 'With Limited Hearing', 'Without Speech', 'With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities', 'Photosensitive Epilepsy / Photosensitive Seizure Disorders'"
 		},
 
 
 		{
 			"CrtID": "Requirements",
-			"CrtIDGrp": "Same",
+			"Guideline": " ",
 			"Test": "Alternate version",
 			"TestName": "Alt-version-equivalent ",
 			"TestID": " 1.B",
 			"TestCondition": "The accessible version is up to date with the same information and functionality.",
 			"GrpID": "Does Not Apply",
 			"OptMenu1": "menu3",
-			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'Without Perception of Color', 'Without Hearing', 'With Limited Hearing', 'Without Speech', 'With Limited Manipulation', 'With Limited Reach and Strength', 'With Limited Language, Cognitive, and Learning Abilities', 'Photosensitive Epilepsy / Photosensitive Seizure Disorders'"
+			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'Without Perception of Color', 'Without Hearing', 'With Limited Hearing', 'Without Speech', 'With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities', 'Photosensitive Epilepsy / Photosensitive Seizure Disorders'"
 
 		},
 
 		{
 			"CrtID": "Requirements",
-			"CrtIDGrp": "Same",
+			"Guideline": " ",
 			"Test": "Alternate version",
 			"TestName": "Alt-version-access",
 			"TestID": "1.C",
 			"TestCondition": "The mechanism to reach the accessible equivalent version from the non-conforming page is accessible.",
 			"GrpID": "Does Not Apply",
 			"OptMenu1": "menu3",
-			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'Without Perception of Color', 'Without Hearing', 'With Limited Hearing', 'Without Speech', 'With Limited Manipulation', 'With Limited Reach and Strength', 'With Limited Language, Cognitive, and Learning Abilities', 'Photosensitive Epilepsy / Photosensitive Seizure Disorders'"
+			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'Without Perception of Color', 'Without Hearing', 'With Limited Hearing', 'Without Speech', 'With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities', 'Photosensitive Epilepsy / Photosensitive Seizure Disorders'"
 
 		},
 		{
 			"CrtID": "Requirements",
-			"CrtIDGrp": "Same",
+			"Guideline": " ",
 			"Test": "Alternate version",
 			"TestName": "Alt-version-nc-access",
 			"TestID": "1.D",
 			"TestCondition": "The non-conforming version(s) can only be reached from conforming content.",
 			"GrpID": "Does Not Apply",
 			"OptMenu1": "menu3",
-			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'Without Perception of Color', 'Without Hearing', 'With Limited Hearing', 'Without Speech', 'With Limited Manipulation', 'With Limited Reach and Strength', 'With Limited Language, Cognitive, and Learning Abilities', 'Photosensitive Epilepsy / Photosensitive Seizure Disorders'"
+			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'Without Perception of Color', 'Without Hearing', 'With Limited Hearing', 'Without Speech', 'With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities', 'Photosensitive Epilepsy / Photosensitive Seizure Disorders'"
 
 		},
 
 
 		{
 			"CrtID": "Requirements",
-			"CrtIDGrp": "Same",
+			"Guideline": " ",
 			"Test": "Non-interference",
 			"TestName": "Non-interference",
 			"TestID": "1.E",
 			"TestCondition": "Content in the non-conforming version(s) meets Conformance Requirement 5.",
 			"GrpID": "Does Not Apply",
 			"OptMenu1": "menu2",
-			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'Without Perception of Color', 'Without Hearing', 'With Limited Hearing', 'Without Speech', 'With Limited Manipulation', 'With Limited Reach and Strength', 'With Limited Language, Cognitive, and Learning Abilities', 'Photosensitive Epilepsy / Photosensitive Seizure Disorders'"
+			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'Without Perception of Color', 'Without Hearing', 'With Limited Hearing', 'Without Speech', 'With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities', 'Photosensitive Epilepsy / Photosensitive Seizure Disorders'"
 
 		},
 		
 		{
-			"CrtID": "2.2.2",
-			"CrtIDGrp": "Different",
+			"CrtID": "1.4.2",
+			"Guideline": "Lavel A",
 			"Test": "2 Autoplay/update",
 			"TestName": "1.4.2-Audio-control",
 			"TestID": "2.A",
@@ -127,18 +127,18 @@
 		},
 		{
 			"CrtID": "2.2.2",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel A",
 			"Test": "2 Autoplay/update",
 			"TestName": "2.2.2-Blinking-moving-scrolling",
 			"TestID": "2.B",
 			"TestCondition": "The user can pause, stop, or hide moving, blinking, or scrolling content.",
 			"GrpID": "",
 			"OptMenu1": "menu2",
-			"DisabilityImpact": "Without Vision, With Limited Vision, With Limited Manipulation, With Limited Reach and Strength, With Limited Language, Cognitive, and Learning Abilities "
+			"DisabilityImpact":"'Photosensitive Epilepsy / Photosensitive Seizure Disorders', 'With Limited Vision', 'With Limited Language, Cognitive, and Learning Abilities'"
 		},
 		{
 			"CrtID": "2.2.2",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel A",
 			"Test": "2 Autoplay/update",
 			"TestName": "2.2.2-Auto-updating",
 			"TestID": "2.C",
@@ -148,30 +148,19 @@
 			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Language, Cognitive, and Learning Abilities'"
 		},
 		{
-			"CrtID": "2.2.2",
-			"CrtIDGrp": "Different",
+			"CrtID": "4.1.2",
+			"Guideline": "Lavel A",
 			"Test": "2 Autoplay/update",
-			"TestName": "Auto-updating",
+			"TestName": "4.1.2-change-notify-auto",
 			"TestID": "2.D",
 			"TestCondition": "The page provides notification of each automatic update/change in content.",
 			"GrpID": "",
 			"OptMenu1": "menu2",
-			"DisabilityImpact": "'Photosensitive Epilepsy / Photosensitive Seizure Disorders', 'Without Vision', 'With Limited Vision', 'With Limited Language, Cognitive, and Learning Abilities'"
-		},
-		{
-			"CrtID": "4.1.2",
-			"CrtIDGrp": "Same",
-			"Test": "2 Autoplay/update",
-			"TestName": "4.1.2-change-notify-auto",
-			"TestID": "2.E",
-			"TestCondition": "The page provides notification of each automatic update/change in content.",
-			"GrpID": "Does Not Apply",
-			"OptMenu1": "menu2",
-			"DisabilityImpact": "Without Vision, With Limited Vision, With Limited Manipulation, With Limited Reach and Strength, With Limited Language, Cognitive, and Learning Abilities "
+			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Language, Cognitive, and Learning Abilities'"
 		},
 		{
 			"CrtID": "2.3.1",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel A",
 			"Test": "3 Flashing",
 			"TestName": "2.3.1-flashing",
 			"TestID": "3.A",
@@ -182,7 +171,7 @@
 		},
 		{
 			"CrtID": "2.1.1",
-			"CrtIDGrp": "Same",
+			"Guideline": "Lavel A",
 			"Test": "4 Keyboard/focus",
 			"TestName": "2.1.1-keyboard-access",
 			"TestID": "4.A",
@@ -193,7 +182,7 @@
 		},
 		{
 			"CrtID": "2.1.1",
-			"CrtIDGrp": "Same",
+			"Guideline": "Lavel A",
 			"Test": "4 Keyboard/focus",
 			"TestName": "2.1.1-no-keystroke-timing",
 			"TestID": "4.B",
@@ -204,7 +193,7 @@
 		},
 		{
 			"CrtID": "2.1.2",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel A",
 			"Test": "4 Keyboard/focus",
 			"TestName": "2.1.2-no-keyboard-trap",
 			"TestID": "4.C",
@@ -216,7 +205,7 @@
 		},
 		{
 			"CrtID": "2.4.7",
-			"CrtIDGrp": "Same",
+			"Guideline": "Lavel AA",
 			"Test": "4 Keyboard/focus",
 			"TestName": "2.4.7-focus-visible",
 			"TestID": "4.D",
@@ -227,7 +216,7 @@
 		},
 		{
 			"CrtID": "3.2.1",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel A",
 			"Test": "4 Keyboard/focus",
 			"TestName": "3.2.1-on-focus",
 			"TestID": "4.E",
@@ -238,7 +227,7 @@
 		},
 		{
 			"CrtID": "2.4.3",
-			"CrtIDGrp": "Same",
+			"Guideline": "Lavel A",
 			"Test": "4 Keyboard/focus",
 			"TestName": "2.4.3-focus-order-meaning",
 			"TestID": "4.F",
@@ -249,7 +238,7 @@
 		},
 		{
 			"CrtID": "2.4.3",
-			"CrtIDGrp": "Same",
+			"Guideline": "Lavel A",
 			"Test": "4 Keyboard/focus",
 			"TestName": "2.4.3-focus-order-reveal",
 			"TestID": "4.G",
@@ -260,7 +249,7 @@
 		},
 		{
 			"CrtID": "2.4.3",
-			"CrtIDGrp": "Same",
+			"Guideline": "Lavel A",
 			"Test": "4 Keyboard/focus",
 			"TestName": "2.4.3-focus-order-return",
 			"TestID": "4.H",
@@ -271,7 +260,7 @@
 		},
 		{
 			"CrtID": "3.3.2",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel A",
 			"Test": "5 Forms",
 			"TestName": "3.3.2-label-provided",
 			"TestID": "5.A",
@@ -281,8 +270,8 @@
 			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Language, Cognitive, and Learning Abilities'"
 		},
 		{
-			"CrtID": "1.3.1",
-			"CrtIDGrp": "Same",
+			"CrtID": "2.4.6",
+			"Guideline": "Lavel AA",
 			"Test": "5 Forms",
 			"TestName": "2.4.6-label-descriptive",
 			"TestID": "5.B",
@@ -292,8 +281,8 @@
 			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Manipulation' ,'With Limited Language, Cognitive, and Learning Abilities'"
 		},
 		{
-			"CrtID": "3.2.2",
-			"CrtIDGrp": "Different",
+			"CrtID": "1.3.1",
+			"Guideline": "Lavel A",
 			"Test": "5 Forms",
 			"TestName": "1.3.1-programmatic-label",
 			"TestID": "5.C",
@@ -303,8 +292,8 @@
 			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Language, Cognitive, and Learning Abilities'"
 		},
 		{
-			"CrtID": "4.1.2",
-			"CrtIDGrp": "Same",
+			"CrtID": "3.2.2",
+			"Guideline": "Lavel A",
 			"Test": "5 Forms",
 			"TestName": "3.2.2-on-input",
 			"TestID": "5.D",
@@ -314,8 +303,8 @@
 			"DisabilityImpact": "'Without Vision', 'Without Vision', 'With Limited Vision', 'With Limited Language, Cognitive, and Learning Abilities'"
 		},
 		{
-			"CrtID": "3.3.1",
-			"CrtIDGrp": "Different",
+			"CrtID": "4.1.2",
+			"Guideline": "Lavel A",
 			"Test": "5 Forms",
 			"TestName": "4.1.2-change-notify-form",
 			"TestID": "5.E ",
@@ -325,10 +314,10 @@
 			"DisabilityImpact": "'Without Vision', 'With Limited Vision','With Limited Language, Cognitive, and Learning Abilities'"
 		},
 		{
-			"CrtID": "3.3.3",
-			"CrtIDGrp": "Same",
+			"CrtID": "3.3.1",
+			"Guideline": "Lavel A",
 			"Test": "5 Forms ",
-			"TestName": "3.3.1.-error-notification ",
+			"TestName": "3.3.1-error-identification",
 			"TestID": "5.F ",
 			"TestCondition": "The item in error is identified in text and sufficiently described to the user in text.",
 			"GrpID": "Does Not Apply",
@@ -336,8 +325,8 @@
 			"DisabilityImpact": "'Without Vision', 'With Limited Vision','Without Perception of Color', 'With Limited Language, Cognitive, and Learning Abilities'"
 		},
 		{
-			"CrtID": "3.3.4",
-			"CrtIDGrp": "Different",
+			"CrtID": "3.3.3",
+			"Guideline": "Lavel AA",
 			"Test": "5 Forms ",
 			"TestName": "3.3.3-error-suggestion",
 			"TestID": "5.G ",
@@ -347,10 +336,10 @@
 			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities'" 
 		},
 		{
-			"CrtID": "3.3.5",
-			"CrtIDGrp": "Same",
+			"CrtID": "3.3.4",
+			"Guideline": "Lavel AA",
 			"Test": "5 Forms ",
-			"TestName": "3.3.3-error-suggestion",
+			"TestName": "3.3.4-error-prevention",
 			"TestID": "5.H ",
 			"GrpID": "Does Not Apply",
 			"OptMenu1": "menu2",
@@ -359,7 +348,7 @@
 		},
 		{
 			"CrtID": "2.4.4",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel A",
 			"Test": "6 Links/buttons",
 			"TestName": "2.4.4-link-purpose ",
 			"TestID": " 6.A",
@@ -370,7 +359,7 @@
 		},
 		{
 			"CrtID": "4.1.2",
-			"CrtIDGrp": "Same",
+			"Guideline": "Lavel A",
 			"Test": "6 Links/buttons ",
 			"TestName": "4.1.2-change-notify-links ",
 			"TestID": "6. B",
@@ -382,7 +371,7 @@
 		},
 		{
 			"CrtID": "1.1.1",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel A",
 			"Test": " 7 Images",
 			"TestName": " 1.1.1-meaningful-image-name",
 			"TestID": " 7.A",
@@ -393,7 +382,7 @@
 		},
 		{
 			"CrtID": "1.1.1",
-			"CrtIDGrp": "Same",
+			"Guideline": "Lavel A",
 			"Test": " 7 Images",
 			"TestName": "1.1.1-decorative-image ",
 			"TestID": "7.B",
@@ -404,7 +393,7 @@
 		},
 		{
 			"CrtID": "1.1.1",
-			"CrtIDGrp": "Same",
+			"Guideline": "Lavel A",
 			"Test": "7 Images ",
 			"TestName": "1.1.1-decorative-background-image",
 			"TestID": "7.C",
@@ -415,7 +404,7 @@
 		},
 		{
 			"CrtID": "1.1.1",
-			"CrtIDGrp": "Same",
+			"Guideline": "Lavel A",
 			"Test": " 7 Images",
 			"TestName": " 1.1.1-captcha-alternative ",
 			"TestID": "7. D",
@@ -426,19 +415,19 @@
 		},
 		{
 			"CrtID": "1.4.5",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel AA",
 			"Test": "7 Images ",
 			"TestName": "1.4.5-image-of-text",
 			"TestID": "7.E",
 			"TestCondition": "The image of text cannot be replaced by text or is customizable.",
 			"GrpID": "",
 			"OptMenu1": "menu2",
-			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'Without Perception of Color'"  
+			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'Without Perception of Color', 'With Limited Language, Cognitive, and Learning Abilities'"  
 
 		},
 		{
 			"CrtID": "2.2.1",
-			"CrtIDGrp": "Same",
+			"Guideline": "Lavel A",
 			"Test": "8 Adjustable time limits",
 			"TestName": "2.2.1-timing-adjustable",
 			"TestID": " 8.A ",
@@ -449,7 +438,7 @@
 		},
 		{
 			"CrtID": "2.4.1",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel A",
 			"Test": "9 Repetitive Content",
 			"TestName": "2.4.1-bypass-function",
 			"TestID": "9.A",
@@ -460,7 +449,7 @@
 		},
 		{
 			"CrtID": "3.2.3",
-			"CrtIDGrp": "Same",
+			"Guideline": "Lavel AA",
 			"Test": "9 Repetitive Content ",
 			"TestName": "3.2.3-consistent- navigation ",
 			"TestID": "9.B",
@@ -471,7 +460,7 @@
 		},
 		{
 			"CrtID": "3.2.4",			
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel AA",
 			"Test": "9 Repetitive Content ",
 			"TestName": "3.2.4-consistent-identification",
 			"TestID": "9.C",
@@ -482,7 +471,7 @@
 		},
 		{
 			"CrtID": "2.4.6",
-			"CrtIDGrp": "Same",
+			"Guideline": "Lavel AA",
 			"Test": "10 Content Structure",
 			"TestName": "2.4.6-heading-purpose",
 			"TestID": "10.A",
@@ -493,7 +482,7 @@
 		},
 		{
 			"CrtID": "1.3.1",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel A",
 			"Test": "10 Content Structure ",
 			"TestName": "1.3.1-heading-determinable",
 			"TestID": "10.B ",
@@ -504,7 +493,7 @@
 		},
 		{
 			"CrtID": "1.3.1",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel A",
 			"Test": "10 Content Structure ",
 			"TestName": "1.3.1-heading-level",
 			"TestID": "10.C",
@@ -515,7 +504,7 @@
 		},
 		{
 			"CrtID": "1.3.1",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel A",
 			"Test": "10 Content Structure",
 			"TestName": "1.3.1-list-type",
 			"TestID": "10.D",
@@ -526,18 +515,18 @@
 		},
 		{
 			"CrtID": "3.1.1",
-			"CrtIDGrp": "Same",
+			"Guideline": "Lavel A",
 			"Test": "11 Language",
 			"TestName": "3.1.1-page-language-defined",
 			"TestID": "11.A ",
 			"TestCondition": "The default human language of each web page can be programmatically determined.",
 			"GrpID": "",
 			"OptMenu1": "menu2",
-			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'Without Hearing', 'With Limited Hearing'" 
+			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'Without Hearing', 'With Limited Hearing', 'With Limited Language, Cognitive, and Learning Abilities'" 
 		},
 		{
 			"CrtID": "3.1.2",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel A",
 			"Test": "11 Language",
 			"TestName": "3.1.2-part-language-defined",
 			"TestID": "11.B ",
@@ -548,7 +537,7 @@
 		},
 		{
 			"CrtID": "2.4.2",
-			"CrtIDGrp": "Same",
+			"Guideline": "Lavel A",
 			"Test": "12 Page and Frame <Titles>",
 			"TestName": "2.4.2-page-title-defined",
 			"TestID": "12.A",
@@ -559,7 +548,7 @@
 		},
 		{
 			"CrtID": "2.4.2",
-			"CrtIDGrp": "Same",
+			"Guideline": "Lavel A",
 			"Test": "12 Page and Frame <Titles>",
 			"TestName": "2.4.2-page-title-purpose",
 			"TestID": "12.B",
@@ -570,7 +559,7 @@
 		},
 		{
 			"CrtID": "4.1.2",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel A",
 			"Test": "12 Page and Frame Titles",
 			"TestName": "4.1.2-frame-title",
 			"TestID": "12.C",
@@ -582,7 +571,7 @@
 		},
 		{
 			"CrtID": "4.1.2",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel A",
 			"Test": "12 Page and Frame Titles",
 			"TestName": "4.1.2-iframe-name",
 			"TestID": "12.D",
@@ -593,7 +582,7 @@
 		},
 		{
 			"CrtID": "1.4.1",
-			"CrtIDGrp": "Same",
+			"Guideline": "Lavel A",
 			"Test": "13 Sensory and Color",
 			"TestName": "1.4.1-color-meaning",
 			"TestID": "13.A",
@@ -604,7 +593,7 @@
 		},
 		{
 			"CrtID": "1.3.3",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel A",
 			"Test": "13 Sensory and Color",
 			"TestName": "1.3.3-sensory-info",
 			"TestID": "13.B",
@@ -615,7 +604,7 @@
 		},
 		{
 			"CrtID": "1.4.3",
-			"CrtIDGrp": "Same",
+			"Guideline": "Lavel AA",
 			"Test": "13 Sensory and Color ",
 			"TestName": "1.4.3-contrast",
 			"TestID": "13.C",
@@ -626,7 +615,7 @@
 		},
 		{
 			"CrtID": "1.3.1",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel A",
 			"Test": "14 Tables",
 			"TestName": "1.3.1-table-identification",
 			"TestID": "14.A",
@@ -638,7 +627,7 @@
 		},
 		{
 			"CrtID": "1.3.1",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel A",
 			"Test": "14 Tables",
 			"TestName": "1.3.1-cell-header-association ",
 			"TestID": "14.B",
@@ -650,7 +639,7 @@
 
 		{
 			"CrtID": "1.3.1 ",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel A",
 			"Test": "14 Tables ",
 			"TestName": "1.3.1-layout-table-structure ",
 			"TestID": " 14.C",
@@ -661,7 +650,7 @@
 		},
 		{
 			"CrtID": "1.3.1",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel A",
 			"Test": "15 CSS",
 			"TestName": "1.3.1-meaningful-content-css-before-after",
 			"TestID": " 15.A",
@@ -672,7 +661,7 @@
 		},
 		{
 			"CrtID": "1.3.2",
-			"CrtIDGrp": "Same",
+			"Guideline": "Lavel A",
 			"Test": "15 CSS",
 			"TestName": "1.3.2-content-order-meaning-css-position",
 			"TestID": "15.B ",
@@ -684,7 +673,7 @@
 
 		{
 			"CrtID": "1.2.1",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel A",
 			"Test": "16 Audio/Video-Only",
 			"TestName": "1.2.1-audio-transcript-text",
 			"TestID": "16.A ",
@@ -695,7 +684,7 @@
 		},
 		{
 			"CrtID": "1.2.1",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel A",
 			"Test": " 16 Audio/Video-Only",
 			"TestName": "1.2.1-video- alternative-equivalent",
 			"TestID": "16.B ",
@@ -706,7 +695,7 @@
 		},
 		{
 			"CrtID": "1.2.2",
-			"CrtIDGrp": "Same",
+			"Guideline": "Lavel A",
 			"Test": "17 Sync'd Media",
 			"TestName": "1.2.2-captions-equivalent",
 			"TestID": "17.A",
@@ -717,7 +706,7 @@
 		},
 		{
 			"CrtID": "1.2.5 ",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel AA",
 			"Test": "17 Sync'd Media ",
 			"TestName": "1.2.5-audio-description-equivalent ",
 			"TestID": "17.B",
@@ -728,7 +717,7 @@
 		},
 		{
 			"CrtID": "1.2.4",
-			"CrtIDGrp": "Same",
+			"Guideline": "Lavel AA",
 			"Test": "17 Sync'd Media ",
 			"TestName": "1.2.4-captions-live-equivalent",
 			"TestID": "17.C",
@@ -738,19 +727,19 @@
 			"DisabilityImpact": "'Without Hearing', 'With Limited Hearing', 'With Limited Language, Cognitive, and Learning Abilities'"
 		},
 		{
-			"CrtID": "503.4.0",
-			"CrtIDGrp": "Different",
+			"CrtID": "503.4",
+			"Guideline": " ",
 			"Test": "17 Sync'd Media ",
 			"TestName": "503.4-caption-description-controls",
 			"TestID": "17.D",
 			"TestCondition": "The media player provides user controls for closed captions and audio descriptions.",
 			"GrpID": "Does Not Apply",
 			"OptMenu1": "menu2",
-			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Hearing', 'With Limited Language, Cognitive, and Learning Abilities'" 
+			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'Without Hearing', 'With Limited Hearing', 'With Limited Language, Cognitive, and Learning Abilities'" 
 		},
 		{
 			"CrtID": "503.4.1",
-			"CrtIDGrp": "Same",
+			"Guideline": " ",
 			"Test": "17 Sync'd Media",
 			"TestName": "503.4.1-caption-control",
 			"TestID": "17.E ",
@@ -761,7 +750,7 @@
 		},
 		{
 			"CrtID": "503.4.2",
-			"CrtIDGrp": "Different",
+			"Guideline": " ",
 			"Test": "17 Sync'd Media ",
 			"TestName": "503.4.2-description-control",
 			"TestID": "17.F",
@@ -772,7 +761,7 @@
 		},
 		{
 			"CrtID": "1.4.4",
-			"CrtIDGrp": "Same",
+			"Guideline": "Lavel AA",
 			"Test": "18 Resize Text",
 			"TestName": "1.4.4-resize-text",
 			"TestID": "18.A",
@@ -783,7 +772,7 @@
 		},
 		{
 			"CrtID": "2.4.5",
-			"CrtIDGrp": "Different",
+			"Guideline": "Lavel AA",
 			"Test": "19 Multiple Ways",
 			"TestName": "2.4.5-multiple-ways",
 			"TestID": "19.A",
@@ -794,7 +783,7 @@
 		},
 		{
 			"CrtID": "4.1.1",
-			"CrtIDGrp": "Same",
+			"Guideline": "Lavel A",
 			"Test": "20 Parsing",
 			"TestName": "4.1.1-parsing",
 			"TestID": "20.A",
