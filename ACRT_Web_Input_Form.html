@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">  
+<html lang="en">   
    
 <head>
   <meta charset="UTF-8">
@@ -11,7 +11,7 @@
     <script src = "./JS/FileSaver.min.js"> </script> 
 
 </head>
-<body ng-app="acrtWebIntake">
+<body ng-app="acrtWebIntake" id="acrtBody">
 
 
   <div ng-controller="acrtWebIntakeCtrl"> 
@@ -55,7 +55,8 @@
 	 <strong  class="hdnMsg">Please edit/update as needed below. </strong>
 	 </p> -->
 	 <p ng-if="original">
-	 <strong class="hdnMsg"> Please fill all required fields to save information from this page. </strong>
+	 <!--<strong class="hdnMsg"> Please fill all required fields to save information from this page. </strong> -->
+	 <strong > Please fill all required fields to save information from this page. </strong> 
 	  <br>A red asterisk <strong><span class="required"> </strong> </span> indicates a <strong> required</strong> field. 
 	 </p>
 	 </div>
@@ -284,7 +285,7 @@ Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="entOthr
   <label for="firstname" class="required"> Tester's First Name (Required, 50 chars max): </label> <input type="string" ng-model="firstname" placeholder ="First Name" class= "betnTags" id="firstname" name="Tester's First Name" maxlength="50" required size="50"> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   
    <br><label for="lastname" class="required"> Tester's Last Name (Required, 50 chars max): </label> <input type="string" ng-model="lastname" placeholder ="Last Name" class= "betnTags" id="lastname" name="Tester's Last Name" maxlength="50" required size="50"> 
   <br><label for="testerID"> Trusted Tester ID (50 chars max): </label> <input type="string" ng-model="testerID" class= "betnTags" placeholder ="ID" id="testerID" name="Trusted Tester's Id" maxlength="50"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   
+   <br><label for="CompanyName" class="required"> Company Name (Required, 100 chars max): </label> <input type="string" ng-model="companyname"  tabindex="0" placeholder ="Company Name" class= "betnTags" id="companyname" name="Company Name" maxlength="100"  required size="100"> 
   <br> <label for="testerContact" class="required"> Tester's Email (Required, 50 chars max): </label> <input type="string" ng-model="testerContact" placeholder ="Contact" class= "betnTags" id="testerContact" name="Tester's Contact" maxlength="50" required size="50">
    <br><label for="testScope"  > Testing Scope (1000 chars max):</label><br> <textarea rows="4"cols="90"type="text"ng-model="testScope"class="txtarea"id="testScope"name="Test Scope"></textarea>   
     <br><br> <label for="evalMthd"> Testing Method: </label> 	
@@ -321,7 +322,7 @@ Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="entOthr
 	  Tool Tips: <br>
 	  <ol style="white-space: nowrap;">
 	    <li>Upload a  JSON template file first to access the test results table. </li>
-	    <li> If needed, open a copy of the<a style="display: inline-block;" title="Trusted Tester Test Process" href= "https://www.dhs.gov/sites/default/files/publications/trusted_tester_test_process_v5_0_aug_16_2019.pdf"  target="_blank"  id="tstinstrID" >Trusted Tester Test Process.</a> </li>		
+	    <li> If needed, open a copy of the<a style="display: inline-block;" title="Trusted Tester Test Process" href= "https://www.dhs.gov/sites/default/files/publications/trusted_tester_test_process_v5_0_aug_16_2019.pdf"  target="_blank"  id="tstinstrID" ><u>Trusted Tester Test Process</u>.</a> </li>		
 		<li>Report will be marked as Draft until results are entered for each test.</li>
 		<li>Trusted Testers should coordinate with their IT Project Manager regarding remediation details. Check user manual section 5.1 for details. </li>
 	  </ol>
@@ -329,7 +330,7 @@ Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="entOthr
  </br> 
  
  
-	  
+<div id="rmdTbleDiv">	  
  
 <table style="height: 1000px;" id="rmdTble" >
 <caption id="tableCaption"> Report will be marked as Draft until results are entered for each test 
@@ -357,10 +358,13 @@ Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="entOthr
 <tr ng-repeat="test in record.Criteria" >  
 
 
-<th scope="row" title="Test Name" ><div class="widetd1">{{test.TestName}}<div></th>
+<th scope="row" title="Test Name" ><div class="widetd1">{{test.TestName}}</div></th>
 <td ><div class="widetd2"  id="testID{{$index}}" title="Test ID"> {{test.TestID}} </div> </td>
 <td > <div class="widetd3" id="testConditionID{{$index}}" title="Test Condition" >{{test.TestCondition}}</div> </td>
-<td > <div style="width: 97px" id="issueID{{$index}}" title="Issue Number" > {{$index+1}} </div></br><button type="button" ng-click="addIssue($index)">Add Issue</button> </td>
+<td > <div ng-if='original' style="width: 97px"  title="Issue Number" > Issue {{$index+1}} </div></br><button ng-if='original' id="{{$index}}" type="button" ng-click="addIssue($index)">Add Issue</button> 
+ <div ng-if='edit' style="width: 97px"  title="Issue Number" > {{counterCollection[$index]}} </div></br><button ng-if='edit' id="{{$index}}" type="button" ng-click="addIssue($index)">Add Issue</button> 
+<br><br> <button   ng-if="addedRow[$index]" id="{{ 'o'+indexCollection[$index] }}" type="button" ng-click="goToChildIssue($index)"  >Go to Child Issue </button>
+</td>
 <td style="width: 50px" > 
  <span ng-if="menu1[$index] == 'menu1'" ng-keypress ="elemntClicked2([$index])">    
       <select  class="resultOptions"
@@ -569,20 +573,23 @@ Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="entOthr
 </tr>
  
  <tr ng-repeat="Issue in Mul_Issues track by $index">
-<td  title="Test Name" > <div class="widetd1"> {{Issue.InsrtTestName}} </div></td>
+<td  title="Test Name" > <div class="widetd1"  > {{Issue.InsrtTestName}} </div></td>
 <td  title="Test ID"><div class="widetd2"> {{Issue.InsrtTestID}} </div> </td>
 <td title="Test Condition"><div class="widetd3"> {{Issue.InsrtTestCondition}}</div> </td>
- <td  title="Issue Number"> <div style="width: 100px"> *Issue #{{indexCollection[$index]+1}}.{{$index+1}} </div> <br/>  <button id="{{ 'remove' + $index }}" type="button" ng-click="removeIssue($index)"  >Remove Issue </button>  </td> 
+ <!-- <td  title="Issue Number"> <div style="width: 100px"> *Issue #{{indexCollection[$index]+1}}.{{$index+1}} </div> <br/>  <button  id="{{ 'p'+indexCollection[$index] }}"type="button" ng-click="removeIssue($index)"  >Remove Issue </button> -->
+ <td  title="Issue Number"> <div style="width: 100px"> {{newlyAddedIssuePosition[$index]}} </div> <br/>  <button  id="{{ 'p'+indexCollection[$index] }}"type="button" ng-click="removeIssue($index)"  >Remove Issue </button> 
+<br> <br> <button  id="{{ 'a'+indexCollection[$index] }}" type="button" data-ng-click="goToParentIssue(indexCollection[$index])"  >Go to Parent Issue </button>
+ </td> 
  
 <td style="width: 50px" title="Test Result"> 
-	  <span  ng-keypress ="elemntClicked4([$index])">   
+	  <span   ng-keypress ="elemntClicked4([$index])">   <!--ng-if="menu1[$index] == {{test.InsrtOptMenu1}}"-->
       <select  class="resultOptions"  
       ng-model="selected_id_tstrslt1[$index]"  
 	  ng-model="selected_name_tstgrp1[$index]"  
       ng-options="o.id as o.name for o in optionsTstrslt"  
-      ng-change="selected_name_tstgrp1[$index]=(optionsTstrslt|filter:{id:selected_id_tstrslt1[$index]})[0].name" title="Test Result"  id= "{{ 'testResultt1' + $index }}"  ng-click="elemntClicked4([$index])" >
+      ng-change="selected_name_tstgrp1[$index]=(optionsTstrslt|filter:{id:selected_id_tstrslt1[$index]})[0].name" title="Test Result"  id="{{ 'i'+addedResultIndex }}"  ng-click="elemntClicked4([$index])" >
 	 
-	   <option value="" selected disabled hidden > </option> </select>  
+	   <option value="" selected disabled hidden > </option> </select> <!-- {{Issue.InsrtTestResult}} -->
 </span> 
  </td>
 
@@ -659,8 +666,8 @@ Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="entOthr
 </div> 
 
 </td>
-<td > <div class="widetd7"> <textarea rows="4" cols="25" type="text" ng-model="location1[$index]" class="txtarea" title="Location/Screen" maxlength="1000" > </textarea> </div> </td>
-<td > <div class="widetd7"> <textarea rows="4" cols="25" type="text" ng-model="testerCommentID1[$index]" class="txtarea" title="Tester's Comment" maxlength="1000" > </textarea> </div> </td>
+<td > <div class="widetd7"> <textarea rows="4" cols="25" type="text" ng-model="location1[$index]"   class="txtarea" title="Location/Screen" maxlength="1000" > </textarea> </div> </td>
+<td > <div class="widetd7"> <textarea rows="4" cols="25" type="text" ng-model="testerCommentID1[$index]"  class="txtarea" title="Tester's Comment" maxlength="1000" > </textarea> </div> </td>
 
 <td > <br><div class="widetd8"> 
  <!-- <input  type="file"   ng-model='imgCnvrsn1[$index]' title="Browse Image"  onchange="angular.element(this).scope().uploadImage1(this)" /> -->
@@ -675,7 +682,7 @@ Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="entOthr
              </div><br>	
      <!-- <div ng-if="imageCaptured[$index]"> <button  title='Remove Image' type="button" ng-click="removeImage1($index)">Remove Image</button>  -->
      <!-- <div ng-if="browseImageOption1[$index]">  <button  title='Remove Image' type="button" ng-click="removeImage1($index)">Remove Image</button>  -->
-	 <div ng-if="displayRemove1[$index]">  <button  title='Remove Image' type="button" ng-click="removeImage1($index)">Remove Image</button>
+	 <div ng-if="displayRemove1[$index]">  <button   title='Remove Image' type="button" ng-click="removeImage1($index)">Remove Image</button>
  </div>
  </td>   
 
@@ -686,6 +693,7 @@ Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="entOthr
 	  ng-model="selected_name_glbl1[$index]" 
       ng-options="o.id as o.name for o in optionsglbl" 
       ng-change="selected_name_glbl1[$index]=(optionsglbl|filter:{id:selected_id_glbl1[$index]})[0].name" id="globalResult[$index]" title="  Global Issue Type">
+	  <option value="" selected disabled hidden>{{test.InsrtGlobalIssue}}</option>
 	  </select>
  </div> 
 </td> 
@@ -700,6 +708,7 @@ Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="entOthr
         </tr>
 </tbody>
 </table>
+</div>
 </br>
 <div/>	 <div/>
 </br></br>
