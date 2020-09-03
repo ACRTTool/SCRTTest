@@ -282,11 +282,10 @@ Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="entOthr
 <div class="content">
 
  <div class="divSpace" id="testersInfo" >
-  <label for="CompanyName" class="required"> Company Name (Required, 100 chars max): </label> <input type="string" ng-model="companyname"  tabindex="0" placeholder ="Company Name" class= "betnTags" id="companyname" name="Company Name" maxlength="100"  required size="100"> 
+ <label for="CompanyName" class="required"> Company Name (Required, 100 chars max): </label> <input type="string" ng-model="companyname"  tabindex="0" placeholder ="Company Name" class= "betnTags" id="companyname" name="Company Name" maxlength="100"  required size="100"> 
   <br><label for="firstname" class="required"> Tester's First Name (Required, 50 chars max): </label> <input type="string" ng-model="firstname" placeholder ="First Name" class= "betnTags" id="firstname" name="Tester's First Name" maxlength="50" required size="50"> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   
    <br><label for="lastname" class="required"> Tester's Last Name (Required, 50 chars max): </label> <input type="string" ng-model="lastname" placeholder ="Last Name" class= "betnTags" id="lastname" name="Tester's Last Name" maxlength="50" required size="50"> 
-  <br><label for="testerID"> Trusted Tester ID (50 chars max): </label> <input type="string" ng-model="testerID" class= "betnTags" placeholder ="ID" id="testerID" name="Trusted Tester's Id" maxlength="50"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   
+  <br><label for="testerID"> Trusted Tester ID (50 chars max): </label> <input type="string" ng-model="testerID" class= "betnTags" placeholder ="ID" id="testerID" name="Trusted Tester's Id" maxlength="50"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
   <br> <label for="testerContact" class="required"> Tester's Email (Required, 50 chars max): </label> <input type="string" ng-model="testerContact" placeholder ="Contact" class= "betnTags" id="testerContact" name="Tester's Contact" maxlength="50" required size="50">
    <br><label for="testScope"  > Testing Scope (1000 chars max):</label><br> <textarea rows="4"cols="90"type="text"ng-model="testScope"class="txtarea"id="testScope"name="Test Scope"></textarea>   
     <br><br> <label for="evalMthd"> Testing Method: </label> 	
@@ -350,7 +349,10 @@ Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="entOthr
 	<th scope="col" > <div style="width: 248px">Screenshot </div> </th>	
 	<th style="width: 50px" scope="col" title="Global Issue" >Global Issue? </th>  
     <th  scope="col" title="Remediation Details" ><div style="width: 198px"> Remediation Details </div></th>  	
-	<th  scope="col" title="Remediation Date" ><div style="width: 148px"> Remediation Date </div></th>  	
+	<th  scope="col" title="Remediation Date" ><div style="width: 148px"> Remediation Date </div></th> 
+	
+	
+     	
 	<!-- <th ><div style="width: 10px"> </div></th> -->
   </tr>  
   </thead>
@@ -362,8 +364,8 @@ Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="entOthr
 <th scope="row" title="Test Name" ><div class="widetd1">{{test.TestName}}</div></th>
 <td ><div class="widetd2"  id="testID{{$index}}" title="Test ID"> {{test.TestID}} </div> </td>
 <td > <div class="widetd3" id="testConditionID{{$index}}" title="Test Condition" >{{test.TestCondition}}</div> </td>
-<td > <div ng-if='original' style="width: 97px"  title="Issue Number" > Issue {{$index+1}} </div></br><button ng-if='original' id="{{$index}}" type="button" ng-click="addIssue($index)">Add Issue</button> 
- <div ng-if='edit' style="width: 97px"  title="Issue Number" > {{counterCollection[$index]}} </div></br><button ng-if='edit' id="{{$index}}" type="button" ng-click="addIssue($index)">Add Issue</button> 
+<td > <div ng-if='original' style="width: 97px"  title="Issue Number" > Issue {{$index+1}} </div></br><button ng-if='original' id="{{$index}}" type="button" ng-click="addIssue($index)">Add Child Issue</button> 
+ <div ng-if='edit' style="width: 97px"  title="Issue Number" > {{counterCollection[$index]}} </div></br><button ng-if='edit' id="{{$index}}" type="button" ng-click="addIssue($index)">Add Child Issue</button> 
 <br><br> <button   ng-if="addedRow[$index]" id="{{ 'o'+indexCollection[$index] }}" type="button" ng-click="goToChildIssue($index)"  >Go to Child Issue </button>
 </td>
 <td style="width: 50px" > 
@@ -579,7 +581,7 @@ Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="entOthr
 <td title="Test Condition"><div class="widetd3"> {{Issue.InsrtTestCondition}}</div> </td>
  <!-- <td  title="Issue Number"> <div style="width: 100px"> *Issue #{{indexCollection[$index]+1}}.{{$index+1}} </div> <br/>  <button  id="{{ 'p'+indexCollection[$index] }}"type="button" ng-click="removeIssue($index)"  >Remove Issue </button> -->
  <td  title="Issue Number"> <div style="width: 100px"> {{newlyAddedIssuePosition[$index]}} </div> <br/>  <button  id="{{ 'p'+indexCollection[$index] }}"type="button" ng-click="removeIssue($index)"  >Remove Issue </button> 
-<br> <br> <button  id="{{ 'a'+indexCollection[$index] }}" type="button" data-ng-click="goToParentIssue(indexCollection[$index])"  >Go to Parent Issue </button>
+<br> 
  </td> 
  
 <td style="width: 50px" title="Test Result"> 
@@ -588,7 +590,7 @@ Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="entOthr
       ng-model="selected_id_tstrslt1[$index]"  
 	  ng-model="selected_name_tstgrp1[$index]"  
       ng-options="o.id as o.name for o in optionsTstrslt"  
-      ng-change="selected_name_tstgrp1[$index]=(optionsTstrslt|filter:{id:selected_id_tstrslt1[$index]})[0].name" title="Test Result"  id="{{ 'i'+addedResultIndex }}"  ng-click="elemntClicked4([$index])" >
+      ng-change="selected_name_tstgrp1[$index]=(optionsTstrslt|filter:{id:selected_id_tstrslt1[$index]})[0].name" title="Test Result"  id="{{ 'a'+indexCollection[$index] }}"   ng-click="elemntClicked4([$index])" >
 	 
 	   <option value="" selected disabled hidden > </option> </select> <!-- {{Issue.InsrtTestResult}} -->
 </span> 
@@ -706,7 +708,9 @@ Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="entOthr
 </td>
  <td > <div style="width: 150px"> <input type="date" title="Date" ng-model="rmdatnDatelID1[$index]"  placeholder="mm/dd/yyyy" id="rmdatnDatelID1" name="Remediation Date" /></div></td>
               
-        </tr>
+   <td><button   id="{{ 'b'+addedResultIndex }}" type="button" data-ng-click="goToParentIssue(indexCollection[$index])"  >Go to Parent Issue </button> </td>    
+
+	   </tr>
 </tbody>
 </table>
 </div>
@@ -717,7 +721,7 @@ Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="entOthr
 	<div class="footerbutton">
 	<span > {{submitMessage}}</span>	
       <br/>
-      <input  type="button" id="sbtBtn" class="button" value="Save" ng-click="submit1()">
+      <input  type="button" id="sbtBtn" class="button" value="Save (ctrl+z)" ng-click="submit1()">
     </div>    
   </form>
   </main>
