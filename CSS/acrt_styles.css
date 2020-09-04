@@ -301,7 +301,7 @@ fieldset
 }
 
 
-.footer {
+.footer {	
    position: fixed;
    left: 0;
    bottom: 0;
@@ -312,12 +312,12 @@ fieldset
    font-family: "system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";
 }
 
-.footerbutton {
+.footerbutton {    
    position: fixed;
    left: 0;
-   bottom: 0;
-   width: 100%;
-   background-color:rgb(190, 190, 220);
+   bottom: 0;   
+   width: 28%;
+   background-color:rgb(190, 190, 220); 
    color: black;
    //text-align: center;
    font-family: "system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";
