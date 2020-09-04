@@ -580,7 +580,7 @@ Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="entOthr
 <td  title="Test ID"><div class="widetd2"> {{Issue.InsrtTestID}} </div> </td>
 <td title="Test Condition"><div class="widetd3"> {{Issue.InsrtTestCondition}}</div> </td>
  <!-- <td  title="Issue Number"> <div style="width: 100px"> *Issue #{{indexCollection[$index]+1}}.{{$index+1}} </div> <br/>  <button  id="{{ 'p'+indexCollection[$index] }}"type="button" ng-click="removeIssue($index)"  >Remove Issue </button> -->
- <td  title="Issue Number"> <div style="width: 100px"> {{newlyAddedIssuePosition[$index]}} </div> <br/>  <button  id="{{ 'p'+indexCollection[$index] }}"type="button" ng-click="removeIssue($index)"  >Remove Issue </button> 
+ <td  title="Issue Number"> <div style="width: 100px"> {{newlyAddedIssuePosition[$index]}} </div> <br/>  <button   id="{{ 'a'+indexCollection[$index] }}" type="button" ng-click="removeIssue($index)"  >Remove Issue </button> 
 <br> 
  </td> 
  
@@ -590,7 +590,7 @@ Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="entOthr
       ng-model="selected_id_tstrslt1[$index]"  
 	  ng-model="selected_name_tstgrp1[$index]"  
       ng-options="o.id as o.name for o in optionsTstrslt"  
-      ng-change="selected_name_tstgrp1[$index]=(optionsTstrslt|filter:{id:selected_id_tstrslt1[$index]})[0].name" title="Test Result"  id="{{ 'a'+indexCollection[$index] }}"   ng-click="elemntClicked4([$index])" >
+      ng-change="selected_name_tstgrp1[$index]=(optionsTstrslt|filter:{id:selected_id_tstrslt1[$index]})[0].name" title="Test Result"   id="{{ 'p'+indexCollection[$index] }}"  ng-click="elemntClicked4([$index])" >
 	 
 	   <option value="" selected disabled hidden > </option> </select> <!-- {{Issue.InsrtTestResult}} -->
 </span> 
@@ -718,10 +718,9 @@ Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="entOthr
 <div/>	 <div/>
 </br></br>
 
-	<div class="footerbutton">
-	<span > {{submitMessage}}</span>	
-      <br/>
+	<div class="footerbutton">      
       <input  type="button" id="sbtBtn" class="button" value="Save (ctrl+z)" ng-click="submit1()">
+	  <span > {{submitMessage}}</span>
     </div>    
   </form>
   </main>
