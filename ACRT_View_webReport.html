@@ -132,18 +132,18 @@
             <tr>
               <th style="width: 102px" scope="col">Criteria</th>
               <th style="width: 218px" scope="col">Conformance Level</th>
-			  <!-- <th style="width: 218px" scope="col">Standard/Guideline</th> -->
+			   <th style="width: 216px" scope="col">Standard/Guideline</th> 
               <th style="width: 398px" scope="col">Remarks and Explanations </th>
-			  <!--<th style="width: 450px" scope="col">Impacted Group </th> -->
+			 <!-- <th style="width: 450px" scope="col">Impacted Group </th> -->
             </tr>
           </thead>
           <tbody ng-repeat="record1 in jsonData">
             <tr ng-repeat="test1 in record1.SuccessCriteria">
               <th scope="row" title="Success Criteria" style="width: 102px">{{test1.CrtID}}</th>
               <td style="width: 220px" title="Conformance Level" >{{test1.ConformanceLvl}}</td>
-			 <!-- <td style="width: 220px" title="Guideline" > {{test1.Guideline}}  </td> -->
+			  <td style="width: 220px" title="Guideline" > {{test1.Guideline}}  </td> 
               <td style="width: 400px" title="Remarks & Explanations" > {{test1.RemarkExplntn}}  </td>			  
-			  <!-- <td style="width: 450px" title="Remarks & Explanations" > {{test1.DisabilityImpact}}  </td> -->
+			 <!-- <td style="width: 450px" title="Remarks & Explanations" > {{test1.DisabilityImpact}}  </td> -->
         </tr>
 
         </div>
@@ -311,7 +311,7 @@
   </main>
   <br/><br/><br/><br/> 
   <div id="htmlReportDiv" class="footerbutton"  hidden >
-	Select <strong>Save as HTML</strong> to generate a printer-friendly HTML version of the report (saved in the system's Downloads folder by default). <br/>
+	Select <strong>Save as HTML</strong> to generate  HTML version of the printable report (saved in Downloads folder by default). <br/>
 	<input type="button" id="sbtBtn" class="button" value="Save as HTML (ctrl+z)" ng-click="saveHtml()">
 	</div>	
   <script src="./JS/acrt_Web_Report.js"> </script>
