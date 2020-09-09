@@ -316,11 +316,13 @@ fieldset
    position: fixed;
    left: 0;
    bottom: 0;   
-   width: 28%;
-   background-color:rgb(190, 190, 220); 
+   width: 25%;
+   background-color: rgb(211,211,211);
    color: black;
-   //text-align: center;
+   text-align: center;
    font-family: "system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";
+   border-style: outset;
+   border-radius: 25px;   
 }
 
 .collapsible {
