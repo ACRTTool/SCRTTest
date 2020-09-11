@@ -1108,7 +1108,7 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 	  $scope.Mul_Issues3.push($scope.Mul_Issues2[$scope.parentIssueSelected]);
       //console.log($scope.Mul_Issues3);
 		 if ($scope.checkboxModel.alerts == "on")
-			alert("Child Issue is added at the end of this table, Select 'Go to Child Issue' to work on it");
+			alert("Child issue has been added to the end of this table. Select ‘Go to Child Issues’ to jump to the first child issue.");
 		}
 	else {
     //if ($scope.checkboxModel.alerts == "on")		
