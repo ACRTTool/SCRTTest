@@ -313,16 +313,17 @@ fieldset
 }
 
 .footerbutton {    
-   position: fixed;
+   /*position: fixed; */
+   position: relative;
    left: 0;
    bottom: 0;   
-   width: 25%;
+   width: 50%;
    background-color: rgb(211,211,211);
    color: black;
-   text-align: center;
+   text-align: left;
    font-family: "system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";
    border-style: outset;
-   border-radius: 25px;   
+   border-radius: 10px;   
 }
 
 .collapsible {
@@ -374,7 +375,7 @@ h2,h3,h4 {font-weight: bold;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  width: 250px;
+  width: 18%;
   font-size: 100%;
   margin: 4px 2px;
   cursor: pointer;
@@ -655,8 +656,8 @@ body {
 
 .topnav {
   overflow: hidden;
-  /*background-color:rgb(0, 51, 102); prod */
-  background-color: green;
+  background-color:rgb(0, 51, 102); 
+  /* background-color: green;  test */
   font-family: "system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";
 }
 
