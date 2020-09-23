@@ -295,21 +295,20 @@ fieldset
 	/*letter-spacing: 2px;
 	 line-height: 1.8; */
 	/* word-spacing: 10px;*/
-	 font-family: "system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";
-	
-	
+	 font-family: "system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";	
 }
 
 
 .footer {	
    position: fixed;
-   left: 0;
+   left: 10;
    bottom: 0;
-   width: 100%;
-   background-color:rgb(0, 51, 102);
    color: white;
-   text-align: center;
-   font-family: "system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";
+   width: 100%;
+   overflow: hidden;
+   background-color:rgb(0, 51, 102);  
+   font-family: "system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";   
+   text-align: center;   
 }
 
 .footerbutton {    
@@ -318,7 +317,7 @@ fieldset
    left: 0;
    bottom: 0;   
    width: 50%;
-   background-color: rgb(211,211,211);
+   background-color: white;
    color: black;
    text-align: left;
    font-family: "system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";
