@@ -1863,7 +1863,7 @@ $scope.submit = function() {
   $scope.testresult1 = " ";
   $scope.criteriaName = " ";
   $scope.counter =0;
-  $scope.counterCollection = [];  
+  //$scope.counterCollection = [];  
   $scope.crtCollection = [];
   $scope.brwsrVrsnColctn = [];
   $scope.brwsrVrsnColctn1 = [];
@@ -2067,7 +2067,9 @@ $scope.submit = function() {
     if ($scope.browserTypeCollection1[i] == undefined)
       $scope.browserTypeCollection1[i] = " ";
     $scope.counter=i;
-	$scope.counter1=i+1;
+	$scope.counter1 = i+1;
+    if($scope.edit == true )	
+	$scope.counter1= $scope.counterCollection[i];
 	if($scope.selected_name_tstgrp[i] == "Fail"){
 	 let fpcMapping = '{"CrtID": "' + $scope.criteriaTestsJson.Criteria[i].CrtID + '",' + '"DisabilityImpact": "' + $scope.criteriaTestsJson.Criteria[i].DisabilityImpact+'",' + '"TestName": "' + $scope.criteriaTestsJson.Criteria[i].TestName + '","TesterComment": "' + $scope.testerCommentID[i] +'"}';
     $scope.fpcMapping.push(fpcMapping);		
