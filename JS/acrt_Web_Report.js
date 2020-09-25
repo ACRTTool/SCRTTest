@@ -329,7 +329,7 @@ document.getElementById("dsblGrpBtn").click();
       }
       $scope.impactedGroup = [];
        document.getElementById("msg1").innerHTML = "<strong>"+$scope.evalMethod +" Version "+$scope.evalMethodVrsn +"</strong> file load completed.<br>";		  
-        
+        alert('To save printer friendly HTML report, use ctrl+z or Save button is located at the bottom of page');
 	  
 	  //$scope.validData=true;
       if($scope.jsonData[0].SuccessCriteria == undefined){
@@ -537,7 +537,7 @@ function KeyPress(e) {
 
 
       "<h2> Test Environment Information </h2>" +
-      "<strong>Browser:  &nbsp;  </b>" + $scope.myBrowserTested + "<br>" +
+      "<strong>Browser:  &nbsp;  </strong>" + $scope.myBrowserTested + "<br>" +
       "<strong>Browser Version: &nbsp;  </strong>" + $scope.myBrowser + "<br>" +
       "<strong>Compatibility View:  &nbsp;  </strong>" + $scope.compID + "<br>" +
       "<strong>Operating System:  &nbsp;  </strong>" + $scope.myOpsys + "<br>" +
