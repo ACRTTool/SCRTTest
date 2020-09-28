@@ -472,7 +472,7 @@ function KeyPress(e) {
     testResult += "<th scope=\"col\"  title=\"Test ID\" width=\"35px\">" + "Test ID" + "</th>";
     testResult += "<th scope=\"col\"  title=\"Test Condition\" width=\"120px\">" + "Test Condition" + "</th>";
     testResult += "<th scope=\"col\"  title=\"Criteria ID\" width=\"40px\">" + "Criteria ID" + "</th>";
-    testResult += "<th scope=\"col\"  title=\"Test\" width=\"60px\">" + "Test" + "</th>";
+    //testResult += "<th scope=\"col\"  title=\"Test\" width=\"60px\">" + "Test" + "</th>";
     testResult += "<th scope=\"col\"  title=\"Issue No.\" width=\"50px\">" + "Issue No." + "</th>";
     testResult += "<th scope=\"col\"  title=\"Test Result\" width=\"40px\">" + "Test Result" + "</th>";
 	testResult += "<th scope=\"col\"  title=\"Location/Screen\" width=\"140px\">" + "Location/Screen" + "</th>";
@@ -495,8 +495,8 @@ function KeyPress(e) {
       testResult += "<td title=\"Test ID\">" + $scope.jsonData[0].Criteria[i].TestID; + "</td>";
       testResult += "<td title=\"Test Condition\">" + $scope.jsonData[0].Criteria[i].TestCondition; + "</td>";
       testResult += "<td title=\"Success Criteria\">" + $scope.jsonData[0].Criteria[i].CrtID; + "</td>";
-      testResult += "<td title=\"Test\">" + $scope.jsonData[0].Criteria[i].Test; + "</td>";
-      testResult += "<td title=\"Issue Number\">" + $scope.jsonData[0].Criteria[i].Counter; + "</td>";
+     // testResult += "<td title=\"Test\">" + $scope.jsonData[0].Criteria[i].Test; + "</td>";
+      testResult += "<td title=\"Issue Number\"> Issue " + $scope.jsonData[0].Criteria[i].Counter; + "</td>";
       testResult += "<td title=\"Test Result\">" + $scope.jsonData[0].Criteria[i].TestResult; + "</td>";
 	  testResult += "<td title=\"Location\">" + $scope.jsonData[0].Criteria[i].location; + "</td>";
       testResult += "<td title=\"Tester's comment\">" + $scope.jsonData[0].Criteria[i].TesterComment; + "</td>";
