@@ -223,7 +223,7 @@
                 <div class="widetd3"> {{TestCondition[$index]}}</div>
               </td>
 							 <td title="Issue Number">
-                <div style="width: 80px"> {{counterCollection[$index]}} </div>
+                <div style="width: 80px"> Issue {{counterCollection[$index]}} </div>
               </td> 
               <td title="Selected Test Result" id="tstrslt1[$index]">
                 <div style="width: 69px"> {{TestResult[$index]}} </div>
@@ -232,10 +232,10 @@
                 <div style="width: 129px"> {{T_brwsrType[$index]}} </br> {{T_brwsrVrsn[$index]}}</div>
               </td>
 			  <td title="Entered location/screen" id="lcn1[$index]">
-                <div class="widetd7"> {{location[$index]}}</div>
+                <div class="widetd3"> {{location[$index]}}</div>
               </td>
               <td title="Entered Tester's Comment" id="tstcmt1[$index]">
-                <div class="widetd7"> {{TesterComment[$index]}}</div>
+                <div class="widetd3"> {{TesterComment[$index]}}</div>
               </td>
               <td width="151">  <img width="100" id="image{{test.Counter}}" id="img1[$index]" ng-src={{ImageSrc[$index]}}  ng-click="zoom(test.Counter)" class="large-image" title="Selected screenshot" alt="Selected screenshot" onerror="this.style.display='none';" >
               
