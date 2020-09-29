@@ -364,7 +364,7 @@ Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="entOthr
 <td ><div class="widetd2"  id="testID{{$index}}" title="Test ID"> {{test.TestID}} </div> </td>
 <td > <div class="widetd3" id="testConditionID{{$index}}" title="Test Condition" >{{test.TestCondition}}</div> </td>
 <td > <div ng-if='original' style="width: 97px"  title="Issue Number" > Issue {{$index+1}} </div>
- <div ng-if='edit' style="width: 97px"  title="Issue Number" > {{counterCollection[$index]}} </div> 
+ <div ng-if='edit' style="width: 97px"  title="Issue Number" >Issue {{counterCollection[$index]}} </div> 
 </td>
 <td style="width: 50px" > 
  <span ng-if="menu1[$index] == 'menu1'" ng-keypress ="elemntClicked2([$index])">    
