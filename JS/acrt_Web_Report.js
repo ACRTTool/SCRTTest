@@ -347,7 +347,7 @@ document.getElementById("dsblGrpBtn").click();
 	    
      if ($scope.sucCrtLngth == 0){
 	$scope.wcagRprt = false;
-     alert('Make sure to load file with all manddatory fields and at least one valid test result to view complete report page.');	 
+     alert('Make sure to load file with all mandatory fields and at least one valid test result to view complete report page.');	 
 	 }
 
     if ($scope.sucCrtLngth >0) {
