@@ -237,12 +237,12 @@
               <td title="Entered Tester's Comment" id="tstcmt1[$index]">
                 <div class="widetd3"> {{TesterComment[$index]}}</div>
               </td>
-              <td width="151">  <img width="100" id="image{{test.Counter}}" id="img1[$index]" ng-src={{ImageSrc[$index]}}  ng-click="zoom(test.Counter)" class="large-image" title="Selected screenshot" alt="Selected screenshot" onerror="this.style.display='none';" >
+              <td width="151">  <img width="100" id="image{{$index}}"  ng-src={{ImageSrc[$index]}}  ng-click="zoom($index)" class="large-image" title="Selected screenshot" alt="Selected screenshot" onerror="this.style.display='none';" >
               
-             <div id="{{test.Counter}}" class="modal">
-             <span class="close">&times;</span>
-            <img alt="Selected screenshot" class="modal-content" id="img{{test.Counter}}">
-             <div class="caption" id="caption{{test.Counter}}" ></div>
+             <div id="{{$index}}" class="modal">
+             <span class="close" id="cls{{$index}}" >&times;</span>
+            <img alt="Selected screenshot" class="modal-content" id="img{{$index}}">
+             <div class="caption" id="caption{{$index}}" ></div>
              </div>
 			  </td>
             
