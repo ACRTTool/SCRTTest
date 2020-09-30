@@ -127,7 +127,8 @@ var modal = document.getElementById(i);
 var img = document.getElementById("image"+i);
 var modalImg = document.getElementById("img"+i);
 var captionText = document.getElementById("caption"+i);
-var span = document.getElementsByClassName("close")[i];
+//var span = document.getElementsByClassName("close")[i];
+var span = document.getElementById("cls"+i);
 
 img.onclick = function(){
   modal.style.display = "block";
