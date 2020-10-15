@@ -13,10 +13,10 @@
 <body ng-app="acrt" ng-controller="acrtFormCtrl">
   <div class="topnav" id="myTopnav"> 
   <a title="Home" href="index.html" id="aboutID">Home </a>
-  <a title="Instructions" href="./Resources/ACRTTrainingManual.pdf" target="_blank"  id="helpID">Instructions </a>
+  <a title="Instructions" href="./Resources/ACRTTrainingManual.pdf"   id="helpID">Instructions </a> <!--target="_blank" -->
   <a  title="Create Report" href="./ACRT_Web_Input_Form.html"  id="crtReportID" >Create Report</a> 
   <a title="Accessibility Conformance Report" href="./ACRT_View_webReport.html"  id="vwRptId" >Accessibility Conformance Report</a>  
-  <a title="License License" href= "./Resources/LICENSE.html" target="_blank"   id="licenseID"> View License </a>
+  <a title="License License" href= "./Resources/LICENSE.html"    id="licenseID"> View License </a>
   
 </div>
 <br>
@@ -28,9 +28,21 @@
       <!-- <h1> View Test Report </h1> -->
         <!-- View test report. <a title="View Report instructions" href="./Help_Report.html" target="_blank" id="tstinstrID"> "View Report" instructions </a> -->
         <p><strong ng-if="isDraft" class="hdnMsg"> This is a Draft report. For final report, please input results for all tests.</strong><p>
+		<p > <!--  id="instr" -->
+	  Tool Tips: <br>
+	  <ol >
+	    <li>At least one valid test result must be included to view complete report.</li>
+	    <li>To save printer friendly HTML report, use ctrl+z or Save button is located at the bottom of page.</li>		
+		<li>Keep both JSON (to edit & further analysis) & HTML report(user friendly) file for future reference.</li>
+		<li>Expand Product, Test Environment,Tester Sections & Terms to view information.</li>
+		<li>This is read only page, no edit are allowded </li>
+		<li>Double click on image in test result section to zoom it. </li>
+	  </ol>
+	</p>
+
         <label for="fileinput"> <strong> Select test results file </strong>
         </label><br>	
-		<input type='file' class="button" id='fileinput' name='Browse to file'>
+		<input type='file' class="input" id='fileinput' name='Browse to file'>
         <br><br><label for="loadFile"> <strong> Load selected file</strong>
         </label><br> <button id='buttonLoad' class="button" ng-model="loadbtn" ng-click="loadFile();" id='loadFile' name="Load Data In this Form"  ng-model-options="{  updateOn: 'click',  debounce: { 'default': 20, 'blur': 0 }}" >Load Results</button>
 		<!-- <br>You have selected <strong>{{evalMethod}} </strong> Version <strong class="hdnMsg">{{evalMethodVrsn}}</strong> -->	    
@@ -57,25 +69,7 @@
             </div>
           </div>
         </fieldset> <br>
-        <fieldset>
-          <legend>
-            <h2> Test Environment </h2>
-          </legend>
-          <button class="collapsible" onclick="expandCollapse2()">
-            <div id="expandCollapse2"> <i class="up"></i> Show Test Environment section</div>
-          </button>
-          <div class="content">
-            <div class="divSpace" id="sysInfo">
-              <label for="myBrowserTested">Browser: </label> <input type="string" ng-model="myBrowserTested" class="txtarea" id="myBrowserTested" name="Selected Browser Types" ng-readonly="true" width=200 size="100"> &nbsp;
-              <br><br> <label for="myBrowser">Browser Version: </label> <input type="string" ng-model="myBrowser" class="txtarea" id="myBrowser" name="Selected Browser Versions" ng-readonly="true" size="100"> &nbsp;
-              <br><label for="compID">Compatibility View: </label> <input type="string" ng-model="compID" class="betnTags" id="compID" name="Selected Compatibility View" ng-readonly="true"> <br>
-              <br><label for="myOpsysTested"> Operating System: </label> <input type="string" ng-model="myOpsysTested" class="txtarea" id="myOpsysTested" name="Selected OS Tested" ng-readonly="true" size="80"> &nbsp;
-              <br><br><label for="myOpsys"> Operating System Version: </label> <input type="string" ng-model="myOpsys" class="txtarea" id="myOpsys" name="Selected OS Versions" ng-readonly="true" size="80"> &nbsp;
-
-            </div>
-          </div>
-        </fieldset> <br>
-        <fieldset>
+		 <fieldset>
           <legend>
             <h2> Testing Information </h2>
           </legend>
@@ -94,6 +88,24 @@
             </div>
           </div>
         </fieldset> <br>
+        <fieldset>
+          <legend>
+            <h2> Test Environment </h2>
+          </legend>
+          <button class="collapsible" onclick="expandCollapse2()">
+            <div id="expandCollapse2"> <i class="up"></i> Show Test Environment section</div>
+          </button>
+          <div class="content">
+            <div class="divSpace" id="sysInfo">
+              <label for="myBrowserTested">Browser: </label> <input type="string" ng-model="myBrowserTested" class="txtarea" id="myBrowserTested" name="Selected Browser Types" ng-readonly="true" width=200 size="100"> &nbsp;
+              <br><br> <label for="myBrowser">Browser Version: </label> <input type="string" ng-model="myBrowser" class="txtarea" id="myBrowser" name="Selected Browser Versions" ng-readonly="true" size="100"> &nbsp;
+              <br><label for="compID">Compatibility View: </label> <input type="string" ng-model="compID" class="betnTags" id="compID" name="Selected Compatibility View" ng-readonly="true"> <br>
+              <br><label for="myOpsysTested"> Operating System: </label> <input type="string" ng-model="myOpsysTested" class="txtarea" id="myOpsysTested" name="Selected OS Tested" ng-readonly="true" size="80"> &nbsp;
+              <br><br><label for="myOpsys"> Operating System Version: </label> <input type="string" ng-model="myOpsys" class="txtarea" id="myOpsys" name="Selected OS Versions" ng-readonly="true" size="80"> &nbsp;
+
+            </div>
+          </div>
+        </fieldset> <br>       
 		
 		<fieldset>
           <legend>
@@ -172,6 +184,7 @@
                     <thead>
                       
                       <tr>
+					  <th scope="col" title="Issue Number" id="in[$index]"><div style="width: 78px"> Issue Number </div> </th> 
                         <th scope="col" title="Test Name" id="testname[$index]">
                           <div style="width: 85px">Test Name</div>
                         </th>
@@ -180,20 +193,20 @@
                         </th>
                         <th scope="col" title="Test Condition" id="tc[$index]">
                           <div style="width: 198px"> Test Condition </div>
-                        </th>
-                        <th scope="col" title="Issue Number" id="in[$index]"><div style="width: 78px"> Issue Number </div> </th> 
+                        </th>                        
                         <th scope="col" title="Test Result" id="result[$index]">
                           <div style="width: 67px"> Test Result </div>
                         </th>
                         <th scope="col" title="Browser" id="brsr[$index]">
                           <div style="width: 127px"> Browser </div>
                         </th>
-						<th scope="col" title="Tester's Comment" id="location[$index]"> 
-						<div style="width: 198px"> Location/Screen </div> 
-						</th> 	
-                        <th scope="col" title="Tester's Comment" id="cmnt[$index]">
+						<th scope="col" title="Tester's Comment" id="cmnt[$index]">
                           <div style="width: 198px"> Tester Comments </div>
                         </th>
+						<th scope="col" title="Tester's Comment" id="location[$index]"> 
+						<div style="width: 198px"> Location/Screen </div> 
+						</th> 
+                        
                         <th scope="col" title="Screenshot" id="scrnsht[$index]">
                           <div style="width: 123px" >Screenshot </div>
                         </th>
@@ -212,7 +225,9 @@
 
           <tbody ng-repeat="record in jsonData">
             <tr ng-repeat="test in record.Criteria " ng-if="noResult[$index]">
-             
+			 <td title="Issue Number">
+                <div style="width: 80px"> Issue {{counterCollection[$index]}} </div>
+              </td>              
               <th scope="row" title="Test Name" id="tnm1[$index]">
                 <div class="widetd1"> {{TestName[$index]}} </div>
               </th>
@@ -222,21 +237,19 @@
               <td title="Selected Test Condition" id="tstcndn1[$index]">
                 <div class="widetd3"> {{TestCondition[$index]}}</div>
               </td>
-							 <td title="Issue Number">
-                <div style="width: 80px"> Issue {{counterCollection[$index]}} </div>
-              </td> 
+							
               <td title="Selected Test Result" id="tstrslt1[$index]">
                 <div style="width: 69px"> {{TestResult[$index]}} </div>
               </td>
               <td title="Selected Browser Types" id="brsr1[$index]">
                 <div style="width: 129px"> {{T_brwsrType[$index]}} </br> {{T_brwsrVrsn[$index]}}</div>
               </td>
-			  <td title="Entered location/screen" id="lcn1[$index]">
-                <div class="widetd3"> {{location[$index]}}</div>
-              </td>
-              <td title="Entered Tester's Comment" id="tstcmt1[$index]">
+			  <td title="Entered Tester's Comment" id="tstcmt1[$index]">
                 <div class="widetd3"> {{TesterComment[$index]}}</div>
               </td>
+			  <td title="Entered location/screen" id="lcn1[$index]">
+                <div class="widetd3"> {{location[$index]}}</div>
+              </td>              
               <td width="151">  <img width="100" id="image{{$index}}"  ng-src={{ImageSrc[$index]}}  ng-click="zoom($index)" class="large-image" title="Selected screenshot" alt="Selected screenshot" onerror="this.style.display='none';" >
               
              <div id="{{$index}}" class="modal">
