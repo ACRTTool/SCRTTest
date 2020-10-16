@@ -969,10 +969,14 @@ $scope.RemarkExplntnCollection = [];
  $scope.imageCaptured1 = [];
  $scope.removeClicked1 =[];
  	$scope.dataLoaded = false;
- $scope.updateJSON = false
+ $scope.updateJSON = false;
+ $scope.fileInput = false;
 //$scope.createEditOption = 'Please Select Approperiate JSON File';
 //$scope.imageAdded = false;
-
+$scope.fileInput = function fileInput() {
+$scope.fileInput = true;	
+//alert($scope.fileInput);
+}
 
  //$scope.testScope ="";
 $scope.loadFile = function loadFile() {
@@ -1579,10 +1583,10 @@ setTimeout(function() {
 function KeyPress(e) {	  
       var evtobj = window.event? event : e
 	  if($scope.dataLoaded == true){
-        //if (evtobj.keyCode == 89 && evtobj.ctrlKey) document.getElementById("fileinput").click();  //ctrl+y to select file		  
+        //if (evtobj.keyCode == 90 && evtobj.ctrlKey) document.getElementById("fileinput").click();  //ctrl+z to select file		  
 	  //if (evtobj.keyCode == 88 && evtobj.ctrlKey) { document.getElementById($scope.addedResultIndex).focus(); }  //ctrl+x to focus newly added issues	  
 	  //if (evtobj.keyCode == 89 && evtobj.ctrlKey) {document.getElementById($scope.parentIssueSelected).focus();  alert($scope.parentIssueSelected);}  //ctrl+y to focus parent issues
-	  if (evtobj.keyCode == 90 && evtobj.ctrlKey) document.getElementById("sbtBtn").click();  //ctrl+z to save 
+	  if (evtobj.keyCode == 83 && evtobj.altKey) document.getElementById("sbtBtn").click();  //ctrl+y to save 
 	  }
 }
 
@@ -2632,9 +2636,9 @@ $scope.testresult1 = '"Criteria":[' + $scope.totTstRslt + ']';
 			$scope.slctTstRslt = "NotSelected";	
 			}
 						
-        }  // alert( 'b'+ $scope.slctTstRslt ); 
-           if($scope.guideline[a]==undefined) $scope.guideline[a]="";		
-           if($scope.guideline[a]=='undefined') $scope.guideline[a]="";		
+        }  // alert( 'b'+ $scope.slctTstRslt );   
+	             if($scope.guideline[a]==undefined) $scope.guideline[a]="";		
+                     if($scope.guideline[a]=='undefined') $scope.guideline[a]="";	
 		    if( $scope.slctTstRslt == "FailSelected"){
 				
 

@@ -115,8 +115,6 @@ app.controller('acrtFormCtrl', function($scope, $filter) {
 	  if ($scope.checked1 == 'true' )
 		  document.getElementById("msg").innerHTML = "Do not select checkbox to hide Test Results."; 
 	  
-	  
-	  
   } 
   
  $scope.noResult =[];
@@ -423,7 +421,7 @@ document.getElementById("dsblGrpBtn").click();
 function KeyPress(e) {	  
       var evtobj = window.event? event : e
 	  if($scope.dataLoaded == true){        
-	  if (evtobj.keyCode == 90 && evtobj.ctrlKey) document.getElementById("sbtBtn").click();  //ctrl+z to save 
+	  if (evtobj.keyCode == 83 && evtobj.altKey) document.getElementById("sbtBtn").click();  //ctrl+z to save 
 	  }}
 	  document.onkeydown = KeyPress;
 		
@@ -469,15 +467,15 @@ function KeyPress(e) {
     var testResult = "<table class=\"table1\" > <caption> Test Results</caption>";
 
     testResult += "<tr>";
+	testResult += "<th scope=\"col\"  title=\"Issue No.\" width=\"50px\">" + "Issue No." + "</th>";
     testResult += "<th scope=\"col\"  title=\"Test Name\"  width=\"60px\">" + "Test Name" + "</th>";
     testResult += "<th scope=\"col\"  title=\"Test ID\" width=\"35px\">" + "Test ID" + "</th>";
     testResult += "<th scope=\"col\"  title=\"Test Condition\" width=\"120px\">" + "Test Condition" + "</th>";
     testResult += "<th scope=\"col\"  title=\"Criteria ID\" width=\"40px\">" + "Criteria ID" + "</th>";
-    //testResult += "<th scope=\"col\"  title=\"Test\" width=\"60px\">" + "Test" + "</th>";
-    testResult += "<th scope=\"col\"  title=\"Issue No.\" width=\"50px\">" + "Issue No." + "</th>";
+    //testResult += "<th scope=\"col\"  title=\"Test\" width=\"60px\">" + "Test" + "</th>";    
     testResult += "<th scope=\"col\"  title=\"Test Result\" width=\"40px\">" + "Test Result" + "</th>";
-	testResult += "<th scope=\"col\"  title=\"Location/Screen\" width=\"140px\">" + "Location/Screen" + "</th>";
-    testResult += "<th scope=\"col\" title=\"Tester's Comment\" width=\"140px\">" + "Tester Comments" + "</th>";
+	testResult += "<th scope=\"col\" title=\"Tester's Comment\" width=\"140px\">" + "Tester Comments" + "</th>";
+	testResult += "<th scope=\"col\"  title=\"Location/Screen\" width=\"140px\">" + "Location/Screen" + "</th>";    
     testResult += "<th scope=\"col\"  title=\"Browser Type\" width=\"80px\">" + "Browser Type" + "</th>";
     testResult += "<th scope=\"col\"  title=\"Browser Versions\" width=\"80px\">" + "Browser Ver." + "</th>";
     testResult += "<th scope=\"col\" title=\"Screenshot\" >" + "Screenshot" + "</th>";
@@ -492,15 +490,15 @@ function KeyPress(e) {
 		let d=i+1;
 		if($scope.noResult[i]== true){
       testResult += "<tr >";
-	  testResult += "<th scope=\"row\"  title=\"Test Name\">" + $scope.jsonData[0].Criteria[i].TestName; + "</th>";      
+	  testResult += "<td title=\"Issue Number\"> Issue " + $scope.jsonData[0].Criteria[i].Counter; + "</td>";
+	  testResult += "<td scope=\"row\"  title=\"Test Name\">" + $scope.jsonData[0].Criteria[i].TestName; + "</td>";      
       testResult += "<td title=\"Test ID\">" + $scope.jsonData[0].Criteria[i].TestID; + "</td>";
       testResult += "<td title=\"Test Condition\">" + $scope.jsonData[0].Criteria[i].TestCondition; + "</td>";
       testResult += "<td title=\"Success Criteria\">" + $scope.jsonData[0].Criteria[i].CrtID; + "</td>";
-     // testResult += "<td title=\"Test\">" + $scope.jsonData[0].Criteria[i].Test; + "</td>";
-      testResult += "<td title=\"Issue Number\"> Issue " + $scope.jsonData[0].Criteria[i].Counter; + "</td>";
+     // testResult += "<td title=\"Test\">" + $scope.jsonData[0].Criteria[i].Test; + "</td>";      
       testResult += "<td title=\"Test Result\">" + $scope.jsonData[0].Criteria[i].TestResult; + "</td>";
-	  testResult += "<td title=\"Location\">" + $scope.jsonData[0].Criteria[i].location; + "</td>";
-      testResult += "<td title=\"Tester's comment\">" + $scope.jsonData[0].Criteria[i].TesterComment; + "</td>";
+	  testResult += "<td title=\"Tester's comment\">" + $scope.jsonData[0].Criteria[i].TesterComment; + "</td>";
+	  testResult += "<td title=\"Location\">" + $scope.jsonData[0].Criteria[i].location; + "</td>";      
       testResult += "<td title=\"Browser Type\">" + $scope.jsonData[0].Criteria[i].T_brwsrType; + "</td>";
       testResult += "<td title=\"Browser's Version\">" + $scope.jsonData[0].Criteria[i].T_brwsrVrsn; + "</td>";
       testResult += "<td onclick=\"zoom("+$scope.jsonData[0].Criteria[i].Counter+")\"   title=\"ScreenShot Captured\">" + "<img id=\""+$scope.jsonData[0].Criteria[i].Counter+"\" width=\"350\"  alt=\"screenshot\" src= \"" + $scope.ImageSrc[i] + '" '+"onerror=\"this.style.display='none'\"" + "\>" + "</td>";
@@ -535,6 +533,14 @@ function KeyPress(e) {
       "<b>Product Type:  &nbsp;  </b>" + $scope.productType + "<br>" +
       "<b>Location:  &nbsp;  </b>" + $scope.urlID + "<br>" +
       "<b>Product Description:  &nbsp;  </b>" + $scope.prodDescID + "<br>" +
+	  
+	  "<h2> Tester's Information </h2>" +
+      "<strong>Tester's First Name:  &nbsp;  </strong>" + $scope.firstname + "<br>" +
+      "<strong>Tester's Last Name:  &nbsp;  </strong>" + $scope.lastname + "<br>" +
+      "<strong>Trusted Tester ID:  &nbsp;  </strong>" + $scope.testerID + "<br>" +
+	  "<strong>Company Name:  &nbsp;  </strong>" + $scope.companyname + "<br>" +
+      "<strong>Tester's Email:  &nbsp;  </strong>" + $scope.testerContact + "<br>" +
+      "<strong>Notes:  &nbsp;  </strong>" + $scope.testScope + "<br>" +
 
 
       "<h2> Test Environment Information </h2>" +
@@ -544,13 +550,7 @@ function KeyPress(e) {
       "<strong>Operating System:  &nbsp;  </strong>" + $scope.myOpsys + "<br>" +
       "<strong>Operating System Version:  &nbsp;  </strong>" + $scope.myOpsysTested + "<br>" +
 
-      "<h2> Tester's Information </h2>" +
-      "<strong>Tester's First Name:  &nbsp;  </strong>" + $scope.firstname + "<br>" +
-      "<strong>Tester's Last Name:  &nbsp;  </strong>" + $scope.lastname + "<br>" +
-      "<strong>Trusted Tester ID:  &nbsp;  </strong>" + $scope.testerID + "<br>" +
-	  "<strong>Company Name:  &nbsp;  </strong>" + $scope.companyname + "<br>" +
-      "<strong>Tester's Email:  &nbsp;  </strong>" + $scope.testerContact + "<br>" +
-      "<strong>Notes:  &nbsp;  </strong>" + $scope.testScope + "<br>" +
+      
       "<strong>Testing Method:  &nbsp;  </strong>" + $scope.evalMethod + "<br>" +
       "<strong>Testing Method Version:  &nbsp;  </strong>" + $scope.evalMethodVrsn + "<br>" +  
      "<h2> Terms used in the Conformance Level </h2> <ul> <li> <strong>Supports:</strong> The functionality of the product has at least one method that meets the criterion without known defects or meets with equivalent facilitation. </li>  <li> <strong>Does Not Support:</strong> The majority of product functionality does not meet the criterion.</li> <li> <strong>Not Applicable:</strong> The criterion is not relevant to the product. </li> <li> <strong>Not Evaluated:</strong> The product has not been evaluated against the criterion.  This can only be used in WCAG 2.x Level AAA.</li> </ul> <br>" +
