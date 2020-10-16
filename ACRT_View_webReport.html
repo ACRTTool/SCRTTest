@@ -11,12 +11,16 @@
 </head>
 
 <body ng-app="acrt" ng-controller="acrtFormCtrl">
+<div >
+  <img src=".\Resources\logo.jpg" alt="ACRT logo" title="ACRT Logo"style="width:5em;height:3.3em;"> 
+<strong style="font-size: 1.5em;display: inline-block;" title="Accessibility Conformance Reporting Tool (ACRT)"> Accessibility Conformance Reporting Tool (ACRT) </strong>
+</div>
   <div class="topnav" id="myTopnav"> 
   <a title="Home" href="index.html" id="aboutID">Home </a>
   <a title="Instructions" href="./Resources/ACRTTrainingManual.pdf"   id="helpID">Instructions </a> <!--target="_blank" -->
   <a  title="Create Report" href="./ACRT_Web_Input_Form.html"  id="crtReportID" >Create Report</a> 
   <a title="Accessibility Conformance Report" href="./ACRT_View_webReport.html"  id="vwRptId" >Accessibility Conformance Report</a>  
-  <a title="License License" href= "./Resources/LICENSE.html"    id="licenseID"> View License </a>
+  <a title="License License" href= "./LICENSE.html"    id="licenseID"> View License </a>
   
 </div>
 <br>
@@ -32,10 +36,10 @@
 	  Tool Tips: <br>
 	  <ol >
 	    <li>At least one valid test result must be included to view complete report.</li>
-	    <li>To save printer friendly HTML report, use ctrl+z or Save button is located at the bottom of page.</li>		
-		<li>Keep both JSON (to edit & further analysis) & HTML report(user friendly) file for future reference.</li>
-		<li>Expand Product, Test Environment,Tester Sections & Terms to view information.</li>
-		<li>This is read only page, no edit are allowded </li>
+	    <li>To save printer friendly HTML report, use ctrl+z or save button is located at the bottom of page.</li>		
+		<li>JSON report is used to edit & further analysis.HTML report is user friendly version. Keep both for future reference.</li>
+		<li>Expand Product, Test Environment, Tester Sections & Terms to view information.</li>
+		<li>This is a read only page, no edits are allowded. </li>
 		<li>Double click on image in test result section to zoom it. </li>
 	  </ol>
 	</p>
@@ -326,7 +330,7 @@
   <div id="htmlReportDiv" class="footerbutton"  hidden >
 	Select <strong>Save as HTML</strong> to generate  HTML version of the printable report (saved in Downloads folder by default). <br/>
 	<input type="button" id="sbtBtn" class="button" value="Save as HTML (ctrl+z)" ng-click="saveHtml()">
-	</div>	
+	</div>		
   <script src="./JS/acrt_Web_Report.js"> </script>
 
 
