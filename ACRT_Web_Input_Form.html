@@ -43,7 +43,7 @@
 	</p>
 		<label for="fileinput" ><strong> Select template or test results file </strong></label> <br>  <input type="file"  class="input" id="fileinput" name="Browse Input File" ng-click ="fileInput();" >  <br>  
 	  <br>
-	   <span id="hideLoad"  ><label for="loadFile" ng-if="fileInput" ><strong> Load selected file</strong> </label> <br> <button ng-if="fileInput" id='button' class="button" ng-model="loadbtn" ng-click="loadFile();" id='loadFile' name="Load Data In this Form" ng-model-options="{  updateOn: 'click',  debounce: { 'default': 20, 'blur': 0 }}">Load File </button> </span> 
+	   <span id="hideLoad"  ><label for="loadFile" ng-show="fileInput1" ><strong> Load selected file</strong> </label> <br> <button ng-show="fileInput1" id='button' class="button" ng-model="loadbtn" ng-click="loadFile();" id='loadFile' name="Load Data In this Form" ng-model-options="{  updateOn: 'click',  debounce: { 'default': 20, 'blur': 0 }}">Load File </button> </span> 
 	   <p> <img   id="dwnldConfm"  ng-src ="./Resources/chkMrk.jpg"  ng-if="dataLoaded" width="20" height="20"  alt="right sign" onerror="this.style.display='none';"> 
 	   <span  id="msg"><strong class="hdnMsg">  </strong></span></p> 
 	</div> 
@@ -71,37 +71,39 @@
  
  </ul>  </p> -->
 
-<fieldset style="margin-left: 0px;">
+<fieldset  style="margin-left: 1em;height: auto;">
   <legend>
     <h2> Product  </h2></legend>
 	<button class="collapsible" onclick="expandCollapse1()"><div id="expandCollapse1"> <i class="up"></i> Show Product section</div> </button> 
 <div class="content">
 <div class="divSpace" id="productInfo" >
-   <label for="productID" class="required"> Product Name (Required <span ng-if="!acrtInputForm.productName.$valid" >, 50 chars max</span>): </label> <input type="string" name= "productName" title="Required, 50 Chars max" ng-model="productID" class= "betnTags" id="productID" placeholder="Product Name, 50 Chars max" ng-maxlength="50" required size="50">&nbsp;     
+   <label for="productID" class="required"> Product Name (Required <span ng-if="!acrtInputForm.productName.$valid" >, 50 chars max</span>): </label> <input type="string" name= "productName" title="Required, 50 Chars max" ng-model="productID" class= "betnTags" id="productID" placeholder="Product Name, 50 Chars max" ng-maxlength="50" required size="50">&nbsp;    
    <br><label for="versionID" class="required"> Product Version (Required <span ng-if="!acrtInputForm.ProductVersion.$valid" >, 50 chars max</span> ): </label> <input type="string" ng-model="versionID" class= "betnTags" id="versionID" name="ProductVersion" placeholder="Product Version, 50 Chars max" title="Required, 50 Char max" ng-maxlength="50" required size="50"> 
    <br> <label for="ownerID">Product Owner/Vendor <span ng-if="!acrtInputForm.ProductOwner.$valid" >(50 chars max)</span>: </label> <input type="string" ng-model="ownerID" class= "betnTags" id="ownerID" name="ProductOwner" placeholder="Product Owner, 50 Chars max" title="50 Chars max" ng-maxlength="50" size="50"> &nbsp; <br>
    
-   <br>
+   
    <label for="productType"> Product Type:&nbsp;&nbsp;</label>  
 <select name="  Type of Product" ng-model="productType"  id="productType" >
 <option value="">{{default_productType}}</option>
 <option ng-repeat="result in testProductTypes" value="{{result.name}}">{{result.name}}</option>
 </select>
- <br>
-   
-   <br>
-   
-   <label for="urlID">Location <span ng-if="!acrtInputForm.Location.$valid" >(50 chars max)</span>: </label> <input type="string" ng-model="urlID"  id="urlID" placeholder="location, 150 chars max" name="Location" title="150 Chars max" ng-maxlength="150" size="150"> &nbsp;    
+
+<span  ng-show="productType=='Other'"> 
+&nbsp;&nbsp; Please enter <span ng-if="!acrtInputForm.OtherProductType.$valid" >(100 chars max)</span><input  type="string"  placeholder="Other Product" ng-model="otherProduct"  id="otherProduct" name="OtherProductType" ng-maxlength="100"  title="100 Chars max" size="100"> 
+</span>   
+   <br><br><label for="urlID">Location <span ng-if="!acrtInputForm.Location.$valid" >(50 chars max)</span>: </label> <input type="string" ng-model="urlID"  id="urlID" placeholder="location, 150 chars max" name="Location" title="150 Chars max" ng-maxlength="150" size="150"> &nbsp;    
    
    
    <br>
    <br><label for="prodDescID" class="required"> Product description (Required <span ng-if="!acrtInputForm.ProductDescription.$valid" >, 1000 chars max</span>) : </label><br>
    <textarea rows="4" cols="90" type="text" ng-model="prodDescID" class="txtarea" id="prodDescID" placeholder="Product Description, 1000 chars max" name="ProductDescription" title="Required, 1000 Chars max" ng-maxlength="1000" required> </textarea> &nbsp;
-   <br><br><label for="prdNteDescID"> Notes <span ng-if="!acrtInputForm.Notes.$valid" >(1000 chars max)</span>:</label><br>
-<textarea rows="4" cols="90" type="text" ng-model="prdNteDescID" class="txtarea" id="prdNteDescID" name="Notes" title="1000 Chars max" placeholder="Notes, 1000 chars max" ng-maxlength="1000"> </textarea>
+   <br><br><br><label for="prdNteDescID"> Notes <span ng-if="!acrtInputForm.Notes.$valid" >(1000 chars max)</span>:</label><br>
+<textarea rows="4" cols="90" type="text" ng-model="prdNteDescID" class="txtarea" id="prdNteDescID" name="Notes" title="1000 Chars max" placeholder="Notes, 1000 chars max" ng-maxlength="1000"> </textarea> <br>
    
  </div>  </div>
  </fieldset></br>
+ 
+ 
  
   <fieldset style="margin-left: 1em;"> 
  <legend>
@@ -296,8 +298,8 @@
 	</label> &nbsp;
 
 <span  ng-show="otherWindow"> 
-Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="entOthrWindID" name="Other OS Type" ng-maxlength="50" ><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Version <input type="string" ng-model="entOthrWindVrsn" class= "betnTags" id="entOthrWindVrsn" name="Other OS Version" ng-maxlength="50" >
+<label for="OtherOSType"> Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="OtherOSType" name="OtherOSType" ng-maxlength="50" ></label><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label for="OtherOSVersion">Version <input type="string" ng-model="entOthrWindVrsn" class= "betnTags" id="OtherOSVersion" name="OtherOSVersion" ng-maxlength="50" ></label>
 
 </span> </div>
   
@@ -542,10 +544,10 @@ Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="entOthr
 
 <td >  <div class="widetd8">
 
-<br> <input  ng-if="browseImageOption[$index]" type="file"  ng-model='imgCnvrsn[$index]' title="Browse Image"   onchange="angular.element(this).scope().uploadImage(this)" /> <br> 
-    <img   id="image{{$index}}" ng-if="imageCapturedStored[$index]" ng-src = {{test.ImageSrc}}  alt="Selected Image" title="Selected Image" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">      
-   <img    id="image{{$index}}" ng-if="imageCaptured[$index]" ng-src = {{imgCnvrsnCurrentValue[$index]}}  alt="Selected Image" title="Selected Image" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
-   <img    id="image{{$index}}" ng-if="removeClicked[$index]" ng-src = {{imgCnvrsnCurrentValue[$index]}}  alt="Selected Image" title="Selected Image" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
+<br> <input  ng-if="browseImageOption[$index]" type="file"  ng-model='imgCnvrsn[$index]'  title="Browse to screenshot images" onchange="angular.element(this).scope().uploadImage(this)" /> <br> 
+    <img   id="image{{$index}}" ng-if="imageCapturedStored[$index]" ng-src = {{test.ImageSrc}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">      
+   <img    id="image{{$index}}" ng-if="imageCaptured[$index]" ng-src = {{imgCnvrsnCurrentValue[$index]}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
+   <img    id="image{{$index}}" ng-if="removeClicked[$index]" ng-src = {{imgCnvrsnCurrentValue[$index]}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
 			<div id="{{$index}}" class="modal">
              <span class="close">&times;</span>
             <img alt="Selected Image" title="Selected Image" class="modal-content" id="img{{$index}}">
@@ -685,9 +687,9 @@ Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="entOthr
 
 <td > <br><div class="widetd8"> 
  <!-- <input  type="file"   ng-model='imgCnvrsn1[$index]' title="Browse Image"  onchange="angular.element(this).scope().uploadImage1(this)" /> -->
- <input ng-if="browseImageOption1[$index]" type="file"   ng-model='imgCnvrsn1[$index]' title="Browse Image"  onchange="angular.element(this).scope().uploadImage1(this)" />   
-   <img  id="image{{$index}}"  ng-if="imageCaptured1[$index]" ng-src = {{imgCnvrsnCurrentValue1[$index]}}  alt="Selected Image" title="Selected Image" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
-   <img  id="image{{$index}}"  ng-if="removeClicked1[$index]" ng-src = {{imgCnvrsnCurrentValue1[$index]}}  alt="Selected Image" title="Selected Image" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
+ <input ng-if="browseImageOption1[$index]" type="file"   ng-model='imgCnvrsn1[$index]' alt="Selected Image" title="Browse to screenshot images"  onchange="angular.element(this).scope().uploadImage1(this)" />   
+   <img  id="image{{$index}}"  ng-if="imageCaptured1[$index]" ng-src = {{imgCnvrsnCurrentValue1[$index]}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
+   <img  id="image{{$index}}"  ng-if="removeClicked1[$index]" ng-src = {{imgCnvrsnCurrentValue1[$index]}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
 	
 	<div id="{{$index}}" class="modal">
              <span class="close">&times;</span>
