@@ -117,6 +117,10 @@ app.controller('acrtFormCtrl', function($scope, $filter) {
 	  
   } 
   
+  $scope.fileInput = function fileInput() {
+$scope.fileInput1 = true;	
+}
+  
  $scope.noResult =[];
 
   //zoom image 

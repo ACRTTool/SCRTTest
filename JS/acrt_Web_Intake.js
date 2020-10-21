@@ -829,6 +829,7 @@ $scope.productID = " ";
 $scope.ownerID = " ";
 $scope.versionID = " ";
 $scope.productType = " ";
+$scope.otherProduct=" ";
 $scope.urlID = " ";
 $scope.flashID = " ";
 $scope.evalMthd = " ";
@@ -933,7 +934,7 @@ $scope.RemarkExplntnCollection = [];
   $scope.versionID = [];
   //$scope.versionID = "id";
   $scope.ownerID = [];
-  $scope.productType = [];
+  //$scope.productType = [];
   $scope.urlID = [];
  // $scope.prodDescID = [];
   $scope.prdNteDescID = [];
@@ -969,13 +970,11 @@ $scope.RemarkExplntnCollection = [];
  $scope.imageCaptured1 = [];
  $scope.removeClicked1 =[];
  	$scope.dataLoaded = false;
- $scope.updateJSON = false;
- $scope.fileInput = false;
+ $scope.updateJSON = false; 
 //$scope.createEditOption = 'Please Select Approperiate JSON File';
 //$scope.imageAdded = false;
 $scope.fileInput = function fileInput() {
-$scope.fileInput = true;	
-//alert($scope.fileInput);
+$scope.fileInput1 = true;	
 }
 
  //$scope.testScope ="";
@@ -1019,7 +1018,7 @@ $scope.loadFile = function loadFile() {
 	  $scope.productID = $scope.jsonData[0].Product.P_Name;	     
       $scope.versionID = $scope.jsonData[0].Product.P_Version;      
       $scope.ownerID = $scope.jsonData[0].Product.P_Owner;     
-      $scope.productType = $scope.jsonData[0].Product.P_Type;     
+      $scope.productType = $scope.jsonData[0].Product.P_Type;        	  
       $scope.urlID = $scope.jsonData[0].Product.P_Location;     
       $scope.prodDescID = $scope.jsonData[0].Product.P_Desc;     
       $scope.prdNteDescID = $scope.jsonData[0].Product.P_Notes;     
@@ -1571,8 +1570,7 @@ $scope.createEditOption = 'Edit Report Test Results Form';
   
 }
   
-	  
-  
+ 
 setTimeout(function() {
 		$scope.$apply();   
    }, 500);
@@ -2919,7 +2917,10 @@ $scope.testresult1 = '"Criteria":[' + $scope.totTstRslt + ']';
   $scope.Guideline = $scope.checkboxModel.value12;
   $scope.Section508 = $scope.checkboxModel.value13;
  
-  $scope.formData = " ";
+  $scope.formData = " ";  
+  if($scope.productType == 'Other')
+  $scope.productType = $scope.otherProduct;
+  
   
   //preventing special characters   
   $scope.prodDescID = $scope.prodDescID.toString().replace(/"/g, "'").trim();
@@ -2960,7 +2961,7 @@ $scope.testresult1 = '"Criteria":[' + $scope.totTstRslt + ']';
 	$scope.browserCollection = $scope.browserCollection.toString().replace(/, /g, " ").trim();
 	$scope.browserCollection = $scope.browserCollection.toString().replace(/,/g, ", ").trim();
 	$scope.browserCollection = $scope.browserCollection.toString().replace(/,\s*$/, "");
-  $scope.formData = '[{"Product":' +
+    $scope.formData = '[{"Product":' +
     '{"P_Name":"' + $scope.productID + '","P_Version": "' + $scope.versionID + '","P_Owner": "' + $scope.ownerID + '","P_Type": "' + $scope.productType + '","P_Location": "' + $scope.urlID + '","P_Desc": "' + $scope.prodDescID + '","P_Notes": "' + $scope.prdNteDescID + '"}, "System":' +
     $scope.myOpsys + $scope.osVrsnNo + '","S_osVrsnNo": "' + $scope.osVrsnCollection + '","S_selectedOS": "' + $scope.osCollection + $scope.categories + $scope.browserVersionsCollection + '","S_selectedBrowser": "' + $scope.browserCollection + '","S_selectedBrowserVersions": "' + $scope.browserVrsnCollection + '","S_Compatibility": "' + $scope.selected_name_cmpblty + '"},"Tester":' +
     '{"T_fstnm":"' + $scope.firstname + '","T_lstnm": "' + $scope.lastname + '","T_ID": "' + $scope.testerID + '","T_companyname": "' + $scope.companyname +'","T_Role": "' + $scope.myRole + '","T_cntc": "' + $scope.testerContact + '","T_scope": "' + $scope.testScope + '","T_eval": "' + $scope.selected_name_tstprcss + '","T_evalMthd_Vrsn": "' + $scope.evlMthdVrsn + '","crtLength": "' + $scope.criteriaLength + '","T_Date": "' + $scope.tDateId + '"}, "Standard":' +
