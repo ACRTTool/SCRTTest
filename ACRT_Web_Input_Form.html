@@ -77,9 +77,9 @@
 	<button class="collapsible" onclick="expandCollapse1()"><div id="expandCollapse1"> <i class="up"></i> Show Product section</div> </button> 
 <div class="content">
 <div class="divSpace" id="productInfo" >
-   <label for="productID" class="required"> Product Name (Required <span ng-if="!acrtInputForm.productName.$valid" >, 50 chars max</span>): </label> <input type="string" name= "productName" title="Required, 50 Chars max" ng-model="productID" class= "betnTags" id="productID" placeholder="Product Name, 50 Chars max" ng-maxlength="50" required size="50">&nbsp;    
-   <br><label for="versionID" class="required"> Product Version (Required <span ng-if="!acrtInputForm.ProductVersion.$valid" >, 50 chars max</span> ): </label> <input type="string" ng-model="versionID" class= "betnTags" id="versionID" name="ProductVersion" placeholder="Product Version, 50 Chars max" title="Required, 50 Char max" ng-maxlength="50" required size="50"> 
-   <br> <label for="ownerID">Product Owner/Vendor <span ng-if="!acrtInputForm.ProductOwner.$valid" >(50 chars max)</span>: </label> <input type="string" ng-model="ownerID" class= "betnTags" id="ownerID" name="ProductOwner" placeholder="Product Owner, 50 Chars max" title="50 Chars max" ng-maxlength="50" size="50"> &nbsp; <br>
+   <label for="productID" class="required"> Product Name (Required <span ng-if="!acrtInputForm.productName.$valid" >, 50 chars max</span>): </label> <input type="string" name= "productName" title="Required, 50 Chars max" ng-model="productID" class= "betnTags" id="productID" placeholder="Product Name, 50 Chars max" ng-maxlength="50" required size="50" limit-to="50">&nbsp;    
+   <br><label for="versionID" class="required"> Product Version (Required <span ng-if="!acrtInputForm.ProductVersion.$valid" >, 50 chars max</span> ): </label> <input type="string" ng-model="versionID" class= "betnTags" id="versionID" name="ProductVersion" placeholder="Product Version, 50 Chars max" title="Required, 50 Char max" ng-maxlength="50" required size="50" limit-to="50"> 
+   <br> <label for="ownerID">Product Owner/Vendor <span ng-if="!acrtInputForm.ProductOwner.$valid" >(50 chars max)</span>: </label> <input type="string" ng-model="ownerID" class= "betnTags" id="ownerID" name="ProductOwner" placeholder="Product Owner, 50 Chars max" title="50 Chars max" ng-maxlength="50" size="50" limit-to="50"> &nbsp; <br>
    
    
    <label for="productType"> Product Type:&nbsp;&nbsp;</label>  
@@ -89,16 +89,16 @@
 </select>
 
 <span  ng-show="productType=='Other'"> 
-&nbsp;&nbsp; Please enter <span ng-if="!acrtInputForm.OtherProductType.$valid" >(100 chars max)</span><input  type="string"  placeholder="Other Product" ng-model="otherProduct"  id="otherProduct" name="OtherProductType" ng-maxlength="100"  title="100 Chars max" size="100"> 
+&nbsp;&nbsp; Please enter <span ng-if="!acrtInputForm.OtherProductType.$valid" >(100 chars max)</span><input  type="string"  placeholder="Other Product" ng-model="otherProduct"  id="otherProduct" name="OtherProductType" ng-maxlength="100"  title="100 Chars max" size="100" limit-to="100"> 
 </span>   
-   <br><br><label for="urlID">Location <span ng-if="!acrtInputForm.Location.$valid" >(50 chars max)</span>: </label> <input type="string" ng-model="urlID"  id="urlID" placeholder="location, 150 chars max" name="Location" title="150 Chars max" ng-maxlength="150" size="150"> &nbsp;    
+   <br><br><label for="urlID">Location <span ng-if="!acrtInputForm.Location.$valid" >(50 chars max)</span>: </label> <input type="string" ng-model="urlID"  id="urlID" placeholder="location, 150 chars max" name="Location" title="150 Chars max" ng-maxlength="150" size="150" limit-to="150"> &nbsp;    
    
    
    <br>
    <br><label for="prodDescID" class="required"> Product description (Required <span ng-if="!acrtInputForm.ProductDescription.$valid" >, 1000 chars max</span>) : </label><br>
-   <textarea rows="4" cols="90" type="text" ng-model="prodDescID" class="txtarea" id="prodDescID" placeholder="Product Description, 1000 chars max" name="ProductDescription" title="Required, 1000 Chars max" ng-maxlength="1000" required> </textarea> &nbsp;
+   <textarea rows="4" cols="90" type="text" ng-model="prodDescID" class="txtarea" id="prodDescID" placeholder="Product Description, 1000 chars max" name="ProductDescription" title="Required, 1000 Chars max" ng-maxlength="1000" limit-to="1000" required> </textarea> &nbsp;
    <br><br><br><label for="prdNteDescID"> Notes <span ng-if="!acrtInputForm.Notes.$valid" >(1000 chars max)</span>:</label><br>
-<textarea rows="4" cols="90" type="text" ng-model="prdNteDescID" class="txtarea" id="prdNteDescID" name="Notes" title="1000 Chars max" placeholder="Notes, 1000 chars max" ng-maxlength="1000"> </textarea> <br>
+<textarea rows="4" cols="90" type="text" ng-model="prdNteDescID" class="txtarea" id="prdNteDescID" name="Notes" title="1000 Chars max" placeholder="Notes, 1000 chars max" ng-maxlength="1000" limit-to="50"> </textarea> <br>
    
  </div>  </div>
  </fieldset></br>
@@ -113,12 +113,12 @@
 <div class="content">
 
  <div class="divSpace" id="testersInfo" >
- <label for="CompanyName" class="required"> Company Name (Required<span ng-if="!acrtInputForm.CompanyName.$valid" >, 100 chars max</span>): </label> <input type="string" ng-model="companyname"  title="Required, 100 Chars max" placeholder ="Company Name, 100 chars max" id="companyname" name="CompanyName" ng-maxlength="100"  required size="100"> 
-  <br><label for="firstname" class="required"> Tester's First Name (Required <span ng-if="!acrtInputForm.TesterFirstName.$valid" >, 50 chars max</span>): </label> <input type="string" ng-model="firstname" placeholder ="First Name, 50 chars max" class= "betnTags" id="firstname" name="TesterFirstName" title="Required, 50 Chars max" ng-maxlength="50" required size="50"> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   
-   <br><label for="lastname" class="required"> Tester's Last Name (Required <span ng-if="!acrtInputForm.TesterLastName.$valid" >, 50 chars max</span>): </label> <input type="string" ng-model="lastname" placeholder ="Last Name, 50 chars max" class= "betnTags" id="lastname" name="TesterLastName" title="Required, 50 Chars max" ng-maxlength="50" required size="50"> 
-  <br><label for="testerID"> Trusted Tester ID <span ng-if="!acrtInputForm.TrustedTesterId.$valid" >(50 chars max)</span>: </label> <input type="string" ng-model="testerID" class= "betnTags" placeholder ="ID, 50 chars max" id="testerID" name="TrustedTesterId" title="50 Chars max" ng-maxlength="50"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
-  <br> <label for="testerContact" class="required"> Tester's Email (Required <span ng-if="!acrtInputForm.TesterContact.$valid" >, 50 chars max</span>): </label> <input type="string" ng-model="testerContact" placeholder ="Contact, 50 chars max" class= "betnTags" id="testerContact" name="TesterContact" title="Required, 50 Chars max" ng-maxlength="50" required size="50">
-   <br><label for="testScope" > Testing Scope <span ng-if="!acrtInputForm.TestScope.$valid" >(1000 chars max)</span>:</label><br> <textarea rows="4"cols="90"type="text"ng-model="testScope"class="txtarea"id="testScope"name="TestScope" placeholder="test scope, 1000 chars max" title="1000 Chars max"></textarea>   
+ <label for="CompanyName" class="required"> Company Name (Required<span ng-if="!acrtInputForm.CompanyName.$valid" >, 100 chars max</span>): </label> <input type="string" ng-model="companyname"  title="Required, 100 Chars max" placeholder ="Company Name, 100 chars max" id="companyname" name="CompanyName" ng-maxlength="100"  required size="100" limit-to="100"> 
+  <br><label for="firstname" class="required"> Tester's First Name (Required <span ng-if="!acrtInputForm.TesterFirstName.$valid" >, 50 chars max</span>): </label> <input type="string" ng-model="firstname" placeholder ="First Name, 50 chars max" class= "betnTags" id="firstname" name="TesterFirstName" title="Required, 50 Chars max" ng-maxlength="50" required size="50" limit-to="50"> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   
+   <br><label for="lastname" class="required"> Tester's Last Name (Required <span ng-if="!acrtInputForm.TesterLastName.$valid" >, 50 chars max</span>): </label> <input type="string" ng-model="lastname" placeholder ="Last Name, 50 chars max" class= "betnTags" id="lastname" name="TesterLastName" title="Required, 50 Chars max" ng-maxlength="50" required size="50" limit-to="50"> 
+  <br><label for="testerID"> Trusted Tester ID <span ng-if="!acrtInputForm.TrustedTesterId.$valid" >(50 chars max)</span>: </label> <input type="string" ng-model="testerID" class= "betnTags" placeholder ="ID, 50 chars max" id="testerID" name="TrustedTesterId" title="50 Chars max" ng-maxlength="50" limit-to="50"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+  <br> <label for="testerContact" class="required"> Tester's Email (Required <span ng-if="!acrtInputForm.TesterContact.$valid" >, 50 chars max</span>): </label> <input type="string" ng-model="testerContact" placeholder ="Contact, 50 chars max" class= "betnTags" id="testerContact" name="TesterContact" title="Required, 50 Chars max" ng-maxlength="50" required size="50" limit-to="50">
+   <br><label for="testScope" > Testing Scope <span ng-if="!acrtInputForm.TestScope.$valid" >(1000 chars max)</span>:</label><br> <textarea rows="4"cols="90"type="text"ng-model="testScope"class="txtarea"id="testScope"name="TestScope" placeholder="test scope, 1000 chars max" title="1000 Chars max" ng-maxlength="1000" limit-to="1000"></textarea>   
     <br><br> <label for="evalMthd"> Testing Method: </label> 	
 
 	 <!-- <select name="  Evaluation Method " ng-model="selected_name_tstprcss" id="evalMthd"  >  
@@ -249,8 +249,8 @@
     	
 </span>
 <TD>
-<label for="entOthrBrsrID"><span class="show" ng-show="otherBrowser"> Type: <input type="string" ng-model="entOthrBrsrID" class= "betnTags" id="entOthrBrsrID" name="Other Browser" ng-maxlength="50" title="Other Browser"> </label> <br>	
-<label for="entOthrBrsrIDVrsn"><span class="show" ng-show="otherBrowser"> Version: <input type="string" ng-model="entOthrBrsrIDVrsn" class= "betnTags" id="entOthrBrsrIDVrsn" name="Other Browser" ng-maxlength="50" title="Other Browser"> </label> 	
+<label for="entOthrBrsrID"><span class="show" ng-show="otherBrowser"> Type: <input type="string" ng-model="entOthrBrsrID" class= "betnTags" id="entOthrBrsrID" name="Other Browser" ng-maxlength="50" title="Other Browser" limit-to="50"> </label> <br>	
+<label for="entOthrBrsrIDVrsn"><span class="show" ng-show="otherBrowser"> Version: <input type="string" ng-model="entOthrBrsrIDVrsn" class= "betnTags" id="entOthrBrsrIDVrsn" name="Other Browser" ng-maxlength="50" limit-to="50" title="Other Browser"> </label> 	
 </td>
 </div>
 </td>
@@ -298,8 +298,8 @@
 	</label> &nbsp;
 
 <span  ng-show="otherWindow"> 
-<label for="OtherOSType"> Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="OtherOSType" name="OtherOSType" ng-maxlength="50" ></label><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label for="OtherOSVersion">Version <input type="string" ng-model="entOthrWindVrsn" class= "betnTags" id="OtherOSVersion" name="OtherOSVersion" ng-maxlength="50" ></label>
+<label for="OtherOSType"> Name <input type="string" ng-model="entOthrWindID" class= "betnTags" id="OtherOSType" name="OtherOSType" ng-maxlength="50" limit-to="50" ></label><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label for="OtherOSVersion">Version <input type="string" ng-model="entOthrWindVrsn" class= "betnTags" id="OtherOSVersion" name="OtherOSVersion" ng-maxlength="50" limit-to="50"></label>
 
 </span> </div>
   
@@ -539,8 +539,8 @@
 </div>
 </div>
 </td>
- <td > <div class="widetd3"> <textarea  rows="4" cols="25" type="text" ng-model="testerCommentID[$index]" class="txtarea" placeholder="comments,1000 chars max" ng-maxlength="1000" title="Tester's Comment, 1000 chars max" > </textarea> </div> </td>
-<td > <div class="widetd3"> <textarea  rows="4" cols="25" type="text" ng-model="location[$index]" class="txtarea" placeholder="location, 1000 chars max" title="Location/Screen, 1000 chars max" ng-maxlength="1000" > </textarea> </div> </td>
+ <td > <div class="widetd3"> <textarea  rows="4" cols="25" type="text" ng-model="testerCommentID[$index]" class="txtarea" placeholder="comments,1000 chars max" ng-maxlength="1000" title="Tester's Comment, 1000 chars max" limit-to="1000"> </textarea> </div> </td>
+<td > <div class="widetd3"> <textarea  rows="4" cols="25" type="text" ng-model="location[$index]" class="txtarea" placeholder="location, 1000 chars max" title="Location/Screen, 1000 chars max" ng-maxlength="1000" limit-to="1000"> </textarea> </div> </td>
 
 <td >  <div class="widetd8">
 
@@ -572,7 +572,7 @@
 <td title="Remediation Details"> <div style="width: 200px">
   <!--<label for="selectorr111[$index]"> Add Remediation Details   <input style="width: 150px;" id="selectorr111[$index]" name="Remediation Details"  type="checkbox" ng-model="checked10"  > </label> &nbsp;<br />
 <div  ng-show="checked10">  -->
-<textarea rows="4" cols="50"  id= "{{ 'selectorrr111' + $index }}"  placeholder="Remediation Details, 1000 chars max" type="text" ng-model="rmdatnDtlID[$index]" class="txtarea" title="Remediation Details, 1000 chars max" ng-maxlength="1000"> </textarea>
+<textarea rows="4" cols="50"  id= "{{ 'selectorrr111' + $index }}"  placeholder="Remediation Details, 1000 chars max" type="text" ng-model="rmdatnDtlID[$index]" class="txtarea" title="Remediation Details, 1000 chars max" ng-maxlength="1000" limit-to="1000"> </textarea>
 </div>
 </td>
  <td title="Remediation Date"> <div style="width: 150px"> <input   type="date" title="Remediation Date" ng-model="rmdatnDatelID[$index]"  ng-click="dateTime([$index])" placeholder="mm/dd/yyyy" id="rmdatnDatelID{{$index}}" name="Remediation Date" /> 
@@ -681,8 +681,8 @@
 </div> 
 
 </td>
-<td > <div class="widetd3"> <textarea rows="4" cols="25" type="text" ng-model="testerCommentID1[$index]" placeholder="tester's comment, 1000 chars max." class="txtarea" title="Tester's Comment" ng-maxlength="1000" > </textarea> </div> </td>
-<td > <div class="widetd3"> <textarea rows="4" cols="25" type="text" ng-model="location1[$index]"   class="txtarea" placeholder="location/screenshot, 1000 chars max." title="Location/Screen, 1000 chars max" ng-maxlength="1000" > </textarea> </div> </td>
+<td > <div class="widetd3"> <textarea rows="4" cols="25" type="text" ng-model="testerCommentID1[$index]" placeholder="tester's comment, 1000 chars max." class="txtarea" title="Tester's Comment" ng-maxlength="1000" limit-to="1000"> </textarea> </div> </td>
+<td > <div class="widetd3"> <textarea rows="4" cols="25" type="text" ng-model="location1[$index]"   class="txtarea" placeholder="location/screenshot, 1000 chars max." title="Location/Screen, 1000 chars max" ng-maxlength="1000" limit-to="1000"> </textarea> </div> </td>
 
 
 <td > <br><div class="widetd8"> 
@@ -716,7 +716,7 @@
 <td title="Remediation Details">  <div style="width: 200px">     
  <!-- Add Remediation Details <input style="width: 150px;" id="selectorr1111[$index]" name="Remediation Details"  type="checkbox" ng-model="checked11" >  <br />
 <div  ng-show="checked11">  -->
-<textarea rows="4" cols="50" type="text" ng-model="rmdatnDtlID1[$index]" class="txtarea"  placeholder="remediation details, 1000 chars max." title="Remediation Details, 1000 chars max" ng-maxlength="1000"> </textarea>
+<textarea rows="4" cols="50" type="text" ng-model="rmdatnDtlID1[$index]" class="txtarea"  placeholder="remediation details, 1000 chars max." title="Remediation Details, 1000 chars max" ng-maxlength="1000" limit-to="1000"> </textarea>
 </div>
 </td>
  <td > <div style="width: 150px"> <input type="date" title="Date" ng-model="rmdatnDatelID1[$index]"  placeholder="mm/dd/yyyy" id="rmdatnDatelID1" name="Remediation Date" /></div></td>
