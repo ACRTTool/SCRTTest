@@ -1,4 +1,13 @@
 /* visually hidden for users but screenreader can read this */ 
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: white;
+}
 p{
 	
 	padding-left: 2em;
