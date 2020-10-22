@@ -14,7 +14,17 @@ window.onbeforeunload = function(event) {
   return message;
 }
 
-
+app.directive("limitTo", [function() {
+    return {
+        restrict: "A",
+        link: function(scope, elem, attrs) {
+            var limit = parseInt(attrs.limitTo);
+            angular.element(elem).on("keypress", function(e) {
+                if (this.value.length == limit) e.preventDefault();
+            });
+        }
+    }
+}]);
 
 //this function validates if json is valid
 function IsJsonString(str) {
@@ -2972,6 +2982,7 @@ $scope.testresult1 = '"Criteria":[' + $scope.totTstRslt + ']';
 $scope.submit1 = function() {
 
   $scope.error = [];
+  
   if ($scope.productID == " " || $scope.productID == undefined) {
     $scope.error.push("Product Name");
     
