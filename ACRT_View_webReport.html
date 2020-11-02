@@ -152,9 +152,9 @@
           <thead>
             <tr>
               <th style="width: 102px" scope="col">Criteria</th>
-              <th style="width: 218px" scope="col">Conformance Level</th>
-			   <th style="width: 216px" scope="col">Standard/Guideline</th> 
-              <th style="width: 398px" scope="col">Remarks and Explanations </th>
+              <th style="width: 219px" scope="col">Conformance Level</th>
+			   <th style="width: 219px" scope="col">Standard/Guideline</th> 
+              <th style="width: 400px" scope="col">Remarks and Explanations </th>
 			 <!-- <th style="width: 450px" scope="col">Impacted Group </th> -->
             </tr>
           </thead>
@@ -234,9 +234,9 @@
 
           <tbody ng-repeat="record in jsonData">
             <tr ng-repeat="test in record.Criteria " ng-if="noResult[$index]">
-			 <td title="Issue Number">
+			 <th title="Issue Number">
                 <div style="width: 80px"> Issue {{counterCollection[$index]}} </div>
-              </td>              
+              </th>              
               <td scope="row" title="Test Name" id="tnm1[$index]">
                 <div class="widetd1"> {{TestName[$index]}} </div>
               </td>
@@ -286,7 +286,7 @@
         </div>
 </div>
 
-        <fieldset ng-show='DisabilityImpactCollectionLength' style="margin-left: 0px;">
+        <fieldset ng-show='DisabilityImpactCollectionLength' style="margin-left: -1em;">
           <legend>
             <h3> Disability Impact </h3>
           </legend>
@@ -316,7 +316,7 @@
           </div>
         </fieldset>
 
-        <fieldset style="margin-left: 1em;">
+        <fieldset style="margin-left: 0em;">
           <legend>
             <h3 > Other Test Results </h3>
           </legend>
@@ -332,7 +332,7 @@
     </form>
   </main>
   <br/><br/><br/><br/> 
-  <div id="htmlReportDiv" class="footerbutton"  hidden >
+  <div id="htmlReportDiv" class="footerbutton" style="margin-left: 1em;"  hidden >
 	Select <strong>Save as HTML</strong> to generate  HTML version of the printable report (saved in Downloads folder by default). <br/>
 	<input type="button" id="sbtBtn" class="button" value="Save as HTML (Alt+s)" ng-click="saveHtml()">
 	</div>		
