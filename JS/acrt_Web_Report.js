@@ -494,7 +494,7 @@ function KeyPress(e) {
 		let d=i+1;
 		if($scope.noResult[i]== true){
       testResult += "<tr >";
-	  testResult += "<td title=\"Issue Number\"> Issue " + $scope.jsonData[0].Criteria[i].Counter; + "</td>";
+	  testResult += "<th title=\"Issue Number\"> Issue " + $scope.jsonData[0].Criteria[i].Counter; + "</th>";
 	  testResult += "<td scope=\"row\"  title=\"Test Name\">" + $scope.jsonData[0].Criteria[i].TestName; + "</td>";      
       testResult += "<td title=\"Test ID\">" + $scope.jsonData[0].Criteria[i].TestID; + "</td>";
       testResult += "<td title=\"Test Condition\">" + $scope.jsonData[0].Criteria[i].TestCondition; + "</td>";
