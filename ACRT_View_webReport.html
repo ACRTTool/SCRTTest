@@ -233,12 +233,12 @@
 
           <tbody ng-repeat="record in jsonData">
             <tr ng-repeat="test in record.Criteria " ng-if="noResult[$index]">
-			 <th scope="row" title="Issue Number">
+			 <td  title="Issue Number">
                 <div style="width: 80px"> Issue {{counterCollection[$index]}} </div>
-              </th>              
-              <td  title="Test Name" id="tnm1[$index]">
+              </td>              
+              <th  scope="row" title="Test Name" id="tnm1[$index]">
                 <div class="widetd1"> {{TestName[$index]}} </div>
-              </td>
+              </th>
               <td title="Test Id" id="tid1[$index]">
                 <div class="widetd2"> {{TestID[$index]}}</div>
               </td>
@@ -311,7 +311,7 @@
           </div>
         </fieldset>
 
-        <fieldset style="margin-left: 0em;">
+        <fieldset style="margin-left: 1em;">
           <legend>
             <h3 > Other Test Results </h3>
           </legend>
