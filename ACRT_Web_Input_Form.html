@@ -369,10 +369,10 @@
  <tbody ng-repeat="record in jsonData">
 <tr ng-repeat="test in record.Criteria" >  
 
-<th > <div ng-if='original' style="width: 97px"  title="Issue Number" > Issue {{$index+1}} </div>
+<th  scope="row" > <div ng-if='original' style="width: 97px"  title="Issue Number" > Issue {{$index+1}} </div>
  <div ng-if='edit' style="width: 97px"  title="Issue Number" >Issue {{counterCollection[$index]}} </div> 
 </th>
-<td scope="row" title="Test Name" ><div class="widetd1">{{test.TestName}}</div></td>
+<td  title="Test Name" ><div class="widetd1">{{test.TestName}}</div></td>
 <td ><div class="widetd2"  id="testID{{$index}}" title="Test ID"> {{test.TestID}} </div> </td>
 <td > <div class="widetd3" id="testConditionID{{$index}}" title="Test Condition" >{{test.TestCondition}}</div> </td>
 <td style="width: 50px" > 
@@ -589,7 +589,7 @@
 </tr>
  
  <tr ng-repeat="Issue in Mul_Issues track by $index">
- <th  title="Issue Number"> <div style="width: 100px"> Issue {{newlyAddedIssuePosition[$index]}} </div> </th>
+ <th  scope="row" title="Issue Number"> <div style="width: 100px"> Issue {{newlyAddedIssuePosition[$index]}} </div> </th>
 <td  title="Test Name" > <div class="widetd1"  > {{Issue.InsrtTestName}} </div></td>
 <td  title="Test ID"><div class="widetd2"> {{Issue.InsrtTestID}} </div> </td>
 <td title="Test Condition"><div class="widetd3"> {{Issue.InsrtTestCondition}}</div> <br/>  <button   id="{{ 'a'+indexCollection[$index] }}" type="button" ng-click="removeIssue($index)"  >Remove Child Issue </button> </td>
