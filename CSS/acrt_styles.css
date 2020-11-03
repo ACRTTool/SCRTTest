@@ -250,20 +250,19 @@ i{
   
 }
 
-/*
+
 h1 { 
-  color: white;
+  color: black;
   display: block;
-  font-size: 2em;
-  margin-top: 0.67em;
+  font-size: 2em; 
+  font-family: "Franklin Gothic Book","system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";
+ /* margin-top: 0.67em;
   margin-bottom: 0.67em;
-  font-family: "system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";
- 
   font-weight: bold;
   background-color:rgb(0, 51, 102);
-  text-align: center;  
+  text-align: center;  */
 }
-*/
+
 
 a {
   
