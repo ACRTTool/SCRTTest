@@ -1221,35 +1221,42 @@ $scope.createEditOption = 'Edit Report Test Results Form';
         $scope.checkboxModel.value7 = 'IOS'
       }
 
-	
+	  if($scope.jsonData[0].System.S_Compatibility != undefined)
 	  $scope.default_compatibilitySetting = $scope.jsonData[0].System.S_Compatibility;
-      $scope.default_ieVersn = $scope.jsonData[0].System.S_ieVrsh;		  
-      $scope.default_edgVersn = $scope.jsonData[0].System.S_edgVrsn;      
+	  if($scope.jsonData[0].System.S_ieVrsh != undefined)
+      $scope.default_ieVersn = $scope.jsonData[0].System.S_ieVrsh;	
+      if($scope.jsonData[0].System.S_edgVrsn != undefined)  
+      $scope.default_edgVersn = $scope.jsonData[0].System.S_edgVrsn;  
+      if($scope.jsonData[0].System.S_chrVrsn != undefined)  
       $scope.default_chrVersn = $scope.jsonData[0].System.S_chrVrsn;
-       
+      if($scope.jsonData[0].System.S_sfVrsn != undefined) 
       $scope.default_sfVersn = $scope.jsonData[0].System.S_sfVrsn;
-     
+      if($scope.jsonData[0].System.S_frfxVrsn != undefined)
       $scope.default_frfxVersn = $scope.jsonData[0].System.S_frfxVrsn;
-     
+      if($scope.jsonData[0].System.S_othrBrsVrsn != undefined)
       $scope.entOthrBrsrIDVrsn = $scope.jsonData[0].System.S_othrBrsVrsn;
-     
+      if($scope.jsonData[0].System.S_othrBrsType != undefined)
       $scope.entOthrBrsrID = $scope.jsonData[0].System.S_othrBrsType;
-     
+      if($scope.jsonData[0].System.S_winVrsn != undefined)
       $scope.default_WindVrsn = $scope.jsonData[0].System.S_winVrsn;
-     
+      if($scope.jsonData[0].System.S_iosVrsn != undefined)
       $scope.default_MacVrsn = $scope.jsonData[0].System.S_iosVrsn;   
-     
+      if($scope.jsonData[0].System.S_otherOSType != undefined)
       $scope.entOthrWindID = $scope.jsonData[0].System.S_otherOSType;
-     
+      if($scope.jsonData[0].System.S_otherOSVrsn != undefined)
       $scope.entOthrWindVrsn = $scope.jsonData[0].System.S_otherOSVrsn;
-     
-      $scope.default_compatibility = $scope.jsonData[0].System.S_Compatibility;     
+      if($scope.jsonData[0].System.S_Compatibility != undefined)
+      $scope.default_compatibility = $scope.jsonData[0].System.S_Compatibility;   
+      if($scope.jsonData[0].Tester.T_eval != undefined)  
       $scope.default_evalMethod = $scope.jsonData[0].Tester.T_eval;  
+      if($scope.default_evalMethod != undefined)
 	  $scope.selected_name_tstprcss = $scope.default_evalMethod;
-	  
+      if( $scope.jsonData[0].Tester.T_evalMthd_Vrsn != undefined)	  
 	  $scope.default_tstVrsn = $scope.jsonData[0].Tester.T_evalMthd_Vrsn;
-      $scope.evlMthdVrsn = $scope.default_tstVrsn ;    
-      $scope.default_productType = $scope.jsonData[0].Product.P_Type;	  
+      if( $scope.default_tstVrsn != undefined)
+      $scope.evlMthdVrsn = $scope.default_tstVrsn ;  
+      if( $scope.jsonData[0].Product.P_Type != undefined)  
+      $scope.default_productType = $scope.jsonData[0].Product.P_Type;	       
 	  $scope.jsonData[0].System.S_other = $scope.jsonData[0].System.S_other.toString().trim();	  
 	  if ($scope.jsonData[0].System.S_other === 'Other Browser' || $scope.jsonData[0].System.S_other === '  Other Browser  ' ){
        $scope.chkBoxValOthrBrwsr1 = true;
@@ -1409,7 +1416,7 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 				$scope.entOthrBrsrIDl[b] = $scope.jsonData[0].System.S_othrBrsType;
 			
         }*/
-		//if($scope.jsonData[0].Criteria[b].TestResult != undefined)
+		if($scope.jsonData[0].Criteria[b].TestResult != undefined)
         if($scope.jsonData[0].Criteria[b].TestResult != 'undefined'){			
         $scope.default_SelectedResult[b] = $scope.jsonData[0].Criteria[b].TestResult;        	
 		$scope.browseImageOption[b]=true;
