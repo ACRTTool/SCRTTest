@@ -84,7 +84,7 @@
    
    
    <label for="productType"> Product Type:&nbsp;&nbsp;</label>  
-<select name="  Type of Product" ng-model="productType"  id="productType" >
+<select name="Type of Product" title="Product type {{default_productType}}" ng-model="productType"  id="productType" >
 <option value="">{{default_productType}}</option>
 <option ng-repeat="result in testProductTypes" value="{{result.name}}">{{result.name}}</option>
 </select>
