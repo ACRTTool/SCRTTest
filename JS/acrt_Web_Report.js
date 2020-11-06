@@ -333,7 +333,7 @@ document.getElementById("dsblGrpBtn").click();
       }
       $scope.impactedGroup = [];
        document.getElementById("msg1").innerHTML = "<strong>"+$scope.evalMethod +" Version "+$scope.evalMethodVrsn +"</strong> file load completed.<br>";		  
-        alert('To save printer friendly HTML file, select the keyboard shortcut (Alt+s) or Save button located at the bottom of the page.');
+        alert('To save printer friendly HTML file, select the keyboard shortcut (Alt+S) or Save button located at the bottom of the page.');
 	  
 	  //$scope.validData=true;
       if($scope.jsonData[0].SuccessCriteria == undefined){
