@@ -44,7 +44,7 @@
 		<li>Expand Product, Test Environment, Tester Sections & Terms to view information.</li>
 	    <li>At least one valid test result must be included to view complete report.</li>
 		<li>Double click on image in test result section to zoom it. </li>
-	    <li>To save printer friendly HTML report, use Alt+s or save button is located at the bottom of page.</li>		
+	    <li>To save printer friendly HTML report, use Alt+S or save button is located at the bottom of page.</li>		
 		<li>JSON report is used to edit & further analysis.HTML report is user friendly version. Keep both for future reference.</li>	
 	  </ol>
 	</p>
@@ -155,7 +155,7 @@
               <th style="width: 219px" scope="col">Conformance Level</th>
 			   <th style="width: 219px" scope="col">Standard/Guideline</th> 
               <th style="width: 400px" scope="col">Remarks and Explanations </th>
-			 <!-- <th style="width: 450px" scope="col">Impacted Group </th> -->
+			  <!-- <th style="width: 450px" scope="col">Impacted Group </th> -->
             </tr>
           </thead>
           <tbody ng-repeat="record1 in jsonData">
@@ -164,7 +164,7 @@
               <td style="width: 220px" title="Conformance Level" >{{test1.ConformanceLvl}}</td>
 			  <td style="width: 220px" title="Guideline" > {{test1.Guideline}}  </td> 
               <td style="width: 400px" title="Remarks & Explanations" > {{test1.RemarkExplntn}}  </td>			  
-			 <!-- <td style="width: 450px" title="Remarks & Explanations" > {{test1.DisabilityImpact}}  </td> -->
+			 <!--<td style="width: 450px" title="Impacted Group" > {{test1.DisabilityImpact}}  </td>  -->
         </tr>
 
         </div>
@@ -184,7 +184,7 @@
                
                  <div ng-show="checked1">
  
-				<div ng-if="wcagRprt">	 
+				<div ng-show="wcagRprt">	 
 
 
                   <table class="table" id="th1" style="font-size: 93%"  >
@@ -296,7 +296,8 @@
           <button class="collapsible"  id="dsblGrpBtn">Impact Summary </button>
           <div class="content">
 		   <label for="dsblImpctRslt"> </label>  <!-- <h4>Different impacted groups are separated by comma, check below</h4> -->
-		  <span id="dsblImpctRslt" >{{DisabilityImpactCollection}}</span>
+		  <span id="dsblImpctRslt" >{{DisabilityImpactCollection}} </span>	<!-- {{DisabilityImpactCollectionSC}}-->	  
+		  
 		  <!-- commented out because we dont want to display duplicate groups based on failed test conditions
             <div id="myImpact" ng-repeat="record in jsonData">
               <label for="dsblImpctRslt"> Disability impact summary </label>
@@ -329,7 +330,7 @@
   <br/><br/><br/><br/> 
   <div id="htmlReportDiv" class="footerbutton" style="margin-left: 1em;"  hidden >
 	Select <strong>Save as HTML</strong> to generate  HTML version of the printable report (saved in Downloads folder by default). <br/>
-	<input type="button" id="sbtBtn" class="button" value="Save as HTML (Alt+s)" ng-click="saveHtml()">
+	<input type="button" id="sbtBtn" class="button" value="Save as HTML (Alt+S)" ng-click="saveHtml()">
 	</div>		
   <script src="./JS/acrt_Web_Report.js"> </script>
 
