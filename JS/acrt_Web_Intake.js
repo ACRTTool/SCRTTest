@@ -1806,7 +1806,10 @@ $scope.uploadImageClicked1 = true;
 		 $scope.displayRemove[index] = false;
 		  //$scope.imgCnvrsn.splice(remPosition, 1, '"imgValue" :"."}'); //removed image and don't select another image               		
 		//if ($scope.checkboxModel.alerts == "on") 
-		//alert("Image Removed");		
+		//alert("Image Removed");
+	  setTimeout(function() {
+		$scope.$apply();   
+   }, 500);
 	} 
 	
 	    $scope.removeImage1 = function(index) {			
@@ -1820,7 +1823,10 @@ $scope.uploadImageClicked1 = true;
 		 $scope.displayRemove1[index] = false;
 		
 		//if ($scope.checkboxModel.alerts == "on") 
-		//alert("Image Removed");	
+		//alert("Image Removed");
+		    setTimeout(function() {
+		$scope.$apply();   
+   }, 500);
 		
 	} 
 
