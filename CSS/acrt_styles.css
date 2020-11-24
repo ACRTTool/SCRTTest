@@ -151,9 +151,15 @@ background-color: #FFFF00;}
   color: black;
 }
 
+.menu {
+  overflow: hidden;
+  border: 1px solid #FFFFFF;  
+}
+
 a:focus {
-   color: rgb(9, 9, 66);
+   color: rgb(7, 7, 15);   
 font-family: "Franklin Gothic Book","system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";
+border: 2px solid #000000;
 }
 a:hover  {
    color: rgb(2, 2, 51);
