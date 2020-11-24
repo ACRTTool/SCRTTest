@@ -1,3 +1,14 @@
+window.onload = function() {	
+	setTimeout(function() {		
+		var a_focus = document.getElementById('defaultFocus');
+       if(a_focus) a_focus.focus();
+   }, 5000);  
+};
+
+
+
+
+
 
 function myHome() {
   var x = document.getElementById("myHme");
