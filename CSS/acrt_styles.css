@@ -156,11 +156,19 @@ background-color: #FFFF00;}
   border: 1px solid #FFFFFF;  
 }
 
-a:focus {
-   color: rgb(7, 7, 15);   
-font-family: "Franklin Gothic Book","system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";
-border: 2px solid #000000;
+.menu:focus {
+ background-color:white;
+ color: rgb(25,25,112);
+ border: 1px solid rgb(25,25,112);
 }
+
+a:focus {
+   color: rgb(7, 7, 15);  
+font-family: "Franklin Gothic Book","system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";
+
+}
+
+
 a:hover  {
    color: rgb(2, 2, 51);
 font-family: "Franklin Gothic Book", "system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";
