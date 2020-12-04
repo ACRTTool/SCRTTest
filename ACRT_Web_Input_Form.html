@@ -38,7 +38,7 @@
 	  <ol >
 	    <li>Load a JSON Trusted Tester v.4 or Trusted Tester v.5 (TT4 or TT5) Success Criteria template.</li>	    	
 		<li>Expand Product, Test Environment, and Tester Sections to enter information.</li>
-		<li>Complete all required form fields in Product, Tester, and Test Results sections.</li>	
+		<li>Complete all (<span class="required">) required form fields  </span>in Product and Testing information sections.</li>	
 		<li>You can customize JSON Success Criteria templates with pre-populated information (e.g., Product Section) for future use.</li>
 	  </ol>
 	</p>
@@ -46,19 +46,18 @@
 	  <br>
 	   <span id="hideLoad"  ><label for="loadFile" ng-show="fileInput1" ><strong> Load selected file</strong> </label> <br> <button ng-show="fileInput1" id='button' class="button" ng-model="loadbtn" ng-click="loadFile();" id='loadFile' name="Load Data In this Form" ng-model-options="{  updateOn: 'click',  debounce: { 'default': 20, 'blur': 0 }}">Load File </button> </span> 
 	   <p> <img   id="dwnldConfm"  ng-src ="./Resources/chkMrk.jpg"  ng-if="dataLoaded" width="20" height="20"  alt="right sign" onerror="this.style.display='none';"> 
-	   <span  id="msg"><strong class="hdnMsg">  </strong></span></p> 
+	   <span  id="msg"><strong > 'Load File' button will be visible after selecting 'Select template or test result file' above.Please select & Load valid JSON file to proceed ahead. </strong></span></p> 
 	</div> 
 		
   <main style="margin-left: 1em;"> 	         	   
   <form id="webAppIntakeform" name="Intake form to capture test results"  > 
- <label for="alerts" name="chkUnchk" id="chkUnchk"><strong>Disable</strong> Add/Remove Issue Alerts </label> 
- <input type="checkbox" id="alerts" title="Disable alerts when adding and/or removing issues within the Test Results form." ng-model="checkboxModel.alerts"  ng-init="checkboxModel.alerts='on'"   ng-true-value="'off'" ng-false-value="'on'"> 
+ 
  <br> 
   <div id="hdnMsgId">
 	 <!-- <p ng-if="edit">
 	 <strong  class="hdnMsg">Please edit/update as needed below. </strong>
 	 </p> -->
-	 <p ng-if="original">
+	 <p ng-show="original">
 	 <!--<strong class="hdnMsg"> Please fill all required fields to save information from this page. </strong> -->
 	 <strong > Please fill all required fields to save information from this page. </strong> 
 	  <br>A red asterisk <strong><span class="required"> </strong> </span> indicates a <strong> required</strong> field. 
@@ -71,10 +70,10 @@
   <li> Expand each section below to enter required information.</li>
  
  </ul>  </p> -->
-
+<div ng-show="displayIt"> 
 <fieldset  style="margin-left: 1em;height: auto;">
   <legend>
-    <h2> Product  </h2></legend>
+    <h2> <span class="required"> Product </h2></legend>
 	<button class="collapsible" onclick="expandCollapse1()"><div id="expandCollapse1"> <i class="up"></i> Show Product section</div> </button> 
 <div class="content">
 <div class="divSpace" id="productInfo" >
@@ -108,7 +107,7 @@
  
   <fieldset style="margin-left: 1em;"> 
  <legend>
- <h2> Testing Information </h2>
+ <h2> <span class="required"> Testing Information </h2>
  </legend> 
  <button class="collapsible" onclick="expandCollapse3()"> <div id="expandCollapse3"> <i class="up"></i> Show Testing Information section</div> </button>
 <div class="content">
@@ -120,7 +119,7 @@
   <br><label for="testerID"> Trusted Tester ID <span ng-if="!acrtInputForm.TrustedTesterId.$valid" >(50 chars max)</span>: </label> <input type="string" ng-model="testerID" class= "betnTags" placeholder ="ID, 50 chars max" id="testerID" name="TrustedTesterId" title="50 Chars max" ng-maxlength="50" limit-to="50"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
   <br> <label for="testerContact" class="required"> Tester's Email (Required <span ng-if="!acrtInputForm.TesterContact.$valid" >, 50 chars max</span>): </label> <input type="string" ng-model="testerContact" placeholder ="Contact, 50 chars max" class= "betnTags" id="testerContact" name="TesterContact" title="Required, 50 Chars max" ng-maxlength="50" required size="50" limit-to="50">
    <br><label for="testScope" > Testing Scope <span ng-if="!acrtInputForm.TestScope.$valid" >(1000 chars max)</span>:</label><br> <textarea rows="4"cols="90"type="text"ng-model="testScope"class="txtarea"id="testScope"name="TestScope" placeholder="test scope, 1000 chars max" title="1000 Chars max" ng-maxlength="1000" limit-to="1000"></textarea>   
-    <br><br> <label for="evalMthd"> Testing Method: </label> 	
+    <br><br> <label for="evalMthd"> Testing Method(read only): </label> 	
 
 	 <!-- <select name="  Evaluation Method " ng-model="selected_name_tstprcss" id="evalMthd"  >  
 <option value="" selected disabled hidden>{{default_evalMethod}}</option>
@@ -316,10 +315,9 @@
 </br> </br> 
 
 <!-- <input type="checkbox" id="rmdtlnd" name="Remediation Details" title="Remediation Details" ng-model="selected_name_rmdtn"  ng-init="selected_name_rmdtn='No'"   ng-true-value="'Yes'" ng-false-value="'No'" ng-click="remediationDetails()"> -->
-<input type="checkbox" name="Remediation Details" ng-model="selected_name_rmdtn"   title="Remediation details, Check user manual section 5.1 for details."  id="rmdtlnd" ng-change="remediationDetails()"   ng-true-value="'Yes'" ng-false-value="'No'"> 
- <label for="rmdtlnd" ><strong> Show Remediation Detail </strong></label> 	
+	
 &nbsp; &nbsp; &nbsp; &nbsp; 
-<div ng-if="displayIt"> 
+
 <!-- <div ng-if="draftReport"> 
 <select name="Remediation Details" ng-model="selected_name_rmdtn"  title="Remediation Details"  id="rmdtlnd" ng-change="remediationDetails()">
 <option ng-repeat="result in optionsglbl" value="{{result.name}}">{{result.name}}</option>
@@ -336,8 +334,11 @@
 	  </ol>
 	</p>
  </br> 
- 
- 
+ <label for="alerts" name="chkUnchk" id="chkUnchk"><strong>Disable</strong> Add/Remove Issue Alerts </label> 
+ <input type="checkbox" id="alerts" title="Disable alerts when adding and/or removing issues within the Test Results form." ng-model="checkboxModel.alerts"  ng-init="checkboxModel.alerts='on'"   ng-true-value="'off'" ng-false-value="'on'"> 
+ <br><br>
+ <input type="checkbox" name="Remediation Details" ng-model="selected_name_rmdtn"   title="Remediation details, Check user manual section 5.1 for details."  id="rmdtlnd" ng-change="remediationDetails()"   ng-true-value="'Yes'" ng-false-value="'No'"> 
+ <label for="rmdtlnd" ><strong> Show Remediation Detail </strong></label> 
 <div id="rmdTbleDiv">	  
  
 <table style="height: 1000px;" id="rmdTble" >
@@ -544,7 +545,7 @@
 
 <td >  <div class="widetd8">
 
-<br> <input  ng-if="browseImageOption[$index]" type="file"  ng-model='imgCnvrsn[$index]'  title="Browse to screenshot images" onchange="angular.element(this).scope().uploadImage(this)" /> <br> 
+<br> <input  ng-if="browseImageOption[$index]" type="file"  ng-model='imgCnvrsn[$index]'  class='addChild' title="Browse to screenshot images" onchange="angular.element(this).scope().uploadImage(this)" /> <br> 
     <img   id="image{{$index}}" ng-if="imageCapturedStored[$index]" ng-src = {{test.ImageSrc}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">      
    <img    id="image{{$index}}" ng-if="imageCaptured[$index]" ng-src = {{imgCnvrsnCurrentValue[$index]}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
    <img    id="image{{$index}}" ng-if="removeClicked[$index]" ng-src = {{imgCnvrsnCurrentValue[$index]}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
@@ -553,7 +554,7 @@
             <img alt="Selected Image" title="Selected Image" class="modal-content" id="img{{$index}}">
              <div class="caption" id="caption{{$index}}" ></div>
              </div><br>
-			 <div ng-show="displayRemove[$index]" id= {{ 'removeImage' + $index }} >    <button   ng-model='imgCnvrsn[$index]'  title='Remove Image ' type="button" ng-click="removeImage([$index])">Remove Image </button>  </div>
+			 <div ng-show="displayRemove[$index]" id= {{ 'removeImage' + $index }} >    <button   ng-model='imgCnvrsn[$index]'  title='Remove Image ' type="button" class='addChild' ng-click="removeImage([$index])">Remove Image </button>  </div>
 			  <!-- <div ng-if="browseImageOption[$index]">    <button  ng-model='imgCnvrsn[$index]'  title='Remove Image ' type="button" ng-click="removeImage([$index])">Remove Image </button>  </div> --> 
 			 <!-- <div ng-if="imageCaptured[$index]">    <button  ng-model='imgCnvrsn[$index]'  title='Remove Image ' type="button" ng-click="removeImage([$index])">Remove Image </button>  </div> -->
 </div>
@@ -580,8 +581,8 @@
  </td> 
  <td>
  
-</br> <div class="widetd7"  > <button  id="{{ 'PI'+indexCollection[$index] }}" type="button" ng-click="addIssue($index)">Add Child Issue</button> </div>
-</br></br></br> <div class="widetd7"  > <button   ng-if="addedRow[$index]" id="{{ 'o'+indexCollection[$index] }}" type="button" ng-click="goToChildIssue($index)"  >Go to Child Issues </button> </div>
+</br> <div class="widetd7"  > <button  id="{{ 'PI'+indexCollection[$index] }}" class='addChild' type="button" ng-click="addIssue($index)">Add Child Issue</button> </div>
+</br></br></br> <div class="widetd7"  > <button   ng-if="addedRow[$index]" id="{{ 'o'+indexCollection[$index] }}" class='addChild' type="button" ng-click="goToChildIssue($index)"  >Go to Child Issues </button> </div>
  
  </td>
 
@@ -592,7 +593,7 @@
 <th   scope="row" title="Test Name" > <div class="widetd1"> {{Issue.InsrtTestName}} </div></th>
 <td   title="Test ID"><div class="widetd2"> {{Issue.InsrtTestID}} </div> </td>
 
-<td title="Test Condition"><div class="widetd3"> {{Issue.InsrtTestCondition}}</div> <br/>  <button   id="{{ 'a'+indexCollection[$index] }}" type="button" ng-click="removeIssue($index)"  >Remove Child Issue </button> </td>
+<td title="Test Condition"><div class="widetd3"> {{Issue.InsrtTestCondition}}</div> <br/>  <button   id="{{ 'a'+indexCollection[$index] }}" class='addChild'  type="button" ng-click="removeIssue($index)"  >Remove Child Issue </button> </td>
  <!-- <td  title="Issue Number"> <div style="width: 100px"> *Issue #{{indexCollection[$index]+1}}.{{$index+1}} </div> <br/>  <button  id="{{ 'p'+indexCollection[$index] }}"type="button" ng-click="removeIssue($index)"  >Remove Issue </button> -->
  
  
@@ -699,7 +700,7 @@
              </div><br>	
      <!-- <div ng-if="imageCaptured[$index]"> <button  title='Remove Image' type="button" ng-click="removeImage1($index)">Remove Image</button>  -->
      <!-- <div ng-if="browseImageOption1[$index]">  <button  title='Remove Image' type="button" ng-click="removeImage1($index)">Remove Image</button>  -->
-	 <div ng-if="displayRemove1[$index]">  <button   title='Remove Image' type="button" ng-click="removeImage1($index)">Remove Image</button>
+	 <div ng-if="displayRemove1[$index]">  <button   title='Remove Image' type="button" class='addChild' ng-click="removeImage1($index)">Remove Image</button>
  </div>
  </td>   
 
@@ -722,7 +723,7 @@
 </td>
  <td > <div style="width: 150px"> <input type="date" title="Date" ng-model="rmdatnDatelID1[$index]"  placeholder="mm/dd/yyyy" id="rmdatnDatelID1" name="Remediation Date" /></div></td>
               
-   <td></br></br><div class="widetd7"  > <button   id="{{ 'b'+addedResultIndex }}" type="button" data-ng-click="goToParentIssue(indexCollection[$index])"  >Go to Parent Issue </button> </div> </td>    
+   <td></br></br><div class="widetd7"  > <button   id="{{ 'b'+addedResultIndex }}" type="button" class='addChild' data-ng-click="goToParentIssue(indexCollection[$index])"  >Go to Parent Issue </button> </div> </td>    
 
 	   </tr>
 </tbody>
