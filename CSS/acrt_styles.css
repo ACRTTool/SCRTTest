@@ -2,6 +2,21 @@ article{
 	font-family: "Franklin Gothic Book","system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";
 }
 
+.addChild:focus {
+ background-color:white;
+ color: rgb(25,25,112);
+ border: 1px solid rgb(25,25,112);
+}
+
+.addChild {
+ background-color:rgb(25,25,112);
+ color: white;
+ border: 1px solid rgb(25,25,112);
+}
+
+
+
+
 a.button {
     -webkit-appearance: button;
     -moz-appearance: button;
@@ -166,7 +181,10 @@ background-color: #FFFF00;}
 }
 
 a:focus {
-   color: rgb(7, 7, 15);  
+   /*color: rgb(7, 7, 15);  */
+    background-color:white;
+ color: rgb(25,25,112);
+ border: 1px solid rgb(25,25,112);
 font-family: "Franklin Gothic Book","system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";
 
 }
@@ -633,8 +651,11 @@ article {
 }
 
 .resultOptions:focus{
- background-color: #f4f6f7;
- color:  black;
+	 background-color:white;
+ color: rgb(25,25,112);
+ border: 1px solid rgb(25,25,112);
+ /*background-color: #f4f6f7;
+ color:  black;*/
 }
 
 .widetd1{    
