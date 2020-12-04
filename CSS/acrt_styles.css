@@ -137,8 +137,11 @@ background-color: #FFFF00;}
 }
 
 #fileinput:focus {
- background-color:rgb(192,192,192);
-  color: black;
+ /*background-color:rgb(192,192,192);
+  color: black; */
+   background-color:white;
+ color: rgb(25,25,112);
+ border: 1px solid rgb(25,25,112);
 }
 
  #fileinput:active {
@@ -191,8 +194,11 @@ font-family: "Franklin Gothic Book", "system-ui", "Segoe UI", "Ubuntu", "'Helvet
  color: #ffffff;
 }
 .collapsible:focus {
- background-color:rgb(9, 9, 66);
- color: #ffffff;
+ /*background-color:rgb(9, 9, 66);
+ color: #ffffff; */
+ background-color:white;
+ color: rgb(25,25,112);
+ border: 1px solid rgb(25,25,112);
 }
 .collapsible:visited {
  background-color:rgb(0, 102, 153);
@@ -200,8 +206,11 @@ font-family: "Franklin Gothic Book", "system-ui", "Segoe UI", "Ubuntu", "'Helvet
 }
 
 button:focus  {
- background-color:rgb(9, 9, 66);
- color: #ffffff;
+ /*background-color:rgb(9, 9, 66);
+ color: #ffffff; */
+ background-color:white;
+ color: rgb(25,25,112);
+ border: 1px solid rgb(25,25,112);
 }
 
 button:hover  {
@@ -249,11 +258,31 @@ input[type=checkbox] {
 
 i{
 	
-  border: solid white;
+  border: solid rgb(0, 51, 102);
   border-width: 0px 10px 10px 0px;
   display: inline-block;
   padding: 3px;
 }
+
+
+
+/*
+.up:focus{
+	
+  border: solid blue;
+  border-width: 0px 10px 10px 0px;
+  display: inline-block;
+  padding: 3px;
+} 
+
+.down:focus{
+	
+  border: solid blue;
+  border-width: 0px 10px 10px 0px;
+  display: inline-block;
+  padding: 3px;
+} */
+
 
 
 .up {
