@@ -985,6 +985,7 @@ $scope.RemarkExplntnCollection = [];
 //$scope.imageAdded = false;
 $scope.fileInput = function fileInput() {
 $scope.fileInput1 = true;	
+alert('Please select approperiate JSON file to complete this test');
 }
 
  //$scope.testScope ="";
@@ -1023,8 +1024,16 @@ $scope.loadFile = function loadFile() {
 	//document.getElementById("instr").innerHTML = "";
 	//document.getElementById("hideLoad").innerHTML = "";
 	$scope.dataLoaded = true;
-      if($scope.jsonData[0].Product.P_Name == " ")
-      $scope.original = true;		  
+      if($scope.jsonData[0].Product.P_Name == " "){
+      $scope.original = true;
+	  $scope.validFile = true;	  
+	  }	 	 
+       
+	  if($scope.jsonData[0].Product.P_Name == undefined){
+      $scope.edit = true;
+	  $scope.validFile = true;	  
+	  }	  	  
+
 	  $scope.productID = $scope.jsonData[0].Product.P_Name;	     
       $scope.versionID = $scope.jsonData[0].Product.P_Version;      
       $scope.ownerID = $scope.jsonData[0].Product.P_Owner;     
@@ -1547,6 +1556,8 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 		  $scope.submitMessage = "Upon saving, the file will be located in the system's Downloads folder by default.";
 		  
 	}
+	if($scope.displayIt == false)
+			alert('Please select the appropriate JSON file to  view complete page.');
 	
 	  if($scope.edit == true ){
 		  $scope.submitMessage = "File was saved on "+  $scope.testDate;
@@ -1562,7 +1573,7 @@ $scope.createEditOption = 'Edit Report Test Results Form';
    if($scope.default_tstVrsn == undefined)
 	   $scope.default_tstVrsn ='';   
       document.getElementById("msg").innerHTML = "<b>You have successfully loaded the "+ $scope.default_evalMethod+" "+ $scope.default_tstVrsn +" file </b>. Please edit/update file as needed. To load a different file, <b>reload</b> this page.";     
-      alert('To save file changes, select the keyboard shortcut (Alt+s) or Save button located at the bottom of the page.');
+      alert('File loaded, to save file changes, select the keyboard shortcut (Alt+s) or Save button located at the bottom of the page.');
 	if($scope.default_tstVrsn == "undefined"  )
 	  $scope.updateJSON = true; 
    if($scope.default_tstVrsn == undefined  )
@@ -1611,17 +1622,15 @@ document.onkeydown = KeyPress;
 $scope.remediationDetails = function() {	      
 	 // if($scope.crtRsltCollection.length == 0) 
 	   //scope.displayIt = false;
-        if($scope.selected_name_rmdtn == 'Yes'){
-			if($scope.displayIt == false)
-			alert('Please select the appropriate JSON file to  add remediation details.'); 
+        if($scope.selected_name_rmdtn == 'Yes'){			 
 		    /*if ($scope.checkboxModel.alerts == "on")
 		    alert('Column for Remediation Details Added.'); */
 			show_hide_column(10, true);
 			show_hide_column(11, true);
 		}
 		if($scope.selected_name_rmdtn == 'No'){
-			/*if($scope.displayIt == false)
-			alert('Please select the approperiate JSON file to  add remediation details.') */
+			if($scope.displayIt == false)
+			alert('Please select the approperiate JSON file to  add remediation details.') 
 		    /* if ($scope.checkboxModel.alerts == "on")
 		    alert('Column for Remediation Details Removed.'); */
 		show_hide_column(10, false);
@@ -2997,38 +3006,38 @@ $scope.submit1 = function() {
   $scope.error = [];
   
   if ($scope.productID == " " || $scope.productID == undefined) {
-    $scope.error.push("Product Name");
+    $scope.error.push("Product: Product Name");
     
   }
   if ($scope.versionID == " " || $scope.versionID == undefined) {
-    $scope.error.push("Product Version");
+    $scope.error.push("Product: Product Version");
    
   }
 
   if ($scope.prodDescID == " " || $scope.prodDescID == undefined) {
-    $scope.error.push("Product Description");
+    $scope.error.push("Product: Product Description");
     
   }
 
   if ($scope.firstname == " " || $scope.firstname == undefined) {
-    $scope.error.push("Tester's First name");
+    $scope.error.push("Testing Information: Tester's First name");
     
   }
   if ($scope.lastname == " " || $scope.lastname == undefined) {
-    $scope.error.push("Tester's Last Name");
+    $scope.error.push("Testing Information: Tester's Last Name");
     
   }
   if ($scope.companyname == " " || $scope.companyname == undefined) {
-    $scope.error.push("Company Name in Testing Information Section");
+    $scope.error.push("Testing Information: Company Name in Testing Information Section");
     
   }
   if ($scope.testerContact == " " || $scope.testerContact == undefined) {
-    $scope.error.push("Tester's Email");
+    $scope.error.push("Testing Information: Tester's Email");
    
   }
      
   if ($scope.error.length > 0)
-    alert("Please input data for " + $scope.error);
+    alert("Please fill mandatory field => " + $scope.error);
   /* making sure user selects at least one test result
   else if($scope.originalIssueRsltSelected != true)
   alert("Please select at least one test result to save file.");
