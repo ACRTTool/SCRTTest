@@ -36,7 +36,7 @@
 	<!-- <span> Based on VPAT® Version 2.4 </span> -->
       <!-- <h1> View Test Report </h1> -->
         <!-- View test report. <a title="View Report instructions" href="./Help_Report.html" target="_blank" id="tstinstrID"> "View Report" instructions </a> -->
-        <p><strong ng-if="isDraft" class="hdnMsg"> This is a Draft report. For final report, please input results for all tests.</strong><p>
+        
 		<p > <!--  id="instr" -->
 	  <strong>Tool Tips: </strong><br>
 	  <ol >
@@ -51,13 +51,16 @@
 
         <label for="fileinput"> <strong> Select test results file </strong>
         </label><br>	
-		<input type='file' class="input" id='fileinput' name='Browse to file' ng-click ="fileInput();">
-        <br><br><label for="loadFile" ng-show="fileInput1"> <strong> Load selected file</strong>
+		<input type='file' class="input" id='fileinput' name='Browse to file' onchange="angular.element(this).scope().fileNameChanged(this)" > <!--ng-click ="fileInput();" -->
+        <br><br>
+		<strong > <span  id="selMsg" ng-show="fileInput1">  </span></strong>
+	  <br><br>
+	  <label for="loadFile" ng-show="fileInput1"> <strong> Load selected file</strong>
         </label><br> <button id='buttonLoad' class="button" ng-model="loadbtn" ng-show="fileInput1" ng-click="loadFile();" id='loadFile' name="Load Data In this Form"  ng-model-options="{  updateOn: 'click',  debounce: { 'default': 20, 'blur': 0 }}" >Load Results</button>
 		<!-- <br>You have selected <strong>{{evalMethod}} </strong> Version <strong class="hdnMsg">{{evalMethodVrsn}}</strong> -->	    
-		<p id='afterDwnloded'><img   id="dwnldConfm"  ng-src ="./Resources/chkMrk.jpg"  ng-if="dataLoaded" width="20" height="20"  alt="right sign" onerror="this.style.display='none';"> 
-		<span id="msg1"></span> </P>
-	  </ul> <br>
+		<p id='afterDwnloded'><img   id="dwnldConfm"  ng-src ="./Resources/chkMrk.jpg"  ng-show="dataLoaded" width="20" height="20"  alt="right sign" onerror="this.style.display='none';"> 
+		<span id="msg1"> <Strong>* Select a valid template or test result file to proceed.</strong></span> </P>
+	  </ul> <div ng-show="dataLoaded">
 	  
 		
         <fieldset style="margin-left: 1em;">
@@ -133,17 +136,20 @@
             <div class="divSpace" id="termsInfo">
                </div>
           </div>
-        </fieldset> <br>
+        </fieldset> 
+		</div>
+		<br>
         &nbsp;
        
 <div id="displayTestRslt" hidden >
         <h3> Test Results </h3>
+		
 
         <label for="evalMethod"> Testing Method:</label> <input type="string" ng-model="evalMethod" class="betnTags" id="evalMethod" name="Selected Evaluation Method Used" ng-readonly="true"> &nbsp;
         <label for="evalMethodVrsn">Testing Method Version: </label> <input type="string" ng-model="evalMethodVrsn" class="betnTags" id="evalMethodVrsn" name="Entered Evaluation Version" ng-readonly="true"> &nbsp; <br>
         <label for="dateSubmitted"> Review Date:</label> <input type="string" ng-model="dateSubmitted" class="dateField" id="dateSubmitted" name="Review Date" ng-readonly="true"> <br> <br>
 
-        
+        <p><strong ng-if="isDraft" class="hdnMsg"> This is a Draft report. For final report, please input results for all tests.</strong><p>
 
         <table   id="sc1" ng-if="wcagRprt" >
 
