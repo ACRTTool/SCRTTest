@@ -108,6 +108,13 @@ app.controller('acrtFormCtrl', function($scope, $filter) {
     return self.indexOf(value) === index;
   }
   
+     $scope.fileNameChanged = function () {
+	  $scope.fileInput1 = true;	
+	  $scope.$apply();
+      document.getElementById("selMsg").innerHTML = "File is Selected, please select 'Load File' below to proceed.";	
+      document.getElementById("buttonLoad").focus(); 	  
+    } 
+  
   $scope.tstRsltMsg = function() {
      //alert($scope.checked1);
       if ($scope.checked1 == 'false' )
@@ -332,7 +339,7 @@ document.getElementById("dsblGrpBtn").click();
 }, 1000);	    
       }
       $scope.impactedGroup = [];
-       document.getElementById("msg1").innerHTML = "<strong>"+$scope.evalMethod +" Version "+$scope.evalMethodVrsn +"</strong> file load completed.<br>";		  
+       document.getElementById("msg1").innerHTML = "<strong>"+$scope.evalMethod +" Version "+$scope.evalMethodVrsn + " "+$scope.productID+$scope.ownerID+".json"+ "</strong> file load completed.<br>";		  
         alert('To save printer friendly HTML file, select the keyboard shortcut (Alt+S) or Save button located at the bottom of the page.');
 	  
 	  //$scope.validData=true;

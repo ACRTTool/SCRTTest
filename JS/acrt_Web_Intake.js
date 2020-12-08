@@ -69,8 +69,13 @@ function show_hide_column(col_no, do_show) {
 show_hide_column(10, false);show_hide_column(11, false);
 
 app.controller('acrtWebIntakeCtrl', ['$scope', function($scope, $filter) {
-	
- 
+	$scope.selectedFile = '';
+   $scope.fileNameChanged = function () {
+	  $scope.fileInput1 = true;	
+	  $scope.$apply();
+      document.getElementById("selMsg").innerHTML = "File is Selected, please select 'Load File' below to proceed.";	
+      document.getElementById("button").focus(); 	  
+    } 
 //zoom image 
 $scope.zoom = function(i) {
 var modal = document.getElementById(i);
@@ -985,7 +990,7 @@ $scope.RemarkExplntnCollection = [];
 //$scope.imageAdded = false;
 $scope.fileInput = function fileInput() {
 $scope.fileInput1 = true;	
-alert('Please select approperiate JSON file to complete this test');
+//alert('Please select approperiate JSON file to complete this test');
 }
 
  //$scope.testScope ="";
@@ -1572,7 +1577,7 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 	   $scope.default_tstVrsn ='';   
    if($scope.default_tstVrsn == undefined)
 	   $scope.default_tstVrsn ='';   
-      document.getElementById("msg").innerHTML = "<b>You have successfully loaded the "+ $scope.default_evalMethod+" "+ $scope.default_tstVrsn +" file </b>. Please edit/update file as needed. To load a different file, <b>reload</b> this page.";     
+      document.getElementById("msg").innerHTML = "<b>You have successfully loaded the "+ $scope.default_evalMethod+" "+ $scope.default_tstVrsn +" "+$scope.productID+$scope.versionID+".json file </b>. Please edit/update file as needed. To load a different file, <b>reload</b> this page.";     
       alert('File loaded, to save file changes, select the keyboard shortcut (Alt+s) or Save button located at the bottom of the page.');
 	if($scope.default_tstVrsn == "undefined"  )
 	  $scope.updateJSON = true; 
