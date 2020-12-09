@@ -59,7 +59,7 @@
         </label><br> <button id='buttonLoad' class="button" ng-model="loadbtn" ng-show="fileInput1" ng-click="loadFile();" id='loadFile' name="Load Data In this Form"  ng-model-options="{  updateOn: 'click',  debounce: { 'default': 20, 'blur': 0 }}" >Load Results</button>
 		<!-- <br>You have selected <strong>{{evalMethod}} </strong> Version <strong class="hdnMsg">{{evalMethodVrsn}}</strong> -->	    
 		<p id='afterDwnloded'><img   id="dwnldConfm"  ng-src ="./Resources/chkMrk.jpg"  ng-show="dataLoaded" width="20" height="20"  alt="right sign" onerror="this.style.display='none';"> 
-		<span id="msg1"> <Strong>* Select a valid template or test result file to proceed.</strong></span> </P>
+		<span id="msg1"> <Strong>* Select & load a valid template or test result file to proceed.</strong></span> </P>
 	  </ul> <div ng-show="dataLoaded">
 	  
 		
@@ -67,7 +67,7 @@
           <legend>
             <h2> Product </h2>
           </legend>
-		  <button class="collapsible" id="productBtn" onclick="expandCollapse1()"> <div id="expandCollapse1"> <i class="up"></i> Show Product section</div> </button> 
+		  <button class="collapsible" title="Show or HIde Product Section" id="productBtn" onclick="expandCollapse1()"> <div id="expandCollapse1"> <i class="up"></i> Show Product section</div> </button> 
 		  <div class="content">
     <div class="divSpace" id="productInfo" >           
               <label for="productID"> Product Name: </label> <input type="string" ng-model="productID" class="betnTags" id="productID" name="Entered Name Of Product" ng-readonly="true" size="100"> &nbsp;
@@ -85,7 +85,7 @@
           <legend>
             <h2> Testing Information </h2>
           </legend>
-          <button class="collapsible" onclick="expandCollapse3()">
+          <button class="collapsible" title="Show or HIde Testing Information Sectiion" onclick="expandCollapse3()">
             <div id="expandCollapse3"> <i class="up"></i> Show Testing Information section</div>
           </button>
           <div class="content">
@@ -104,7 +104,7 @@
           <legend>
             <h2> Test Environment </h2>
           </legend>
-          <button class="collapsible" onclick="expandCollapse2()">
+          <button class="collapsible" title="Show or HIde Test Environment Section" onclick="expandCollapse2()">
             <div id="expandCollapse2"> <i class="up"></i> Show Test Environment section</div>
           </button>
           <div class="content">

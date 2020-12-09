@@ -50,7 +50,7 @@
 	  <br><br>
 	   <span id="hideLoad"  ><label for="loadFile" ng-show="fileInput1" ><strong> Load selected file</strong> </label> <br> <button ng-show="fileInput1" id='button' class="button" ng-model="loadbtn" ng-click="loadFile();" id='loadFile' name="Load Data In this Form" ng-model-options="{  updateOn: 'click',  debounce: { 'default': 20, 'blur': 0 }}">Load File </button> </span> 
 	   <p> <img   id="dwnldConfm"  ng-src ="./Resources/chkMrk.jpg"  ng-if="dataLoaded" width="20" height="20"  alt="right sign" onerror="this.style.display='none';"> 
-	   <span  id="msg"><strong > * Select a valid template or test result file to proceed. </strong></span>	   
+	   <span  id="msg"><strong > * Select & load a valid template or test result file to proceed. </strong></span>	   
 	   </p> 
 	</div> 
 		
@@ -79,7 +79,7 @@
 <fieldset  style="margin-left: 1em;height: auto;">
   <legend>
     <h2> <span class="required"> Product </h2></legend>
-	<button class="collapsible" onclick="expandCollapse1()"><div id="expandCollapse1"> <i class="up"></i> Show Product section</div> </button> 
+	<button class="collapsible" title="Show or Hide Product Section" onclick="expandCollapse1()"><div id="expandCollapse1"> <i class="up"></i> Show Product section</div> </button> 
 <div class="content">
 <div class="divSpace" id="productInfo" >
    <label for="productID" class="required"> Product Name (Required <span ng-if="!acrtInputForm.productName.$valid" >, 50 chars max</span>): </label> <input type="string" name= "productName" title="50 Chars max" ng-model="productID" class= "betnTags" id="productID" placeholder="Product Name, 50 Chars max" ng-maxlength="50" required size="50" limit-to="50">&nbsp;    
@@ -114,7 +114,7 @@
  <legend>
  <h2> <span class="required"> Testing Information </h2>
  </legend> 
- <button class="collapsible" onclick="expandCollapse3()"> <div id="expandCollapse3"> <i class="up"></i> Show Testing Information section</div> </button>
+ <button class="collapsible" title="Show or Hide Testing Information section" onclick="expandCollapse3()"> <div id="expandCollapse3"> <i class="up"></i> Show Testing Information section</div> </button>
 <div class="content">
 
  <div class="divSpace" id="testersInfo" >
@@ -145,7 +145,7 @@
 <legend> 
  <h2> Test Environment   </h2>
  </legend> 
- <button class="collapsible" onclick="expandCollapse2()"><div id="expandCollapse2"> <i class="up"></i> Show Test Environment section</div> </button>
+ <button class="collapsible" title="Show or HIde Test Environment Section" onclick="expandCollapse2()"><div id="expandCollapse2"> <i class="up"></i> Show Test Environment section</div> </button>
  <div class="content">
 <div class="divSpace" id="sysInfo" >  
    <div class="left-div">   
@@ -339,8 +339,8 @@
 	  </ol>
 	</p>
  </br> 
- <label for="alerts" name="chkUnchk" id="chkUnchk"><strong>Disable</strong> Add/Remove Issue Alerts </label> 
- <input type="checkbox" id="alerts" title="Disable alerts when adding and/or removing issues within the Test Results form." ng-model="checkboxModel.alerts"  ng-init="checkboxModel.alerts='on'"   ng-true-value="'off'" ng-false-value="'on'"> 
+ <label for="alerts" name="chkUnchk" id="chkUnchk"><strong>Disable</strong> Disable Add Child Issue/Remove Child Issue Alerts within the Test Results form. </label> 
+ <input type="checkbox" id="alerts" title="Disable Add Child Issue/Remove Child Issue Alerts within the Test Results form." ng-model="checkboxModel.alerts"  ng-init="checkboxModel.alerts='on'"   ng-true-value="'off'" ng-false-value="'on'"> 
  <br><br>
  <input type="checkbox" name="Remediation Details" ng-model="selected_name_rmdtn"   title="Remediation details, Check user manual section 5.1 for details."  id="rmdtlnd" ng-change="remediationDetails()"   ng-true-value="'Yes'" ng-false-value="'No'"> 
  <label for="rmdtlnd" ><strong>Show Remediation Detail Columns </strong></label> 
@@ -586,8 +586,8 @@
  </td> 
  <td>
  
-</br> <div class="widetd7"  > <button  id="{{ 'PI'+indexCollection[$index] }}" class='addChild' type="button" ng-click="addIssue($index)">Add Child Issue</button> </div>
-</br></br></br> <div class="widetd7"  > <button   ng-if="addedRow[$index]" id="{{ 'o'+indexCollection[$index] }}" class='addChild' type="button" ng-click="goToChildIssue($index)"  >Go to Child Issues </button> </div>
+</br> <div class="widetd7"  > <button  id="{{ 'PI'+indexCollection[$index] }}" class='addChild' type="button" title="Add child for {{test.TestID}}" ng-click="addIssue($index)">Add Child Issue {{test.TestID}}</button> </div>
+</br></br></br> <div class="widetd7"  > <button   ng-if="addedRow[$index]" id="{{ 'o'+indexCollection[$index] }}" title="Go to child issue for {{test.TestID}}" class='addChild' type="button" ng-click="goToChildIssue($index)"  >Go to Child Issues *{{test.TestID}} </button> </div>
  
  </td>
 
@@ -598,7 +598,7 @@
 <th   scope="row" title="Test Name" > <div class="widetd1"> {{Issue.InsrtTestName}} </div></th>
 <td   title="Test ID"><div class="widetd2"> {{Issue.InsrtTestID}} </div> </td>
 
-<td title="Test Condition"><div class="widetd3"> {{Issue.InsrtTestCondition}}</div> <br/>  <button   id="{{ 'a'+indexCollection[$index] }}" class='addChild'  type="button" ng-click="removeIssue($index)"  >Remove Child Issue </button> </td>
+<td title="Test Condition"><div class="widetd3"> {{Issue.InsrtTestCondition}}</div> <br/>  <button   id="{{ 'a'+indexCollection[$index] }}" class='addChild'  type="button" title="Remove issue for {{test.TestID}}" ng-click="removeIssue($index)"  >Remove Child Issue *{{test.TestID}}</button> </td>
  <!-- <td  title="Issue Number"> <div style="width: 100px"> *Issue #{{indexCollection[$index]+1}}.{{$index+1}} </div> <br/>  <button  id="{{ 'p'+indexCollection[$index] }}"type="button" ng-click="removeIssue($index)"  >Remove Issue </button> -->
  
  
@@ -728,7 +728,7 @@
 </td>
  <td > <div style="width: 150px"> <input type="date" title="Date" ng-model="rmdatnDatelID1[$index]"  placeholder="mm/dd/yyyy" id="rmdatnDatelID1" name="Remediation Date" /></div></td>
               
-   <td></br></br><div class="widetd7"  > <button   id="{{ 'b'+addedResultIndex }}" type="button" class='addChild' data-ng-click="goToParentIssue(indexCollection[$index])"  >Go to Parent Issue </button> </div> </td>    
+   <td></br></br><div class="widetd7"  > <button   id="{{ 'b'+addedResultIndex }}" type="button" class='addChild' title="Go to parent Issue {{test.TestID}}" data-ng-click="goToParentIssue(indexCollection[$index])"  >Go to Parent Issue {{test.TestID}}</button> </div> </td>    
 
 	   </tr>
 </tbody>
