@@ -112,6 +112,7 @@ app.controller('acrtFormCtrl', function($scope, $filter) {
 	  $scope.fileInput1 = true;	
 	  $scope.$apply();
       document.getElementById("selMsg").innerHTML = "File is Selected, please select 'Load File' below to proceed.";	
+	  document.getElementById('fileinput').setAttribute('title', 'File is Selected, please select Load File below to proceed.');	
       document.getElementById("buttonLoad").focus(); 	  
     } 
   
