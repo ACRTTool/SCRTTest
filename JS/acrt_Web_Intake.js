@@ -14,6 +14,20 @@ window.onbeforeunload = function(event) {
   return message;
 }
 
+window.addEventListener("error", handleError, true);
+
+function handleError(evt) {
+    if (evt.message) { // Chrome sometimes provides this
+      //alert("error: "+evt.message +" at linenumber: "+evt.lineno+" of file: "+evt.filename);
+	  alert('Please select & load valid JSON file for ACRT');
+    } else {
+      //alert("error: "+evt.type+" from element: "+(evt.srcElement || evt.target));
+	  alert('Please select and load valid JSON file for ACRT');
+    }
+}
+
+
+
 app.directive("limitTo", [function() {
     return {
         restrict: "A",
@@ -1033,14 +1047,14 @@ $scope.loadFile = function loadFile() {
 	$scope.dataLoaded = true;
       if($scope.jsonData[0].Product.P_Name == " "){
       $scope.original = true;
-	  $scope.validFile = true;	  
+	  $scope.validFile = true;	      	  
 	  }	 	 
        
 	  if($scope.jsonData[0].Product.P_Name == undefined){
       $scope.edit = true;
 	  $scope.validFile = true;	  
 	  }	  	  
-
+      
 	  $scope.productID = $scope.jsonData[0].Product.P_Name;	     
       $scope.versionID = $scope.jsonData[0].Product.P_Version;      
       $scope.ownerID = $scope.jsonData[0].Product.P_Owner;     
@@ -1137,7 +1151,7 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 	  $scope.Mul_Issues3.push($scope.Mul_Issues2[$scope.parentIssueSelected]);
       //console.log($scope.Mul_Issues3);
 		 if ($scope.checkboxModel.alerts == "on")
-			alert("Child issue has been added to the end of this table. Select ‘Go to Child Issues’ to jump to the first child issue.");
+			alert("File loaded. To save changes at any time, use Alt+S or Save button at bottom of the page.");
 		}
 	else {
     //if ($scope.checkboxModel.alerts == "on")		
