@@ -1,5 +1,16 @@
 var app = angular.module('acrt', ["ngSanitize"]); 
    
+window.addEventListener("error", handleError, true);
+
+function handleError(evt) {
+    if (evt.message) { // Chrome sometimes provides this
+      //alert("error: "+evt.message +" at linenumber: "+evt.lineno+" of file: "+evt.filename);
+	  alert('Please select & load valid JSON file for ACRT');
+    } else {
+      //alert("error: "+evt.type+" from element: "+(evt.srcElement || evt.target));
+	  alert('Please select and load valid JSON file for ACRT');
+    }
+}
  
 function expandCollapse1() {
   var x = document.getElementById("expandCollapse1");
