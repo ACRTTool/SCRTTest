@@ -51,7 +51,7 @@
 
         <label for="fileinput"> <strong> Select test results file </strong>
         </label><br>	
-		<input type='file' class="input" id='fileinput' name='Browse to file' onchange="angular.element(this).scope().fileNameChanged(this)" > <!--ng-click ="fileInput();" -->
+		<input type='file' class="input" id='fileinput' name='Browse to file' title="Please select valid file" onchange="angular.element(this).scope().fileNameChanged(this)" > <!--ng-click ="fileInput();" -->
         <br><br>
 		<strong > <span  id="selMsg" ng-show="fileInput1">  </span></strong>
 	  <br><br>
