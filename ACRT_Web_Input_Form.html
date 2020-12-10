@@ -41,16 +41,17 @@
 		<li>Complete all (<span class="required">) required form fields  </span>in Product and Testing information sections.</li>	
 		<li>You can customize JSON Success Criteria templates with pre-populated information (e.g., Product Section) for future use.</li>
 	  </ol>
-	</p>
-		<label for="fileinput" ><strong> Select template or test results file </strong></label> <br> 
+	</p><span id='selectFileHd' ng-hide = "fileInput1" >
+		<label for="fileinput" ><strong> Select template or test results JSON file </strong></label> <br> 
 
-		 <input type="file"  class="input" id="fileinput" name="Browse Input File"  title="Please select valid file" ng-model='selectedFile' onchange="angular.element(this).scope().fileNameChanged(this)" > <br>  <!--ng-click ="fileInput();"-->
+		 <input type="file"  class="input" id="fileinput" name="Browse Input File"  title="Please select valid file" ng-model='selectedFile' onchange="angular.element(this).scope().fileNameChanged(this)" accept=".json"> <br>  <!--ng-click ="fileInput();"-->
+	  </span>
 	  <br>
 	  <strong > <span  id="selMsg" ng-show="fileInput1">  </span></strong>
-	  <br><br>
+	  <br><br>	  
 	   <span id="hideLoad"  ><label for="loadFile" ng-show="fileInput1" ><strong> Load selected file</strong> </label> <br> <button ng-show="fileInput1" id='button' class="button" ng-model="loadbtn" ng-click="loadFile();" id='loadFile' name="Load Data In this Form" ng-model-options="{  updateOn: 'click',  debounce: { 'default': 20, 'blur': 0 }}">Load File </button> </span> 
-	   <p> <img   id="dwnldConfm"  ng-src ="./Resources/chkMrk.jpg"  ng-if="dataLoaded" width="20" height="20"  alt="right sign" onerror="this.style.display='none';"> 
-	   <span  id="msg"><strong > * Select & load a valid template or test result file to proceed. </strong></span>	   
+	   <p> <img  ng-show="fileInput1"  id="dwnldConfm"  ng-src ="./Resources/chkMrk.jpg"  ng-if="dataLoaded" width="20" height="20"  alt="right sign" onerror="this.style.display='none';"> 
+	   <span  id="msg"><strong > </strong></span>	   
 	   </p> 
 	</div> 
 		
@@ -598,7 +599,7 @@
 <th   scope="row" title="Test Name" > <div class="widetd1"> {{Issue.InsrtTestName}} </div></th>
 <td   title="Test ID"><div class="widetd2"> {{Issue.InsrtTestID}} </div> </td>
 
-<td title="Test Condition"><div class="widetd3"> {{Issue.InsrtTestCondition}}</div> <br/>  <button   id="{{ 'a'+indexCollection[$index] }}" class='addChild'  type="button" title="Remove issue for {{Issue.InsrtTestID}} " ng-click="removeIssue($index)"  >Remove Child Issue *{{Issue.InsrtTestID}} </button> </td>
+<td title="Test Condition"><div class="widetd3"> {{Issue.InsrtTestCondition}}</div> <br/>  <button   id="{{ 'a'+indexCollection[$index] }}" class='addChild'  type="button" title="Remove issue for {{Issue.InsrtTestID}} " ng-click="removeIssue($index)"  >Remove Child Issue {{Issue.InsrtTestID}} </button> </td>
  <!-- <td  title="Issue Number"> <div style="width: 100px"> *Issue #{{indexCollection[$index]+1}}.{{$index+1}} </div> <br/>  <button  id="{{ 'p'+indexCollection[$index] }}"type="button" ng-click="removeIssue($index)"  >Remove Issue </button> -->
  
  

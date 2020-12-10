@@ -49,9 +49,9 @@
 	  </ol>
 	</p>
 
-        <label for="fileinput"> <strong> Select test results file </strong>
+        <label for="fileinput"> <strong> Select test results JSON file </strong>
         </label><br>	
-		<input type='file' class="input" id='fileinput' name='Browse to file' title="Please select valid file" onchange="angular.element(this).scope().fileNameChanged(this)" > <!--ng-click ="fileInput();" -->
+		<input type='file' class="input" id='fileinput' name='Browse to file' title="Please select valid file" onchange="angular.element(this).scope().fileNameChanged(this)" accept=".json"> <!--ng-click ="fileInput();" -->
         <br><br>
 		<strong > <span  id="selMsg" ng-show="fileInput1">  </span></strong>
 	  <br><br>
@@ -59,7 +59,7 @@
         </label><br> <button id='buttonLoad' class="button" ng-model="loadbtn" ng-show="fileInput1" ng-click="loadFile();" id='loadFile' name="Load Data In this Form"  ng-model-options="{  updateOn: 'click',  debounce: { 'default': 20, 'blur': 0 }}" >Load Results</button>
 		<!-- <br>You have selected <strong>{{evalMethod}} </strong> Version <strong class="hdnMsg">{{evalMethodVrsn}}</strong> -->	    
 		<p id='afterDwnloded'><img   id="dwnldConfm"  ng-src ="./Resources/chkMrk.jpg"  ng-show="dataLoaded" width="20" height="20"  alt="right sign" onerror="this.style.display='none';"> 
-		<span id="msg1"> <Strong>* Select & load a valid template or test result file to proceed.</strong></span> </P>
+		<span id="msg1"> <Strong> </strong></span> </P>
 	  </ul> <div ng-show="dataLoaded">
 	  
 		
