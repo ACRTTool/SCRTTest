@@ -1151,7 +1151,7 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 	  $scope.Mul_Issues3.push($scope.Mul_Issues2[$scope.parentIssueSelected]);
       //console.log($scope.Mul_Issues3);
 		 if ($scope.checkboxModel.alerts == "on")
-			alert("File loaded. To save changes at any time, use Alt+S or Save button at bottom of the page.");
+			alert("Child issue added to the end of this table. Select ‘Go to Child Issues’ to jump to first child issue.");
 		}
 	else {
     //if ($scope.checkboxModel.alerts == "on")		
@@ -1594,7 +1594,7 @@ $scope.createEditOption = 'Edit Report Test Results Form';
    if($scope.default_tstVrsn == undefined)
 	   $scope.default_tstVrsn ='';   
       document.getElementById("msg").innerHTML = "<b>You have successfully loaded the "+ $scope.default_evalMethod+" "+ $scope.default_tstVrsn +" "+$scope.productID+$scope.versionID+".json file </b>. Please edit/update file as needed. To load a different file, <b>reload</b> this page.";     
-      alert('File loaded, to save file changes, select the keyboard shortcut (Alt+s) or Save button located at the bottom of the page.');
+      alert('File loaded.To save changes at any time, use Alt+S or Save button at bottom of the page.');
 	if($scope.default_tstVrsn == "undefined"  )
 	  $scope.updateJSON = true; 
    if($scope.default_tstVrsn == undefined  )
