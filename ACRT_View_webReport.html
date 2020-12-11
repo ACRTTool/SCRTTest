@@ -48,11 +48,12 @@
 		<li>JSON report is used to edit & further analysis.HTML report is user friendly version. Keep both for future reference.</li>	
 	  </ol>
 	</p>
-
+         <span id='selectFileHd' ng-hide = "fileInput1" >
         <label for="fileinput"> <strong> Select test results JSON file </strong>
         </label><br>	
 		<input type='file' class="input" id='fileinput' name='Browse to file' title="Please select valid file" onchange="angular.element(this).scope().fileNameChanged(this)" accept=".json"> <!--ng-click ="fileInput();" -->
-        <br><br>
+        </span>
+		<br><br>
 		<strong > <span  id="selMsg" ng-show="fileInput1">  </span></strong>
 	  <br><br>
 	  <label for="loadFile" ng-show="fileInput1"> <strong> Load selected file</strong>
