@@ -10,8 +10,8 @@
   <link rel="stylesheet" type="text/css" href="./CSS/acrt_styles.css">
 </head>
 
-<body ng-app="acrt" ng-controller="acrtFormCtrl">
-<div >
+<body ng-app="acrt" ng-controller="acrtFormCtrl" >
+<div ng-init="load()">
   <img src=".\Resources\logo.png" alt="ACRT logo" title="ACRT Logo"style="width:5em;height:3.3em;"> 
 <strong style="font-size: 1.5em;display: inline-block;" title="Accessibility Conformance Reporting Tool (ACRT)"> Accessibility Conformance Reporting Tool (ACRT) </strong>
 </div>
@@ -38,9 +38,10 @@
         <!-- View test report. <a title="View Report instructions" href="./Help_Report.html" target="_blank" id="tstinstrID"> "View Report" instructions </a> -->
         
 		<p > <!--  id="instr" -->
-	  <strong>Tool Tips: </strong><br>
+	  <strong >Tool Tips: </strong><br>
 	  <ol >
-	    <li>This is a read only page, no edits are allowed. </li>
+	    <li>This is a read only page, no edits are allowed. </li>  
+		<li>Use Alt+M to go to go main content.</li>
 		<li>Expand Product, Test Environment, Tester Sections & Terms to view information.</li>
 	    <li>At least one valid test result must be included to view complete report.</li>
 		<li>Double click on image in test result section to zoom it. </li>
