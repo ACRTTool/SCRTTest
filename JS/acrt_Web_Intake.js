@@ -1593,7 +1593,7 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 	   $scope.default_tstVrsn ='';   
    if($scope.default_tstVrsn == undefined)
 	   $scope.default_tstVrsn ='';   
-      document.getElementById("msg").innerHTML = "<b>You have successfully loaded the "+ $scope.default_evalMethod+" "+ $scope.default_tstVrsn +" "+$scope.productID+$scope.versionID+".json file </b>. Please edit/update file as needed. To load a different file, <b>reload</b> this page.";     
+      document.getElementById("msg").innerHTML = "<strong>"+ $scope.default_evalMethod+" "+ $scope.default_tstVrsn +" "+$scope.productID+$scope.versionID+".json file load completed. </strong><br>To load a different file, <strong>reload</strong> this page.";     
       alert('File loaded.To save changes at any time, use Alt+S or Save button at bottom of the page.');
 	if($scope.default_tstVrsn == "undefined"  )
 	  $scope.updateJSON = true; 

@@ -351,7 +351,7 @@ document.getElementById("dsblGrpBtn").click();
 }, 1000);	    
       }
       $scope.impactedGroup = [];
-       document.getElementById("msg1").innerHTML = "<strong>"+$scope.evalMethod +" Version "+$scope.evalMethodVrsn + " "+$scope.productID+$scope.ownerID+".json"+ "</strong> file load completed.<br>";		  
+       document.getElementById("msg1").innerHTML = "<strong>"+$scope.evalMethod +" Version "+$scope.evalMethodVrsn + " "+$scope.productID+$scope.ownerID+".json"+ "</strong> file load completed.<br> To load a different file, <strong>reload</strong> this page.";		  
         alert('To save printer-friendly HTML report, use Alt+S or Save button at the bottom of the page.');
 	  
 	  //$scope.validData=true;
