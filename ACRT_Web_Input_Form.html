@@ -20,11 +20,11 @@
 </div> 
  
 <div class="topnav" id="myTopnav"> 
-  <a title="Home" href="./index.html" id="aboutID" class="menu" >Home </a>   <!--target="_blank"  -->
-  <a title="Instructions" href="./Instruction.html" id="aboutID"  class="menu" >Instructions </a> 
-  <a  title="Create Report" href="./ACRT_Web_Input_Form.html"  id="crtReportID" class="menu" id="defaultFocus" id="defaultFocus"  autofocus >Create Report</a> 
-  <a title="View Report" href="./ACRT_View_webReport.html"  id="vwRptId" class="menu" >View Report</a>  
-  <a title="View License" href= "./LICENSE.html"   id="licenseID" class="menu" > View License </a>  
+  <a  href="./index.html" id="aboutID" class="menu" >Home </a>   <!--target="_blank"  -->
+  <a  href="./Instruction.html" id="aboutID"  class="menu" >Instructions </a> 
+  <a   href="./ACRT_Web_Input_Form.html"  id="crtReportID" class="menu" id="defaultFocus" id="defaultFocus"  autofocus >Create Report</a> 
+  <a  href="./ACRT_View_webReport.html"  id="vwRptId" class="menu" >View Report</a>  
+  <a  href= "./LICENSE.html"   id="licenseID" class="menu" > View License </a>  
 </div>
 <br> 	
   <div style="margin-left: 1em;">
@@ -38,8 +38,9 @@
 	  <ol >
 	    <li>Load a JSON Trusted Tester v.4 or Trusted Tester v.5 (TT4 or TT5) Success Criteria template.</li>	    	
 		<li>Expand Product, Test Environment, and Tester Sections to enter information.</li>
-		<li>Complete all (<span class="required">) required form fields  </span>in Product and Testing information sections.</li>	
+		<li>Complete all (<span class="required"> asterisk) required form fields  </span>in Product and Testing information sections.</li>	
 		<li>You can customize JSON Success Criteria templates with pre-populated information (e.g., Product Section) for future use.</li>
+		<li>Make sure to select valid test result to view corresponding data in test report.</li>
 	  </ol>
 	</p><span id='selectFileHd' ng-hide = "fileInput1" >
 		<label for="fileinput" ><strong> Select template or test results JSON file </strong></label> <br> 
@@ -50,7 +51,7 @@
 	  <strong > <span  id="selMsg" ng-show="fileInput1">  </span></strong>
 	  <br><br>	  
 	   <span id="hideLoad"  ><label for="loadFile" ng-show="fileInput1" ><strong> Load selected file</strong> </label> <br> <button ng-show="fileInput1" id='button' class="button" ng-model="loadbtn" ng-click="loadFile();" id='loadFile' name="Load Data In this Form" ng-model-options="{  updateOn: 'click',  debounce: { 'default': 20, 'blur': 0 }}">Load File </button> </span> 
-	   <p> <img  ng-show="fileInput1"  id="dwnldConfm"  ng-src ="./Resources/chkMrk.jpg"  ng-if="dataLoaded" width="20" height="20"  alt="right sign" onerror="this.style.display='none';"> 
+	   <p> <img  ng-show="fileInput1"  id="dwnldConfm"  ng-src ="./Resources/chkMrk.jpg"  ng-if="dataLoaded" width="20" height="20"  alt="Checkmark" onerror="this.style.display='none';"> 
 	   <span  id="msg"><strong > </strong></span>	   
 	   </p> 
 	</div> 

@@ -17,11 +17,11 @@
 </div>
 
 <div class="topnav" id="myTopnav"> 
-  <a title="Home" href="./index.html" id="aboutID" class="menu" >Home </a>   <!--target="_blank"  -->
-  <a title="Instructions" href="./Instruction.html" id="aboutID"  class="menu" >Instructions </a> 
-  <a  title="Create Report" href="./ACRT_Web_Input_Form.html"  id="crtReportID" class="menu" >Create Report</a> 
-  <a title="View Report" href="./ACRT_View_webReport.html"  id="vwRptId" class="menu" id="defaultFocus"  autofocus >View Report</a>  
-  <a title="View License" href= "./LICENSE.html"   id="licenseID" class="menu" > View License </a>  
+  <a  href="./index.html" id="aboutID" class="menu" >Home </a>   <!--target="_blank"  -->
+  <a  href="./Instruction.html" id="aboutID"  class="menu" >Instructions </a> 
+  <a   href="./ACRT_Web_Input_Form.html"  id="crtReportID" class="menu" >Create Report</a> 
+  <a  href="./ACRT_View_webReport.html"  id="vwRptId" class="menu" id="defaultFocus"  autofocus >View Report</a>  
+  <a  href= "./LICENSE.html"   id="licenseID" class="menu" > View License </a>  
 </div>
 <br>
  	
@@ -59,7 +59,7 @@
 	  <label for="loadFile" ng-show="fileInput1"> <strong> Load selected file</strong>
         </label><br> <button id='buttonLoad' class="button" ng-model="loadbtn" ng-show="fileInput1" ng-click="loadFile();" id='loadFile' name="Load Data In this Form"  ng-model-options="{  updateOn: 'click',  debounce: { 'default': 20, 'blur': 0 }}" >Load Results</button>
 		<!-- <br>You have selected <strong>{{evalMethod}} </strong> Version <strong class="hdnMsg">{{evalMethodVrsn}}</strong> -->	    
-		<p id='afterDwnloded'><img   id="dwnldConfm"  ng-src ="./Resources/chkMrk.jpg"  ng-show="dataLoaded" width="20" height="20"  alt="right sign" onerror="this.style.display='none';"> 
+		<p id='afterDwnloded'><img   id="dwnldConfm"  ng-src ="./Resources/chkMrk.jpg"  ng-show="dataLoaded" width="20" height="20"  alt="Checkmark" onerror="this.style.display='none';"> 
 		<span id="msg1"> <Strong> </strong></span> </P>
 	  </ul> <div ng-show="dataLoaded">
 	  
@@ -132,7 +132,7 @@
           <li> <strong>Supports:</strong> The functionality of the product has at least one method that meets the criterion without known defects or meets with equivalent facilitation. </li>          
 		  <li> <strong>Does Not Support:</strong> The majority of product functionality does not meet the criterion.</li>
 		  <li> <strong>Not Applicable:</strong> The criterion is not relevant to the product. </li>
-		   <li> <strong>Not Evaluated:</strong> The product has not been evaluated against the criterion.  This can only be used in WCAG 2.x Level AAA.</li>
+		   <li> <strong>Not Evaluated:</strong> The product has not been evaluated against the criterion.  This can only be used in WCAG 2.0 Level AAA.</li>
 		 </ul>
             <div class="divSpace" id="termsInfo">
                </div>
