@@ -92,6 +92,18 @@ app.controller('acrtWebIntakeCtrl', ['$scope', function($scope, $filter) {
       document.getElementById("button").focus(); 	 
      //alert("File is Selected, please select 'Load File' below to proceed.");	  
     } 
+	
+ $scope.load = function() {    
+	function KeyPress(e) {	  
+      var evtobj = window.event? event : e	          
+	  
+	  if (evtobj.keyCode == 77 && evtobj.altKey) document.getElementById("helpID").focus();  //Alt+M to go to main content 
+	  }
+	  document.onkeydown = KeyPress;
+
+ }
+ 
+	
 //zoom image 
 $scope.zoom = function(i) {
 var modal = document.getElementById(i);

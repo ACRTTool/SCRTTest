@@ -1,6 +1,8 @@
 var app = angular.module('acrt', ["ngSanitize"]); 
    
 window.addEventListener("error", handleError, true);
+ 
+
 
 function handleError(evt) {
     if (evt.message) { // Chrome sometimes provides this
@@ -11,6 +13,9 @@ function handleError(evt) {
 	  alert('Please select and load valid JSON file for ACRT');
     }*/
 }
+
+		
+  
  
 function expandCollapse1() {
   var x = document.getElementById("expandCollapse1");
@@ -118,6 +123,16 @@ app.controller('acrtFormCtrl', function($scope, $filter) {
   $scope.onlyUnique = function(value, index, self) {
     return self.indexOf(value) === index;
   }
+  
+  $scope.load = function() {    
+	function KeyPress(e) {	  
+      var evtobj = window.event? event : e	          
+	  
+	  if (evtobj.keyCode == 77 && evtobj.altKey) document.getElementById("helpID").focus();  //Alt+M to go to main content 
+	  }
+	  document.onkeydown = KeyPress;
+
+ }
   
      $scope.fileNameChanged = function () {
 	  $scope.fileInput1 = true;	
@@ -448,6 +463,7 @@ function KeyPress(e) {
       var evtobj = window.event? event : e
 	  if($scope.dataLoaded == true){        
 	  if (evtobj.keyCode == 83 && evtobj.altKey) document.getElementById("sbtBtn").click();  //Alt+s to save 
+	  //if (evtobj.keyCode == 75 && evtobj.altKey) document.getElementById("fileinput").click();  //Alt+s to save 
 	  }}
 	  document.onkeydown = KeyPress;
 		

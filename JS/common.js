@@ -2,7 +2,14 @@ window.onload = function() {
 	setTimeout(function() {		
 		var a_focus = document.getElementById('defaultFocus');
        if(a_focus) a_focus.focus();
-   }, 5000);  
+   }, 5000); 
+
+function KeyPress(e) {	  
+      var evtobj = window.event? event : e	          
+	  
+	  if (evtobj.keyCode == 77 && evtobj.altKey) document.getElementById("helpID").focus();  //Alt+M to go to main content 
+	  }
+	  document.onkeydown = KeyPress;   
 };
 
 
