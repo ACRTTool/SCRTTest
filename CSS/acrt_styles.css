@@ -14,15 +14,18 @@ article{
  border: 1px solid rgb(25,25,112);
 }
 
-.skip {
- color:rgb(25,25,112);
- font-size: 0.7em;
- background-color: white; 
- font-family: "Franklin Gothic Book","system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";
+.skip:visited {
+	
+color: white;
+ background-color : white;	
+ }
+
+.skip:focus { 
+ color: blue;
+ background-color : white;	
+ 
+ 
 }
-
-
-
 
 a.button {
     -webkit-appearance: button;
