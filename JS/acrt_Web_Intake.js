@@ -92,18 +92,6 @@ app.controller('acrtWebIntakeCtrl', ['$scope', function($scope, $filter) {
       document.getElementById("button").focus(); 	 
      //alert("File is Selected, please select 'Load File' below to proceed.");	  
     } 
-	
- $scope.load = function() {    
-	function KeyPress(e) {	  
-      var evtobj = window.event? event : e	          
-	  
-	  if (evtobj.keyCode == 77 && evtobj.altKey) document.getElementById("helpID").focus();  //Alt+M to go to main content 
-	  }
-	  document.onkeydown = KeyPress;
-
- }
- 
-	
 //zoom image 
 $scope.zoom = function(i) {
 var modal = document.getElementById(i);
@@ -1605,7 +1593,7 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 	   $scope.default_tstVrsn ='';   
    if($scope.default_tstVrsn == undefined)
 	   $scope.default_tstVrsn ='';   
-      document.getElementById("msg").innerHTML = "<strong>"+ $scope.default_evalMethod+" "+ $scope.default_tstVrsn +" "+$scope.productID+$scope.versionID+".json file load completed. </strong><br>To load a different file, <strong>reload</strong> this page.";     
+      document.getElementById("msg").innerHTML = "<strong>"+$scope.default_evalMethod +" Version "+$scope.default_tstVrsn + " "+$scope.productID+$scope.versionID+".json"+ "</strong> file load completed.<br> To load a different file, <strong>reload</strong> this page.";		  	  
       alert('File loaded.To save changes at any time, use Alt+S or Save button at bottom of the page.');
 	if($scope.default_tstVrsn == "undefined"  )
 	  $scope.updateJSON = true; 
