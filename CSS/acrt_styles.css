@@ -16,6 +16,7 @@ article{
 
 .skip {
   color: white;
+  font-size: 0.7em;
 }
 .skip:focus {
   color: blue;
