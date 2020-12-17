@@ -14,18 +14,20 @@ article{
  border: 1px solid rgb(25,25,112);
 }
 
-.skip:visited {
-	
-color: white;
- background-color : white;	
- }
-
-.skip:focus { 
- color: blue;
- background-color : white;	
- 
- 
+.skip {
+  color: white;
 }
+.skip:focus {
+  color: blue;
+}
+
+.skip:hover {
+  color: blue;
+}
+.skip:visited {	
+ color: white;
+ }
+ 
 
 a.button {
     -webkit-appearance: button;
