@@ -6,7 +6,7 @@ window.onload = function() {
 
 function KeyPress(e) {	  
       var evtobj = window.event? event : e	          
-	  
+	  if (evtobj.keyCode == 83 && evtobj.altKey) document.getElementById("sbtBtn").click(); //Alt+S to save 
 	  if (evtobj.keyCode == 77 && evtobj.altKey) document.getElementById("helpID").focus();  //Alt+M to go to main content 
 	  }
 	  document.onkeydown = KeyPress;   
