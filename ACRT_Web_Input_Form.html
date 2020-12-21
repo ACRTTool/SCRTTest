@@ -546,7 +546,7 @@
 
 <td >  <div class="widetd8">
 
-<br> <input  ng-if="browseImageOption[$index]" type="file"  ng-model='imgCnvrsn[$index]'  class='addChild' title="Browse to screenshot images" onchange="angular.element(this).scope().uploadImage(this)" accept="image/*" /> <br> 
+<br> <input  ng-if="browseImageOption[$index]" type="file"  ng-model='imgCnvrsn[$index]'  class='addChild' title="Browse to screenshot images" onchange="angular.element(this).scope().uploadImage(this)" accept=".jpg,.jpeg,.icon,.png,.svg,.gif" /> <br> 
     <img   id="image{{$index}}" ng-if="imageCapturedStored[$index]" ng-src = {{test.ImageSrc}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">      
    <img    id="image{{$index}}" ng-if="imageCaptured[$index]" ng-src = {{imgCnvrsnCurrentValue[$index]}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
    <img    id="image{{$index}}" ng-if="removeClicked[$index]" ng-src = {{imgCnvrsnCurrentValue[$index]}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
@@ -690,7 +690,7 @@
 
 <td > <br><div class="widetd8"> 
  <!-- <input  type="file"   ng-model='imgCnvrsn1[$index]' title="Browse Image"  onchange="angular.element(this).scope().uploadImage1(this)" /> -->
- <input ng-if="browseImageOption1[$index]" type="file"   ng-model='imgCnvrsn1[$index]' alt="Selected Image" title="Browse to screenshot images"  onchange="angular.element(this).scope().uploadImage1(this)" accept="image/*" />   
+ <input ng-if="browseImageOption1[$index]" type="file"   ng-model='imgCnvrsn1[$index]' alt="Selected Image" title="Browse to screenshot images"  onchange="angular.element(this).scope().uploadImage1(this)" accept=".jpg,.jpeg,.icon,.png,.svg,.gif" />   
    <img  id="image{{$index}}"  ng-if="imageCaptured1[$index]" ng-src = {{imgCnvrsnCurrentValue1[$index]}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
    <img  id="image{{$index}}"  ng-if="removeClicked1[$index]" ng-src = {{imgCnvrsnCurrentValue1[$index]}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
 	
