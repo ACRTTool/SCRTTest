@@ -521,7 +521,7 @@
 			"TestID": "11.A ",
 			"TestCondition": "The default human language of each web page can be programmatically determined.",
 			"GrpID": "",
-			"OptMenu1": "menu2",
+			"OptMenu1": "menu5",
 			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'Without Hearing', 'With Limited Hearing', 'With Limited Language, Cognitive, and Learning Abilities'" 
 		},
 		{
@@ -543,7 +543,7 @@
 			"TestID": "12.A",
 			"TestCondition": "A title element is defined for the web page.",
 			"GrpID": "",
-			"OptMenu1": "menu2",
+			"OptMenu1": "menu5",
 			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities' " 
 		},
 		{
@@ -554,7 +554,7 @@
 			"TestID": "12.B",
 			"TestCondition": "The title element identifies the contents or purpose of the web page.",
 			"GrpID": "",
-			"OptMenu1": "menu2",
+			"OptMenu1": "menu5",
 			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities'" 
 		},
 		{
