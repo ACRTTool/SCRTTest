@@ -177,6 +177,26 @@ span.onclick = function() {
 }
 	  
   }
+  
+  $scope.zoom2 = function(i) {
+var modal2 = document.getElementById('rmd2'+i);
+var img2 = document.getElementById("image2"+i);
+var modalImg2 = document.getElementById("img2"+i);
+var captionText2 = document.getElementById("caption2"+i);
+//var span = document.getElementsByClassName("close")[i];
+var span2 = document.getElementById("cls2"+i);
+
+img2.onclick = function(){
+  modal2.style.display = "block";
+  modalImg2.src = this.src;
+  captionText2.innerHTML = this.alt;
+}
+
+span2.onclick = function() { 
+  modal2.style.display = "none";
+}
+	  
+  }
 
   	
   $scope.uniqSCCrtId = [];
@@ -234,6 +254,7 @@ span.onclick = function() {
       $scope.T_brwsrType = [];
       $scope.T_brwsrVrsn = [];
       $scope.ImageSrc = [];
+	  $scope.ImageSrc2 = [];
       $scope.GlobalIssue = [];
       $scope.RemediationDate = [];
       $scope.RemediationDetails = [];
@@ -300,6 +321,7 @@ span.onclick = function() {
         $scope.GlobalIssue[b] = $scope.jsonData[0].Criteria[b].GlobalIssue;
         $scope.RemediationDate[b] = $scope.jsonData[0].Criteria[b].RemediationDate;
         $scope.RemediationDetails[b] = $scope.jsonData[0].Criteria[b].RemediationDetails;
+		$scope.ImageSrc2[b] = $scope.jsonData[0].Criteria[b].ImageSrc2;
         $scope.Counter[b] = $scope.jsonData[0].Criteria[b].Counter;		
         $scope.CrtIDCollection.push($scope.CrtID[b]);	
 		if ($scope.jsonData[0].Criteria[b].TestResult == 'undefined') $scope.jsonData[0].Criteria[b].TestResult ='';
@@ -521,9 +543,10 @@ function KeyPress(e) {
     testResult += "<th scope=\"col\"  title=\"Browser Type\" width=\"80px\">" + "Browser Type" + "</th>";
     testResult += "<th scope=\"col\"  title=\"Browser Versions\" width=\"80px\">" + "Browser Ver." + "</th>";
     testResult += "<th scope=\"col\" title=\"Screenshot\" >" + "Screenshot" + "</th>";
-    testResult += "<th scope=\"col\"  title=\"Global Issue\" width=\"40px\">" + "Global Issue" + "</th>";
-    testResult += "<th scope=\"col\"  title=\"Remediation Date\" width=\"60px\">" + "Remediation Date" + "</th>";
+    testResult += "<th scope=\"col\"  title=\"Global Issue\" width=\"40px\">" + "Global Issue" + "</th>";    
     testResult += "<th scope=\"col\" title=\"Remediation Details\" width=\"140px\">" + "Remediation Details" + "</th>";
+	testResult += "<th scope=\"col\" title=\"Screenshot\" >" + "Remediation Screenshot" + "</th>";
+	testResult += "<th scope=\"col\"  title=\"Remediation Date\" width=\"60px\">" + "Remediation Date" + "</th>";
     testResult += "</tr>";
  
 
@@ -545,8 +568,10 @@ function KeyPress(e) {
       testResult += "<td title=\"Browser's Version\">" + $scope.jsonData[0].Criteria[i].T_brwsrVrsn; + "</td>";
       testResult += "<td onclick=\"zoom("+$scope.jsonData[0].Criteria[i].Counter+")\"   title=\"ScreenShot Captured\">" + "<img id=\""+$scope.jsonData[0].Criteria[i].Counter+"\" width=\"350\"  alt=\"screenshot\" src= \"" + $scope.ImageSrc[i] + '" '+"onerror=\"this.style.display='none'\"" + "\>" + "</td>";
       testResult += "<td title=\"Global Issue\">" + $scope.jsonData[0].Criteria[i].GlobalIssue; + "</td>";
+	  testResult += "<td title=\"Remediation Details\">" + $scope.jsonData[0].Criteria[i].RemediationDetails; + "</td>";
+	  testResult += "<td onclick=\"zoom("+$scope.jsonData[0].Criteria[i].Counter+")\"   title=\"ScreenShot Captured\">" + "<img id=\""+$scope.jsonData[0].Criteria[i].Counter+"\" width=\"350\"  alt=\"screenshot\" src= \"" + $scope.ImageSrc2[i] + '" '+"onerror=\"this.style.display='none'\"" + "\>" + "</td>";
       testResult += "<td title=\"Remediation Date\">" + $scope.jsonData[0].Criteria[i].RemediationDate; + "</td>";
-      testResult += "<td title=\"Remediation Details\">" + $scope.jsonData[0].Criteria[i].RemediationDetails; + "</td>";
+      
       testResult += "</tr>";
     }
 	}
