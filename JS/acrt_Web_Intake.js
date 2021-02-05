@@ -2159,7 +2159,7 @@ $scope.selected_name_tstgrp[b+5]= "Does Not Apply";
 
 }
 $scope.$apply();  		
-   }, 6000);
+   }, 5000);
   
  
   
