@@ -357,10 +357,11 @@
 	<th scope="col" title="Tester's Comment" > <div style="width: 198px"> Tester Comments </div> </th> 
 	<th scope="col" title="Tester's Comment" > <div style="width: 198px"> Location/Screen </div> </th> 		
 	<th scope="col" > <div style="width: 248px">Screenshot </div> </th>	
-	<th style="width: 50px" scope="col" title="Global Issue" >Global Issue? </th>  
-    <th  scope="col" title="Remediation Details" ><div style="width: 198px"> Remediation Details </div></th>  	
-	<th  scope="col" title="Remediation Date" ><div style="width: 148px"> Remediation Date </div></th> 
-	<th  scope="col" title="Remediation Date" ><div style="width: 135px"> Go to Parent/Add Child Issue </div></th> 
+	<th style="width: 63px" scope="col" title="Global Issue" >Global Issue? </th>  
+    <th  ng-show="selected_name_rmdtn"  scope="col" title="Remediation Details" ><div style="width: 198px"> Remediation Details </div></th>  	
+	<th ng-show="selected_name_rmdtn" scope="col" > <div style="width: 248px">Remediation Screenshot </div> </th> 
+	<th  ng-show="selected_name_rmdtn" scope="col" title="Remediation Date" ><div style="width: 148px"> Remediation Date </div></th> 
+	<th  scope="col" title="Remediation Date" ><div style="width: 135px">Add Child Issue </div></th> 
 	 	
 	<!-- <th ><div style="width: 10px"> </div></th> -->
   </tr>  
@@ -368,8 +369,8 @@
   
  <tbody ng-repeat="record in jsonData">
 <tr ng-repeat="test in record.Criteria" >
-<td   > <div ng-if='original' style="width: 97px"  title="Issue Number" > Issue {{$index+1}} </div>
- <div ng-if='edit' style="width: 97px"  title="Issue Number" >Issue {{counterCollection[$index]}} </div> 
+<td > <div  style="width: 97px"  title="Issue Number" > Issue {{$index+1}} </div> <!-- ng-if='original' -->
+ <!-- <div ng-if='edit' style="width: 97px"  title="Issue Number" >Issue {{counterCollection[$index]}} </div>  -->
 </td>
 <th  scope="row" title="Test Name" ><div class="widetd1">{{test.TestName}}</div></th> 
 <td ><div class="widetd2"  id="testID{{$index}}" title="Test ID"> {{test.TestID}} </div> </td>
@@ -382,7 +383,7 @@
       ng-model="selected_id_tstrslt$index"  
 	  ng-model="selected_name_tstgrp[$index]"  
       ng-options="o.id as o.name for o in optionsTstrslt1"  
-      ng-change="selected_name_tstgrp[$index]=(optionsTstrslt1|filter:{id:selected_id_tstrslt$index})[0].name" id="{{$index}}"  title="  Test Result {{default_SelectedResult[$index]}}" ng-click="elemntClicked2([$index])" >
+      ng-change="selected_name_tstgrp[$index]=(optionsTstrslt1|filter:{id:selected_id_tstrslt$index})[0].name" id="{{$index}}"  title="  Test Result {{default_SelectedResult[$index]}}" onchange="elemntClicked2([$index])" >
 	  <option value="" selected disabled hidden>{{default_SelectedResult[$index]}}</option> </select> 	  
 </span>
 <span ng-if="menu1[$index] == 'menu2' " ng-keypress ="elemntClicked2([$index])" >    
@@ -427,7 +428,16 @@
       ng-change="selected_name_tstgrp[$index]=(optionsTstrslt5|filter:{id:selected_id_tstrslt$index})[0].name" title="Test Result {{default_SelectedResult[$index]}}" id="{{$index}}" ng-click="elemntClicked2([$index])" >
 	  <option value="" selected disabled hidden>{{default_SelectedResult[$index]}}</option> </select> 	  
 </span>
-   
+
+<span ng-if="menu1[$index] == undefined " ng-keypress ="elemntClicked2([$index])">    
+      <select class="resultOptions"
+      ng-model="selected_id_tstrslt$index" 
+	  ng-model="selected_name_tstgrp[$index]" 
+      ng-options="o.id as o.name for o in optionsTstrslt6" 
+      ng-change="selected_name_tstgrp[$index]=(optionsTstrslt6|filter:{id:selected_id_tstrslt$index})[0].name" title="Test Result {{default_SelectedResult[$index]}}" id="{{$index}}" ng-click="elemntClicked2([$index])" >
+	  <option value="" selected disabled hidden>{{default_SelectedResult[$index]}}</option> </select> 	  
+</span>
+  
  </td>
 
  <td > <div style="width: 236px">
@@ -571,23 +581,39 @@
 	  <option value="" selected disabled hidden>{{default_glblRslt[$index]}}</option> </select>
 	  </div>
 </td>
-<td title="Remediation Details"> <div style="width: 200px">
+<td title="Remediation Details" ng-show="selected_name_rmdtn"> <div style="width: 200px">
   <!--<label for="selectorr111[$index]"> Add Remediation Details   <input style="width: 150px;" id="selectorr111[$index]" name="Remediation Details"  type="checkbox" ng-model="checked10"  > </label> &nbsp;<br />
 <div  ng-show="checked10">  -->
 <textarea rows="4" cols="50"  id= "{{ 'selectorrr111' + $index }}"  placeholder="Remediation Details, 1000 chars max" type="text" ng-model="rmdatnDtlID[$index]" class="txtarea" title="Remediation Details, 1000 chars max" ng-maxlength="1000" limit-to="1000"> </textarea>
 </div>
 </td>
- <td title="Remediation Date"> <div style="width: 150px"> <input   type="date" title="Remediation Date" ng-model="rmdatnDatelID[$index]"  ng-click="dateTime([$index])" placeholder="mm/dd/yyyy" id="rmdatnDatelID{{$index}}" name="Remediation Date" /> 
+<td ng-show="selected_name_rmdtn" >  <div class="widetd8">
+
+<br> <input  ng-if="browseImageOption[$index]" type="file"  ng-model='imgCnvrsn2[$index]'  class='addChild' title="Browse to screenshot images" onchange="angular.element(this).scope().uploadImage2(this)" accept=".jpg,.jpeg,.icon,.png,.svg,.gif" /> <br> 
+    <img   id="image1{{$index}}" ng-if="imageCapturedStored2[$index]" ng-src = {{test.ImageSrc2}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">      
+   <img    id="image1{{$index}}" ng-if="imageCaptured2[$index]" ng-src = {{imgCnvrsnCurrentValue2[$index]}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
+   <img    id="image1{{$index}}" ng-if="removeClicked2[$index]" ng-src = {{imgCnvrsnCurrentValue2[$index]}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
+			<div id="rmd{{$index}}" class="modal">
+             <span class="close">&times;</span>
+            <img alt="Selected Image" title="Selected Image" class="modal-content" id="img1{{$index}}">
+             <div class="caption" id="caption1{{$index}}" ></div>
+             </div><br>
+			 <div ng-show="displayRemove2[$index]" id= {{ 'removeImage1' + $index }} >    <button   ng-model='imgCnvrsn2[$index]'  title='Remove Image ' type="button" class='addChild' ng-click="removeImage2([$index])">Remove Image </button>  </div>
+			  
+</div>
+	 </td>
+ <td title="Remediation Date" ng-show="selected_name_rmdtn" > <div style="width: 150px"> <input   type="date" title="Remediation Date" ng-model="rmdatnDatelID[$index]"  ng-click="dateTime([$index])" placeholder="mm/dd/yyyy" id="rmdatnDatelID{{$index}}" name="Remediation Date" /> 
  </div>
  </td> 
  <td>
  
 </br> <div class="widetd7"  > <button  id="{{ 'PI'+indexCollection[$index] }}" class='addChild' type="button" title="Add child for {{test.TestID}}" ng-click="addIssue($index)">Add Child Issue {{test.TestID}}</button> </div>
-</br></br></br> <div class="widetd7"  > <button   ng-if="addedRow[$index]" id="{{ 'o'+indexCollection[$index] }}" title="Go to child issue for {{test.TestID}}" class='addChild' type="button" ng-click="goToChildIssue($index)"  >Go to Child Issues *{{test.TestID}} </button> </div>
+<!--</br></br></br> <div class="widetd7"  > <button   ng-if="addedRow[$index]" id="{{ 'o'+indexCollection[$index] }}" title="Go to child issue for {{test.TestID}}" class='addChild' type="button" ng-click="goToChildIssue($index)"  >Go to Child Issues *{{test.TestID}} </button> </div> -->
  
  </td>
 
 </tr>
+ <!-- section below will display child element at the end of table -->
  
  <tr ng-repeat="Issue in Mul_Issues track by $index">
  <td   title="Issue Number"> <div style="width: 100px"> Issue {{newlyAddedIssuePosition[$index]}} </div> </td>
@@ -595,12 +621,12 @@
 <td   title="Test ID"><div class="widetd2"> {{Issue.InsrtTestID}} </div> </td>
 
 <td title="Test Condition"><div class="widetd3"> {{Issue.InsrtTestCondition}}</div> <br/>  <button   id="{{ 'a'+indexCollection[$index] }}" class='addChild'  type="button" title="Remove issue for {{Issue.InsrtTestID}} " ng-click="removeIssue($index)"  >Remove Child Issue {{Issue.InsrtTestID}} </button> </td>
- <!-- <td  title="Issue Number"> <div style="width: 100px"> *Issue #{{indexCollection[$index]+1}}.{{$index+1}} </div> <br/>  <button  id="{{ 'p'+indexCollection[$index] }}"type="button" ng-click="removeIssue($index)"  >Remove Issue </button> -->
+ <td  title="Issue Number"> <div style="width: 100px"> *Issue #{{indexCollection[$index]+1}}.{{$index+1}} </div> <br/>  <button  id="{{ 'p'+indexCollection[$index] }}"type="button" ng-click="removeIssue($index)"  >Remove Issue </button> 
  
  
 <td style="width: 50px" title="Test Result" name="Test Result {{selected_name_tstgrp1[$index]}}"> 
-<!-- <label for="{{ 'p'+$index}}"> Select Result: </label> -->
-	  <span   ng-keypress ="elemntClicked4([$index])">   <!--ng-if="menu1[$index] == {{test.InsrtOptMenu1}}"-->
+
+	  <span   ng-keypress ="elemntClicked4([$index])">   
       <select  class="resultOptions"  
       ng-model="selected_id_tstrslt1[$index]"  
 	  ng-model="selected_name_tstgrp1[$index]"  
@@ -689,7 +715,7 @@
 
 
 <td > <br><div class="widetd8"> 
- <!-- <input  type="file"   ng-model='imgCnvrsn1[$index]' title="Browse Image"  onchange="angular.element(this).scope().uploadImage1(this)" /> -->
+ 
  <input ng-if="browseImageOption1[$index]" type="file"   ng-model='imgCnvrsn1[$index]' alt="Selected Image" title="Browse to screenshot images"  onchange="angular.element(this).scope().uploadImage1(this)" accept=".jpg,.jpeg,.icon,.png,.svg,.gif" />   
    <img  id="image{{$index}}"  ng-if="imageCaptured1[$index]" ng-src = {{imgCnvrsnCurrentValue1[$index]}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
    <img  id="image{{$index}}"  ng-if="removeClicked1[$index]" ng-src = {{imgCnvrsnCurrentValue1[$index]}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
@@ -698,9 +724,8 @@
              <span class="close">&times;</span>
             <img alt="Selected Image" title="Selected Image" class="modal-content" id="img{{$index}}">
              <div class="caption" id="caption{{$index}}" ></div>
-             </div><br>	
-     <!-- <div ng-if="imageCaptured[$index]"> <button  title='Remove Image' type="button" ng-click="removeImage1($index)">Remove Image</button>  -->
-     <!-- <div ng-if="browseImageOption1[$index]">  <button  title='Remove Image' type="button" ng-click="removeImage1($index)">Remove Image</button>  -->
+             </div><br>	  
+     
 	 <div ng-if="displayRemove1[$index]">  <button   title='Remove Image' type="button" class='addChild' ng-click="removeImage1($index)">Remove Image</button>
  </div>
  </td>   
@@ -717,8 +742,7 @@
  </div> 
 </td> 
 <td title="Remediation Details">  <div style="width: 200px">     
- <!-- Add Remediation Details <input style="width: 150px;" id="selectorr1111[$index]" name="Remediation Details"  type="checkbox" ng-model="checked11" >  <br />
-<div  ng-show="checked11">  -->
+
 <textarea rows="4" cols="50" type="text" ng-model="rmdatnDtlID1[$index]" class="txtarea"  placeholder="remediation details, 1000 chars max." title="Remediation Details, 1000 chars max" ng-maxlength="1000" limit-to="1000"> </textarea>
 </div>
 </td>
@@ -726,7 +750,7 @@
               
    <td></br></br><div class="widetd7"  > <button   id="{{ 'b'+addedResultIndex }}" type="button" class='addChild' title="Go to parent Issue {{Issue.InsrtTestID}} " data-ng-click="goToParentIssue(indexCollection[$index])"  >Go to Parent Issue {{Issue.InsrtTestID}} </button> </div> </td>    
 
-	   </tr>
+	   </tr> 
 </tbody>
 </table>
 </div>

@@ -230,6 +230,9 @@
                         <th scope="col" title="Remediation Details" id="rmdtl[$index]">
                           <div style="width: 198px"> Remediation Details </div>
                         </th>
+						<th scope="col" title="Screenshot" id="scrnsht2[$index]">
+                          <div style="width: 123px" >Remediation Screenshot </div>
+                        </th>
                         <th scope="col" title="Date" id="rmdt[$index]">
                           <div style="width: 102px"> Remediation Date </div>
                         </th>
@@ -266,11 +269,11 @@
 			  <td title="Entered location/screen" id="lcn1[$index]">
                 <div class="widetd3"> {{location[$index]}}</div>
               </td>              
-              <td width="151">  <img width="100" id="image{{$index}}"  ng-src={{ImageSrc[$index]}}  ng-click="zoom($index)" class="large-image" title="Selected screenshot" alt="Selected screenshot" onerror="this.style.display='none';" >
+              <td width="151">  <img width="100" id="image{{$index}}"  ng-src={{ImageSrc[$index]}}  ng-click="zoom($index)" class="large-image"  alt="Selected screenshot" onerror="this.style.display='none';" >
               
              <div id="{{$index}}" class="modal">
              <span class="close" id="cls{{$index}}" >&times;</span>
-            <img alt="Selected screenshot" class="modal-content" id="img{{$index}}">
+            <img  class="modal-content" id="img{{$index}}">
              <div class="caption" id="caption{{$index}}" ></div>
              </div>
 			  </td>
@@ -281,6 +284,16 @@
               <td title="Entered Remediation Details" id="rmdtl1[$index]" >
                 <div style="width: 201px"> {{RemediationDetails[$index] }}</div>
               </td>
+			  
+			  <td width="151">  <img width="100" id="image2{{$index}}"  ng-src={{ImageSrc2[$index]}}  ng-click="zoom2($index)" class="large-image"  alt="Selected screenshot" onerror="this.style.display='none';" >
+              
+             <div id="rmd2{{$index}}" class="modal">
+             <span class="close" id="cls2{{$index}}" >&times;</span>
+            <img  class="modal-content" id="img2{{$index}}">
+             <div class="caption" id="caption2{{$index}}" ></div>
+             </div>
+			  </td>
+			  
               <td title="Date" id="rmdt1[$index]" >
                 <div style="width: 102px"> {{RemediationDate[$index]}} </div>
               </td>
