@@ -183,14 +183,34 @@
         </tr>
         </tbody>
         </table>
-		
- 		  <input id="selector111" name="Checkbox to view test results" title="View all test results" type="checkbox" ng-model="checked1" > <!-- onclick="chkBxMsg('selector111', 'chkUnchk');" -->
-		  <label for="smoking" name="chkUnchk" id="chkUnchk"><strong> View all test results </strong></label>
-
+		<!--<span  style='display: inline-block;'>
+ 		  <input id="selector111" name="Checkbox to view test results" title="View all test results" type="radio" ng-model="checked1" > 
+		  <label for="smoking" name="chkUnchk" id="chkUnchk"><strong> View 'All' test results </strong></label> 
+		 </span> -->
+		 <span style='display: inline-block;'>
+		   <input id="selector111" name="Radiobutton to view test results" title="View All test results" type="radio" ng-model="checked1" ng-click="chkBxMsg('selector111', 'chkUnchk1');"> 
+		  <label for="selector111" name="chkUnchk" id="chkUnchk1"><strong> View 'All' test results </strong></label>
+		  </span>
+		 <span style='display: inline-block;'>
+		   <input id="selector112" name="Radiobutton to view Pass results" title="View Pass test results only" type="radio" ng-model="checked2" ng-click="chkBxMsg('selector112', 'chkUnchk2');"> 
+		  <label for="selector112" name="chkUnchk" id="chkUnchk2"><strong> View 'Pass' test results only </strong></label>
+		  </span>
+		  <span style='display: inline-block;'>
+		   <input id="selector113" name="Radiobutton to view Fail results" title="View Fail test results only" type="radio" ng-model="checked3" ng-click="chkBxMsg('selector113', 'chkUnchk3');" > 
+		  <label for="selector113" name="chkUnchk" id="chkUnchk3"><strong> View 'Fail' test results only</strong></label>
+		  </span>
+		  <span style='display: inline-block;'>
+		   <input id="selector114" name="Radiobutton to view DNA test results" title="View DNA test results only" type="radio" ng-model="checked4" ng-click="chkBxMsg('selector114', 'chkUnchk4');"> 
+		  <label for="selector114" name="chkUnchk" id="chkUnchk4"><strong> View 'Does Not Apply' test results only</strong></label>
+		  </span>
+		  <span style='display: inline-block;'>
+		   <input id="selector115" name="Radiobutton to view test results" title="View Not tested test results only" type="radio" ng-model="checked5" ng-click="chkBxMsg('selector115', 'chkUnchk5');"> 
+		  <label for="selector115" name="chkUnchk" id="chkUnchk5"><strong> View all 'Not Tested' results only</strong></label>
+        </span>
 		  <br />
                
                
-                 <div ng-show="checked1">
+                 <div ng-show="displaytstRslt"id='tstRslt'>
  
 				<div ng-show="wcagRprt">	 
 
@@ -238,12 +258,70 @@
                         </th>
                         
                       </tr>
-
-            
             </thead>
+			<tbody ng-repeat="record in jsonData">
+             <tr ng-repeat="test in record.Criteria " ng-if="filterResult1"> 
+			<!--<tr ng-repeat="test in record.Criteria " ng-if="noResult[$index]" ng-show="TestResult[$index]== filterResult">-->
+			 <td  title="Issue Number">
+                <div style="width: 80px"> Issue {{counterCollection[$index]}} </div>
+              </td>              
+              <th  scope="row" title="Test Name" id="tnm1[$index]">
+                <div class="widetd1"> {{TestName[$index]}} </div>
+              </th>
+              <td title="Test Id" id="tid1[$index]">
+                <div class="widetd2"> {{TestID[$index]}}</div>
+              </td>
+              <td title="Selected Test Condition" id="tstcndn1[$index]">
+                <div class="widetd3"> {{TestCondition[$index]}}</div>
+              </td>
+							
+              <td title="Selected Test Result" id="tstrslt1[$index]">
+                <div style="width: 69px"> {{TestResult[$index]}} </div>
+              </td>
+              <td title="Selected Browser Types" id="brsr1[$index]">
+                <div style="width: 129px"> {{T_brwsrType[$index]}} </br> {{T_brwsrVrsn[$index]}}</div>
+              </td>
+			  <td title="Entered Tester's Comment" id="tstcmt1[$index]">
+                <div class="widetd3"> {{TesterComment[$index]}}</div>
+              </td>
+			  <td title="Entered location/screen" id="lcn1[$index]">
+                <div class="widetd3"> {{location[$index]}}</div>
+              </td>              
+              <td width="151">  <img width="100" id="image{{$index}}"  ng-src={{ImageSrc[$index]}}  ng-click="zoom($index)" class="large-image"   onerror="this.style.display='none';" >
+              
+             <div id="{{$index}}" class="modal">
+             <span class="close" id="cls{{$index}}" >&times;</span>
+            <img  class="modal-content" id="img{{$index}}">
+             <div class="caption" id="caption{{$index}}" ></div>
+             </div>
+			  </td>
+            
+              <td title="Selected Global Issue" id="glbl1[$index]">
+                <div style="width: 46px"> {{GlobalIssue[$index]}} </div>
+              </td>
+              <td title="Entered Remediation Details" id="rmdtl1[$index]" >
+                <div style="width: 201px"> {{RemediationDetails[$index] }}</div>
+              </td>
+			  
+			  <td width="151">  <img width="100" id="image2{{$index}}"  ng-src={{ImageSrc2[$index]}}  ng-click="zoom2($index)" class="large-image"   onerror="this.style.display='none';" >
+              
+             <div id="rmd2{{$index}}" class="modal">
+             <span class="close" id="cls2{{$index}}" >&times;</span>
+            <img  class="modal-content" id="img2{{$index}}">
+             <div class="caption" id="caption2{{$index}}" ></div>
+             </div>
+			  </td>
+			  
+              <td title="Date" id="rmdt1[$index]" >
+                <div style="width: 102px"> {{RemediationDate[$index]}} </div>
+              </td>
+
+            </tr>
+          </tbody>
 
           <tbody ng-repeat="record in jsonData">
-            <tr ng-repeat="test in record.Criteria " ng-if="noResult[$index]">
+            <!-- <tr ng-repeat="test in record.Criteria " ng-if="filterResult1"> -->
+			<tr ng-repeat="test in record.Criteria " ng-if="noResult[$index]" ng-show="TestResult[$index]== filterResult">
 			 <td  title="Issue Number">
                 <div style="width: 80px"> Issue {{counterCollection[$index]}} </div>
               </td>              
