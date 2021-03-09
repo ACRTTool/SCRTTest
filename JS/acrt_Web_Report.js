@@ -73,18 +73,28 @@ app.filter('unique', function() {
     return output;
   };
 });
-
 /*
+var displaytstRslt = false;
 function chkBxMsg(thecheckbox, thelabel) {
 
     var checkboxvar = document.getElementById(thecheckbox);
     var labelvar = document.getElementById(thelabel);
+	
     if (!checkboxvar.checked) {
-        labelvar.innerHTML = "Select Checkbox to view all test results. ";
+        //labelvar.innerHTML = "Select Checkbox to view all test results. ";
+		document.getElementById("displaytstRslt1").style.visibility = "hidden";
+		alert('unckecked');
     }
     else {
-        labelvar.innerHTML = "Uncheck checkbox to hide all test results.";
-    }
+        //labelvar.innerHTML = "Uncheck checkbox to hide all test results.";
+		//alert('checked');
+	   if(checkboxvar == selector112 ) { displaytstRslt=true; alert('Pass');}
+		if(checkboxvar == selector113 ) {displaytstRslt=true;alert('Fail');}
+		if(checkboxvar == selector114 ) {displaytstRslt=true;alert('Does Not Apply');}
+		if(checkboxvar == selector115 ) {displaytstRslt=true;alert('Not Tested');}
+		
+
+    } 
 }
 
 */
@@ -119,10 +129,34 @@ for (i = 0; i < coll.length; i++) {
 
 
 app.controller('acrtFormCtrl', function($scope, $filter) {
-
-  $scope.onlyUnique = function(value, index, self) {
+   //$scope.displaytstRslt1 = displaytstRslt;
+   $scope.onlyUnique = function(value, index, self) {
     return self.indexOf(value) === index;
   }
+  
+ $scope.displaytstRslt = false;
+ 
+$scope.chkBxMsg = function(thecheckbox, thelabel) {
+    $scope.filterResult = '';
+	$scope.filterResult1=false;
+    let checkboxvar = document.getElementById(thecheckbox);
+    let labelvar = document.getElementById(thelabel);
+	
+    if (!checkboxvar.checked) {
+        
+		document.getElementById("tstRslt").style.visibility = "hidden";
+		
+    }
+    else {
+        if(checkboxvar == selector111 ) { $scope.displaytstRslt=true; $scope.filterResult1 = true;} 
+	    if(checkboxvar == selector112 ) { $scope.displaytstRslt=true; $scope.filterResult = 'Pass';} 
+		if(checkboxvar == selector113 ) {$scope.displaytstRslt=true;$scope.filterResult = 'Fail';}
+		if(checkboxvar == selector114 ) {$scope.displaytstRslt=true; $scope.filterResult = 'Does Not Apply';}
+		if(checkboxvar == selector115 ) {$scope.displaytstRslt=true; $scope.filterResult = 'Not Tested';}
+		
+
+    } 
+}
   
   $scope.load = function() {    
 	function KeyPress(e) {	  
@@ -133,6 +167,8 @@ app.controller('acrtFormCtrl', function($scope, $filter) {
 	  document.onkeydown = KeyPress;
 
  }
+ 
+ 
   
      $scope.fileNameChanged = function () {
 	  $scope.fileInput1 = true;	
@@ -155,7 +191,7 @@ app.controller('acrtFormCtrl', function($scope, $filter) {
 $scope.fileInput1 = true;	
 }
   
- $scope.noResult =[];
+$scope.noResult =[];
 
   //zoom image 
 $scope.zoom = function(i) {
@@ -209,7 +245,12 @@ span2.onclick = function() {
 	$scope.dataLoaded = false;
 	$scope.wcagRprt = false;
 	$scope.sucCrtLngth =0;
-
+	$scope.checked1= false;
+	$scope.checked2= false;
+	$scope.checked3= false;
+	$scope.checked4= false;
+	$scope.checked5= false;
+	
 	
   $scope.loadFile = function loadFile() {
 
@@ -235,6 +276,7 @@ span2.onclick = function() {
       fr.onload = receivedText;
       fr.readAsText(file);
     }
+	
 
     function receivedText(e) {
       let lines = e.target.result;
@@ -298,6 +340,7 @@ span2.onclick = function() {
       //$scope.Section508 = $scope.jsonData[0].Guideline.Section508;
       //$scope.EN_Accessibility = $scope.jsonData[0].Guideline.EN_Accessibility;
       $scope.crtID = $scope.jsonData[0].Criteria[0].CrtID;
+	  
 	        
       for (let b = 0; b < $scope.jsonData[0].Criteria.length; b++) {	
        	$scope.noResult[b] = true;         
@@ -477,11 +520,14 @@ document.getElementById("dsblGrpBtn").click();
 	  $scope.DisabilityImpactCollection.toString().replace(/,/g, ", ").trim(); 
       $scope.DisabilityImpactCollection.toString().replace(/[,\s]{2,}/, "");     
       
-
     }
 	
 	
-function KeyPress(e) {	  
+
+
+	
+	//if($scope.checked2== true){alert('a')};
+     function KeyPress(e) {	  
       var evtobj = window.event? event : e
 	  if($scope.dataLoaded == true){        
 	  if (evtobj.keyCode == 83 && evtobj.altKey) document.getElementById("sbtBtn").click();  //Alt+s to save 
@@ -495,6 +541,7 @@ function KeyPress(e) {
   $scope.capturedTableData = [];
   $scope.capturedTableDataCollection = [];
   
+
 
 
   $scope.saveHtml = function() {	 
@@ -553,7 +600,31 @@ function KeyPress(e) {
     for (let i = 0; i < $scope.jsonData[0].Criteria.length; i++) {		
      if ($scope.jsonData[0].Criteria[i].TestResult == 'undefined') $scope.jsonData[0].Criteria[i].TestResult ='';	
 		let d=i+1;
-		if($scope.noResult[i]== true){
+		//if($scope.noResult[i]== true && $scope.TestResult[i]== $scope.filterResult){
+		if($scope.TestResult[i]== $scope.filterResult){
+      testResult += "<tr >";
+	  testResult += "<td  title=\"Issue Number\"> Issue " + $scope.jsonData[0].Criteria[i].Counter; + "</td>";
+	  testResult += "<th   scope=\"row\" title=\"Test Name\">" + $scope.jsonData[0].Criteria[i].TestName; + "</th>";      
+      testResult += "<td title=\"Test ID\">" + $scope.jsonData[0].Criteria[i].TestID; + "</td>";
+      testResult += "<td title=\"Test Condition\">" + $scope.jsonData[0].Criteria[i].TestCondition; + "</td>";
+      testResult += "<td title=\"Success Criteria\">" + $scope.jsonData[0].Criteria[i].CrtID; + "</td>";
+     // testResult += "<td title=\"Test\">" + $scope.jsonData[0].Criteria[i].Test; + "</td>";      
+      testResult += "<td title=\"Test Result\">" + $scope.jsonData[0].Criteria[i].TestResult; + "</td>";
+	  testResult += "<td title=\"Tester's comment\">" + $scope.jsonData[0].Criteria[i].TesterComment; + "</td>";
+	  testResult += "<td title=\"Location\">" + $scope.jsonData[0].Criteria[i].location; + "</td>";      
+      testResult += "<td title=\"Browser Type\">" + $scope.jsonData[0].Criteria[i].T_brwsrType; + "</td>";
+      testResult += "<td title=\"Browser's Version\">" + $scope.jsonData[0].Criteria[i].T_brwsrVrsn; + "</td>";
+      testResult += "<td onclick=\"zoom("+$scope.jsonData[0].Criteria[i].Counter+")\"   title=\"ScreenShot Captured\">" + "<img id=\""+$scope.jsonData[0].Criteria[i].Counter+"\" width=\"350\"  alt=\"screenshot\" src= \"" + $scope.ImageSrc[i] + '" '+"onerror=\"this.style.display='none'\"" + "\>" + "</td>";
+      testResult += "<td title=\"Global Issue\">" + $scope.jsonData[0].Criteria[i].GlobalIssue; + "</td>";
+	  testResult += "<td title=\"Remediation Details\">" + $scope.jsonData[0].Criteria[i].RemediationDetails; + "</td>";
+	  testResult += "<td onclick=\"zoom("+$scope.jsonData[0].Criteria[i].Counter+")\"   title=\"ScreenShot Captured\">" + "<img id=\""+$scope.jsonData[0].Criteria[i].Counter+"\" width=\"350\"  alt=\"screenshot\" src= \"" + $scope.ImageSrc2[i] + '" '+"onerror=\"this.style.display='none'\"" + "\>" + "</td>";
+      testResult += "<td title=\"Remediation Date\">" + $scope.jsonData[0].Criteria[i].RemediationDate; + "</td>";
+      
+      testResult += "</tr>";
+    }
+	
+	//if($scope.noResult[i]== true && $scope.filterResult1== true){
+	if($scope.filterResult1== true){
       testResult += "<tr >";
 	  testResult += "<td  title=\"Issue Number\"> Issue " + $scope.jsonData[0].Criteria[i].Counter; + "</td>";
 	  testResult += "<th   scope=\"row\" title=\"Test Name\">" + $scope.jsonData[0].Criteria[i].TestName; + "</th>";      
