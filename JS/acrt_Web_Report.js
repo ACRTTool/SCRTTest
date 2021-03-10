@@ -425,10 +425,10 @@ span2.onclick = function() {
           
         } 
 		
-		
+if($scope.DisabilityImpactCollection.length >0)		
 setTimeout(function() {
 document.getElementById("dsblGrpBtn").click();
-}, 1000);	    
+}, 1000);	   
       }
       $scope.impactedGroup = [];
        document.getElementById("msg1").innerHTML = "<strong>"+$scope.evalMethod +" Version "+$scope.evalMethodVrsn + " "+$scope.productID+$scope.ownerID+".json"+ "</strong> file load completed.<br> To load a different file, <strong>reload</strong> this page.";		  
@@ -490,6 +490,8 @@ document.getElementById("dsblGrpBtn").click();
 	  
 	  if($scope.DisabilityImpactCollection.length >0)
 	  $scope.DisabilityImpactCollectionLength = true;
+      else 
+      document.getElementById("dsblImpctDsply").innerHTML = 'No One Impacted';
 	  	 
 	  	
 	 /* commented out because we dont want to display duplicate groups based on failed test conditions
