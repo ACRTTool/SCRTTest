@@ -544,7 +544,8 @@ document.getElementById("dsblGrpBtn").click();
        $scope.DisabilityImpactCollection.toString().replace(/, /g, "").trim(); 
 	  $scope.DisabilityImpactCollection.toString().replace(/,/g, ", ").trim(); 
       $scope.DisabilityImpactCollection.toString().replace(/[,\s]{2,}/, "");   
-      $scope.displaytstRslt=true; $scope.filterResult1 = true;	  
+      $scope.displaytstRslt=true; $scope.filterResult1 = true;	
+      $scope.$apply();	  
       
     }
 	
