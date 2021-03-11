@@ -19,10 +19,10 @@ function handleError(evt) {
  
 function expandCollapse1() {
   var x = document.getElementById("expandCollapse1");
-  if (x.innerHTML === "<i class=\"down\"></i> Hide Product section") {
-    x.innerHTML = "<i class=\"up\"></i> Show Product section";
+  if (x.innerHTML === "<i class=\"down\"></i> Hide Product Section") {
+    x.innerHTML = "<i class=\"up\"></i> Show Product Section";
   } else {
-    x.innerHTML = "<i class=\"down\"></i> Hide Product section";
+    x.innerHTML = "<i class=\"down\"></i> Hide Product Section";
   }
 
 }
@@ -30,10 +30,10 @@ function expandCollapse1() {
 function expandCollapse2() {
 
   var y = document.getElementById("expandCollapse2");
-  if (y.innerHTML === "<i class=\"down\"></i> Hide Test Environment section") {
-    y.innerHTML = "<i class=\"up\"></i> Show Test Environment section";
+  if (y.innerHTML === "<i class=\"down\"></i> Hide Test Environment Section") {
+    y.innerHTML = "<i class=\"up\"></i> Show Test Environment Section";
   } else {
-    y.innerHTML = "<i class=\"down\"></i> Hide Test Environment section";
+    y.innerHTML = "<i class=\"down\"></i> Hide Test Environment Section";
   }
 
 }
@@ -41,10 +41,10 @@ function expandCollapse2() {
 function expandCollapse3() {
 
   var z = document.getElementById("expandCollapse3");
-  if (z.innerHTML === "<i class=\"down\"></i> Hide Testing Information section") {
-    z.innerHTML = "<i class=\"up\"></i> Show Testing Information section";
+  if (z.innerHTML === "<i class=\"down\"></i> Hide Testing Information Section") {
+    z.innerHTML = "<i class=\"up\"></i> Show Testing Information Section";
   } else {
-    z.innerHTML = "<i class=\"down\"></i> Hide Testing Information section";
+    z.innerHTML = "<i class=\"down\"></i> Hide Testing Information Section";
   }
 }
 
@@ -133,30 +133,51 @@ app.controller('acrtFormCtrl', function($scope, $filter) {
    $scope.onlyUnique = function(value, index, self) {
     return self.indexOf(value) === index;
   }
+$scope.selected_name_tstrsltdsply = '';	
+$scope.optionsRsltDsply = [];
+$scope.default_SelectedResultDsply = 'Select One';  
+
+$scope.optionsRsltDsply = [
+{
+    id: 0,
+    name: 'Pass'
+  },
+  {
+    id: 1,
+    name: 'Fail'
+  },
+  {
+    id: 2,
+    name: 'Does Not Apply'
+  }
+  ,
+  {
+    id: 3,
+    name: 'Not Tested'
+  },{
+    id: 4,
+    name: 'All'
+  }
+
+];  
   
- $scope.displaytstRslt = false;
  
-$scope.chkBxMsg = function(thecheckbox, thelabel) {
-    $scope.filterResult = '';
-	$scope.filterResult1=false;
-    let checkboxvar = document.getElementById(thecheckbox);
-    let labelvar = document.getElementById(thelabel);
-	
-    if (!checkboxvar.checked) {
-        
-		document.getElementById("tstRslt").style.visibility = "hidden";
-		
-    }
-    else {
-        if(checkboxvar == selector111 ) { $scope.displaytstRslt=true; $scope.filterResult1 = true;} 
-	    if(checkboxvar == selector112 ) { $scope.displaytstRslt=true; $scope.filterResult = 'Pass';} 
-		if(checkboxvar == selector113 ) {$scope.displaytstRslt=true;$scope.filterResult = 'Fail';}
-		if(checkboxvar == selector114 ) {$scope.displaytstRslt=true; $scope.filterResult = 'Does Not Apply';}
-		if(checkboxvar == selector115 ) {$scope.displaytstRslt=true; $scope.filterResult = 'Not Tested';}
+ 
+$scope.displayTestResult = function() {
+    $scope.displaytstRslt = false;
+	$scope.filterResult1 = false;	
+	//$scope.selected_name_tstrsltdsply == 'All';
+        if($scope.selected_name_tstrsltdsply == 'All' ) { $scope.displaytstRslt=true; $scope.filterResult1 = true;} 
+	    if($scope.selected_name_tstrsltdsply == 'Pass' ) { $scope.displaytstRslt=true; $scope.filterResult = 'Pass';} 
+		if($scope.selected_name_tstrsltdsply == 'Fail' ) {$scope.displaytstRslt=true;$scope.filterResult = 'Fail';}
+		if($scope.selected_name_tstrsltdsply == 'Does Not Apply' ) {$scope.displaytstRslt=true; $scope.filterResult = 'Does Not Apply';}
+		if($scope.selected_name_tstrsltdsply == 'Not Tested' ) {$scope.displaytstRslt=true; $scope.filterResult = 'Not Tested';}
 		
 
-    } 
+   
 }
+
+
   
   $scope.load = function() {    
 	function KeyPress(e) {	  
@@ -490,8 +511,10 @@ document.getElementById("dsblGrpBtn").click();
 	  
 	  if($scope.DisabilityImpactCollection.length >0)
 	  $scope.DisabilityImpactCollectionLength = true;
-      else 
+      else {
       document.getElementById("dsblImpctDsply").innerHTML = 'No One Impacted';
+	  $scope.DisabilityImpactCollection = 'No One Impacted'; 
+	  }
 	  	 
 	  	
 	 /* commented out because we dont want to display duplicate groups based on failed test conditions
@@ -520,7 +543,8 @@ document.getElementById("dsblGrpBtn").click();
 	  $scope.DisabilityImpactCollection = $scope.DisabilityImpactCollection.filter($scope.onlyUnique); */
        $scope.DisabilityImpactCollection.toString().replace(/, /g, "").trim(); 
 	  $scope.DisabilityImpactCollection.toString().replace(/,/g, ", ").trim(); 
-      $scope.DisabilityImpactCollection.toString().replace(/[,\s]{2,}/, "");     
+      $scope.DisabilityImpactCollection.toString().replace(/[,\s]{2,}/, "");   
+      $scope.displaytstRslt=true; $scope.filterResult1 = true;	  
       
     }
 	
