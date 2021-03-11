@@ -69,7 +69,7 @@
           <legend>
             <h2> Product </h2>
           </legend>
-		  <button class="collapsible" title="Show or HIde Product Section" id="productBtn" onclick="expandCollapse1()"> <div id="expandCollapse1"> <i class="up"></i> Show Product section</div> </button> 
+		  <button class="collapsible" title="Show Product Section" id="productBtn" onclick="expandCollapse1()"> <div id="expandCollapse1"> <i class="up"></i> Show Product Section</div> </button> 
 		  <div class="content">
     <div class="divSpace" id="productInfo" >           
               <label for="productID"> Product Name: </label> <input type="string" ng-model="productID" class="betnTags" id="productID" name="Entered Name Of Product" ng-readonly="true" size="100"> &nbsp;
@@ -88,7 +88,7 @@
             <h2> Testing Information </h2>
           </legend>
           <button class="collapsible" title="Show or HIde Testing Information Sectiion" onclick="expandCollapse3()">
-            <div id="expandCollapse3"> <i class="up"></i> Show Testing Information section</div>
+            <div id="expandCollapse3"> <i class="up"></i> Show Testing Information Section</div>
           </button>
           <div class="content">
 
@@ -107,7 +107,7 @@
             <h2> Test Environment </h2>
           </legend>
           <button class="collapsible" title="Show or HIde Test Environment Section" onclick="expandCollapse2()">
-            <div id="expandCollapse2"> <i class="up"></i> Show Test Environment section</div>
+            <div id="expandCollapse2"> <i class="up"></i> Show Test Environment Section</div>
           </button>
           <div class="content">
             <div class="divSpace" id="sysInfo">
@@ -144,9 +144,7 @@
         &nbsp;
        
 <div id="displayTestRslt" hidden >
-        <h3> Test Results </h3>
-		
-
+        
         <label for="evalMethod"> Testing Method:</label> <input type="string" ng-model="evalMethod" class="betnTags" id="evalMethod" name="Selected Evaluation Method Used" ng-readonly="true"> &nbsp;
         <label for="evalMethodVrsn">Testing Method Version: </label> <input type="string" ng-model="evalMethodVrsn" class="betnTags" id="evalMethodVrsn" name="Entered Evaluation Version" ng-readonly="true"> &nbsp; <br>
         <label for="dateSubmitted"> Review Date:</label> <input type="string" ng-model="dateSubmitted" class="dateField" id="dateSubmitted" name="Review Date" ng-readonly="true"> <br> <br>
@@ -183,10 +181,13 @@
         </tr>
         </tbody>
         </table>
-		<!--<span  style='display: inline-block;'>
+		<!--
+		this is for checkbox
+		<span  style='display: inline-block;'>
  		  <input id="selector111" name="Checkbox to view test results" title="View all test results" type="radio" ng-model="checked1" > 
 		  <label for="smoking" name="chkUnchk" id="chkUnchk"><strong> View 'All' test results </strong></label> 
 		 </span> -->
+		 <!--this is for radio button 
 		 <span>Select one of following to view approperiate test result </span><br>
 		 <span style='display: inline-block;'>
 		   <input id="selector111" name="selectOne" title="View All test results" type="radio" ng-model="checked1" ng-click="chkBxMsg('selector111', 'chkUnchk1');"> 
@@ -208,10 +209,17 @@
 		   <input id="selector115" name="selectOne" title="View Not tested test results only" type="radio" ng-model="checked5" ng-click="chkBxMsg('selector115', 'chkUnchk5');"> 
 		  <label for="selector115" name="chkUnchk" id="chkUnchk5"><strong> 'Not Tested'</strong></label>
         </span>
-		  <br />
+		-->
+		<h3> Test Results </h3>
+            &nbsp;&nbsp;<label for="dsplTstRslt"> Filter result with </label> &nbsp;
+		  &nbsp;&nbsp;&nbsp;<select name="Select to view test result" ng-model="selected_name_tstrsltdsply"  id="dsplTstRslt" title="" ng-change="displayTestResult()" >
+          <option value="">{{default_SelectedResultDsply}}</option>
+           <option ng-repeat="result in optionsRsltDsply" value="{{result.name}}">{{result.name}}</option>
+          </select>
+
                
                
-                 <div ng-show="displaytstRslt"id='tstRslt'>
+                 <div ng-show="displaytstRslt"  id='tstRslt'>
  
 				<div ng-show="wcagRprt">	 
 
@@ -348,7 +356,7 @@
 			  <td title="Entered location/screen" id="lcn1[$index]">
                 <div class="widetd3"> {{location[$index]}}</div>
               </td>              
-              <td width="151">  <img width="100" id="image{{$index}}"  ng-src={{ImageSrc[$index]}}  ng-click="zoom($index)" class="large-image"  alt="Selected screenshot" onerror="this.style.display='none';" >
+              <td width="151">  <img width="100" id="image{{$index}}"  ng-src={{ImageSrc[$index]}}  ng-click="zoom($index)" class="large-image"  alt='' onerror="this.style.display='none';" >
               
              <div id="{{$index}}" class="modal">
              <span class="close" id="cls{{$index}}" >&times;</span>
@@ -364,7 +372,7 @@
                 <div style="width: 201px"> {{RemediationDetails[$index] }}</div>
               </td>
 			  
-			  <td width="151">  <img width="100" id="image2{{$index}}"  ng-src={{ImageSrc2[$index]}}  ng-click="zoom2($index)" class="large-image"  alt="Selected screenshot" onerror="this.style.display='none';" >
+			  <td width="151">  <img width="100" id="image2{{$index}}"  ng-src={{ImageSrc2[$index]}}  ng-click="zoom2($index)" class="large-image"  alt='' onerror="this.style.display='none';" >
               
              <div id="rmd2{{$index}}" class="modal">
              <span class="close" id="cls2{{$index}}" >&times;</span>

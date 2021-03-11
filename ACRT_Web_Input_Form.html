@@ -37,9 +37,9 @@
   Refer to the <a title="ACRT User Guide" href="./Resources/ACRTTrainingManual.pdf" target="_blank"  id="helpID">ACRT User Guide </a> &nbsp;for complete instructions.
    <p > <!--  id="instr" -->
 	  <strong>Tool Tips:</strong> <br>
-	  <ol >
-	    <li>Use 'Skip to main content' link or keyboard shortcut Alt+M to go to go main content.</li>
-	    <li>Load a JSON Trusted Tester v.4 or Trusted Tester v.5 (TT4 or TT5) Success Criteria template.</li>	    	
+	  <ol>	    
+	    <li>Load a JSON Trusted Tester v.4 or Trusted Tester v.5 (TT4 or TT5) Success Criteria template.</li>	 
+        <li>Use 'Skip to main content' link or keyboard shortcut Alt+M to go to go main content.</li>		
 		<li>Expand Product, Test Environment, and Tester Sections to enter information.</li>
 		<li>Complete all (<span class="required"> asterisk) required form fields  </span>in Product and Testing information sections.</li>	
 		<li>You can customize JSON Success Criteria templates with pre-populated information (e.g., Product Section) for future use.</li>		
@@ -350,14 +350,14 @@
  <tr>   
      <th scope="col" title="Issue Number"><div style="width: 96px"> Issue Number </div> </th> 	 
 	<th scope="col" title="Test Name" > <div style="width: 83px">Test Name</div> </th>	
-    <th scope="col" title="Test ID" > <div class="widetd2" >Test ID </div> </th>    	
+    <th scope="col" title="Test ID" > <div style="width: 31px !important" >Test ID </div> </th>    	
 	<th scope="col" title="Test Condition"><div style="width: 198px"> Test Condition </div></th>    
 	<th scope="col" title="Test Result" > <div style="width: 118px"> Test Result </div></th> 
 	<th scope="col" title="Browser" > <div style="width: 234px">  Browser </div> </th> 
 	<th scope="col" title="Tester's Comment" > <div style="width: 198px"> Tester Comments </div> </th> 
 	<th scope="col" title="Tester's Comment" > <div style="width: 198px"> Location/Screen </div> </th> 		
 	<th scope="col" > <div style="width: 248px">Screenshot </div> </th>	
-	<th style="width: 63px" scope="col" title="Global Issue" >Global Issue? </th>  
+	<th style="width: 67px !important" scope="col" title="Global Issue" >Global Issue? </th>  
     <th  ng-show="selected_name_rmdtn"  scope="col" title="Remediation Details" ><div style="width: 198px"> Remediation Details </div></th>  	
 	<th ng-show="selected_name_rmdtn" scope="col" > <div style="width: 248px">Remediation Screenshot </div> </th> 
 	<th  ng-show="selected_name_rmdtn" scope="col" title="Remediation Date" ><div style="width: 148px"> Remediation Date </div></th> 
@@ -557,12 +557,12 @@
 <td >  <div class="widetd8">
 
 <br> <input  ng-if="browseImageOption[$index]" type="file"  ng-model='imgCnvrsn[$index]'  class='addChild' title="Browse to screenshot images" onchange="angular.element(this).scope().uploadImage(this)" accept=".jpg,.jpeg,.icon,.png,.svg,.gif" /> <br> 
-    <img   id="image{{$index}}" ng-if="imageCapturedStored[$index]" ng-src = {{test.ImageSrc}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">      
-   <img    id="image{{$index}}" ng-if="imageCaptured[$index]" ng-src = {{imgCnvrsnCurrentValue[$index]}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
-   <img    id="image{{$index}}" ng-if="removeClicked[$index]" ng-src = {{imgCnvrsnCurrentValue[$index]}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
+    <img   id="image{{$index}}" ng-if="imageCapturedStored[$index]"  ng-src = {{test.ImageSrc}}  alt="" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">      
+   <img    id="image{{$index}}" ng-if="imageCaptured[$index]"  ng-src = {{imgCnvrsnCurrentValue[$index]}}  alt="" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
+   <img    id="image{{$index}}" ng-if="removeClicked[$index]"  ng-src = {{imgCnvrsnCurrentValue[$index]}}  alt="" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
 			<div id="{{$index}}" class="modal">
              <span class="close">&times;</span>
-            <img alt="Selected Image" title="Selected Image" class="modal-content" id="img{{$index}}">
+            <img alt="" title="Selected Image" class="modal-content"  id="img{{$index}}">
              <div class="caption" id="caption{{$index}}" ></div>
              </div><br>
 			 <div ng-show="displayRemove[$index]" id= {{ 'removeImage' + $index }} >    <button   ng-model='imgCnvrsn[$index]'  title='Remove Image ' type="button" class='addChild' ng-click="removeImage([$index])">Remove Image </button>  </div>
@@ -590,12 +590,12 @@
 <td ng-show="selected_name_rmdtn" >  <div class="widetd8">
 
 <br> <input  ng-if="browseImageOption[$index]" type="file"  ng-model='imgCnvrsn2[$index]'  class='addChild' title="Browse to screenshot images" onchange="angular.element(this).scope().uploadImage2(this)" accept=".jpg,.jpeg,.icon,.png,.svg,.gif" /> <br> 
-    <img   id="image1{{$index}}" ng-if="imageCapturedStored2[$index]" ng-src = {{test.ImageSrc2}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">      
-   <img    id="image1{{$index}}" ng-if="imageCaptured2[$index]" ng-src = {{imgCnvrsnCurrentValue2[$index]}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
-   <img    id="image1{{$index}}" ng-if="removeClicked2[$index]" ng-src = {{imgCnvrsnCurrentValue2[$index]}}  alt="Selected Image" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
+    <img   id="image1{{$index}}" ng-if="imageCapturedStored2[$index]" ng-src = {{test.ImageSrc2}}  alt="" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">      
+   <img    id="image1{{$index}}" ng-if="imageCaptured2[$index]" ng-src = {{imgCnvrsnCurrentValue2[$index]}}  alt="" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
+   <img    id="image1{{$index}}" ng-if="removeClicked2[$index]" ng-src = {{imgCnvrsnCurrentValue2[$index]}}  alt="" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
 			<div id="rmd{{$index}}" class="modal">
              <span class="close">&times;</span>
-            <img alt="Selected Image" title="Selected Image" class="modal-content" id="img1{{$index}}">
+            <img alt="" title="Selected Image" class="modal-content" id="img1{{$index}}">
              <div class="caption" id="caption1{{$index}}" ></div>
              </div><br>
 			 <div ng-show="displayRemove2[$index]" id= {{ 'removeImage1' + $index }} >    <button   ng-model='imgCnvrsn2[$index]'  title='Remove Image ' type="button" class='addChild' ng-click="removeImage2([$index])">Remove Image </button>  </div>
