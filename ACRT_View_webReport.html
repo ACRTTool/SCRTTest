@@ -211,7 +211,7 @@
         </span>
 		-->
 		<h3> Test Results </h3>
-            &nbsp;&nbsp;<label for="dsplTstRslt"> Filter results:</label>
+            &nbsp;&nbsp;<label for="dsplTstRslt"> Filter results by:</label>
 		  &nbsp;&nbsp;<select name="Select to view test result" ng-model="selected_name_tstrsltdsply"  id="dsplTstRslt" title="" ng-change="displayTestResult()" >
           <option value="">{{default_SelectedResultDsply}}</option>
            <option ng-repeat="result in optionsRsltDsply" value="{{result.name}}">{{result.name}}</option>
