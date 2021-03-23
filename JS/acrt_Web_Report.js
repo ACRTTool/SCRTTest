@@ -135,7 +135,7 @@ app.controller('acrtFormCtrl', function($scope, $filter) {
   }
 $scope.selected_name_tstrsltdsply = '';	
 $scope.optionsRsltDsply = [];
-$scope.default_SelectedResultDsply = 'Select One';  
+$scope.default_SelectedResultDsply = 'All';  
 
 $scope.optionsRsltDsply = [
 {
@@ -630,7 +630,7 @@ document.getElementById("dsblGrpBtn").click();
 		//if($scope.noResult[i]== true && $scope.TestResult[i]== $scope.filterResult){
 		if($scope.TestResult[i]== $scope.filterResult){
       testResult += "<tr >";
-	  testResult += "<td  title=\"Issue Number\"> Issue " + $scope.jsonData[0].Criteria[i].Counter; + "</td>";
+	  testResult += "<th  title=\"Issue Number\"> Issue " + $scope.jsonData[0].Criteria[i].Counter; + "</th>";
 	  testResult += "<th   scope=\"row\" title=\"Test Name\">" + $scope.jsonData[0].Criteria[i].TestName; + "</th>";      
       testResult += "<td title=\"Test ID\">" + $scope.jsonData[0].Criteria[i].TestID; + "</td>";
       testResult += "<td title=\"Test Condition\">" + $scope.jsonData[0].Criteria[i].TestCondition; + "</td>";
