@@ -1299,7 +1299,7 @@ $scope.createEditOption = 'Edit Report Test Results Form';
     $scope.removeIssue = function(index) {
        	let removePosition=index+$scope.origSelectedResults;	
 		//if ($scope.checkboxModel.alerts == "on")
-		alert('Issue Removed.');	
+		//alert('Issue Removed.');	
        //let rmve = confirm("Do you want to remove child issue ?");	
 	   //if (rmve == true){ }
 		$scope.removeIssueClicked = true;
@@ -2414,7 +2414,8 @@ $scope.submit = function() {
 	if($scope.selected_name_tstgrp[i] == "Fail"){
 	 let fpcMapping = '{"CrtID": "' + $scope.criteriaTestsJson.Criteria[i].CrtID + '",' + '"DisabilityImpact": "' + $scope.criteriaTestsJson.Criteria[i].DisabilityImpact+'",' + '"TestName": "' + $scope.criteriaTestsJson.Criteria[i].TestName + '","TesterComment": "' + $scope.testerCommentID[i] +'"}';
     $scope.fpcMapping.push(fpcMapping);		
-	 }		
+	 }
+    if($scope.selected_name_tstgrp[i] == 'No Selection') continue;	 
     $scope.testresult[i] = '{"CrtID": "' + $scope.criteriaTestsJson.Criteria[i].CrtID + '",' + '"DisabilityImpact": "' + $scope.criteriaTestsJson.Criteria[i].DisabilityImpact+ '","Guideline": "' + $scope.guideline[i] + '",'+ '"Test": "' + $scope.criteriaTestsJson.Criteria[i].Test + '",' + '"TestName": "' + $scope.criteriaTestsJson.Criteria[i].TestName + '",' + '"TestID": "' + $scope.criteriaTestsJson.Criteria[i].TestID + '",' + '"TestCondition": "' + $scope.criteriaTestsJson.Criteria[i].TestCondition + '",' + '"IssueNo": "' + i + '","TestResult": "' + $scope.selected_name_tstgrp[i] +'","OptMenu1": "' + $scope.menu1[i] + '","location": "' + $scope.location[i]  + '","TesterComment": "' + $scope.testerCommentID[i] + $scope.browserIndividualTypeCollection1[i] + '","T_brwsrType": "' + $scope.browserTypeCollection1[i] + '","T_brwsrVrsn": "' + $scope.browserVersionsCollection1[i] + $scope.browserIndividualVersionsCollection1[i] + '","GlobalIssue": "' + $scope.selected_name_glbl[i]  + '","Counter": "' +$scope.counter1 ;	
    // if(scope.imgCnvrsnJSON.length > 0){
     for(let m=0;m<$scope.imgCnvrsnJSON.length;m++){	
