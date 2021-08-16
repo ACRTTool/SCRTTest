@@ -181,35 +181,7 @@
         </tr>
         </tbody>
         </table>
-		<!--
-		this is for checkbox
-		<span  style='display: inline-block;'>
- 		  <input id="selector111" name="Checkbox to view test results" title="View all test results" type="radio" ng-model="checked1" > 
-		  <label for="smoking" name="chkUnchk" id="chkUnchk"><strong> View 'All' test results </strong></label> 
-		 </span> -->
-		 <!--this is for radio button 
-		 <span>Select one of following to view approperiate test result </span><br>
-		 <span style='display: inline-block;'>
-		   <input id="selector111" name="selectOne" title="View All test results" type="radio" ng-model="checked1" ng-click="chkBxMsg('selector111', 'chkUnchk1');"> 
-		  <label for="selector111" name="chkUnchk" id="chkUnchk1"><strong> 'All' </strong></label>
-		  </span>
-		 <span style='display: inline-block;'>
-		   <input id="selector112" name="selectOne" title="View Pass test results only" type="radio" ng-model="checked2" ng-click="chkBxMsg('selector112', 'chkUnchk2');"> 
-		  <label for="selector112" name="chkUnchk" id="chkUnchk2"><strong> 'Pass' </strong></label>
-		  </span>
-		  <span style='display: inline-block;'>
-		   <input id="selector113" name="selectOne" title="View Fail test results only" type="radio" ng-model="checked3" ng-click="chkBxMsg('selector113', 'chkUnchk3');" > 
-		  <label for="selector113" name="chkUnchk" id="chkUnchk3"><strong> 'Fail'</strong></label>
-		  </span>
-		  <span style='display: inline-block;'>
-		   <input id="selector114" name="selectOne" title="View DNA test results only" type="radio" ng-model="checked4" ng-click="chkBxMsg('selector114', 'chkUnchk4');"> 
-		  <label for="selector114" name="chkUnchk" id="chkUnchk4"><strong> 'Does Not Apply'</strong></label>
-		  </span>
-		  <span style='display: inline-block;'>
-		   <input id="selector115" name="selectOne" title="View Not tested test results only" type="radio" ng-model="checked5" ng-click="chkBxMsg('selector115', 'chkUnchk5');"> 
-		  <label for="selector115" name="chkUnchk" id="chkUnchk5"><strong> 'Not Tested'</strong></label>
-        </span>
-		-->
+		
 		<h3> Test Results </h3>
             &nbsp;&nbsp;<label for="dsplTstRslt"> Filter results by:</label>
 		  &nbsp;&nbsp;<select name="Select to view test result" ng-model="selected_name_tstrsltdsply"  id="dsplTstRslt" title="" ng-change="displayTestResult()" >
@@ -421,6 +393,32 @@
           </div>
         </fieldset>
 		
+		 <fieldset  style="margin-left: 0em;" >
+          <legend>
+            <h3> Risk Score </h3>
+          </legend>
+  
+          <h3> Risk Score Summary </h3> 		  
+          <h4><span  id='dsblImpctDsply'> <span></h4>
+          <button class="collapsible"  id="dsblGrpBtn"  ng-show='DisabilityImpactCollectionLength' >Risk Score Summary </button>
+          <div class="content">
+		   <label for="dsblImpctRslt"> </label>  <!-- <h4>Different impacted groups are separated by comma, check below</h4> -->
+		  <span id="dsblImpctRslt" >{{DisabilityRiskScore}} </span>	<!-- {{DisabilityImpactCollectionSC}}-->	  
+		  
+		  <!-- commented out because we dont want to display duplicate groups based on failed test conditions
+            <div id="myImpact" ng-repeat="record in jsonData">
+              <label for="dsblImpctRslt"> Disability impact summary </label>
+              <ul id="dsblImpctRslt" ng-repeat="test in record.SuccessCriteria | unique : 'DisabilityImpact' ">
+
+                <li title="Impacted group" ng-hide='test.DisabilityImpact == "" || test.DisabilityImpact == " "'>
+                  {{test.DisabilityImpact}} 
+				  
+                </li>
+              </ul>
+            </div> -->
+          </div>
+        </fieldset>
+		
 
         <fieldset style="margin-left: 0em;">
           <legend>
@@ -436,7 +434,7 @@
           </div>
         </fieldset>
 		  <br/><br/><br/><br/> 
-   <b>Your feedback is important to us, please complete <a title="ACRT Survey" href= "https://www.surveymonkey.com/r/DHSACRT  " target="_blank"   id="surveyID"> ACRT Survey </a> </b>
+   <b>Your feedback is important to us! Please take the <a title="ACRT Survey" href= "https://www.surveymonkey.com/r/DHSACRT  " target="_blank"   id="surveyID"> ACRT Survey </a> </b>
   <br/><br/>
     </form>
 	
