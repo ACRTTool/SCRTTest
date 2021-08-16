@@ -7,7 +7,7 @@ window.addEventListener("error", handleError, true);
 function handleError(evt) {
     if (evt.message) { // Chrome sometimes provides this
       //alert("error: "+evt.message +" at linenumber: "+evt.lineno+" of file: "+evt.filename);
-	  alert('Please select file for ACRT, error message: '+evt.message);
+	 // alert('Please select file for ACRT, error message: '+evt.message);
     } /*else {
       //alert("error: "+evt.type+" from element: "+(evt.srcElement || evt.target));
 	  alert('Please select and load valid JSON file for ACRT');
@@ -390,54 +390,7 @@ span2.onclick = function() {
         $scope.CrtIDCollection.push($scope.CrtID[b]);	
 		if ($scope.jsonData[0].Criteria[b].TestResult == 'undefined') $scope.jsonData[0].Criteria[b].TestResult ='';
 
-      /*  var table1 = "<table class=\"table1\"  role=\"presentation\" >";
 
-        table1 += "<tr>";
-        table1 += "<th scope=\"col\">" + "Criteria ID" + "</th>";
-        table1 += "<th scope=\"col\">" + "Test" + "</th>";
-        table1 += "<th scope=\"col\">" + "TestName" + "</th>";
-        table1 += "<th scope=\"col\">" + "TestID" + "</th>";
-        table1 += "<th scope=\"col\">" + "TestCondition" + "</th>";
-        table1 += "<th scope=\"col\">" + "IssueNo" + "</th>";
-        table1 += "<th scope=\"col\">" + "TestResult" + "</th>";
-        table1 += "<th scope=\"col\">" + "TesterComment" + "</th>";
-        table1 += "<th scope=\"col\">" + "Browser Type" + "</th>";
-        table1 += "<th scope=\"col\">" + "Browser Version " + "</th>";
-        table1 += "<th scope=\"col\">" + "ScreenShot" + "</th>";
-        table1 += "<th scope=\"col\">" + "GlobalIssue" + "</th>";
-        table1 += "<th scope=\"col\">" + "Remediation Date" + "</th>";
-        table1 += "<th scope=\"col\" >" + "RemediationDetails" + "</th>";
-        table1 += "</tr>";
-        table1 += "<tr>";
-		table1 += "<th scope=\"row\" title=\"Success Criteria\">" + $scope.jsonData[0].Criteria[b].CrtID; + "</th>";        
-        table1 += "<td title=\"Test\">" + $scope.jsonData[0].Criteria[b].Test; + "</td>";
-        table1 += "<td title=\"Test Name\">" + $scope.jsonData[0].Criteria[b].TestName; + "</td>";
-        table1 += "<td title=\"Test ID\">" + $scope.jsonData[0].Criteria[b].TestID; + "</td>";
-        table1 += "<td title=\"Test Condition\">" + $scope.jsonData[0].Criteria[b].TestCondition; + "</td>";
-        table1 += "<td title=\"Issue Number\">" + $scope.jsonData[0].Criteria[b].Counter; + "</td>";
-        table1 += "<td title=\"Test Result\">" + $scope.jsonData[0].Criteria[b].TestResult; + "</td>";
-        table1 += "<td title=\"Tester's Comment\">" + $scope.jsonData[0].Criteria[b].TesterComment; + "</td>";
-        table1 += "<td title=\"Browser Type\">" + $scope.jsonData[0].Criteria[b].T_brwsrType; + "</td>";
-        table1 += "<td title=\"Browser Version\">" + $scope.jsonData[0].Criteria[b].T_brwsrVrsn; + "</td>";
-        table1 += "<td title=\"Image Source\">" + "<img id=\"i\"  alt=\"screenshot\" src= \"" + $scope.ImageSrc[b] + 'onerror=\"this.style.display=\"none\"\"' + "\">" + "</td>";
-        table1 += "<td title=\"Global Issue\">" + $scope.jsonData[0].Criteria[b].GlobalIssue; + "</td>";
-        table1 += "<td title=\"Remediation Date\">" + $scope.jsonData[0].Criteria[b].RemediationDate; + "</td>";
-        table1 += "<td title=\"Remediation Details\">" + $scope.jsonData[0].Criteria[b].RemediationDetails; + "</td>";
-        table1 += "</tr>";
-        //}
-        table1 += "</table>";
-
-        $scope.myText[b] = table1;
-        if (b > 0) {
-          if ($scope.jsonData[0].Criteria[b].CrtID == $scope.jsonData[0].Criteria[b - 1].CrtID) {
-            $scope.sameCrtId[b] = true;
-            $scope.myTextCollection.push($scope.myText[b]);
-          } else {
-            $scope.diffCrtId[b] = true;
-            $scope.myTextCollection1.push($scope.myText[b]);
-          }
-
-        } */
 				$scope.$apply();
 				
 				if ($scope.jsonData[0].Criteria[b].DraftReport == 'true') {
@@ -496,6 +449,17 @@ document.getElementById("dsblGrpBtn").click();
         $scope.uniqSCCrtIdCollection.push($scope.uniqSCCrtId[a]);
 
       }
+	  $scope.TotalImpactedGrpString ="";
+	  $scope.TotalImpactedGrpString = Array.from(new Set($scope.DisabilityImpactCollection)).toString();
+	  $scope.TotalImpactedGrpString.replace(/(^\s*)|(\s*$)/gi,""); //removes start and end spaces from string 
+	  $scope.TotalImpactedGrpString.replace(/[ ]{2,}/gi," "); //reduces multiple spaces to single space 
+	  $scope.TotalImpactedGrpString = $scope.TotalImpactedGrpString.replace(/^,/, ''); //removes first comma from string 
+	  $scope.TotalImpactedGrpString = $scope.TotalImpactedGrpString.replace(/,\s*$/, " "); //removes comma from last of string
+	  $scope.TotalImpactedGrpString = $scope.TotalImpactedGrpString.replace(/,+/g, ','); //removes multiple commas from string
+	   
+	  $scope.DisabilityRiskScore = $scope.TotalImpactedGrpString.split(',').length +'   '+ $scope.TotalImpactedGrpString;
+	  //$scope.DisabilityRiskScore = $scope.TotalImpactedGrpString.split("'").length +'   '+ $scope.TotalImpactedGrpString;
+	  
 	
 	  $scope.DisabilityImpactCollection = $scope.DisabilityImpactCollection.filter($scope.onlyUnique);	  
 	  
