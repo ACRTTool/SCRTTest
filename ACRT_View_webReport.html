@@ -149,7 +149,7 @@
         <label for="evalMethodVrsn">Testing Method Version: </label> <input type="string" ng-model="evalMethodVrsn" class="betnTags" id="evalMethodVrsn" name="Entered Evaluation Version" ng-readonly="true"> &nbsp; <br>
         <label for="dateSubmitted"> Review Date:</label> <input type="string" ng-model="dateSubmitted" class="dateField" id="dateSubmitted" name="Review Date" ng-readonly="true"> <br> <br>
 
-        <p><strong ng-if="isDraft" class="hdnMsg"> This is a Draft report. For final report, please input results for all tests.</strong><p>
+        <p><strong  class="hdnMsg"> {{draftMsg}}</strong><p>
 
         <table   id="sc1" ng-if="wcagRprt" >
 
@@ -364,46 +364,88 @@
 
         </div></div>
 
-        
-        <fieldset  style="margin-left: 0em;" >
-          <legend>
+        <!--
+        <fieldset   ng-show='DisabilityImpactCollectionLength' style="margin-left: 0em;" >
+          <legend >
             <h3> Disability Impact </h3>
           </legend>
 
-          <h3> Disability Impact Summary </h3>  
+          <h3  > Disability Impact Summary  </h3>  
 		  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Refer to <a title="WCAG 2.0 Impact Statements" ng-href="./Resources/WCAG 2.0 Impact Statements_2018-10-02.docx">WCAG 2.0 Impact Statements</a> for more information<br><br>
 
-          <h4><span  id='dsblImpctDsply'> <span></h4>
-          <button class="collapsible"  id="dsblGrpBtn" ng-show='DisabilityImpactCollectionLength' >Impact Summary </button>
+          <h4 ><span  id='dsblImpctDsply'> <span></h4>
+          <button class="collapsible"  id="dsblGrpBtn"  >Impact Summary </button>
           <div class="content">
-		   <label for="dsblImpctRslt"> </label>  <!-- <h4>Different impacted groups are separated by comma, check below</h4> -->
-		  <span id="dsblImpctRslt" >{{DisabilityImpactCollection}} </span>	<!-- {{DisabilityImpactCollectionSC}}-->	  
+		   <label for="dsblImpctRslt"> </label>  
+		  <span id="dsblImpctRslt" >{{DisabilityImpactCollection}} </span>	  
 		  
-		  <!-- commented out because we dont want to display duplicate groups based on failed test conditions
-            <div id="myImpact" ng-repeat="record in jsonData">
-              <label for="dsblImpctRslt"> Disability impact summary </label>
-              <ul id="dsblImpctRslt" ng-repeat="test in record.SuccessCriteria | unique : 'DisabilityImpact' ">
-
-                <li title="Impacted group" ng-hide='test.DisabilityImpact == "" || test.DisabilityImpact == " "'>
-                  {{test.DisabilityImpact}} 
-				  
-                </li>
-              </ul>
-            </div> -->
+		 
           </div>
-        </fieldset>
+        </fieldset> -->
 		
-		 <fieldset  style="margin-left: 0em;" >
-          <legend>
-            <h3> Risk Score </h3>
-          </legend>
-  
-          <h3> Risk Score Summary </h3> 		  
-          <h4><span  id='dsblImpctDsply'> <span></h4>
-          <button class="collapsible"  id="dsblGrpBtn"  ng-show='DisabilityImpactCollectionLength' >Risk Score Summary </button>
+		 <fieldset   style="margin-left: 0em;" id='dsblImpctDsply' >
+          <legend >
+            <h3> Disability Impact </h3>
+          </legend>        
+           <h3>Risk Score: {{TotalImpactedGroupNo}} </h3>
+          
+          <button class="collapsible"  id="dsblGrpBtn"   ><h3> Risk score Breakdown</h3> 	</button>
           <div class="content">
 		   <label for="dsblImpctRslt"> </label>  <!-- <h4>Different impacted groups are separated by comma, check below</h4> -->
-		  <span id="dsblImpctRslt" >{{DisabilityRiskScore}} </span>	<!-- {{DisabilityImpactCollectionSC}}-->	  
+		  <span> {{impctInfoMsg}}</span>
+		  <span id="dsblImpctRslt" >      
+			
+			
+			<table id='impctScreTbl' class="table" >
+<caption>Score Breakdown </caption>
+
+<tr>
+<th scope="col">Disability Group </th>
+<th scope="col">Risk Score </th>
+<th scope="col">Detailed Impacted Groups (with Score)  </th>
+</tr>
+
+<tr>
+<th scope="row">Vision </th>
+<td>{{TotalVision}}</td>
+<td>{{TotalVisionList}}</td>
+</tr>
+
+<tr>
+<th scope="row">Hearing</th>
+<td>{{HearingTotal}}</td>
+<td>{{HearingTotalList}}</td>
+</tr>
+
+<tr>
+<th scope="row">Cognitive</th>
+<td>{{TotalCognitive}}</td>
+<td>{{TotalCognitiveList}}</td>
+</tr>
+
+
+<tr>
+<th scope="row">Photosensitivity</th>
+<td>{{TotalPhotosensitive}}</td>
+<td>{{TotalPhotosensitiveList}}</td>
+</tr>
+
+
+<tr>
+<th scope="row">Mobility </th>
+<td>{{TotalMobility}}</td>
+<td>{{TotalMobilityList}}</td>
+</tr>
+
+
+</table>
+
+         
+		   Refer to the <a title="WCAG 2.0 Impact Statements" ng-href="./Resources/WCAG 2.0 Impact Statements_2018-10-02.pdf">WCAG 2.0 Impact Statements</a> for more information.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+           
+		   Refer to the <a title="Disability Mapping" ng-href="./Resources/TT5-ID-FPC_Mapping_07-15-20.xlsx">Disability Mapping </a>  for more information about Test IDs.&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+         
+		</span>	<!-- {{DisabilityImpactCollectionSC}}-->	  
 		  
 		  <!-- commented out because we dont want to display duplicate groups based on failed test conditions
             <div id="myImpact" ng-repeat="record in jsonData">
