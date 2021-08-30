@@ -3003,7 +3003,10 @@ $scope.testresult1 = '"Criteria":[' + $scope.totTstRslt + ']';
 			}
 			else if($scope.slctTstRslt == "NotSelected"){				
 
-			$scope.criteriaResult.push('{"CrtID": "' + $scope.totTstRsltJson[a].CrtID + '","Guideline": "' + $scope.guideline[a] +'","ConformanceLvl": "' + "Not Evaluated" + '","DisabilityImpact": "' + $scope.dsbl_Impctd_grp[a] + '","RemarkExplntn": "' + "Not yet tested" + '"}');	
+			//$scope.criteriaResult.push('{"CrtID": "' + $scope.totTstRsltJson[a].CrtID + '","Guideline": "' + $scope.guideline[a] +'","ConformanceLvl": "' + "Not Evaluated" + '","DisabilityImpact": "' + $scope.dsbl_Impctd_grp[a] + '","RemarkExplntn": "' + "Not yet tested" + '"}');	
+			$scope.criteriaResult.push('{"CrtID": "' + $scope.totTstRsltJson[a].CrtID + '","Guideline": "' + $scope.guideline[a] +'","ConformanceLvl": "' + "Not Evaluated" + '","DisabilityImpact": "' + '' + '","RemarkExplntn": "' + "Not yet tested" + '"}');	
+
+			
 			}
 			/*
 			if( $scope.slctTstRslt == "FailSelected"){

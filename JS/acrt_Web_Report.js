@@ -14,7 +14,18 @@ function handleError(evt) {
     }*/
 }
 
-		
+
+function IsJsonString(str) {
+  try {
+    JSON.parse(str);
+  } catch (e) {    
+	alert("There is a problem while trying to convert to JSON format, contact technical support.");
+	console.log(str);
+	//return false;
+  }
+  //return true;
+  return JSON.parse(str);
+}		
   
  
 function expandCollapse1() {
@@ -136,6 +147,7 @@ app.controller('acrtFormCtrl', function($scope, $filter) {
 $scope.selected_name_tstrsltdsply = '';	
 $scope.optionsRsltDsply = [];
 $scope.default_SelectedResultDsply = 'All';  
+$scope.draftMsg ="";
 
 $scope.optionsRsltDsply = [
 {
@@ -298,6 +310,24 @@ span2.onclick = function() {
       fr.readAsText(file);
     }
 	
+	
+	$scope.countOfWords = function(text) {
+    var s = text ? text.split(/\s+/) : 0; // it splits the text on space/tab/enter
+    return s ? s.length : '';
+};
+
+$scope.countOfRepWords =  function wordFreq(string) {
+    var words = string.replace(/[.]/g, '').split(/\s/);
+    var freqMap = {};
+    words.forEach(function(w) {
+        if (!freqMap[w]) {
+            freqMap[w] = 0;
+        }
+        freqMap[w] += 1;
+    });
+
+    return freqMap;
+}
 
     function receivedText(e) {
       let lines = e.target.result;
@@ -394,10 +424,14 @@ span2.onclick = function() {
 				$scope.$apply();
 				
 				if ($scope.jsonData[0].Criteria[b].DraftReport == 'true') {
-          $scope.isDraft = true;
+          $scope.isDraft = true;		  
 		  continue;
           
         } 
+		
+		if($scope.isDraft == true)
+		$scope.draftMsg = "This is a Draft report. For final report, please input all results."
+		
 		
 if($scope.DisabilityImpactCollection.length >0)		
 setTimeout(function() {
@@ -449,17 +483,107 @@ document.getElementById("dsblGrpBtn").click();
         $scope.uniqSCCrtIdCollection.push($scope.uniqSCCrtId[a]);
 
       }
-	  $scope.TotalImpactedGrpString ="";
+	  $scope.TotalImpactedGrpString = '';
+	  $scope.DisabilityRiskScoreJSON = '';
+	   $scope.impctInfoMsg = "The risk score is calculated by assigning one point to each disability type impacted by a failed Test ID. Disability groups with higher points have a higher risk of not being able to utilize the application.  Projects should confer with the Certified Trusted Tester that performed the testing and their Component Section 508 Program Manager about remediating failed Test IDs before the application is released.";
+	   $scope.TotalImpactedGrpString = 0;
+	  //if($scope.DisabilityImpactCollection.length >0){
 	  $scope.TotalImpactedGrpString = Array.from(new Set($scope.DisabilityImpactCollection)).toString();
 	  $scope.TotalImpactedGrpString.replace(/(^\s*)|(\s*$)/gi,""); //removes start and end spaces from string 
 	  $scope.TotalImpactedGrpString.replace(/[ ]{2,}/gi," "); //reduces multiple spaces to single space 
 	  $scope.TotalImpactedGrpString = $scope.TotalImpactedGrpString.replace(/^,/, ''); //removes first comma from string 
 	  $scope.TotalImpactedGrpString = $scope.TotalImpactedGrpString.replace(/,\s*$/, " "); //removes comma from last of string
 	  $scope.TotalImpactedGrpString = $scope.TotalImpactedGrpString.replace(/,+/g, ','); //removes multiple commas from string
-	   
-	  $scope.DisabilityRiskScore = $scope.TotalImpactedGrpString.split(',').length +'   '+ $scope.TotalImpactedGrpString;
-	  //$scope.DisabilityRiskScore = $scope.TotalImpactedGrpString.split("'").length +'   '+ $scope.TotalImpactedGrpString;
+	  $scope.TotalImpactedGrpString = $scope.TotalImpactedGrpString.replace(/,/g,'');//removes all commas
+	  $scope.TotalImpactedGrpString = $scope.TotalImpactedGrpString.replace(/'/g,'');//removes single quotes 
+	  	   
+	$scope.DisabilityRiskScoreJSON = $scope.countOfRepWords($scope.TotalImpactedGrpString);	
+	$scope.DisabilityRiskScore = $scope.DisabilityRiskScoreJSON;
+	//Vision 
+	$scope.TotalVision =0;
+	if($scope.DisabilityRiskScoreJSON.Vision == null) $scope.DisabilityRiskScoreJSON.Vision =0;
+	$scope.Vision = $scope.DisabilityRiskScoreJSON.Vision;		
+	if($scope.DisabilityRiskScoreJSON.VisionWith == null) $scope.DisabilityRiskScoreJSON.VisionWith =0;
+	$scope.VisionWith = $scope.DisabilityRiskScoreJSON.VisionWith;
+	if($scope.DisabilityRiskScoreJSON.VisionWithout == null) $scope.DisabilityRiskScoreJSON.VisionWithout =0;
+	$scope.VisionWithout = $scope.DisabilityRiskScoreJSON.VisionWithout;
+	if($scope.DisabilityRiskScoreJSON.Color == null) $scope.DisabilityRiskScoreJSON.Color =0;
+	$scope.Color = $scope.DisabilityRiskScoreJSON.Color;
+   if($scope.DisabilityRiskScoreJSON.ColorWithout == null) $scope.DisabilityRiskScoreJSON.ColorWithout =0;
+	$scope.ColorWithout = $scope.DisabilityRiskScoreJSON.ColorWithout;	
+     $scope.TotalVisionList = 'Without Vision ('+$scope.VisionWith+'), With Limited Vision ('+$scope.VisionWithout+ '), Without Perception of Color ('+$scope.Color+')';	
+	$scope.TotalVision = $scope.VisionWith + $scope.VisionWithout + $scope.Color;
 	  
+	//Hearing 
+	$scope.HearingTotal = 0;
+	
+	if($scope.DisabilityRiskScoreJSON.Hearing == null) $scope.DisabilityRiskScoreJSON.Hearing =0;
+    $scope.Hearing = $scope.DisabilityRiskScoreJSON.Hearing;
+    if($scope.DisabilityRiskScoreJSON.HearingWith == null) $scope.DisabilityRiskScoreJSON.HearingWith =0;
+	$scope.HearingWith = $scope.DisabilityRiskScoreJSON.HearingWith;
+    if($scope.DisabilityRiskScoreJSON.HearingWithout == null) $scope.DisabilityRiskScoreJSON.HearingWithout =0;
+	$scope.HearingWithout = $scope.DisabilityRiskScoreJSON.HearingWithout;
+	$scope.HearingTotalList = 'Without Hearing  ('+ $scope.HearingWith +')'+ ', With Limited Hearing ('+$scope.HearingWithout+')';
+	$scope.HearingTotal = $scope.HearingWith + $scope.HearingWithout ; 
+	
+	//Cognitive
+    $scope.TotalCognitive=0;
+    if($scope.DisabilityRiskScoreJSON.Cognitive == null) $scope.DisabilityRiskScoreJSON.Cognitive =0;	
+    $scope.Cognitive = $scope.DisabilityRiskScoreJSON.Cognitive;	
+	if($scope.DisabilityRiskScoreJSON.Learning == null) $scope.DisabilityRiskScoreJSON.Learning =0;
+	$scope.Learning = $scope.DisabilityRiskScoreJSON.Learning;
+	if($scope.DisabilityRiskScoreJSON.Speech == null) $scope.DisabilityRiskScoreJSON.Speech =0;
+	$scope.Speech = $scope.DisabilityRiskScoreJSON.Speech;
+	if($scope.DisabilityRiskScoreJSON.Language == null) $scope.DisabilityRiskScoreJSON.Language =0;
+	$scope.Language = $scope.DisabilityRiskScoreJSON.Language + $scope.Speech;	
+	$scope.TotalCognitiveList = 'With Limited Language, Cognitive, and Learning Abilities ('+$scope.Cognitive+')'+ ', Without Speech ('+$scope.Speech+' )';
+	$scope.TotalCognitive = $scope.Cognitive + $scope.Speech;
+			
+	
+	//Photosensitivity 
+	$scope.TotalPhotosensitive =0;
+	if($scope.DisabilityRiskScoreJSON.Photosensitive == null) $scope.DisabilityRiskScoreJSON.Photosensitive =0;
+	$scope.Photosensitive = $scope.DisabilityRiskScoreJSON.Photosensitive;
+	if($scope.DisabilityRiskScoreJSON.AbilitiesPhotosensitive == null) $scope.DisabilityRiskScoreJSON.AbilitiesPhotosensitive =0;
+	$scope.AbilitiesPhotosensitive = $scope.DisabilityRiskScoreJSON.AbilitiesPhotosensitive; 
+	if($scope.DisabilityRiskScoreJSON.Seizure == null) $scope.DisabilityRiskScoreJSON.Seizure =0;
+	$scope.Mobility = $scope.DisabilityRiskScoreJSON.Seizure;	
+	if($scope.DisabilityRiskScoreJSON.Epilepsy == null) $scope.DisabilityRiskScoreJSON.Epilepsy =0;
+	$scope.Epilepsy = $scope.DisabilityRiskScoreJSON.Epilepsy;
+	$scope.TotalPhotosensitive = $scope.Photosensitive;
+	$scope.TotalPhotosensitiveList = 'Photosensitive Epilepsy / Photosensitive Seizure Disorders ('+$scope.Photosensitive+')';
+		
+	
+	//MObility 	
+    $scope.TotalMobility = 0;   
+    if($scope.DisabilityRiskScoreJSON.Manipulation == null) $scope.DisabilityRiskScoreJSON.Manipulation =0;	
+	$scope.Manipulation = $scope.DisabilityRiskScoreJSON.Manipulation;
+	if($scope.DisabilityRiskScoreJSON.ManipulationWithout == null) $scope.DisabilityRiskScoreJSON.ManipulationWithout =0;
+	$scope.ManipulationWithout = $scope.DisabilityRiskScoreJSON.ManipulationWithout;
+	$scope.TotalMobility =  $scope.Manipulation;	
+	$scope.TotalMobilityList = 'With Limited Manipulation ('+ $scope.Manipulation+ ')';
+	$scope.TotalImpactedGroupNo = 0;
+	 $scope.TotalImpactedGroupNo = $scope.TotalMobility + $scope.TotalPhotosensitive +  $scope.TotalCognitive + $scope.HearingTotal + $scope.TotalVision;
+	if($scope.isDraft == true)
+    $scope.TotalImpactedGroupNo = $scope.TotalImpactedGroupNo + ' (Final score will be determined upon completion of testing.)';
+	/*
+	$scope.impctLevel = '';
+	if($scope.DisabilityRiskScore <0.34) $scope.DisabilityRiskScore =0 ;
+	if ($scope.DisabilityRiskScore >=0 && $scope.DisabilityRiskScore < 5)
+	$scope.impctLevel = '  - Low impact';
+    if ($scope.DisabilityRiskScore >=5 && $scope.DisabilityRiskScore < 9)
+	$scope.impctLevel = '  - Medium impact';
+    if ($scope.DisabilityRiskScore >=9 && $scope.DisabilityRiskScore < 13)
+	$scope.impctLevel= '  - High impact';
+    if ($scope.DisabilityRiskScore >=13)
+	$scope.impctLevel = '  - Critical impact';
+    $scope.DisabilityRiskScore = $scope.DisabilityRiskScore + '  %  ';
+	*/
+	if($scope.isDraft == true)
+	$scope.DisabilityRiskScore = $scope.DisabilityRiskScore + '  - Select all  test results to get accurate score'
+	   
+	  //$scope.DisabilityRiskScore = $scope.TotalImpactedGrpString.split(',').length +'   '+ $scope.TotalImpactedGrpString;
+	  //$scope.DisabilityRiskScore = Array.from(new Set($scope.TotalImpactedGrpString.split(" ',"))).toString();
 	
 	  $scope.DisabilityImpactCollection = $scope.DisabilityImpactCollection.filter($scope.onlyUnique);	  
 	  
@@ -467,17 +591,27 @@ document.getElementById("dsblGrpBtn").click();
 	  $scope.DisabilityImpactCollectionString ="";
 	  $scope.DisabilityImpactCollectionString = $scope.DisabilityImpactCollection.toString();	  
 	  $scope.DisabilityImpactCollectionString = Array.from(new Set($scope.DisabilityImpactCollectionString.split(','))).toString();
+	  $scope.DisabilityImpactCollectionString = $scope.DisabilityImpactCollectionString.replace(/(^\s*)|(\s*$)/gi,""); //removes start and end spaces from string 
+	  $scope.DisabilityImpactCollectionString = $scope.DisabilityImpactCollectionString.replace(/[ ]{2,}/gi," "); //reduces multiple spaces to single space 
 	  $scope.DisabilityImpactCollectionString = $scope.DisabilityImpactCollectionString.replace(/^,/, ''); //removes first comma from string 
 	  $scope.DisabilityImpactCollectionString = $scope.DisabilityImpactCollectionString.replace(/,\s*$/, " "); //removes comma from last of string
 	  $scope.DisabilityImpactCollectionString = $scope.DisabilityImpactCollectionString.replace(/,+/g, ','); //removes multiple commas from string
+	  $scope.DisabilityImpactCollectionString = $scope.DisabilityImpactCollectionString.replace(/'/g,'');//removes single quotes
 	  
-	  $scope.DisabilityImpactCollection = $scope.DisabilityImpactCollectionString; 
 	  
-	  if($scope.DisabilityImpactCollection.length >0)
+	  
+	  if($scope.DisabilityImpactCollection.length >0){
 	  $scope.DisabilityImpactCollectionLength = true;
+	  $scope.DisabilityImpactCollection = $scope.DisabilityImpactCollectionString; 
+	  if($scope.isDraft == true)
+	  $scope.DisabilityImpactCollection = $scope.DisabilityImpactCollection + '  - Select all test results to get accurate impacted group';
+	  }
+      
       else {
       document.getElementById("dsblImpctDsply").innerHTML = 'No One Impacted';
 	  $scope.DisabilityImpactCollection = 'No One Impacted'; 
+	  if($scope.isDraft == true)
+	 $scope.DisabilityImpactCollection = $scope.DisabilityImpactCollection + '  - Select all  test results to get accurate impacted group';
 	  }
 	  	 
 	  	
@@ -556,7 +690,7 @@ document.getElementById("dsblGrpBtn").click();
     for (let i = 0; i < $scope.jsonData[0].SuccessCriteria.length; i++) {		
 		let d=i+1;
       WCAG += "<tr >";	 
-      WCAG += "<td width=\"100px\" title=\"Criteria\">" + $scope.jsonData[0].SuccessCriteria[i].CrtID; + "</td>";
+      WCAG += "<th scope=\"row\" width=\"100px\" title=\"Criteria\">" + $scope.jsonData[0].SuccessCriteria[i].CrtID; + "</th>";
       WCAG += "<td  width=\"220px\" title=\"Conformance Level\">" + $scope.jsonData[0].SuccessCriteria[i].ConformanceLvl; + "</td>";
 	  WCAG += "<td width=\"450px\" title=\"Guideline\">" + $scope.jsonData[0].SuccessCriteria[i].Guideline; + "</td>";
       WCAG += "<td width=\"400px\" title=\"Remarks and Explanations\">" + $scope.jsonData[0].SuccessCriteria[i].RemarkExplntn; + "</td>";	
@@ -638,12 +772,40 @@ document.getElementById("dsblGrpBtn").click();
     }
 	}
     testResult += "</table>";
+	
+	
+	var RSCSCORE = "<table class=\"table2\" > <caption>Score Breakdown </caption>";
+
+    RSCSCORE += "<tr>";
+    RSCSCORE += "<th scope=\"col\"  title=\"Disability Group\"  width=\"250px\">" + "Disability Group" + "</th>";
+    RSCSCORE += "<th scope=\"col\"  title=\"Risk Score\" width=\"100px\">" + "Risk Score" + "</th>";
+	RSCSCORE += "<th scope=\"col\"  title=\"Detailed Impacted Groups (with Score)\" width=\"550px\">" + "Detailed Impacted Groups (with Score)" + "</th>"; 
+    RSCSCORE += "</tr>";
+	  RSCSCORE += "<tr >";	 
+      RSCSCORE += "<th scope=\"row\" width=\"250px\" title=\"Disability Group\">" + "Vision" + "</th>";
+      RSCSCORE += "<td  width=\"100px\" title=\"Risk Score\">" + $scope.TotalVision; + "</td>";
+	  RSCSCORE += "<td width=\"550px\" title=\"Detailed Impacted Groups (with Score)\">" + $scope.TotalVisionList; + "</td>";
+      RSCSCORE += "</tr>";
+	  
+	   RSCSCORE += "<tr >";	 
+      RSCSCORE += "<th scope=\"row\" width=\"250px\" title=\"Disability Group\">" + "Hearing" + "</th>";
+      RSCSCORE += "<td  width=\"100px\" title=\"Risk Score\">" + $scope.HearingTotal; + "</td>";
+	  RSCSCORE += "<td width=\"550px\" title=\"Detailed Impacted Groups (with Score)\">" + $scope.HearingTotalList; + "</td>";
+      RSCSCORE += "</tr>";
+	  
+	   RSCSCORE += "<tr >";	 
+      RSCSCORE += "<th scope=\"row\" width=\"250px\" title=\"Disability Group\">" + "Cognitive" + "</th>";
+      RSCSCORE += "<td  width=\"100px\" title=\"Risk Score\">" + $scope.TotalCognitive; + "</td>";
+	  RSCSCORE += "<td width=\"550px\" title=\"Detailed Impacted Groups (with Score)\">" + $scope.TotalCognitiveList; + "</td>";
+      RSCSCORE += "</tr>";
+    
+    RSCSCORE += "</table>";
 
 
     $scope.capturedFormData = "<!DOCTYPE html>" +
       "<html lang=\"en\">" +
       "<head>" +	 
-      "<title>"+$scope.productID+" Accessibility Conformance Report</title>" +
+      "<title>"+$scope.productID+" Accessibility Conformance Report  </title>" + 
       "<style>  body{font-family: \"Franklin Gothic Book\", \"system-ui\",\"Segoe UI\",\"Ubuntu\",\"Helvetica Neue\",\"sans-serif\";} h1,h2{color: #F8F8FF; background-color: rgb(0, 51, 102);font-family: \"Franklin Gothic Book\",\"system-ui\",\"Segoe UI\",\"Ubuntu\",\"Helvetica Neue\",\"sans-serif\"; text-align: center;}  table { font-family: \"system-ui\",\"Segoe UI\",\"Ubuntu\",\"Helvetica Neue\",\"sans-serif\"; text-decoration:none; border-collapse: collapse; width: 100%; display:block; padding: 3px; } td, th { border: 1px solid #A9A9A9; text-align: left; padding: 3px;font-family: \"system-ui\",\"Segoe UI\",\"Ubuntu\",\"Helvetica Neue\",\"sans-serif\";} th{vertical-align: top;} tr:nth-child(even) { background-color: #F0FFFF; padding-top: 0px; padding-bottom: 0px;font-family: \"system-ui\",\"Segoe UI\",\"Ubuntu\",\"Helvetica Neue\",\"sans-serif\";} tr, th {vertical-align: top;}</style>" +
           
 	 "</head>" +
@@ -651,7 +813,7 @@ document.getElementById("dsblGrpBtn").click();
       "<button style=\"background-color:rgb(0, 51, 102); color: white; padding-left: 0em; text-align: center; width: 15%;font-size: 100%;border: 2px solid black;border-radius: 5px;\" onclick=\"myPrint()\">Print this page</button> <br>" +	  
       "<h1>"+$scope.companyname+" Accessibility Conformance Report </h1>" +	  
 	 // "<span> Based on VPAT® Version 2.4 </span>"+
-      "  <h2 id=\"draftMsg\"  style=\"color: #FFFFFF; background-color: #be0004;\" hidden> This is a Draft Report, To view final Report please select all required test results  </h2> " +     
+      "  <h2 id=\"draftMsg\"  style=\"color: #FFFFFF; background-color: #be0004;\" hidden>" + $scope.draftMsg  +"</h2> " +     
 	  " <p>This application was tested according to the Trusted Tester Section 508 Conformance Test method: " + $scope.evalMethod +" "+ $scope.evalMethodVrsn + ". The review may be a sampling of pages to confirm product compliance. The responsibility for full and complete testing and compliance remains with the owner of the application or website.</p>" +
       
 	  "<br><b>Review Date:  &nbsp;  </b>" + $scope.dateSubmitted + "<br>" +
@@ -685,7 +847,8 @@ document.getElementById("dsblGrpBtn").click();
       "<strong>Testing Method Version:  &nbsp;  </strong>" + $scope.evalMethodVrsn + "<br>" +  
      "<h2> Terms used in the Conformance Level </h2> <ul> <li> <strong>Supports:</strong> The functionality of the product has at least one method that meets the criterion without known defects or meets with equivalent facilitation. </li>  <li> <strong>Does Not Support:</strong> The majority of product functionality does not meet the criterion.</li> <li> <strong>Not Applicable:</strong> The criterion is not relevant to the product. </li> <li> <strong>Not Evaluated:</strong> The product has not been evaluated against the criterion.  This can only be used in WCAG 2.x Level AAA.</li> </ul> <br>" +
     "<h2> Web Content Accessibility Guidelines (WCAG) Report </h2>" + WCAG + "<br>" + "<h2> Test Results </h2>" + testResult + "<br>" +
-	 "<h2> Disability Impact Summary </h2>" + $scope.DisabilityImpactCollection + "<br><br>" +       
+	 "<h2> Disability Impact </h2>" +$scope.impctInfoMsg+"<br><br> <strong>Risk Score: "+$scope.TotalImpactedGroupNo+"</strong><br>"+ RSCSCORE + "<br><br>" +  
+     "<b>Your feedback is important to us! Please take the <a title=\"ACRT Survey\" href= \"https://www.surveymonkey.com/r/DHSACRT\" target=\"_blank\"   id=\"surveyID\"> ACRT Survey </a> </b>"+
       "<h2> End of Report </h2>" +
       "<script>function myPrint(){window.print(); }; if(document.getElementById('isDraftValue').value==\"true\")document.getElementById('draftMsg').style.display = \"block\";  </script>" +
       "<script> function zoom("+0+") { var modal = document.getElementById("+0+"); var img = document.getElementById(\"image\" + "+0+"); var modalImg = document.getElementById(\"img\" + "+0+"); var captionText = document.getElementById(\"caption\" + "+0+"); var span = document.getElementsByClassName(\"close\")["+0+"]; img.onclick = function() { modal.style.display = \"block\"; modalImg.src = this.src; captionText.innerHTML = this.alt; }span.onclick = function() { modal.style.display = \"none\"; } } </script>"+     
