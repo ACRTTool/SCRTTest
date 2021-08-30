@@ -72,7 +72,6 @@
 			"GrpID": "Does Not Apply",
 			"OptMenu1": "menu3",
 			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'Without Perception of Color', 'Without Hearing', 'With Limited Hearing', 'Without Speech', 'With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities', 'Photosensitive Epilepsy / Photosensitive Seizure Disorders'"
-
 		},
 
 		{
@@ -85,7 +84,6 @@
 			"GrpID": "Does Not Apply",
 			"OptMenu1": "menu3",
 			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'Without Perception of Color', 'Without Hearing', 'With Limited Hearing', 'Without Speech', 'With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities', 'Photosensitive Epilepsy / Photosensitive Seizure Disorders'"
-
 		},
 		{
 			"CrtID": "Requirements",
@@ -97,7 +95,6 @@
 			"GrpID": "Does Not Apply",
 			"OptMenu1": "menu3",
 			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'Without Perception of Color', 'Without Hearing', 'With Limited Hearing', 'Without Speech', 'With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities', 'Photosensitive Epilepsy / Photosensitive Seizure Disorders'"
-
 		},
 
 
@@ -111,7 +108,6 @@
 			"GrpID": "Does Not Apply",
 			"OptMenu1": "menu2",
 			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'Without Perception of Color', 'Without Hearing', 'With Limited Hearing', 'Without Speech', 'With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities', 'Photosensitive Epilepsy / Photosensitive Seizure Disorders'"
-
 		},
 		
 		{
@@ -200,8 +196,7 @@
 			"TestCondition": "There is no keyboard trap.",
 			"GrpID": "Does Not Apply",
 			"OptMenu1": "menu2",
-			"DisabilityImpact": "'Without Vision','With Limited Vision','With Limited Manipulation'"
-
+			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Manipulation'"
 		},
 		{
 			"CrtID": "2.4.7",
@@ -245,7 +240,7 @@
 			"TestCondition": "Focus is moved to revealed content.",
 			"GrpID": "Does Not Apply",
 			"OptMenu1": "menu2",
-			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities'"
+			"DisabilityImpact": "'Without Vision','With Limited Vision', 'With Limited Manipulation','With Limited Language, Cognitive, and Learning Abilities'"
 		},
 		{
 			"CrtID": "2.4.3",
@@ -256,7 +251,7 @@
 			"TestCondition": "Focus is returned to the logical sequence.",
 			"GrpID": "Does Not Apply",
 			"OptMenu1": "menu2",
-			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities'"
+			"DisabilityImpact": "'Without Vision','With Limited Vision', 'With Limited Manipulation','With Limited Language, Cognitive, and Learning Abilities'"
 		},
 		{
 			"CrtID": "3.3.2",
@@ -268,7 +263,7 @@
 			"GrpID": "Does Not Apply",
 			"OptMenu1": "menu2",
 			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Language, Cognitive, and Learning Abilities'"
-		},
+			},
 		{
 			"CrtID": "2.4.6",
 			"Guideline": "Level  AA",
@@ -278,7 +273,7 @@
 			"TestCondition": "Each form label is sufficiently descriptive. ",
 			"GrpID": "Does Not Apply",
 			"OptMenu1": "menu2",
-			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Manipulation' ,'With Limited Language, Cognitive, and Learning Abilities'"
+			"DisabilityImpact": "'Without Vision','With Limited Vision', 'With Limited Manipulation','With Limited Language, Cognitive, and Learning Abilities'"
 		},
 		{
 			"CrtID": "1.3.1",
@@ -300,7 +295,7 @@
 			"TestCondition": "Changing field values/selections (e.g., entering data in a text field, changing a radio button section) does NOT initiate and unexpected change of context.",
 			"GrpID": "Does Not Apply",
 			"OptMenu1": "menu2",
-			"DisabilityImpact": "'Without Vision', 'Without Vision', 'With Limited Vision', 'With Limited Language, Cognitive, and Learning Abilities'"
+			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Language, Cognitive, and Learning Abilities'"
 		},
 		{
 			"CrtID": "4.1.2",
@@ -311,7 +306,7 @@
 			"TestCondition": "The page provides notification of each form-related change in content.",
 			"GrpID": "Does Not Apply",
 			"OptMenu1": "menu2",
-			"DisabilityImpact": "'Without Vision', 'With Limited Vision','With Limited Language, Cognitive, and Learning Abilities'"
+			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Language, Cognitive, and Learning Abilities'"
 		},
 		{
 			"CrtID": "3.3.1",
@@ -344,7 +339,7 @@
 			"GrpID": "Does Not Apply",
 			"OptMenu1": "menu2",
 			"TestCondition": "The web page allows the user to check, reverse, and/or confirm submission.",
-			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities'" 
+			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities'"
 		},
 		{
 			"CrtID": "2.4.4",
@@ -422,8 +417,8 @@
 			"TestCondition": "The image of text cannot be replaced by text or is customizable.",
 			"GrpID": "",
 			"OptMenu1": "menu2",
-			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'Without Perception of Color', 'With Limited Language, Cognitive, and Learning Abilities'"  
-
+			"DisabilityImpact": "'Without Vision', 'With Limited Vision','Without Perception of Color', 'With Limited Language, Cognitive, and Learning Abilities'"
+			
 		},
 		{
 			"CrtID": "2.2.1",
@@ -434,7 +429,8 @@
 			"TestCondition": "The user can turn off, adjust, or extend the time limit.",
 			"GrpID": "",
 			"OptMenu1": "menu2",
-			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities'" 
+			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities'"
+			 
 		},
 		{
 			"CrtID": "2.4.1",
@@ -445,7 +441,7 @@
 			"TestCondition": "A keyboard-accessible method is provided to bypass repetitive content.",
 			"GrpID": "",
 			"OptMenu1": "menu2",
-			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities'" 
+			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities'"
 		},
 		{
 			"CrtID": "3.2.3",
@@ -456,7 +452,8 @@
 			"TestCondition": "Each navigational element occurs in the same relative order with regard to other repeated components on each web page where it appears.",
 			"GrpID": "",
 			"OptMenu1": "menu2",
-			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Language, Cognitive, and Learning Abilities'" 
+			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Language, Cognitive, and Learning Abilities'"
+			 
 		},
 		{
 			"CrtID": "3.2.4",			
@@ -544,7 +541,7 @@
 			"TestCondition": "A title element is defined for the web page.",
 			"GrpID": "",
 			"OptMenu1": "menu5",
-			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities' " 
+            "DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities'" 
 		},
 		{
 			"CrtID": "2.4.2",
@@ -679,8 +676,8 @@
 			"TestID": "16.A ",
 			"TestCondition": "A text-based alternative is provided for audio-only content that provides an accurate and complete representation of the audio-only content.",
 			"GrpID": "",
-			"OptMenu1": "menu2",
-			"DisabilityImpact": "'Without Hearing', 'With Limited Hearing','With Limited Language, Cognitive, and Learning Abilities' "
+			"OptMenu1": "menu2",			
+			"DisabilityImpact": "'Without Hearing', 'With Limited Hearing','With Limited Language, Cognitive, and Learning Abilities'"
 		},
 		{
 			"CrtID": "1.2.1",
@@ -691,7 +688,7 @@
 			"TestCondition": " The video-only content information is also available through an equivalent text or audio alternative.",
 			"GrpID": "",
 			"OptMenu1": "menu2",
-			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Language, Cognitive, and Learning Abilities"
+			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Language, Cognitive, and Learning Abilities'"
 		},
 		{
 			"CrtID": "1.2.2",
@@ -702,7 +699,7 @@
 			"TestCondition": "The multimedia provides accurate captions for the audio content.",
 			"GrpID": "Does Not Apply",
 			"OptMenu1": "menu2",
-			"DisabilityImpact": "'Without Hearing', 'With Limited Hearing', 'With Limited Language, Cognitive, and Learning Abilities'"
+			"DisabilityImpact": "'Without Hearing', 'With Limited Hearing','With Limited Language, Cognitive, and Learning Abilities'"
 		},
 		{
 			"CrtID": "1.2.5",
@@ -713,7 +710,7 @@
 			"TestCondition": "The multimedia provides an equivalent soundtrack (combination of narration and audio descriptions) for the video content.",
 			"GrpID": "Does Not Apply",
 			"OptMenu1": "menu2",
-			"DisabilityImpact": "'Without Vision', 'Without Vision', 'With Limited Vision', 'With Limited Language, Cognitive, and Learning Abilities'"
+			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Language, Cognitive, and Learning Abilities'"
 		},
 		{
 			"CrtID": "1.2.4",
@@ -723,8 +720,8 @@
 			"TestID": "17.C",
 			"TestCondition": "The live multimedia provides accurate captions for the audio content.",
 			"GrpID": "",
-			"OptMenu1": "menu2",
-			"DisabilityImpact": "'Without Hearing', 'With Limited Hearing', 'With Limited Language, Cognitive, and Learning Abilities'"
+			"OptMenu1": "menu2",	
+             "DisabilityImpact": "'Without Hearing', 'With Limited Hearing','With Limited Language, Cognitive, and Learning Abilities'"
 		},
 		{
 			"CrtID": "503.4",
@@ -779,7 +776,7 @@
 			"TestCondition": "There are two or more ways to locate a web page within a set of web pages.",
 			"GrpID": "",
 			"OptMenu1": "menu2",
-			"DisabilityImpact": "'Without Vision', 'With Limited Vision','With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities'" 
+			"DisabilityImpact": "'Without Vision', 'With Limited Manipulation', 'With Limited Vision', 'With Limited Language, Cognitive, and Learning Abilities'"
 		},
 		{
 			"CrtID": "4.1.1",
@@ -790,7 +787,7 @@
 			"TestCondition": "Not tested.",
 			"GrpID": "",
 			"OptMenu1": "menu6",
-			"DisabilityImpact": "'Without Vision', 'With Limited Vision', 'With Limited Manipulation', 'With Limited Language, Cognitive, and Learning Abilities'" 
+			"DisabilityImpact": "'Without Vision', 'With Limited Manipulation', 'With Limited Vision', 'With Limited Language, Cognitive, and Learning Abilities'" 
 		}
 	]
 
