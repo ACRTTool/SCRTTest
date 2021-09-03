@@ -557,9 +557,9 @@
 <td >  <div class="widetd8">
 
 <br> <input  ng-if="browseImageOption[$index]" type="file"  ng-model='imgCnvrsn[$index]'  class='addChild'  title="Browse to screenshot images" onchange="angular.element(this).scope().uploadImage(this)" accept=".jpg,.jpeg,.icon,.png,.svg,.gif" /> <br> 
-    <img   id="image{{$index}}" ng-if="imageCapturedStored[$index]"  ng-src = {{test.ImageSrc}}  alt="" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom($index)" onerror="this.style.display='none';">      
-   <img    id="image{{$index}}" ng-if="imageCaptured[$index]"  ng-src = {{imgCnvrsnCurrentValue[$index]}}  alt="" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom($index)" onerror="this.style.display='none';">    
-   <img    id="image{{$index}}" ng-if="removeClicked[$index]"  ng-src = {{imgCnvrsnCurrentValue[$index]}}  alt="" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom($index)" onerror="this.style.display='none';">    
+    <img   id="image{{$index}}" ng-if="imageCapturedStored[$index]"  ng-src = {{test.ImageSrc}}  alt="{{altforImg1[$index]}}" title="{{titleforImg1[$index]}}" class="large-image" width="50" height="50" ng-click="zoom($index)" onerror="this.style.display='none';">      
+   <img    id="image{{$index}}" ng-if="imageCaptured[$index]"  ng-src = {{imgCnvrsnCurrentValue[$index]}}  alt="{{altforImg1[$index]}}" title="{{titleforImg1[$index]}}" class="large-image" width="50" height="50" ng-click="zoom($index)" onerror="this.style.display='none';">    
+   <img    id="image{{$index}}" ng-if="removeClicked[$index]"  ng-src = {{imgCnvrsnCurrentValue[$index]}}  alt="{{altforImg1[$index]}}" title="{{titleforImg1[$index]}}" class="large-image" width="50" height="50" ng-click="zoom($index)" onerror="this.style.display='none';">    
 			
 			 <div id="{{$index}}" class="modal">
              <span class="close" id="cls{{$index}}" >&times;</span>
@@ -593,9 +593,9 @@
 <td ng-show="selected_name_rmdtn" >  <div class="widetd8">
 
 <br> <input  ng-if="browseImageOption[$index]" type="file"  ng-model='imgCnvrsn2[$index]'  class='addChild' title="Browse to screenshot images" onchange="angular.element(this).scope().uploadImage2(this)" accept=".jpg,.jpeg,.icon,.png,.svg,.gif" /> <br> 
-    <img   id="image1{{$index}}" ng-if="imageCapturedStored2[$index]" ng-src = {{test.ImageSrc2}}  alt="" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">      
-   <img    id="image1{{$index}}" ng-if="imageCaptured2[$index]" ng-src = {{imgCnvrsnCurrentValue2[$index]}}  alt="" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
-   <img    id="image1{{$index}}" ng-if="removeClicked2[$index]" ng-src = {{imgCnvrsnCurrentValue2[$index]}}  alt="" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
+    <img   id="image1{{$index}}" ng-if="imageCapturedStored2[$index]" ng-src = {{test.ImageSrc2}}  alt="{{altforImg2[$index]}}" title="{{titleforImg2[$index]}}" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">      
+   <img    id="image1{{$index}}" ng-if="imageCaptured2[$index]" ng-src = {{imgCnvrsnCurrentValue2[$index]}}  alt="{{altforImg2[$index]}}" title="{{titleforImg2[$index]}}" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
+   <img    id="image1{{$index}}" ng-if="removeClicked2[$index]" ng-src = {{imgCnvrsnCurrentValue2[$index]}}  alt="{{altforImg2[$index]}}" title="{{titleforImg2[$index]}}" class="large-image" width="50" height="50" ng-click="zoom([$index])" onerror="this.style.display='none';">    
 			<div id="rmd{{$index}}" class="modal">
              <span class="close">&times;</span>
             <img alt="" title="Selected Image" class="modal-content" id="img1{{$index}}">

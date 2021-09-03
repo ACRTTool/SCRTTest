@@ -197,6 +197,7 @@
 
 
                   <table class="table" id="th1" style="font-size: 93%"  >
+				            <caption> <strong>Test Result </strong></caption> 
                 
                     <thead>
                       
@@ -243,7 +244,7 @@
 			<tbody ng-repeat="record in jsonData">
              <tr ng-repeat="test in record.Criteria " ng-if="filterResult1"> 
 			<!--<tr ng-repeat="test in record.Criteria " ng-if="noResult[$index]" ng-show="TestResult[$index]== filterResult">-->
-			 <th  title="Issue Number">
+			 <th  title="Issue Number" scope="row">
                 <div style="width: 80px"> Issue {{counterCollection[$index]}} </div>
               </th>              
               <th  scope="row" title="Test Name" id="tnm1[$index]">
@@ -268,7 +269,7 @@
 			  <td title="Entered location/screen" id="lcn1[$index]">
                 <div class="widetd3"> {{location[$index]}}</div>
               </td>              
-              <td style="width: 143px !important">  <img width="100" id="image{{$index}}"  ng-src={{ImageSrc[$index]}}  ng-click="zoom($index)" class="large-image"   onerror="this.style.display='none';" >
+              <td style="width: 143px !important">  <img width="100" id="image{{$index}}"  title= {{titforImg[$index]}} alt={{altforImg[$index]}} ng-src={{ImageSrc[$index]}}  ng-click="zoom($index)" class="large-image"   onerror="this.style.display='none';" >
               
              <div id="{{$index}}" class="modal">
              <span class="close" id="cls{{$index}}" >&times;</span>
@@ -389,7 +390,9 @@
           </legend>        
            <h3>Risk Score: {{TotalImpactedGroupNo}} </h3>
           
-          <button class="collapsible"  id="dsblGrpBtn"   ><h3> Risk score Breakdown</h3> 	</button>
+          <button class="collapsible"  id="dsblGrpBtn"  onclick="expandCollapse5()" >
+		  <div id="expandCollapse5"> <i class="up"></i> <h3> Show Risk Score Breakdown</h3></div>
+		  </button>
           <div class="content">
 		   <label for="dsblImpctRslt"> </label>  <!-- <h4>Different impacted groups are separated by comma, check below</h4> -->
 		  <span> {{impctInfoMsg}}</span>
