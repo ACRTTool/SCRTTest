@@ -290,7 +290,10 @@ $scope.checkboxModel = {
   value511: [" "]
 };
 
-
+$scope.altforImg1 = [];
+$scope.altforImg2 =[];
+$scope.titleforImg1 = [];
+$scope.titleforImg2 = [];
 $scope.location = [];
 $scope.location1 = [];
 $scope.testerCommentID1 = [];
@@ -1706,7 +1709,9 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 		   $scope.imageCaptured[b]= false;
           $scope.removeClicked[b] =  false;		
 		  $scope.imageCaptured1[b]= false;
-          $scope.removeClicked1[b] =  false;	
+          $scope.removeClicked1[b] =  false;          
+	      $scope.altforImg1[b]= 'Image for ' + $scope.jsonData[0].Criteria[b].TestName ; 
+          $scope.titleforImg1[b] =	'image for ' + $scope.jsonData[0].Criteria[b].TestName; 	  
           		  
       		  
 		 } 
@@ -1720,7 +1725,9 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 		   $scope.imageCaptured2[b]= false;
           $scope.removeClicked2[b] =  false;		
 		  $scope.imageCaptured1[b]= false;
-          $scope.removeClicked1[b] =  false;		
+          $scope.removeClicked1[b] =  false;	
+         $scope.altforImg2[b]= 'image for ' + $scope.jsonData[0].Criteria[b].TestName;	
+         $scope.titleforImg2[b] =	'image for ' + $scope.jsonData[0].Criteria[b].TestName; 		 
       		  
 		 } 
 		 } 
