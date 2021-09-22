@@ -79,6 +79,16 @@ function expandCollapse5() {
   }
 }
 
+function expandCollapse6() {
+
+  var z = document.getElementById("expandCollapse6");  
+  if (z.innerHTML === "<i class=\"down\"></i> Hide Other Results") {
+    z.innerHTML = "<i class=\"up\"></i> Show Other Results";
+  } else {
+    z.innerHTML = "<i class=\"down\"></i> Hide Other Results";
+  }
+}
+
 //defining filter 
 app.filter('unique', function() {
   return function(collection, keyname) {
