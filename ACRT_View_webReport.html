@@ -285,7 +285,7 @@
                 <div style="width: 199px !important"> {{RemediationDetails[$index] }}</div>
               </td>
 			  
-			  <td width="151">  <img width="100" id="image2{{$index}}"  ng-src={{ImageSrc2[$index]}}  ng-click="zoom2($index)" class="large-image"   onerror="this.style.display='none';" >
+			  <td width="151">  <img width="100" id="image2{{$index}}"  title= {{titforImg[$index]}} alt={{altforImg[$index]}} ng-src={{ImageSrc2[$index]}}  ng-click="zoom2($index)" class="large-image"   onerror="this.style.display='none';" >
               
              <div id="rmd2{{$index}}" class="modal">
              <span class="close" id="cls2{{$index}}" >&times;</span>
@@ -400,8 +400,7 @@
 			
 			
 			<table id='impctScreTbl' class="table" >
-<caption>Score Breakdown </caption>
-
+<caption> <strong>Score Breakdown </strong></caption> 
 <tr>
 <th scope="col">Disability Group </th>
 <th scope="col">Risk Score </th>
@@ -469,7 +468,9 @@
           <legend>
             <h3 > Other Test Results </h3>
           </legend>
-          <button class="collapsible">Other Results </button>
+          <button class="collapsible" id="othrbtn" onclick="expandCollapse6()"> 
+		  <div id="expandCollapse6"> <i class="up"></i> <h3> Other Results</h3></div>
+		  </button>
           <div class="content">
 
             <h3> Hardware Test Results </h3>
