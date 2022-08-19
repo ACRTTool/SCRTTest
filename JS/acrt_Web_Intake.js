@@ -87,8 +87,8 @@ app.controller('acrtWebIntakeCtrl', ['$scope', function($scope, $filter) {
    $scope.fileNameChanged = function () {
 	  $scope.fileInput1 = true;	
 	  $scope.$apply();
-      document.getElementById("selMsg").innerHTML = "File is Selected, please select 'Load File' below to proceed.";	
-      document.getElementById('fileinput').setAttribute('title', 'File is Selected, please select Load File below to proceed.');	  
+      document.getElementById("selMsg").innerHTML = "File selected. Please select 'Load File' below to proceed.";	
+      document.getElementById('fileinput').setAttribute('title', 'File selected. Please select Load File below to proceed.');	  
       document.getElementById("button").focus(); 	 
      //alert("File is Selected, please select 'Load File' below to proceed.");	  
     } 
@@ -290,10 +290,7 @@ $scope.checkboxModel = {
   value511: [" "]
 };
 
-$scope.altforImg1 = [];
-$scope.altforImg2 =[];
-$scope.titleforImg1 = [];
-$scope.titleforImg2 = [];
+
 $scope.location = [];
 $scope.location1 = [];
 $scope.testerCommentID1 = [];
@@ -1709,9 +1706,7 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 		   $scope.imageCaptured[b]= false;
           $scope.removeClicked[b] =  false;		
 		  $scope.imageCaptured1[b]= false;
-          $scope.removeClicked1[b] =  false;          
-	      $scope.altforImg1[b]= 'Image for ' + $scope.jsonData[0].Criteria[b].TestName ; 
-          $scope.titleforImg1[b] =	'image for ' + $scope.jsonData[0].Criteria[b].TestName; 	  
+          $scope.removeClicked1[b] =  false;	
           		  
       		  
 		 } 
@@ -1725,9 +1720,7 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 		   $scope.imageCaptured2[b]= false;
           $scope.removeClicked2[b] =  false;		
 		  $scope.imageCaptured1[b]= false;
-          $scope.removeClicked1[b] =  false;	
-         $scope.altforImg2[b]= 'image for ' + $scope.jsonData[0].Criteria[b].TestName;	
-         $scope.titleforImg2[b] =	'image for ' + $scope.jsonData[0].Criteria[b].TestName; 		 
+          $scope.removeClicked1[b] =  false;		
       		  
 		 } 
 		 } 
@@ -2109,11 +2102,11 @@ if ($scope.jsonData[0].Criteria[b].TestID == " 1.A" && $scope.selected_name_tstg
 $scope.default_SelectedResult[b+1] = "Does Not Apply";
 $scope.default_SelectedResult[b+2] = "Does Not Apply";
 $scope.default_SelectedResult[b+3] = "Does Not Apply";
-$scope.default_SelectedResult[b+4] = "Does Not Apply";
+//$scope.default_SelectedResult[b+4] = "Does Not Apply";
 $scope.selected_name_tstgrp[b+1]= "Does Not Apply";
 $scope.selected_name_tstgrp[b+3]= "Does Not Apply";
-$scope.selected_name_tstgrp[b+4]= "Does Not Apply";
-$scope.selected_name_tstgrp[b+5]= "Does Not Apply";
+//$scope.selected_name_tstgrp[b+4]= "Does Not Apply";
+//$scope.selected_name_tstgrp[b+5]= "Does Not Apply";
 } 
 
 if ($scope.jsonData[0].Criteria[b].TestID == "5.A" && $scope.selected_name_tstgrp[b]== "Does Not Apply"){	
@@ -2136,27 +2129,27 @@ $scope.selected_name_tstgrp[b+7]= "Does Not Apply";
 if ($scope.jsonData[0].Criteria[b].TestID == "10.A" && $scope.selected_name_tstgrp[b]== "Does Not Apply"){	
 $scope.default_SelectedResult[b+1] = "Does Not Apply";
 $scope.default_SelectedResult[b+2] = "Does Not Apply";
-$scope.default_SelectedResult[b+3] = "Does Not Apply";
+//$scope.default_SelectedResult[b+3] = "Does Not Apply";
 $scope.selected_name_tstgrp[b+1]= "Does Not Apply";
 $scope.selected_name_tstgrp[b+3]= "Does Not Apply";
-$scope.selected_name_tstgrp[b+4]= "Does Not Apply";
+//$scope.selected_name_tstgrp[b+4]= "Does Not Apply";
 } 
 
 if ($scope.jsonData[0].Criteria[b].TestID == "14.A" && $scope.selected_name_tstgrp[b]== "Does Not Apply"){	
 $scope.default_SelectedResult[b+1] = "Does Not Apply";
-$scope.default_SelectedResult[b+2] = "Does Not Apply";
+//$scope.default_SelectedResult[b+2] = "Does Not Apply";
 $scope.selected_name_tstgrp[b+1]= "Does Not Apply";
-$scope.selected_name_tstgrp[b+3]= "Does Not Apply";
+//$scope.selected_name_tstgrp[b+3]= "Does Not Apply";
 }
 
 if ($scope.jsonData[0].Criteria[b].TestID == "17.A" && $scope.selected_name_tstgrp[b]== "Does Not Apply"){	
 $scope.default_SelectedResult[b+1] = "Does Not Apply";
-$scope.default_SelectedResult[b+2] = "Does Not Apply";
+//$scope.default_SelectedResult[b+2] = "Does Not Apply";
 $scope.default_SelectedResult[b+3] = "Does Not Apply";
 $scope.default_SelectedResult[b+4] = "Does Not Apply";
 $scope.default_SelectedResult[b+5] = "Does Not Apply";
 $scope.selected_name_tstgrp[b+1]= "Does Not Apply";
-$scope.selected_name_tstgrp[b+2]= "Does Not Apply";
+//$scope.selected_name_tstgrp[b+2]= "Does Not Apply";
 $scope.selected_name_tstgrp[b+3]= "Does Not Apply";
 $scope.selected_name_tstgrp[b+4]= "Does Not Apply";
 $scope.selected_name_tstgrp[b+5]= "Does Not Apply";
@@ -3010,10 +3003,7 @@ $scope.testresult1 = '"Criteria":[' + $scope.totTstRslt + ']';
 			}
 			else if($scope.slctTstRslt == "NotSelected"){				
 
-			//$scope.criteriaResult.push('{"CrtID": "' + $scope.totTstRsltJson[a].CrtID + '","Guideline": "' + $scope.guideline[a] +'","ConformanceLvl": "' + "Not Evaluated" + '","DisabilityImpact": "' + $scope.dsbl_Impctd_grp[a] + '","RemarkExplntn": "' + "Not yet tested" + '"}');	
-			$scope.criteriaResult.push('{"CrtID": "' + $scope.totTstRsltJson[a].CrtID + '","Guideline": "' + $scope.guideline[a] +'","ConformanceLvl": "' + "Not Evaluated" + '","DisabilityImpact": "' + '' + '","RemarkExplntn": "' + "Not yet tested" + '"}');	
-
-			
+			$scope.criteriaResult.push('{"CrtID": "' + $scope.totTstRsltJson[a].CrtID + '","Guideline": "' + $scope.guideline[a] +'","ConformanceLvl": "' + "Not Evaluated" + '","DisabilityImpact": "' + $scope.dsbl_Impctd_grp[a] + '","RemarkExplntn": "' + "Not yet tested" + '"}');	
 			}
 			/*
 			if( $scope.slctTstRslt == "FailSelected"){
