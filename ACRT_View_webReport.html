@@ -226,6 +226,7 @@
 
 
                   <table class="table" id="th1" style="font-size: 93%"  >
+				  <caption> <strong>View Results </strong></caption> 
                 
                     <thead>
                       
@@ -285,7 +286,7 @@
                 <div class="widetd3"> {{TestCondition[$index]}}</div>
               </td>
 							
-              <td title="Selected Test Result" id="tstrslt1[$index]">
+              <td title="Selected Test Result for {{TestID[$index]}}" id="tstrslt1[$index]">
                 <div style="width: 69px"> {{TestResult[$index]}} </div>
               </td>
               <td title="Selected Browser Types" id="brsr1[$index]">
@@ -297,7 +298,7 @@
 			  <td title="Entered location/screen" id="lcn1[$index]">
                 <div class="widetd3"> {{location[$index]}}</div>
               </td>              
-              <td style="width: 143px !important">  <img width="100" id="image{{$index}}"  ng-src={{ImageSrc[$index]}}  ng-click="zoom($index)" class="large-image"   onerror="this.style.display='none';" >
+              <td style="width: 143px !important">  <img width="100" id="image{{$index}}"  alt="Screenshot" ng-src={{ImageSrc[$index]}}  ng-click="zoom($index)" class="large-image"   onerror="this.style.display='none';" >
               
              <div id="{{$index}}" class="modal">
              <span class="close" id="cls{{$index}}" >&times;</span>
@@ -345,7 +346,7 @@
                 <div class="widetd3"> {{TestCondition[$index]}}</div>
               </td>
 							
-              <td title="Selected Test Result" id="tstrslt1[$index]">
+              <td title="Selected Test Result for {{TestID[$index]}}" id="tstrslt1[$index]">
                 <div style="width: 69px"> {{TestResult[$index]}} </div>
               </td>
               <td title="Selected Browser Types" id="brsr1[$index]">
@@ -412,41 +413,41 @@
 			<table id='impctScreTbl' class="table" >
 <caption> <strong>Score Breakdown </strong></caption> 
 <tr>
-<th scope="col">Disability Group </th>
-<th scope="col">Risk Score </th>
-<th scope="col">Detailed Impacted Groups (with Score)  </th>
+<th scope="col" title="Disability Group" >Disability Group </th>
+<th scope="col" title="Risk Score">Risk Score </th>
+<th scope="col" title="Impacted Groups" >Detailed Impacted Groups (with Score)  </th>
 </tr>
 
 <tr>
-<th scope="row">Vision </th>
-<td>{{TotalVision}}</td>
-<td>{{TotalVisionList}}</td>
+<th scope="row" title="Vision">Vision </th>
+<td title="Risk Score for Vision">{{TotalVision}}</td>
+<td title="Groups Impacted for Vision">{{TotalVisionList}}</td>
 </tr>
 
 <tr>
-<th scope="row">Hearing</th>
-<td>{{HearingTotal}}</td>
-<td>{{HearingTotalList}}</td>
+<th scope="row" title="Hearing">Hearing</th>
+<td title="Risk score for Hearing">{{HearingTotal}}</td>
+<td title="Groups Impacted for Hearing">{{HearingTotalList}}</td>
 </tr>
 
 <tr>
-<th scope="row">Cognitive</th>
-<td>{{TotalCognitive}}</td>
-<td>{{TotalCognitiveList}}</td>
-</tr>
-
-
-<tr>
-<th scope="row">Photosensitivity</th>
-<td>{{TotalPhotosensitive}}</td>
-<td>{{TotalPhotosensitiveList}}</td>
+<th scope="row" title="Cognitive">Cognitive</th>
+<td title="Risk Score for Cognitive">{{TotalCognitive}}</td>
+<td title="Groups Impacted for Cognitive">{{TotalCognitiveList}}</td>
 </tr>
 
 
 <tr>
-<th scope="row">Mobility </th>
-<td>{{TotalMobility}}</td>
-<td>{{TotalMobilityList}}</td>
+<th scope="row" title="Photosensitivity">Photosensitivity</th>
+<td title="Risk score for Photosensitivity " >{{TotalPhotosensitive}}</td>
+<td title="Groups Impacted for Photosensitivity">{{TotalPhotosensitiveList}}</td>
+</tr>
+
+
+<tr>
+<th scope="row" title="Mobility" >Mobility </th>
+<td title="Risk Score for Mobility">{{TotalMobility}}</td>
+<td title="Groups Impacted for Mobility">{{TotalMobilityList}}</td>
 </tr>
 
 
