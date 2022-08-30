@@ -809,33 +809,33 @@ document.getElementById("dsblGrpBtn").click();
 	RSCSCORE += "<th scope=\"col\"  title=\"Detailed Impacted Groups (with Score)\" width=\"550px\">" + "Detailed Impacted Groups (with Score)" + "</th>"; 
     RSCSCORE += "</tr>";
 	  RSCSCORE += "<tr >";	 
-      RSCSCORE += "<th scope=\"row\" width=\"250px\" title=\"Disability Group\">" + "Vision" + "</th>";
-      RSCSCORE += "<td  width=\"100px\" title=\"Risk Score\">" + $scope.TotalVision; + "</td>";
-	  RSCSCORE += "<td width=\"550px\" title=\"Detailed Impacted Groups (with Score)\">" + $scope.TotalVisionList; + "</td>";
+      RSCSCORE += "<th scope=\"row\" width=\"250px\" title=\"Vision\">" + "Vision" + "</th>";
+      RSCSCORE += "<td  width=\"100px\" title=\"Risk Score for Vision \">" + $scope.TotalVision; + "</td>";
+	  RSCSCORE += "<td width=\"550px\" title=\"Detailed Impacted Groups for Vision\">" + $scope.TotalVisionList; + "</td>";
       RSCSCORE += "</tr>";
 	  
 	   RSCSCORE += "<tr >";	 
-      RSCSCORE += "<th scope=\"row\" width=\"250px\" title=\"Disability Group\">" + "Hearing" + "</th>";
-      RSCSCORE += "<td  width=\"100px\" title=\"Risk Score\">" + $scope.HearingTotal; + "</td>";
-	  RSCSCORE += "<td width=\"550px\" title=\"Detailed Impacted Groups (with Score)\">" + $scope.HearingTotalList; + "</td>";
+      RSCSCORE += "<th scope=\"row\" width=\"250px\" title=\"Hearing\">" + "Hearing" + "</th>";
+      RSCSCORE += "<td  width=\"100px\" title=\"Risk Score for Hearing\">" + $scope.HearingTotal; + "</td>";
+	  RSCSCORE += "<td width=\"550px\" title=\"Detailed Impacted Groups for Hearing\">" + $scope.HearingTotalList; + "</td>";
       RSCSCORE += "</tr>";
 	  
 	   RSCSCORE += "<tr >";	 
-      RSCSCORE += "<th scope=\"row\" width=\"250px\" title=\"Disability Group\">" + "Cognitive" + "</th>";
-      RSCSCORE += "<td  width=\"100px\" title=\"Risk Score\">" + $scope.TotalCognitive; + "</td>";
-	  RSCSCORE += "<td width=\"550px\" title=\"Detailed Impacted Groups (with Score)\">" + $scope.TotalCognitiveList; + "</td>";
+      RSCSCORE += "<th scope=\"row\" width=\"250px\" title=\"Cognitive\">" + "Cognitive" + "</th>";
+      RSCSCORE += "<td  width=\"100px\" title=\"Risk Score for Cognitive\">" + $scope.TotalCognitive; + "</td>";
+	  RSCSCORE += "<td width=\"550px\" title=\"Detailed Impacted Groups for Cognitive\">" + $scope.TotalCognitiveList; + "</td>";
       RSCSCORE += "</tr>";
 	  
 	  RSCSCORE += "<tr >";	 
-      RSCSCORE += "<th scope=\"row\" width=\"250px\" title=\"Disability Group\">" + "Photosensitivity" + "</th>";
-      RSCSCORE += "<td  width=\"100px\" title=\"Risk Score\">" + $scope.TotalPhotosensitive; + "</td>";
-	  RSCSCORE += "<td width=\"550px\" title=\"Detailed Impacted Groups (with Score)\">" + $scope.TotalPhotosensitiveList; + "</td>";
+      RSCSCORE += "<th scope=\"row\" width=\"250px\" title=\"Photosensitivity\">" + "Photosensitivity" + "</th>";
+      RSCSCORE += "<td  width=\"100px\" title=\"Risk Score for Photosensitivity\">" + $scope.TotalPhotosensitive; + "</td>";
+	  RSCSCORE += "<td width=\"550px\" title=\"Detailed Impacted Groups for Photosensitivity\">" + $scope.TotalPhotosensitiveList; + "</td>";
       RSCSCORE += "</tr>";
 	  
 	  RSCSCORE += "<tr >";	 
-      RSCSCORE += "<th scope=\"row\" width=\"250px\" title=\"Disability Group\">" + "Mobility" + "</th>";
-      RSCSCORE += "<td  width=\"100px\" title=\"Risk Score\">" + $scope.TotalMobility; + "</td>";
-	  RSCSCORE += "<td width=\"550px\" title=\"Detailed Impacted Groups (with Score)\">" + $scope.TotalMobilityList; + "</td>";
+      RSCSCORE += "<th scope=\"row\" width=\"250px\" title=\"Mobility\">" + "Mobility" + "</th>";
+      RSCSCORE += "<td  width=\"100px\" title=\"Risk Score for Mobility\">" + $scope.TotalMobility; + "</td>";
+	  RSCSCORE += "<td width=\"550px\" title=\"Detailed Impacted Groups Mobility\">" + $scope.TotalMobilityList; + "</td>";
       RSCSCORE += "</tr>";
     
     RSCSCORE += "</table>";
