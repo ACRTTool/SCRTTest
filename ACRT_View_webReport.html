@@ -31,22 +31,22 @@
 	<!--   To make sure you have the latest version of ACRT, check either 
   <a title="ACRT GitHub Repository" href= "https://github.com/Section508Coordinators/ACRT " target="_blank"   id="helpID"> GitHub </a>  &nbsp;(all users) 
   or <a title="ACRT Bitbucket Repository" href= "https://maestro.dhs.gov/stash/projects/APPDEV/repos/acrt/browse/acrt" target="_blank"   id="bitbucketSrc">BitBucket </a>  &nbsp;(DHS users) before completing the form. <br><br> -->
-  Refer to the <a title="ACRT User Guide" href="./Resources/ACRTTrainingManual.pdf" target="_blank"  id="helpID">ACRT User Guide </a> &nbsp;for complete instructions.
+  Refer to the <a title="ACRT User Guide" href="./Resources/ACRTTrainingManual.pdf" target="_blank"  id="helpID" style="display:inline-block; color:blue;">ACRT User Guide </a> &nbsp;for complete instructions.
   
 	<!-- <span> Based on VPAT® Version 2.4 </span> -->
       <!-- <h1> View Test Report </h1> -->
         <!-- View test report. <a title="View Report instructions" href="./Help_Report.html" target="_blank" id="tstinstrID"> "View Report" instructions </a> -->
         
-		<p > <!--  id="instr" -->
+		<p > 
 	  <strong >Tool Tips: </strong><br>
 	  <ol >	     
-		<li>Use 'Skip to main content' link or keyboard shortcut Alt+M to go to go main content.</li>
-		<li>This is a read-only page. To edit results, select “Create Report”. </li> 
-		<li>Expand Product, Test Environment, Tester Sections & Terms to view more information.</li>
+		<li>Use 'Skip to main content' link or keyboard shortcut Alt+M to go to main content.</li>
+		<li>This is a read-only page. To create or edit results, select “Create Report.” </li> 
+		<li>Expand Product, Test Environment, Tester Sections and Terms to view more information.</li>
 	    <li>At least one valid test result must be included to view a report.</li>
 		<li>Double click on an image in test results section to zoom in. </li>
-	    <li>To save printer-friendly HTML report, use Alt+S or Save button located at bottom of page.</li>		
-		<li>Data is saved in JSON format for editing & further analysis. HTML report is the printer-friendly version. Keep both for future reference.</li>	
+	    <li>To save printer-friendly HTML report, use Alt+S or "Save" button located at bottom of page.</li>		
+		<li>Data is saved in JSON format for editing and further analysis. HTML report is the printer-friendly version. Keep both for future reference.</li>	
 	  </ol>
 	</p>
          <span id='selectFileHd' ng-hide = "fileInput1" >
@@ -274,7 +274,7 @@
              <tr ng-repeat="test in record.Criteria " ng-if="filterResult1"> 
 			<!--<tr ng-repeat="test in record.Criteria " ng-if="noResult[$index]" ng-show="TestResult[$index]== filterResult">-->
 			 <th  title="Issue Number">
-                <div style="width: 80px"> Issue {{counterCollection[$index]}} </div>
+                <div style="width: 80px"> Issue {{$index}} </div>
               </th>              
               <th  scope="row" title="Test Name" id="tnm1[$index]">
                 <div class="widetd1"> {{TestName[$index]}} </div>
@@ -298,7 +298,7 @@
 			  <td title="Entered location/screen" id="lcn1[$index]">
                 <div class="widetd3"> {{location[$index]}}</div>
               </td>              
-              <td style="width: 143px !important">  <img width="100" id="image{{$index}}"  alt="Screenshot" ng-src={{ImageSrc[$index]}}  ng-click="zoom($index)" class="large-image"   onerror="this.style.display='none';" >
+              <td style="width: 143px !important">  <img width="100" id="image{{$index}}"   ng-src={{ImageSrc[$index]}}  ng-click="zoom($index)" class="large-image"   onerror="this.style.display='none';" >
               
              <div id="{{$index}}" class="modal">
              <span class="close" id="cls{{$index}}" >&times;</span>
@@ -334,7 +334,7 @@
             <!-- <tr ng-repeat="test in record.Criteria " ng-if="filterResult1"> -->
 			<tr ng-repeat="test in record.Criteria " ng-if="noResult[$index]" ng-show="TestResult[$index]== filterResult">
 			 <td  title="Issue Number">
-                <div style="width: 80px"> Issue {{counterCollection[$index]}} </div>
+                <div style="width: 80px"> Issue {{$index}} </div>
               </td>              
               <th  scope="row" title="Test Name" id="tnm1[$index]">
                 <div class="widetd1"> {{TestName[$index]}} </div>
