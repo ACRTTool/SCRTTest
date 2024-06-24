@@ -3402,6 +3402,18 @@ $scope.submit1 = function() {
   }
   if ($scope.testerContact == " " || $scope.testerContact == undefined) {
     $scope.error.push("Testing Information: Tester's Email");
+
+      if ($scope.acrtInputForm.TesterContact.$invalid) {
+          if ($scope.acrtInputForm.TesterContact.$error.required) {
+              $scope.error.push("Testing Information: Tester's Email is required.");
+          }
+          if ($scope.acrtInputForm.TesterContact.$error.email) {
+              $scope.error.push("Testing Information: Invalid email address.");
+          }
+          if ($scope.acrtInputForm.TesterContact.$error.maxlength) {
+              $scope.error.push("Testing Information: Email must be less than 50 characters.");
+          }
+      }
    
   }
      
