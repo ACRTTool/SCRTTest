@@ -40,17 +40,40 @@ app.directive("limitTo", [function() {
     }
 }]);
 
+// Function to unescape special characters
+function unescapeSpecialChars(str) {
+    return str.replace(/\\(b|f|n|r|t|\"|\\)/g, function (match, char) {
+        switch (char) {
+            case 'b':
+                return '\b';
+            case 'f':
+                return '\f';
+            case 'n':
+                return '\n';
+            case 'r':
+                return '\r';
+            case 't':
+                return '\t';
+            case '\"':
+                return '\"';
+            case '\\':
+                return '\\';
+        }
+    });
+}
+
 //this function validates if json is valid
 function IsJsonString(str) {
+  // Unescape the JSON string
+  let unescapedJsonString = unescapeSpecialChars(str);
   try {
-    JSON.parse(str);
+    let jsonObject = JSON.parse(unescapedJsonString);
   } catch (e) {    
 	alert("There is a problem while trying to convert to JSON format, contact technical support.");
 	console.log(str);
 	//return false;
   }
-  //return true;
-  return JSON.parse(str);
+  return JSON.parse(unescapedJsonString);
 }
 
 
@@ -2273,17 +2296,17 @@ $scope.submit = function() {
   
   $scope.imgCnvrsnJSON = "[ "+$scope.imgCnvrsn+ " ]";
  //document.write( $scope.imgCnvrsnJSON );
-  $scope.imgCnvrsnJSON = IsJsonString($scope.imgCnvrsnJSON); 
+  $scope.imgCnvrsnJSON = IsJsonString($scope.escapeSpecialChars($scope.imgCnvrsnJSON));
   
   $scope.imgCnvrsnJSON2 = "[ "+$scope.imgCnvrsn2+ " ]";
  //document.write( $scope.imgCnvrsnJSON );
-  $scope.imgCnvrsnJSON2 = IsJsonString($scope.imgCnvrsnJSON2);  
+  $scope.imgCnvrsnJSON2 = IsJsonString($scope.escapeSpecialChars($scope.imgCnvrsnJSON2));
   
   
   //$scope.imgCnvrsn1 = $scope.imgCnvrsn1.filter($scope.onlyUnique); 
   $scope.imgCnvrsnJSON1 = "[ "+$scope.imgCnvrsn1+ " ]";
  // document.write($scope.imgCnvrsnJSON1);
-  $scope.imgCnvrsnJSON1 = IsJsonString($scope.imgCnvrsnJSON1);  
+  $scope.imgCnvrsnJSON1 = IsJsonString($scope.escapeSpecialChars($scope.imgCnvrsnJSON1));
   
  
   for (i = 0; i < $scope.criteriaTestsJson.Criteria.length; i++) {	  
@@ -2792,7 +2815,7 @@ $scope.submit = function() {
   
   if ($scope.submitClkCount == 0) {
     $scope.totTstRsltJson = "[" + $scope.totTstRslt + "]";
-    $scope.totTstRsltJson = IsJsonString($scope.totTstRsltJson);
+    $scope.totTstRsltJson = IsJsonString($scope.escapeSpecialChars($scope.totTstRsltJson));
   }
   $scope.totTstRslt = $scope.totTstRslt.toString();
   if ($scope.submitClkCount != 0) {
@@ -3085,7 +3108,7 @@ $scope.testresult1 = '"Criteria":[' + $scope.totTstRslt + ']';
 		  $scope.criteriaResult = $scope.criteriaResult.replace(/^,/, ''); //removes comma from front of string
           $scope.criteriaResult = $scope.criteriaResult.replace(/,\s*$/, " "); //removes comma from last of string
           $scope.criteriaResult = $scope.criteriaResult.replace(/,+/g, ','); //removes multiple commas from string
-		  $scope.criteriaResultJSON = "[ "+ $scope.criteriaResult +" ]";
+          $scope.criteriaResultJSON = "[ "+ $scope.escapeSpecialChars($scope.criteriaResult) +" ]";
 	      $scope.criteriaResultJSON = IsJsonString($scope.criteriaResultJSON);
 			//Assigning approperiate Conformance Level
     				 
@@ -3370,6 +3393,37 @@ $scope.testresult1 = '"Criteria":[' + $scope.totTstRslt + ']';
 
 };
 
+// Function to escape special characters
+$scope.escapeSpecialChars = function(str) {
+    if (typeof str === 'string') {
+        return str.replace(/[\b\f\n\r\t\"\\]/g, function (char) {
+            switch (char) {
+                case '\b':
+                    return '\\b';
+                case '\f':
+                    return '\\f';
+                case '\n':
+                    return '\\n';
+                case '\r':
+                    return '\\r';
+                case '\t':
+                    return '\\t';
+                case '\"':
+                    return '\\"';
+                case '\\':
+                    return '\\\\';
+            }
+        });
+    } else {
+        return str
+    }
+}
+
+// Function to clean the file name
+$scope.cleanFileName = function(fileName) {
+    return fileName.replace(/[\b\f\n\r\t\"\'\\\/:*?<>|]/g, '_');
+};
+
 $scope.submit1 = function() {
 
   $scope.error = [];
@@ -3448,26 +3502,72 @@ $scope.submit1 = function() {
       //$scope.original = false;
 	  document.getElementById("hdnMsgId").style.visibility = "hidden";     
 
-	 
-    var blob = new Blob([$scope.formData], {
+  // Create the JSON object manually from form input data and escape special characters
+  $scope.formData = JSON.stringify([{
+      "Product": {
+          "P_Name": $scope.escapeSpecialChars($scope.productID),
+          "P_Version": $scope.escapeSpecialChars($scope.versionID),
+          "P_Owner": $scope.escapeSpecialChars($scope.ownerID),
+          "P_Type": $scope.escapeSpecialChars($scope.productType),
+          "P_Location": $scope.escapeSpecialChars($scope.urlID),
+          "P_Desc": $scope.escapeSpecialChars($scope.prodDescID),
+          "P_Notes": $scope.escapeSpecialChars($scope.prdNteDescID)
+      },
+      "System": {
+          "S_osVrsnNo": $scope.escapeSpecialChars($scope.osVrsnCollection),
+          "S_selectedOS": $scope.escapeSpecialChars($scope.osCollection) + $scope.escapeSpecialChars($scope.categories) + $scope.escapeSpecialChars($scope.browserVersionsCollection),
+          "S_selectedBrowser": $scope.escapeSpecialChars($scope.browserCollection),
+          "S_selectedBrowserVersions": $scope.escapeSpecialChars($scope.browserVrsnCollection),
+          "S_Compatibility": $scope.escapeSpecialChars($scope.selected_name_cmpblty)
+      },
+      "Tester": {
+          "T_fstnm": $scope.escapeSpecialChars($scope.firstname),
+          "T_lstnm": $scope.escapeSpecialChars($scope.lastname),
+          "T_ID": $scope.escapeSpecialChars($scope.testerID),
+          "T_companyname": $scope.escapeSpecialChars($scope.companyname),
+          "T_Role": $scope.escapeSpecialChars($scope.myRole),
+          "T_cntc": $scope.escapeSpecialChars($scope.testerContact),
+          "T_scope": $scope.escapeSpecialChars($scope.testScope),
+          "T_eval": $scope.escapeSpecialChars($scope.selected_name_tstprcss),
+          "T_evalMthd_Vrsn": $scope.escapeSpecialChars($scope.evlMthdVrsn),
+          "crtLength": $scope.escapeSpecialChars($scope.criteriaLength),
+          "T_Date": $scope.escapeSpecialChars($scope.tDateId)
+      },
+      "Standard": {
+          "Guideline": $scope.escapeSpecialChars($scope.Guideline),
+          "Section508": $scope.escapeSpecialChars($scope.Section508),
+          "EN_Accessibility": $scope.escapeSpecialChars($scope.EN_Accessibility)
+      },
+      "FPCMapping": $scope.fpcMapping.map($scope.escapeSpecialChars),
+      "CriteriaResult": $scope.escapeSpecialChars($scope.criteriaResult1),
+      "TestResult": $scope.escapeSpecialChars($scope.testresult1)
+  }]);
+
+  // Clean the file name
+  var cleanFileName = $scope.cleanFileName($scope.productID + $scope.versionID) + ".json";
+
+  // Create a blob and save the JSON file
+  var blob = new Blob([$scope.formData], {
       type: "Content-Type: application/json"
-    });
-    saveAs(blob, $scope.productID + $scope.versionID + ".json");	
-	
+  });
+
+  saveAs(blob, cleanFileName);
+
 
  /*setTimeout(function() {
  	if ($scope.checkboxModel.alerts == "on")
 		alert("Your updates have been saved to the Downloads folder (unless otherwise specified).");
 }, 6000); */
-   
-  }
+
+ }
   
- //Resetting Arrays  
- $scope.criteriaResult.push( $scope.criteriaResult) ; //is blank for some reason 
- $scope.criteriaResult = $scope.criteriaResult.concat($scope.criteriaResult); 
- $scope.criteriaResult2 = $scope.criteriaResult2.push( $scope.criteriaResult2) ;
-// $scope.criteriaResult2 = $scope.criteriaResult2.concat($scope.criteriaResult2); 
- 
+ //Resetting Arrays
+    if (typeof $scope.criteriaResult === 'object' && $scope.criteriaResult !== null && !isNaN($scope.criteriaResult.length)) {
+      $scope.criteriaResult.push($scope.criteriaResult); //is blank for some reason
+      $scope.criteriaResult = $scope.criteriaResult.concat($scope.criteriaResult);
+      $scope.criteriaResult2 = $scope.criteriaResult2.push($scope.criteriaResult2);
+      // $scope.criteriaResult2 = $scope.criteriaResult2.concat($scope.criteriaResult2);
+  }
  
  $scope.Mul_Issues.push( $scope.Mul_Issues); 
  $scope.Mul_Issues=[];//comment this if you want to see child issue at the buttom of table. 
