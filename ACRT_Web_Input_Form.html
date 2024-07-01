@@ -128,7 +128,6 @@
    <br><label for="lastname" class="required"> Tester's Last Name (Required<span ng-if="acrtInputForm.TesterLastName.$valid" >, 50 chars max</span>): </label> <br><input type="string" ng-model="lastname" placeholder ="Last Name, 50 chars max" class= "betnTags" id="lastname" name="TesterLastName" title="50 Chars max" ng-maxlength="50"  size="50" limit-to="50"> 
   <br><label for="testerID"> Trusted Tester ID <span ng-if="acrtInputForm.TrustedTesterId.$valid" >(50 chars max)</span>: </label> <br><input type="string" ng-model="testerID" class= "betnTags" placeholder ="ID, 50 chars max" id="testerID" name="TrustedTesterId" title="50 Chars max" ng-maxlength="50" limit-to="50">    
   <br>
-     <!--<label for="testerContact" class="required"> Tester's Email (Required<span ng-if="acrtInputForm.TesterContact.$valid" >, 50 chars max</span>): </label> <br><input type="email" ng-model="testerContact" placeholder ="Contact, 50 chars max" class= "betnTags" id="testerContact" name="TesterContact" title="50 Chars max" ng-maxlength="50"  size="50" limit-to="50">-->
      <label for="testerContact" class="required"> Tester's Email (Required<span ng-if="acrtInputForm.TesterContact.$valid" >, 50 chars max</span>): </label> <br>
      <input type="email" ng-model="testerContact" placeholder="Contact, 50 chars max" class="betnTags" id="testerContact" name="TesterContact" title="50 Chars max" ng-maxlength="50" size="50" required>
      <div ng-show="acrtInputForm.TesterContact.$dirty && acrtInputForm.TesterContact.$invalid">
