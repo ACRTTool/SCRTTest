@@ -42,15 +42,15 @@ app.directive("limitTo", [function() {
 
 //this function validates if json is valid
 function IsJsonString(str) {
-    try {
-        JSON.parse(str);
-    } catch (e) {
-        alert("There is a problem while trying to convert to JSON format, contact technical support.");
-        console.log(str);
-        //return false;
-    }
-    //return true;
-    return JSON.parse(str);
+  try {
+    JSON.parse(str);
+  } catch (e) {
+	alert("There is a problem while trying to convert to JSON format, contact technical support.");
+	console.log(str);
+	//return false;
+  }
+  //return true;
+  return JSON.parse(str);
 }
 
 
@@ -2467,7 +2467,7 @@ $scope.submit = function() {
 	  let fpcMapping = '{"CrtID": "' + $scope.criteriaTestsJson.Criteria[i].CrtID + '",' + '"DisabilityImpact": "' + $scope.criteriaTestsJson.Criteria[i].DisabilityImpact+'",' + '"TestName": "' + $scope.criteriaTestsJson.Criteria[i].TestName + '","TesterComment": "' + $scope.escapeSpecialChars($scope.testerCommentID[i]) +'"}';
       $scope.fpcMapping.push(fpcMapping);
 	 }
-    if($scope.selected_name_tstgrp[i] == 'No Selection') continue;	 
+    if($scope.selected_name_tstgrp[i] == 'No Selection') continue;
     $scope.testresult[i] = '{"CrtID": "' + $scope.criteriaTestsJson.Criteria[i].CrtID + '",' + '"DisabilityImpact": "' + $scope.criteriaTestsJson.Criteria[i].DisabilityImpact+ '","Guideline": "' + $scope.guideline[i] + '",'+ '"Test": "' + $scope.criteriaTestsJson.Criteria[i].Test + '",' + '"TestName": "' + $scope.criteriaTestsJson.Criteria[i].TestName + '",' + '"TestID": "' + $scope.criteriaTestsJson.Criteria[i].TestID + '",' + '"TestCondition": "' + $scope.criteriaTestsJson.Criteria[i].TestCondition + '",' + '"IssueNo": "' + i + '","TestResult": "' + $scope.selected_name_tstgrp[i] +'","OptMenu1": "' + $scope.menu1[i] + '","location": "' + $scope.escapeSpecialChars($scope.location[i])  + '","TesterComment": "' + $scope.escapeSpecialChars($scope.testerCommentID[i]) + $scope.browserIndividualTypeCollection1[i] + '","T_brwsrType": "' + $scope.browserTypeCollection1[i] + '","T_brwsrVrsn": "' + $scope.browserVersionsCollection1[i] + $scope.browserIndividualVersionsCollection1[i] + '","GlobalIssue": "' + $scope.selected_name_glbl[i]  + '","Counter": "' +$scope.counterCollection[i];
    // if(scope.imgCnvrsnJSON.length > 0){
     for(let m=0;m<$scope.imgCnvrsnJSON.length;m++){	
@@ -3477,9 +3477,7 @@ $scope.submit1 = function() {
   $scope.tDateId1 = $scope.tDateId;	
 	  //$scope.draftReport = false;
       //$scope.original = false;
-	  document.getElementById("hdnMsgId").style.visibility = "hidden";     
-
-    let criteriaDataEscaped = $scope.testresult1;
+	document.getElementById("hdnMsgId").style.visibility = "hidden";
 
     let formDataEscaped = '[{"Product":' +
         '{"P_Name":"' + $scope.escapeSpecialChars($scope.productID) + '","P_Version": "' + $scope.escapeSpecialChars($scope.versionID) + '","P_Owner": "' + $scope.escapeSpecialChars($scope.ownerID) + '","P_Type": "' + $scope.productType + '","P_Location": "' + $scope.escapeSpecialChars($scope.urlID) + '","P_Desc": "' + $scope.escapeSpecialChars($scope.prodDescID) + '","P_Notes": "' + $scope.escapeSpecialChars($scope.prdNteDescID) + '"}, "System":' +
@@ -3505,13 +3503,11 @@ $scope.submit1 = function() {
  }
   
  //Resetting Arrays
-    if (typeof $scope.criteriaResult === 'object' && $scope.criteriaResult !== null && !isNaN($scope.criteriaResult.length)) {
-      $scope.criteriaResult.push($scope.criteriaResult); //is blank for some reason
-      $scope.criteriaResult = $scope.criteriaResult.concat($scope.criteriaResult);
-      $scope.criteriaResult2 = $scope.criteriaResult2.push($scope.criteriaResult2);
-      // $scope.criteriaResult2 = $scope.criteriaResult2.concat($scope.criteriaResult2);
-  }
- 
+  $scope.criteriaResult.push($scope.criteriaResult); //is blank for some reason
+  $scope.criteriaResult = $scope.criteriaResult.concat($scope.criteriaResult);
+  $scope.criteriaResult2 = $scope.criteriaResult2.push($scope.criteriaResult2);
+  // $scope.criteriaResult2 = $scope.criteriaResult2.concat($scope.criteriaResult2);
+
  $scope.Mul_Issues.push( $scope.Mul_Issues); 
  $scope.Mul_Issues=[];//comment this if you want to see child issue at the buttom of table. 
  //$scope.Mul_Issues3.push( $scope.Mul_Issues3); 
