@@ -1920,7 +1920,6 @@ $scope.remarkExplanation = function(i) {
 	$scope.draftReport = false;	
     $scope.resultFails[i] = true;
     $scope.resultFailsCollection.push($scope.resultFails[i]);
-    $scope.testerCommentID[i] = $scope.testerCommentID[i].replace(/"/g, "'");
     $scope.RemarkExplntn[i] = ['{"crtId": "' + $scope.criteriaTestsJson.Criteria[i].CrtID + '", "explanation":"' + "For " + $scope.criteriaTestsJson.Criteria[i].TestName + ". " + $scope.testerCommentID[i] + '"}'];
     $scope.RemarkExplntnCollection.push($scope.RemarkExplntn[i]);
     $scope.crtRsltCollection.push($scope.selected_name_tstgrp[i]);
@@ -2440,14 +2439,10 @@ $scope.submit = function() {
     
     if ($scope.testerCommentID[i] == undefined)
       $scope.testerCommentID[i] = "";
-    $scope.testerCommentID[i] = $scope.testerCommentID[i].toString().replace(/"/g, "'");
-	$scope.testerCommentID[i] = $scope.testerCommentID[i].toString().replace(/\n/g, " ");
-	//alert($scope.testerCommentID[i]);
-	
+
 	 if ($scope.location[i] == undefined)
       $scope.location[i] = " ";
-    $scope.location[i] = $scope.location[i].toString().replace(/"/g, "'");
-	$scope.location[i] = $scope.location[i].toString().replace(/\n/g, " ");
+
 	$scope.criteriaTestsJson.Criteria[i].DisabilityImpact = $scope.criteriaTestsJson.Criteria[i].DisabilityImpact.toString();
 	$scope.criteriaTestsJson.Criteria[i].DisabilityImpact = $scope.criteriaTestsJson.Criteria[i].DisabilityImpact.replace(/^,/, ''); //removes first comma from string 
     $scope.criteriaTestsJson.Criteria[i].DisabilityImpact = $scope.criteriaTestsJson.Criteria[i].DisabilityImpact.replace(/,\s*$/, " "); //removes comma from last of string          
@@ -2643,13 +2638,10 @@ $scope.submit = function() {
 
     if ($scope.imgCnvrsnJSON1[k] == undefined)
       $scope.imgCnvrsnJSON1[k] = " ";  
- $scope.testerCommentID1[k] = $scope.testerCommentID1[k].toString().replace(/"/g, "'").trim();
- $scope.testerCommentID1[k] = $scope.testerCommentID1[k].toString().replace(/\n/g, " ");
- 
+
  if ($scope.location1[k] == undefined)
       $scope.location1[k] = " ";  
- $scope.location1[k] = $scope.location1[k].toString().replace(/"/g, "'").trim();
- $scope.location1[k] = $scope.location1[k].toString().replace(/\n/g, " ");
+
  let o = i+1;let p=k+1; 
 // $scope.remarkExplanation(n);
  if ($scope.selected_name_tstgrp1[k] == "Pass") {		
@@ -2664,7 +2656,7 @@ $scope.submit = function() {
     } else if ($scope.selected_name_tstgrp1[k] == "Fail") {		
       $scope.resultFails[k] = true;
       $scope.resultFailsCollection.push($scope.resultFails[k]);
-      $scope.testerCommentID[k] = $scope.testerCommentID[k].replace(/"/g, "'");
+
       $scope.RemarkExplntn[k] = ['{"crtId": "' + $scope.criteriaTestsJson.Criteria[i].CrtID + '", "explanation":"' + "For " + $scope.criteriaTestsJson.Criteria[i].TestName + ". " + $scope.testerCommentID[k] + '"}'];
       $scope.RemarkExplntnCollection.push($scope.RemarkExplntn[k]);
       if ($scope.rmdatnDtlID1[k] == undefined)
@@ -3323,34 +3315,7 @@ $scope.testresult1 = '"Criteria":[' + $scope.totTstRslt + ']';
   $scope.productType = $scope.otherProduct;
   
   
-  //preventing special characters   
-  $scope.prodDescID = $scope.prodDescID.toString().replace(/"/g, "'").trim();
-  $scope.prodDescID = $scope.prodDescID.toString().replace(/\n/g, " ");
-  $scope.prdNteDescID = $scope.prdNteDescID.toString().replace(/"/g, "'").trim();
-  $scope.prdNteDescID = $scope.prdNteDescID.toString().replace(/\n/g, " ");
-  $scope.testScope = $scope.testScope.toString().replace(/"/g, "'").trim();
-  $scope.testScope = $scope.testScope.toString().replace(/\n/g, " ");  
-  $scope.productID = $scope.productID.toString().replace(/"/g, "'").trim();
-  $scope.productID = $scope.productID.toString().replace(/\n/g, " ");
-  $scope.versionID = $scope.versionID.toString().replace(/"/g, "'").trim();
-  $scope.versionID = $scope.versionID.toString().replace(/\n/g, " ");
-  $scope.ownerID = $scope.ownerID.toString().replace(/"/g, "'").trim();
-  $scope.ownerID = $scope.ownerID.toString().replace(/\n/g, " ");
-  $scope.productType = $scope.productType.toString().replace(/"/g, "'").trim();  
-  $scope.productType = $scope.productType.toString().replace(/\n/g, " ");
-  $scope.urlID = $scope.urlID.toString().replace(/"/g, "'").trim();
-  $scope.urlID = $scope.urlID.toString().replace(/\n/g, " ");
-  $scope.firstname = $scope.firstname.toString().replace(/"/g, "'").trim();
-  $scope.firstname = $scope.firstname.toString().replace(/\n/g, " ");
-  $scope.lastname = $scope.lastname.toString().replace(/"/g, "'").trim();
-  $scope.lastname = $scope.lastname.toString().replace(/\n/g, " ");
-  $scope.companyname = $scope.companyname.toString().replace(/"/g, "'").trim();
-  $scope.companyname = $scope.companyname.toString().replace(/\n/g, " ");
-  $scope.testerID = $scope.testerID.toString().replace(/"/g, "'").trim();
-  $scope.testerID = $scope.testerID.toString().replace(/\n/g, " ");
-  $scope.testerContact = $scope.testerContact.toString().replace(/"/g, "'").trim();
-  $scope.testerContact = $scope.testerContact.toString().replace(/\n/g, " ");
-  
+  //preventing special characters
     /*if($scope.entOthrWindVrsn != '' || $scope.entOthrWindVrsn != undefined )
     $scope.osVrsnCollection = $scope.osVrsnCollection.push($scope.entOthrWindVrsn);*/
  	$scope.browserVrsnCollection = $scope.browserVrsnCollection.toString().replace(/, /g, "").trim();
@@ -3373,26 +3338,31 @@ $scope.testresult1 = '"Criteria":[' + $scope.totTstRslt + ']';
     // Function to escape special characters
     $scope.escapeSpecialChars = function(str) {
         if (typeof str === 'string') {
-            return str.replace(/[\b\f\n\r\t\"\\]/g, function (char) {
+            // Replace actual new lines with \n
+            str = str.replace(/\r?\n/g, '\\n');
+
+            // Replace already escaped quotes
+            str = str.replace(/\\"/g, '\\"');
+
+            // Escape special characters
+            return str.replace(/[\b\f\r\t"\\]/g, function (char) {
                 switch (char) {
                     case '\b':
                         return '\\b';
                     case '\f':
                         return '\\f';
-                    case '\n':
-                        return '\\n';
                     case '\r':
                         return '\\r';
                     case '\t':
                         return '\\t';
-                    case '\"':
+                    case '"':
                         return '\\"';
                     case '\\':
                         return '\\\\';
                 }
             });
         } else {
-            return str
+            return str;
         }
     }
 
