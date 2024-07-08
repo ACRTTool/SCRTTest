@@ -562,23 +562,34 @@
 
 <td >  <div class="widetd8">
 
-<br> <input  ng-if="browseImageOption[$index]" type="file"  ng-model='imgCnvrsn[$index]'  class='addChild'  title="Browse to screenshot images" onchange="angular.element(this).scope().uploadImage(this)" accept=".jpg,.jpeg,.icon,.png,.svg,.gif" /> <br> 
+<br>
+    <input
+        ng-if="browseImageOption[$index]"
+        id="fileInput{{$index}}"
+        type="file"
+        ng-model='imgCnvrsn[$index]'
+        class='addChild'
+        title="Browse to screenshot images"
+        onchange="angular.element(this).scope().uploadImage(this)"
+        accept=".jpg,.jpeg,.icon,.png,.svg,.gif" />
+    <br>
     <img   id="image{{$index}}" ng-if="imageCapturedStored[$index]"  ng-src = {{test.ImageSrc}}  alt="" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom($index)" onerror="this.style.display='none';">      
    <img    id="image{{$index}}" ng-if="imageCaptured[$index]"  ng-src = {{imgCnvrsnCurrentValue[$index]}}  alt="" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom($index)" onerror="this.style.display='none';">    
-   <img    id="image{{$index}}" ng-if="removeClicked[$index]"  ng-src = {{imgCnvrsnCurrentValue[$index]}}  alt="" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom($index)" onerror="this.style.display='none';">    
-			
-			 <div id="{{$index}}" class="modal">
-             <span class="close" id="cls{{$index}}" >&times;</span>
-            <img  class="modal-content" id="img{{$index}}">
-             <div class="caption" id="caption{{$index}}" ></div>
-             </div>
-			
-			<br>
-			 <div ng-show="displayRemove[$index]" id= {{ 'removeImage' + $index }} >    <button   ng-model='imgCnvrsn[$index]'  title='Remove Image ' type="button" class='addChild' ng-click="removeImage([$index])">Remove Image </button>  </div>
-			  <!-- <div ng-if="browseImageOption[$index]">    <button  ng-model='imgCnvrsn[$index]'  title='Remove Image ' type="button" ng-click="removeImage([$index])">Remove Image </button>  </div> --> 
-			 <!-- <div ng-if="imageCaptured[$index]">    <button  ng-model='imgCnvrsn[$index]'  title='Remove Image ' type="button" ng-click="removeImage([$index])">Remove Image </button>  </div> -->
+   <img    id="image{{$index}}" ng-if="removeClicked[$index]"  ng-src = {{imgCnvrsnCurrentValue[$index]}}  alt="" title="Browse to screenshot images" class="large-image" width="50" height="50" ng-click="zoom($index)" onerror="this.style.display='none';">
+
+    <div id="{{$index}}" class="modal">
+        <span class="close" id="cls{{$index}}" >&times;</span>
+        <img  class="modal-content" id="img{{$index}}">
+        <div class="caption" id="caption{{$index}}" ></div>
+    </div>
+
+    <br>
+    <div ng-show="displayRemove[$index]" id="{{ 'removeImage' + $index }}" >
+        <button ng-model="imgCnvrsn[$index]" title="Remove Image" type="button" class='addChild' ng-click="removeImage($index)">Remove Image </button>
+    </div>
 </div>
-	 </td>   
+
+</td>
 <td  title="Global Issue {{default_glblRslt[$index]}}">
 <div style="width: 55px">
 

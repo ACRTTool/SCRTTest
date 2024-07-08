@@ -1750,10 +1750,10 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 	*/
 		 if($scope.jsonData[0].Criteria[b].ImageSrc != undefined){
 		 if($scope.jsonData[0].Criteria[b].ImageSrc != '.')	{          		 
-		 $scope.imgCnvrsnDefault.push('{"imgPosition" : "'+ b+'"', '"imgValue" :"'+ $scope.jsonData[0].Criteria[b].ImageSrc +'"}');			 
+		  $scope.imgCnvrsnDefault.push('{"imgPosition" : "'+ b+'", "imgValue" :"'+ $scope.jsonData[0].Criteria[b].ImageSrc +'"}');
 		  $scope.imageCapturedStored[b] = true;
 		  $scope.displayRemove[b] = true;
-		   $scope.imageCaptured[b]= false;
+          $scope.imageCaptured[b]= false;
           $scope.removeClicked[b] =  false;		
 		  $scope.imageCaptured1[b]= false;
           $scope.removeClicked1[b] =  false;	
@@ -1982,13 +1982,13 @@ $scope.uploadImageClicked1 = false;
   reader.onloadend = function() {
 	 $scope.imgPos =0;
    if(element != null ) {
-    let imgPstn = element.closest('tr').rowIndex;	
-    imgPstn = imgPstn-1; 	  		 
-    $scope.imageCaptured[imgPstn] = true;
-	$scope.imgCnvrsnCurrentValue[imgPstn]= reader.result;	
-	 $scope.imgCnvrsnCurrent.push('{"imgPosition" : "'+ imgPstn +'"', '"imgValue" :"'+ reader.result+'"}');  
+     let imgPstn = element.closest('tr').rowIndex;
+     imgPstn = imgPstn-1;
+     $scope.imageCaptured[imgPstn] = true;
+	 $scope.imgCnvrsnCurrentValue[imgPstn]= reader.result;
+     $scope.imgCnvrsnCurrent.push('{"imgPosition" : "'+ imgPstn +'", "imgValue" :"'+ reader.result+'"}');
 	 $scope.imgCnvrsn = $scope.imgCnvrsn.concat($scope.imgCnvrsnCurrent);
-    //$scope.imgCnvrsn = $scope.imgCnvrsn.filter($scope.onlyUnique);  	 
+     //$scope.imgCnvrsn = $scope.imgCnvrsn.filter($scope.onlyUnique);
 	 $scope.imgCnvrsnCurrent = [];	
      $scope.imageCapturedStored[imgPstn]= false;
      $scope.removeClicked[imgPstn] =  false;      	
@@ -2062,27 +2062,31 @@ $scope.uploadImageClicked1 = true;
 } 
 
 //this is used to remove image from test ID
-  $scope.removeImage = function(index) { 
-         
-         $scope.imgCnvrsn.splice(index, 2);	
-		 
+  $scope.removeImage = function(index) {
+      // Clear the file input
+      var fileInput = document.getElementById('fileInput' + index);
+      if (fileInput) {
+          fileInput.value = null;
+      }
 
-         //let remPosition = index+1; 		 
-        // $scope.imageCaptured[index]= false;
-		  //$scope.imgCnvrsn[index]= '"imgValue" :"."}';		                 		  
-          //$scope.imgCnvrsn.splice(index, 2); //removed image and select another image        	 
-		  //$scope.imgCnvrsn.splice(index, 2,'{"imgPosition" : "'+ index +'"', '"imgValue" :"."}');		  
-          $scope.imgCnvrsnCurrentValue[index]=".";	
-         $scope.imageCapturedStored[index]= false;
-         $scope.imageCaptured[index]= false;
-         $scope.removeClicked[index] =  true;	
-		 $scope.displayRemove[index] = false;
-		  //$scope.imgCnvrsn.splice(remPosition, 1, '"imgValue" :"."}'); //removed image and don't select another image               		
-		//if ($scope.checkboxModel.alerts == "on") 
-		//alert("Image Removed");
-	  setTimeout(function() {
-		$scope.$apply();   
-   }, 500);
+      $scope.imgCnvrsnCurrentValue[index]=".";
+
+      // Remove image data from existing json data
+      $scope.imgCnvrsn.forEach(function(row, idx) {
+          let parsedRow = JSON.parse(row);
+          if (parsedRow.imgPosition == index) {
+              $scope.imgCnvrsn.splice(idx, 1);
+          }
+      });
+
+      $scope.imageCapturedStored[index] = false;
+      $scope.imageCaptured[index] = false;
+      $scope.removeClicked[index] = true;
+      $scope.displayRemove[index] = false;
+
+      setTimeout(function() {
+          $scope.$apply();
+      }, 500);
 	} 
 	
 	  $scope.removeImage2 = function(index) { 
@@ -2469,7 +2473,7 @@ $scope.submit = function() {
 	       if(i == $scope.imgCnvrsnJSON[m].imgPosition){ 
             $scope.imageAdded =  true;	           	   
 		    //$scope.testresult[i] = $scope.testresult[i].substring(0, $scope.testresult[i].length - 1);
-			$scope.testresult[i] = $scope.testresult[i]+ '","ImageSrc":"'+ $scope.imgCnvrsnJSON[m].imgValue;			
+			$scope.testresult[i] = $scope.testresult[i]+ '","ImageSrc":"'+ $scope.imgCnvrsnJSON[m].imgValue;
 	   }   
 	 } 
 	//}
