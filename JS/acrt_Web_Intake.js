@@ -1753,7 +1753,7 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 		  $scope.imgCnvrsnDefault.push('{"imgPosition" : "'+ b+'", "imgValue" :"'+ $scope.jsonData[0].Criteria[b].ImageSrc +'"}');
 		  $scope.imageCapturedStored[b] = true;
 		  $scope.displayRemove[b] = true;
-          $scope.imageCaptured[b]= false;
+		   $scope.imageCaptured[b]= false;
           $scope.removeClicked[b] =  false;		
 		  $scope.imageCaptured1[b]= false;
           $scope.removeClicked1[b] =  false;	
@@ -1988,7 +1988,7 @@ $scope.uploadImageClicked1 = false;
 	 $scope.imgCnvrsnCurrentValue[imgPstn]= reader.result;
      $scope.imgCnvrsnCurrent.push('{"imgPosition" : "'+ imgPstn +'", "imgValue" :"'+ reader.result+'"}');
 	 $scope.imgCnvrsn = $scope.imgCnvrsn.concat($scope.imgCnvrsnCurrent);
-     //$scope.imgCnvrsn = $scope.imgCnvrsn.filter($scope.onlyUnique);
+    //$scope.imgCnvrsn = $scope.imgCnvrsn.filter($scope.onlyUnique);
 	 $scope.imgCnvrsnCurrent = [];	
      $scope.imageCapturedStored[imgPstn]= false;
      $scope.removeClicked[imgPstn] =  false;      	
@@ -2792,8 +2792,8 @@ $scope.submit = function() {
   }
   $scope.totTstRslt = $scope.totTstRslt.toString();
   if ($scope.submitClkCount != 0) {
-    //$scope.totTstRslt = $scope.totTstRslt.replace(/""/g, '"');
-    $scope.totTstRslt = $scope.totTstRslt;
+    $scope.totTstRsltJson = "[" + $scope.totTstRslt + "]";
+    $scope.totTstRsltJson = IsJsonString($scope.totTstRsltJson);
   }
   
   $scope.totTstRslt = $scope.totTstRslt.toString();
@@ -3081,7 +3081,7 @@ $scope.testresult1 = '"Criteria":[' + $scope.totTstRslt + ']';
 		  $scope.criteriaResult = $scope.criteriaResult.replace(/^,/, ''); //removes comma from front of string
           $scope.criteriaResult = $scope.criteriaResult.replace(/,\s*$/, " "); //removes comma from last of string
           $scope.criteriaResult = $scope.criteriaResult.replace(/,+/g, ','); //removes multiple commas from string
-          $scope.criteriaResultJSON = "[ "+ $scope.criteriaResult +" ]";
+		  $scope.criteriaResultJSON = '['+ $scope.criteriaResult +']';
 	      $scope.criteriaResultJSON = IsJsonString($scope.criteriaResultJSON);
 			//Assigning approperiate Conformance Level
     				 
@@ -3451,7 +3451,7 @@ $scope.submit1 = function() {
   $scope.tDateId1 = $scope.tDateId;	
 	  //$scope.draftReport = false;
       //$scope.original = false;
-	document.getElementById("hdnMsgId").style.visibility = "hidden";
+	  document.getElementById("hdnMsgId").style.visibility = "hidden";
 
     let formDataEscaped = '[{"Product":' +
         '{"P_Name":"' + $scope.escapeSpecialChars($scope.productID) + '","P_Version": "' + $scope.escapeSpecialChars($scope.versionID) + '","P_Owner": "' + $scope.escapeSpecialChars($scope.ownerID) + '","P_Type": "' + $scope.productType + '","P_Location": "' + $scope.escapeSpecialChars($scope.urlID) + '","P_Desc": "' + $scope.escapeSpecialChars($scope.prodDescID) + '","P_Notes": "' + $scope.escapeSpecialChars($scope.prdNteDescID) + '"}, "System":' +
@@ -3474,13 +3474,19 @@ $scope.submit1 = function() {
 		alert("Your updates have been saved to the Downloads folder (unless otherwise specified).");
 }, 6000); */
 
- }
+  }
   
  //Resetting Arrays
-  $scope.criteriaResult.push($scope.criteriaResult); //is blank for some reason
-  $scope.criteriaResult = $scope.criteriaResult.concat($scope.criteriaResult);
-  $scope.criteriaResult2 = $scope.criteriaResult2.push($scope.criteriaResult2);
-  // $scope.criteriaResult2 = $scope.criteriaResult2.concat($scope.criteriaResult2);
+ if (typeof $scope.criteriaResult === 'object' && $scope.criteriaResult !== null) {
+   $scope.criteriaResult = [$scope.criteriaResult];
+   $scope.criteriaResult.push(...$scope.criteriaResult);
+ }
+
+ if ($scope.criteriaResult !== null) {
+   $scope.criteriaResult = $scope.criteriaResult.concat($scope.criteriaResult);
+ }
+ $scope.criteriaResult2 = [$scope.criteriaResult2];
+ $scope.criteriaResult2.push(...$scope.criteriaResult2);
 
  $scope.Mul_Issues.push( $scope.Mul_Issues); 
  $scope.Mul_Issues=[];//comment this if you want to see child issue at the buttom of table. 
