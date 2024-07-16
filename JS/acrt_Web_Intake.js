@@ -1,7 +1,7 @@
 
 var app = angular.module('acrtWebIntake', []);
 
-//Alert message before navigating away from page  
+//Alert message before navigating away from page
 
 window.onbeforeunload = function(event) {
   var message = 'Are you Sure you want to leave Create Report Page ?';
@@ -83,6 +83,28 @@ function show_hide_column(col_no, do_show) {
 show_hide_column(10, false);show_hide_column(11, false);
 
 app.controller('acrtWebIntakeCtrl', ['$scope', function($scope, $filter) {
+
+  // Initialize model arrays
+  $scope.selected_id_tstrslt = [];
+  $scope.selected_name_tstgrp = [];
+  $scope.checked20 = [];
+  $scope.selected_name_ieVersn1 = [];
+  $scope.selected_name_edVersn1 = [];
+  $scope.selected_name_chVersn1 = [];
+  $scope.selected_name_sfVersn1 = [];
+  $scope.selected_name_fxVersn1 = [];
+  $scope.entOthrBrsrIDVrsnl = [];
+  $scope.entOthrBrsrIDl = [];
+  $scope.testerCommentID = [];
+  $scope.location = [];
+  $scope.imgCnvrsn = [];
+  $scope.imageCapturedStored = [];
+  $scope.selected_id_glbl = [];
+  $scope.rmdatnDtlID = [];
+  $scope.rmdatnDatelID = [];
+
+
+  console.log('acrtWebIntakeCtrl stevieeee');
 	$scope.selectedFile = '';
    $scope.fileNameChanged = function () {
 	  $scope.fileInput1 = true;	
@@ -130,8 +152,107 @@ span.onclick = function() {
   $scope.Mul_Issues3 = [];
 
   function clickHandler() {
+    console.log('clickHandler Stevo');
     $scope.elementIsClickedd = true;
   }
+
+  $scope.resetRow = function(index) {
+    console.log('resetRow Steveeee', index);
+    // Reset the fields in the corresponding row
+
+
+    $scope.testerCommentID[index] = '';
+    $scope.location[index] = '';
+    $scope.imgCnvrsn[index] = null;
+    $scope.imageCapturedStored[index] = false;
+    console.log('selected_id_ieVersn1',  $scope.selected_id_ieVersn1);
+    console.log('selected_id_ieVersn1[index]',  $scope.selected_id_ieVersn1[index]);
+
+    console.log('chkBoxValIE1',  $scope.chkBoxValIE1);
+    console.log('chkBoxValIE1[index]',  $scope.chkBoxValIE1[index]);
+    
+    $scope.selected_id_glbl[index] = '';
+
+    console.log('selected_name_ieVersn1',  $scope.selected_name_ieVersn1);
+    console.log('selected_name_ieVersn1[index]',  $scope.selected_name_ieVersn1[index]);
+    
+
+    $scope.checked20[index] = false;
+    $scope.selected_name_ieVersn1[index] = '';
+    $scope.selected_name_edVersn1[index] = '';
+    $scope.selected_name_chVersn1[index] = '';
+    $scope.selected_name_sfVersn1[index] = '';
+    $scope.selected_name_fxVersn1[index] = '';
+
+
+    // the actual check box of the broswer type
+    console.log('$scope.chkBoxValIE1',  $scope.chkBoxValIE1);
+    $scope.chkBoxValIE1[index] = false;
+    $scope.chkBoxValEdg1[index] = false;
+    $scope.chkBoxValChrm1[index] = false;
+    $scope.chkBoxValSaf1[index] = false;
+    $scope.chkBoxValFrfx1[index] = false;
+    $scope.chkBoxValOthrl[index] = false;
+    $scope.otherBrowserl[index] = '';
+    
+
+    // value for browser type
+    $scope.checkboxModel.value14[index]="";
+    $scope.checkboxModel.value51[index] = '';
+    $scope.checkboxModel.value21[index] = '';
+    $scope.checkboxModel.value31[index] = '';
+    $scope.checkboxModel.value41[index] = '';
+    $scope.selected_id_ieVersn1[index] = '';
+    $scope.selected_id_edVersn1[index] = '';
+    $scope.selected_id_chVersn1[index] = '';
+    $scope.selected_id_sfVersn1[index] = '';
+    $scope.selected_id_fxVersn1[index] = '';
+
+  
+
+    // vallue for other in browser for type and ver
+    $scope.entOthrBrsrIDVrsnl[index] = '';
+    $scope.entOthrBrsrIDl[index] = '';
+    
+
+
+
+    $scope.selected_name_glbl[index] = '';
+    $scope.rmdatnDtlID[index] = '';
+    $scope.rmdatnDatelID[index] = null;
+
+    $scope.removeImage([index]);
+  };
+
+  // New function to combine elemntClicked2 and resetRow
+  $scope.handleDropdownChange = function(index) {
+    console.log('handleDropdownChange', index)
+    var selectedOption = $scope.optionsTstrslt1.find(function(o) { return o.id === $scope.selected_id_tstrslt[index]; });
+
+    
+
+
+    // this is the block of code to have the text result appear in json but it populated other rows when selected option is does not apply. this is happening in line
+    // 2295 for (let b = 0; b < $scope.origSelectedResults; b++) {
+
+    // Select the option element with the specified value attribute
+    /*let selectedOptionContent = document.querySelector(`option[value="${selectedResultValue}"]`);
+
+    // Check if the element exists
+    if (selectedOptionContent) {
+        // Print the text content of the option element
+        console.log('selectedOption.textContent:', selectedOptionContent.textContent);
+        $scope.selected_name_tstgrp[index] = selectedOptionContent.textContent
+    } else {
+        console.log('Option with value "number:1" not found.');
+    }*/
+
+    $scope.elemntClicked2(index);
+    $scope.resetRow(index);
+    //$scope.removeImage([index])
+
+};
+
   
 
 $scope.brsrChkBoxClicked = function(x) {
@@ -1167,7 +1288,12 @@ $scope.createEditOption = 'Edit Report Test Results Form';
 		
 	$scope.origSelectedResults1=$scope.origSelectedResults-1;
 	
-	$scope.addIssue = function(index) {    	
+	$scope.addIssue = function(index) { 
+    console.log('adding a child issue ', index);
+    $scope.resetRow(index);
+    let selectedResult = document.getElementById(index);
+    selectedResult.value = '';
+    //console.log('testS', testS.value)
     // if($scope.selected_name_tstgrp[index] !== undefined){
 	  $scope.insertRoww = []; 
 	  let addedPosition = index;      	
@@ -2064,6 +2190,12 @@ $scope.uploadImageClicked1 = true;
 
 //this is used to remove image from test ID
   $scope.removeImage = function(index) { 
+    console.log('index from removing the image', index)
+    var fileInputElement = document.getElementById('browseImage' + index);
+    console.log('fileINput', fileInputElement)
+        if (fileInputElement) {
+            fileInputElement.value = '';
+        }
          
          $scope.imgCnvrsn.splice(index, 2);	
 		 
@@ -2087,6 +2219,8 @@ $scope.uploadImageClicked1 = true;
 	} 
 	
 	  $scope.removeImage2 = function(index) { 
+      console.log('index from removing the image 2', index)
+
          //let remPosition = index+1; 
          $scope.imgCnvrsn2.splice(index, 2);		 
         // $scope.imageCaptured[index]= false;
@@ -2106,7 +2240,9 @@ $scope.uploadImageClicked1 = true;
    }, 500);
 	} 
 	
-	    $scope.removeImage1 = function(index) {			
+	    $scope.removeImage1 = function(index) {
+        console.log('index from removing the image3', index)
+			
 		 $scope.imageCaptured[index]= false;
 		//$scope.imgCnvrsn1.splice(index, 1, '"imgValue" :"."}'); 
          $scope.imgCnvrsn1.splice(index, 2); //removed image and don't select another image	 
@@ -2150,17 +2286,18 @@ $scope.addedIssueRsltSelected = true;
    setTimeout(function() {
 		
 for (let b = 0; b < $scope.origSelectedResults; b++) {
+  console.log('$scope.selected_name_tstgrp[b]', $scope.selected_name_tstgrp[b])
 	if(i==b){
-if ($scope.jsonData[0].Criteria[b].TestID == " 1.A" && $scope.selected_name_tstgrp[b]== "Does Not Apply"){	
-$scope.default_SelectedResult[b+1] = "Does Not Apply";
-$scope.default_SelectedResult[b+2] = "Does Not Apply";
-$scope.default_SelectedResult[b+3] = "Does Not Apply";
-//$scope.default_SelectedResult[b+4] = "Does Not Apply";
-$scope.selected_name_tstgrp[b+1]= "Does Not Apply";
-$scope.selected_name_tstgrp[b+3]= "Does Not Apply";
-//$scope.selected_name_tstgrp[b+4]= "Does Not Apply";
-//$scope.selected_name_tstgrp[b+5]= "Does Not Apply";
-} 
+    if ($scope.jsonData[0].Criteria[b].TestID == " 1.A" && $scope.selected_name_tstgrp[b]== "Does Not Apply"){	
+      $scope.default_SelectedResult[b+1] = "Does Not Apply";
+      $scope.default_SelectedResult[b+2] = "Does Not Apply";
+      $scope.default_SelectedResult[b+3] = "Does Not Apply";
+      //$scope.default_SelectedResult[b+4] = "Does Not Apply";
+      $scope.selected_name_tstgrp[b+1]= "Does Not Apply";
+      $scope.selected_name_tstgrp[b+3]= "Does Not Apply";
+      //$scope.selected_name_tstgrp[b+4]= "Does Not Apply";
+      //$scope.selected_name_tstgrp[b+5]= "Does Not Apply";
+    } 
 
 if ($scope.jsonData[0].Criteria[b].TestID == "5.A" && $scope.selected_name_tstgrp[b]== "Does Not Apply"){	
 $scope.default_SelectedResult[b+1] = "Does Not Apply";
