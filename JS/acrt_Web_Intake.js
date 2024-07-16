@@ -1,7 +1,7 @@
 
 var app = angular.module('acrtWebIntake', []);
 
-//Alert message before navigating away from page 
+//Alert message before navigating away from page  
 
 window.onbeforeunload = function(event) {
   var message = 'Are you Sure you want to leave Create Report Page ?';
