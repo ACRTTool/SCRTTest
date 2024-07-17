@@ -2200,7 +2200,7 @@ $scope.uploadImageClicked1 = true;
       // Remove image data from existing json data
       $scope.imgCnvrsn.forEach(function(row, idx) {
           let parsedRow = JSON.parse(row);
-          if (parsedRow.imgPosition == index) {
+          if (parsedRow?.imgPosition == index) {
               $scope.imgCnvrsn.splice(idx, 1);
           }
       });
