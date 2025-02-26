@@ -23,7 +23,7 @@ Try [SCRT Here](https://acrttool.github.io/ACRTTest/ )
 9) You should save test results in both JSON (for editing) and HTML format (user-friendly) for future reference. <br/>
 
 ## Versioning
-You can access the latest version at [ACRTGitHubRepository](https://github.com/Section508Coordinators/ACRT). Department Of Homeland Security employees who don't have access to GitHub can use [ACRTBitbucketRepository](https://maestro.dhs.gov/stash/projects/APPDEV/repos/acrt/browse/acrt). Bitbucket requires DHS Network and user authentication. <br />Let's work together to make this tool great for all! Feel free to contribute. 
+You can access the latest version at [SCRTGitHubRepository](https://github.com/Section508Coordinators/ACRT). Department Of Homeland Security employees who don't have access to GitHub can use [SCRTBitbucketRepository](https://maestro.dhs.gov/stash/projects/APPDEV/repos/acrt/browse/acrt). Bitbucket requires DHS Network and user authentication. <br />Let's work together to make this tool great for all! Feel free to contribute. 
 
 ## Authors
 
