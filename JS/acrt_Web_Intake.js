@@ -746,33 +746,28 @@ $scope.optionedVersn = [{
   },
   {
     id: 1,
-    name: '100-106'
+    name: '130-140'
   },
   {
     id: 2,
-    name: '95-99'
+    name: '120-129'
   },
   {
     id: 3,
-    name: '90-94'
+    name: '110-119'
   },
   {
     id: 4,
-    name: '80-89'
+    name: '100-109'
   },
   {
     id: 5,
-    name: '70-79'
-  },
-  {
-    id: 6,
-    name: '41-69'
+    name: '90-99'
   },
   {
     id: 7,
     name: 'None'
   }
-
 ];
 
 $scope.selected_id_chVersn = " ";
@@ -788,32 +783,24 @@ $scope.optionchVersn = [{
   },
   {
     id: 1,
-    name: '105-110'
+    name: '115-118'
   },
   
   {
     id: 2,
-    name: '100-104'
+    name: '110-114'
   },
   {
     id: 3,
-    name: '95-99'
+    name: '105-109'
   },
   {
     id: 4,
-    name: '90-94'
+    name: '100-104'
   },
   {
     id: 5,
-    name: '81-90'
-  },
-  {
-    id: 6,
-    name: '71-80'
-  },
-  {
-    id: 7,
-    name: '50-70'
+    name: '90-99'
   },
   {
     id: 8,
@@ -835,31 +822,27 @@ $scope.optionsfVersn = [{
   },
   {
     id: 1,
-    name: '15'
+    name: '18'
   },
   {
     id: 2,
-    name: '14'
+    name: '17'
   },
   {
     id: 3,
-    name: '13'
+    name: '16'
   },
   {
     id: 4,
-    name: '12'
+    name: '15'
   },
   {
     id: 5,
-    name: '11'
+    name: '14'
   },
   {
     id: 6,
-    name: '10'
-  },
-  {
-    id: 7,
-    name: '1-9'
+    name: '13'
   },
   {
     id: 8,
@@ -876,41 +859,31 @@ $scope.selected_id_fxVersn1 = [];
 $scope.selected_name_fxVersn1 = [];
 $scope.selected_id_fxVersn11 = [];
 $scope.selected_name_fxVersn11 = [];
-//Firefox versions 
+//Firefox versions
 $scope.optionfxVersn = [{
     id: 0,
     name: 'Other '
   },
   {
     id: 1,
-    name: '102-114'
+    name: '125-135'
   },
   {
     id: 2,
-    name: '91-101'
+    name: '115-124'
   },
   {
     id: 3,
-    name: '78-90'
+    name: '105-114'
   },
   {
     id: 4,
-    name: '68-77'
+    name: '95-104'
   },
   {
     id: 5,
-    name: '60-67'
+    name: '85-94'
   },
-  {
-    id: 6,
-    name: '52-59'
-  }
-  ,
-  {
-    id: 7,
-    name: '31-51'
-  }
-  ,
   {
     id: 8,
     name: 'None'
