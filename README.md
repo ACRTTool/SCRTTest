@@ -3,11 +3,11 @@
 **Section 508 Compliance Reporting Tool (SCRT)** 
 
 SCRT is a browser-based standalone application for recording accessibility test results from Trusted Testers. All input data will be stored as JSON &/or html files in the local machine which can be shared as needed. Information in the JSON file can be further manipulated for analytics and reporting purposes as needed. 
-Try [ACRT Here](https://acrttool.github.io/ACRTTest/ )
+Try [SCRT Here](https://acrttool.github.io/ACRTTest/ )
 
 ## Getting Started
 1) Download the SCRT files to your local machine from the repository. The default location is the Downloads folder. On the [main page](https://github.com/Section508Coordinators/ACRT), select the Code button above and select "Download ZIP". Once downloaded, unzip/extract files. 
-2) Refer to the [ACRT Training Manual](https://github.com/Section508Coordinators/ACRT/blob/master/Resources/ACRTTrainingManual.pdf ) in the 'Resources' folder for detailed instructions. 
+2) Refer to the [SCRT Training Manual](https://github.com/Section508Coordinators/ACRT/blob/master/Resources/ACRTTrainingManual.pdf ) in the 'Resources' folder for detailed instructions. 
 
 
 ## Instructions
