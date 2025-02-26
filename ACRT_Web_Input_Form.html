@@ -103,7 +103,7 @@
       <span  ng-show="productType=='Other'"> 
       Please enter <span ng-if="acrtInputForm.OtherProductType.$valid" >(100 chars max)</span><br><input  type="string"  placeholder="Other Product, 100 chars max." ng-model="otherProduct" class= "betnTags" id="otherProduct" name="OtherProductType" ng-maxlength="100"  title="100 Chars max" size="100" limit-to="100"> 
       </span>   
-      <br><label for="urlID">Location/URL <span ng-if="acrtInputForm.Location.$valid" >(500 chars max)</span>: </label> <br><input type="string" ng-model="urlID" class= "betnTags" id="urlID" placeholder="location, 500 chars max" name="Location" title="500 Chars max" ng-maxlength="500" size="500" limit-to="500">     
+      <br><label for="urlID">Location/URL <span ng-if="acrtInputForm.Location.$valid" >(500 chars max)</span>: </label> <br><input type="string" ng-model="urlID" class= "betnTags" id="urlID" placeholder="location, 500 chars max" name="Location" title="500 Chars max" ng-maxlength="500" size="100" limit-to="500">     
       <br>
       <label for="prodDescID" class="required"> Product description (Required <span ng-if="acrtInputForm.ProductDescription.$valid" >, 1000 chars max</span>) : </label><br>
       <textarea rows="4" cols="90" type="text" ng-model="prodDescID" class="betnTags" id="prodDescID" placeholder="Product Description, 1000 chars max" name="ProductDescription" title="1000 Chars max" ng-maxlength="1000" limit-to="1000" required> </textarea> 
