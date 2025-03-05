@@ -11,7 +11,7 @@ Open "index.html"  which is landing page for this application. You will see menu
 
 
 ## Instruction to use application
-Refer to 'ACRT Training Manual' inside 'Resources' folder for detail instruction. 
+Refer to 'SCRT Training Manual' inside 'Resources' folder for detail instruction. 
 Tool it's self has overview of instruction as well in each page. 
 
 ## Versioning
