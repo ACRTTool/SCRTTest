@@ -273,7 +273,7 @@
 			<tbody ng-repeat="record in jsonData">
              <tr ng-repeat="test in record.Criteria " ng-if="filterResult1"> 
 			<!--<tr ng-repeat="test in record.Criteria " ng-if="noResult[$index]" ng-show="TestResult[$index]== filterResult">-->
-			 <th  title="Issue Number">
+			 <th  scope="row" title="Issue Number">
                 <div style="width: 80px"> Issue {{$index}} </div>
               </th>              
               <th  scope="row" title="Test Name" id="tnm1[$index]">
