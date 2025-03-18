@@ -170,16 +170,16 @@
 <option ng-repeat="result in optionscmpblty" value="{{result.name}}">{{result.name}}</option>
 </select>
 	  <br><br> 
-<label class="span1" >  Browser  </label> 
+
 
 <table class="table" id="th4" >
      
- 
+ <caption class="span1" >  Browser  </caption> 
   
  <tbody>
 <tr scope="row">        
-	<th style="width: 200px" scope="col" title="Browser Type" aria-label="Browser type" > Browser Type </th> 		
-	<th style="width: 200px" scope="col" title="Browser Version" aria-label="Browser Version">  Browser Version  </th>	
+	<th style="width: 200px" scope="col" title="Browser Type"  > Browser Type </th> 		
+	<th style="width: 200px" scope="col" title="Browser Version" >  Browser Version  </th>	
 	  
   </tr>  <tr scope="row">
 <td  style="width: 180px" title="Internet Explorer"  ng-model="chkBoxValIE" >   
@@ -231,7 +231,7 @@
 
 </td>
 </tr>
-<tr>
+<tr scope="row">
 <td style="width: 180px" title="Safari" ng-model="chkBoxValSaf" > 
 <label for="safari" >Safari
     <input ng-checked="chkBoxValSaf" type="checkbox" ng-model="checkboxModel.value3" id="safari" title="Safari" ng-true-value="'Safari'" ng-false-value="''">
@@ -246,7 +246,7 @@
 </select>
 </td>
 </tr>
-<tr>
+<tr scope="row">
 <td style="width: 180px" title="Firefox"  ng-model="chkBoxValFrfx" > 
 <label for="firefoxTest" >Firefox
     <input ng-checked="chkBoxValFrfx" type="checkbox" ng-model="checkboxModel.value4"  id="firefoxTest" title="Firefox" ng-true-value="'Firefox'" ng-false-value="''">
@@ -261,7 +261,7 @@
 	  
 </td>
 </tr>
-<tr>
+<tr scope="row">
 <td style="width: 180px" title="Other Browser" ng-model="chkBoxValOthr"  > 
 <div class="show">
 <label for="otherBrowserIDTest"> Other Browser <input ng-checked= "chkBoxValOthrBrwsr1"  type="checkbox" id="otherBrowserIDTest" name="Other Browser"  title="Other Browser"  ng-model="otherBrowser" > </label>
@@ -385,7 +385,7 @@
 
 <td > <div class="widetd3" id="testConditionID{{$index}}" title="Test Condition" >{{test.TestCondition}}</div> </td>
 <!-- <td style="width: 50px" title="Selected test result is {{default_SelectedResult[$index]}}" name="Test Result"> -->
-<td style="width: 50px"  name="Test Result"> 
+<td style="width: 50px"  name="Test Result"> Result:<br>
  <span ng-if="menu1[$index] == 'menu1'" ng-keypress ="elemntClicked2([$index])">    
       <select  class="resultOptions"
       ng-model="selected_id_tstrslt$index"  
@@ -399,7 +399,7 @@
       ng-model="selected_id_tstrslt$index" 
 	  ng-model="selected_name_tstgrp[$index]" 
       ng-options="o.id as o.name for o in optionsTstrslt" 
-      ng-change="selected_name_tstgrp[$index]=(optionsTstrslt|filter:{id:selected_id_tstrslt$index})[0].name"  id="{{$index}}"  ng-click="elemntClicked2([$index])"  aria-label="Test Result for {{test.TestID}}" title="Test Result for {{test.TestID}}">
+      ng-change="selected_name_tstgrp[$index]=(optionsTstrslt|filter:{id:selected_id_tstrslt$index})[0].name"  id="{{$index}}"  ng-click="elemntClicked2([$index])"   title="Test Result for {{test.TestID}}">
 	  <option value="" selected disabled hidden>{{default_SelectedResult[$index]}}</option> </select> 	  
 </span>
 
@@ -408,12 +408,12 @@
       ng-model="selected_id_tstrslt$index" 
 	  ng-model="selected_name_tstgrp[$index]" 
       ng-options="o.id as o.name for o in optionsTstrslt2" 
-      ng-change="selected_name_tstgrp[$index]=(optionsTstrslt2|filter:{id:selected_id_tstrslt$index})[0].name"  id="{{$index}}"  ng-click="elemntClicked2([$index])"  aria-label="Test Result for {{test.TestID}}" title="Test Result for {{test.TestID}}" >
+      ng-change="selected_name_tstgrp[$index]=(optionsTstrslt2|filter:{id:selected_id_tstrslt$index})[0].name"  id="{{$index}}"  ng-click="elemntClicked2([$index])"   title="Test Result for {{test.TestID}}" >
 	  <option value="" selected disabled hidden>{{default_SelectedResult[$index]}}</option> </select> 	  
 </span>
 
   <span ng-if="menu1[$index] == 'menu4' " ng-keypress ="elemntClicked2([$index])">    
-      <select class="resultOptions"  ng-model="selected_name_tstgrp[$index]" id="{{$index}}" ng-click="rsltSlctionClicked([$index]);" aria-label="Test Result for {{test.TestID}}" title="Test Result for {{test.TestID}}">
+      <select class="resultOptions"  ng-model="selected_name_tstgrp[$index]" id="{{$index}}" ng-click="rsltSlctionClicked([$index]);"  title="Test Result for {{test.TestID}}">
 	  <option value="" > Does Not Apply </option>
 	  <option ng-repeat="result in optionsTstrslt4" value="{{result.name}}">{{result.name}}</option>
 	  <option value="" selected disabled hidden>{{default_SelectedResult[$index]}}</option> </select>       	  
@@ -424,7 +424,7 @@
       ng-model="selected_id_tstrslt$index" 
 	  ng-model="selected_name_tstgrp[$index]" 
       ng-options="o.id as o.name for o in optionsTstrslt3" 
-      ng-change="selected_name_tstgrp[$index]=(optionsTstrslt3|filter:{id:selected_id_tstrslt$index})[0].name"  id="{{$index}}" ng-click="elemntClicked2([$index])"  aria-label="Test Result for {{test.TestID}}" title="Test Result for {{test.TestID}}">
+      ng-change="selected_name_tstgrp[$index]=(optionsTstrslt3|filter:{id:selected_id_tstrslt$index})[0].name"  id="{{$index}}" ng-click="elemntClicked2([$index])"   title="Test Result for {{test.TestID}}">
 	  <option value="" selected disabled hidden>{{default_SelectedResult[$index]}}</option> </select> 	  
 </span>
 
@@ -433,7 +433,7 @@
       ng-model="selected_id_tstrslt$index" 
 	  ng-model="selected_name_tstgrp[$index]" 
       ng-options="o.id as o.name for o in optionsTstrslt5" 
-      ng-change="selected_name_tstgrp[$index]=(optionsTstrslt5|filter:{id:selected_id_tstrslt$index})[0].name"  id="{{$index}}" ng-click="elemntClicked2([$index])"  aria-label="Test Result for {{test.TestID}}" title="Test Result for {{test.TestID}}">
+      ng-change="selected_name_tstgrp[$index]=(optionsTstrslt5|filter:{id:selected_id_tstrslt$index})[0].name"  id="{{$index}}" ng-click="elemntClicked2([$index])"   title="Test Result for {{test.TestID}}">
 	  <option value="" selected disabled hidden>{{default_SelectedResult[$index]}}</option> </select> 	  
 </span>
 
@@ -442,7 +442,7 @@
       ng-model="selected_id_tstrslt$index" 
 	  ng-model="selected_name_tstgrp[$index]" 
       ng-options="o.id as o.name for o in optionsTstrslt6" 
-      ng-change="selected_name_tstgrp[$index]=(optionsTstrslt6|filter:{id:selected_id_tstrslt$index})[0].name"  id="{{$index}}" ng-click="elemntClicked2([$index])"  aria-label="Test Result for {{test.TestID}}"  title="Test Result for {{test.TestID}}">
+      ng-change="selected_name_tstgrp[$index]=(optionsTstrslt6|filter:{id:selected_id_tstrslt$index})[0].name"  id="{{$index}}" ng-click="elemntClicked2([$index])"    title="Test Result for {{test.TestID}}">
 	  <option value="" selected disabled hidden>{{default_SelectedResult[$index]}}</option> </select> 	  
 </span>
   
