@@ -19,11 +19,11 @@ article{
   font-size: 0.7em;
 }
 .skip:focus {
-  color: blue;
+  color: rgb(34, 8, 53);
 }
 
 .skip:hover {
-  color: blue;
+  color: rgb(34, 8, 53);
 }
 .skip:visited {	
  color: white;
@@ -160,20 +160,20 @@ background-color: #FFFF00;}
 }
 
 #fileinput:hover {
-  background-color:rgb(34, 8, 69);
+  background-color:rgb(34, 8, 53);
   color: white;
 }
 
 #fileinput:focus {
  /*background-color:rgb(192,192,192);
   color: black; */
-  background-color:rgb(34, 8, 69);
+  background-color:rgb(34, 8, 53);
   color: rgb(25,25,112);
  border: 1px solid rgb(25,25,112);
 }
 
  #fileinput:active {
-  background-color:rgb(34, 8, 69);
+  background-color:rgb(34, 8, 53);
   color: black;
 }
 
@@ -221,13 +221,13 @@ font-family: "Source Sans Pro", "Franklin Gothic Book", "system-ui", "Segoe UI",
  color: #ffffff;
 }
 .collapsible:hover{
-  background-color:rgb(34, 8, 69);
+  background-color:rgb(34, 8, 53);
   color: #ffffff;
 }
 .collapsible:focus {
  /*background-color:rgb(9, 9, 66);
  color: #ffffff; */
- background-color:rgb(34, 8, 69);
+ background-color:rgb(34, 8, 53);
  color: white;
  border: 1px solid rgb(25,25,112);
 }
@@ -239,13 +239,13 @@ font-family: "Source Sans Pro", "Franklin Gothic Book", "system-ui", "Segoe UI",
 button:focus  {
  /*background-color:rgb(9, 9, 66);
  color: #ffffff; */
- background-color:rgb(34, 8, 69);
+ background-color:rgb(34, 8, 53);
  color:white;
  border: 1px solid rgb(25,25,112);
 }
 
 button:hover  {
-  background-color:rgb(34, 8, 69);
+  background-color:rgb(34, 8, 53);
   color: #ffffff;
 }
 
@@ -275,8 +275,13 @@ input {
 
 }
 textarea {
-	 white-space: normal;
+	
 	font-family: "Source Sans Pro", "Franklin Gothic Book","system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";
+	white-space: pre-wrap;
+	font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
 
 }
 select {
@@ -497,7 +502,7 @@ h2,h3,h4 {font-weight: bold;
 }
 
 #sbtBtn:hover {
-  background-color:rgb(34, 8, 69);
+  background-color:rgb(34, 8, 53);
 }
 
 .input {
@@ -692,6 +697,8 @@ article {
 .widetd3{    
     width: 200px;	
 	display: inline-block;	
+	 white-space: pre-line;
+	
 }
 .widetd4{    
     width: 86px;	
@@ -774,7 +781,7 @@ li a {
 
 /* Change the link color on hover */
 li a:hover {
-  background-color:rgb(34, 8, 69);
+  background-color:rgb(34, 8, 53);
   color: white;
 	font-family: "Source Sans Pro", "Franklin Gothic Book","system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";
 }
@@ -793,6 +800,7 @@ body {
 	/*border: 1px solid #A9A9A9; */
 	border: none;
 	font-family: "Source Sans Pro", "Franklin Gothic Book","system-ui", "Segoe UI", "Ubuntu", "'Helvetica Neue", "sans-serif";
+	
 }
 
 
@@ -827,7 +835,7 @@ body {
 */
 
 .topnav a:hover {
- background-color:rgb(34, 8, 69);
+ background-color:rgb(34, 8, 53);
   color: white;
 }
 
