@@ -1996,8 +1996,9 @@ $scope.remarkExplanation = function(i) {
 		$scope.rmdatnDatelIDCollection[i]='';
 	if($scope.rmdatnDtlID[i] == undefined) $scope.rmdatnDtlID[i]='';    
     if($scope.rmdatnDtlID[i] == 'undefined') $scope.rmdatnDtlID[i]='';	
-    $scope.rmdatnDtlID[i] = $scope.rmdatnDtlID[i].toString().replace(/"/g, "'").trim();
-   $scope.rmdatnDtlID[i] = $scope.rmdatnDtlID[i].toString().replace(/\n/g, " ");
+    //$scope.rmdatnDtlID[i] = $scope.rmdatnDtlID[i].toString().replace(/"/g, "'").trim();
+   //$scope.rmdatnDtlID[i] = $scope.rmdatnDtlID[i].toString().replace(/\n/g, " ");
+   $scope.rmdatnDtlID[i] = $scope.escapeSpecialChars($scope.rmdatnDtlID[i]);
 	
    $scope.testresult[i] = $scope.testresult[i] +'","RemediationDate": "' + $scope.rmdatnDatelIDCollection[i] +  '","RemediationDetails": "' + $scope.rmdatnDtlID[i]+ '","DraftReport": "' + $scope.draftReport + '"}';
   
@@ -3371,11 +3372,21 @@ $scope.testresult1 = '"Criteria":[' + $scope.totTstRslt + ']';
     // Function to escape special characters
     $scope.escapeSpecialChars = function(str) {
         if (typeof str === 'string') {
-            // Replace actual new lines with \n
-            str = str.replace(/\r?\n/g, '\\n');
-
-            // Replace already escaped quotes
+                      
             str = str.replace(/\\"/g, '\\"');
+			 str = str.replace(/\n/g, ":");
+			 str = str.replace(/</g, "<.");
+			 str = str.replace(/>/g, ".>");
+			 //str = str.replace(/\n/g, " \\n ");
+			 //str = str.replace(/\n/g, "<br />");
+			 //str = str.replace(/: :/g, " \\n ");
+			 str = str.replace(/\.{2,}/g, ".");
+			 str = str.replace(/,\s*$/, " ");
+			 str = str.replace(/,+/g, ',');
+			 str = str.replace(/, /g, "");
+			 str = str.replace(/,/g, ", ");	
+		    
+			
 
             // Escape special characters
             return str.replace(/[\b\f\r\t"\\]/g, function (char) {
@@ -3395,7 +3406,7 @@ $scope.testresult1 = '"Criteria":[' + $scope.totTstRslt + ']';
                 }
             });
         } else {
-            return str;
+            return str.trim();
         }
     }
 
